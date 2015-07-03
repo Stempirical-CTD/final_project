@@ -1,7 +1,7 @@
 class ExperimentsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
   before_action :set_experiment, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /experiments
   # GET /experiments.json
   def index
@@ -17,6 +17,7 @@ class ExperimentsController < ApplicationController
   def new
     @experiment = Experiment.new
     @experiment.materials.build
+    @experiment.instructions.build
   end
 
   # GET /experiments/1/edit
@@ -67,6 +68,7 @@ class ExperimentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_params
       params.require(:experiment).permit(:user_id, :description, :lesson, :youtube_link, :complete_time,
-          materials_attributes: [:id, :experiment_id, :piece])
+          materials_attributes: [:id, :experiment_id, :piece],
+          instructions_attributes: [:id, :experiment_id, :information, :order])
     end
 end

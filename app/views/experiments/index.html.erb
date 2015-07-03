@@ -16,6 +16,11 @@
         <% experiment.materials.each do |material| %>
           <%= material.piece %><br>
         <% end %>
+        Instructions<br>
+        <% experiment.instructions.each do |instruction| %>
+          <%= instruction.order %> | <%= instruction.information %><br>
+        <% end %>
+
 
         <%= link_to 'Show', experiment %> |
         <%= link_to 'Edit', edit_experiment_path(experiment) %> |

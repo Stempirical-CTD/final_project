@@ -25,14 +25,13 @@ class InstructionsController < ApplicationController
   # POST /instructions.json
   def create
     @instruction = Instruction.new(instruction_params)
+    @instruction.experiment_id = @experiment.id
 
     respond_to do |format|
       if @instruction.save
         format.html { redirect_to @instruction, notice: 'Instruction was successfully created.' }
-        format.json { render :show, status: :created, location: @instruction }
       else
         format.html { render :new }
-        format.json { render json: @instruction.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +42,8 @@ class InstructionsController < ApplicationController
     respond_to do |format|
       if @instruction.update(instruction_params)
         format.html { redirect_to @instruction, notice: 'Instruction was successfully updated.' }
-        format.json { render :show, status: :ok, location: @instruction }
       else
         format.html { render :edit }
-        format.json { render json: @instruction.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +54,6 @@ class InstructionsController < ApplicationController
     @instruction.destroy
     respond_to do |format|
       format.html { redirect_to instructions_url, notice: 'Instruction was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

@@ -36,6 +36,19 @@
     </div>
   <% end %>
 
+  <h3>Instructions</h3>
+  <%= f.fields_for(:instructions) do |ff| %>
+    <div class="field">
+      <%= ff.label :information %><br>
+      <%= ff.text_field :information %>
+    </div>
+    <div class="field">
+      <%= ff.label :order %><br>
+      <%= ff.number_field :order %>
+    </div>
+  <% end %>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
