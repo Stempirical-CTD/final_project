@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :materials
   devise_for :users
   resources :experiments
   root to: 'experiments#index'
