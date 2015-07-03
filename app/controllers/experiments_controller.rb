@@ -1,4 +1,5 @@
 class ExperimentsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
   before_action :set_experiment, only: [:show, :edit, :update, :destroy]
 
   # GET /experiments
@@ -29,10 +30,8 @@ class ExperimentsController < ApplicationController
     respond_to do |format|
       if @experiment.save
         format.html { redirect_to @experiment, notice: 'Experiment was successfully created.' }
-        format.json { render :show, status: :created, location: @experiment }
       else
         format.html { render :new }
-        format.json { render json: @experiment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +42,8 @@ class ExperimentsController < ApplicationController
     respond_to do |format|
       if @experiment.update(experiment_params)
         format.html { redirect_to @experiment, notice: 'Experiment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @experiment }
       else
         format.html { render :edit }
-        format.json { render json: @experiment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +54,6 @@ class ExperimentsController < ApplicationController
     @experiment.destroy
     respond_to do |format|
       format.html { redirect_to experiments_url, notice: 'Experiment was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
