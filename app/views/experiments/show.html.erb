@@ -22,11 +22,19 @@
   <strong>Complete time:</strong>
   <%= @experiment.complete_time %>
 </p>
+<p>
+  <strong>Materials:</strong><br>
   <% @experiment.materials.each do |material| %>
-    <strong>Materials:</strong>
-    <%= material.piece %>
+    - <%= material.piece %><br>
   <% end %>
 </p>
+<p>
+  <strong>Instructions:</strong><br>
+  <% @experiment.instructions.each do |instruction| %>
+    <%= instruction.order %> | <%= instruction.information %><br>
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
 <%= link_to 'Back', experiments_path %>
