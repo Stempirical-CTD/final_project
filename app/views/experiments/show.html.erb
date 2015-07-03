@@ -1,0 +1,27 @@
+<p>
+  <strong>User:</strong>
+  <%= @experiment.user_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @experiment.description %>
+</p>
+
+<p>
+  <strong>Lesson:</strong>
+  <%= @experiment.lesson %>
+</p>
+
+<p>
+  <strong>Youtube link:</strong>
+  <%= @experiment.youtube_link %>
+</p>
+
+<p>
+  <strong>Complete time:</strong>
+  <%= @experiment.complete_time %>
+</p>
+
+<%= link_to 'Edit', edit_experiment_path(@experiment) %> |
+<%= link_to 'Back', experiments_path %>
