@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>Username</th>
       <th>Description</th>
       <th>Lesson</th>
       <th>Youtube link</th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @experiments.each do |experiment| %>
       <tr>
-        <td><%= experiment.user_id %></td>
+        <td><%= experiment.user.username %></td>
         <td><%= experiment.description %></td>
         <td><%= experiment.lesson %></td>
         <td><%= experiment.youtube_link %></td>

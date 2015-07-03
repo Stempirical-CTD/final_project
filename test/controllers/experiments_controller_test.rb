@@ -2,7 +2,9 @@ require 'test_helper'
 
 class ExperimentsControllerTest < ActionController::TestCase
   setup do
+    @user = users(:one)
     @experiment = experiments(:one)
+    @experiments = Experiment.all
   end
 
   test "should get index" do
