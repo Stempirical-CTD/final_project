@@ -14,9 +14,9 @@ class Experiment < ActiveRecord::Base
   validates :description, :lesson, :complete_time, presence: true
 
   def self.by_votes
-    select('experiments.*, coalesce(SUM(value), 0) as votes').
-    joins('left join experiment_votes on experiment_id=experiment.id').
-    group('experiment_id').
+    select('experiments.*, coalesce(value, 0) as votes').
+    joins('left join experiment_votes on experiment_id=experiments.id').
+    # group('experiment_id').
     order('votes desc')
   end
 

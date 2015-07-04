@@ -5,7 +5,7 @@ class ExperimentsController < ApplicationController
   # GET /experiments
   # GET /experiments.json
   def index
-    @experiments = Experiment.all
+    @experiments = Experiment.by_votes
   end
 
   # GET /experiments/1

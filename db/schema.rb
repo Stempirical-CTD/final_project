@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150704013447) do
+ActiveRecord::Schema.define(version: 20150704040924) do
 
   create_table "experiment_votes", force: :cascade do |t|
     t.integer  "user_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150704013447) do
     t.float    "complete_time"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "name"
   end
 
   create_table "instructions", force: :cascade do |t|
