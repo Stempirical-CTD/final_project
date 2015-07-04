@@ -1,7 +1,7 @@
 class ExperimentsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index]
-  before_action :set_experiment, only: [:show, :edit, :update, :destroy]
-  
+  before_filter :authenticate_user!, except: [:index, :show, :vote]
+  before_action :set_experiment, only: [:show, :edit, :update, :destroy, :vote]
+
   # GET /experiments
   # GET /experiments.json
   def index
@@ -59,6 +59,16 @@ class ExperimentsController < ApplicationController
     end
   end
 
+  def vote
+    vote = current_user.experiment_votes.new(value: params[:value], experiment_id: params[:id])
+    if vote.save
+      redirect_to :back, notice: "Thank you for voting."
+    else
+      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_experiment
@@ -69,6 +79,7 @@ class ExperimentsController < ApplicationController
     def experiment_params
       params.require(:experiment).permit(:user_id, :description, :lesson, :youtube_link, :complete_time,
           materials_attributes: [:id, :experiment_id, :piece],
-          instructions_attributes: [:id, :experiment_id, :information, :order])
+          instructions_attributes: [:id, :experiment_id, :information, :order],
+          experiment_votes: [:id, :value, :experiment_id])
     end
 end
