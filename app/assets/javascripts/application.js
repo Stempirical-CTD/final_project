@@ -13,3 +13,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function () {
+  
+    var material = $('.material').html();
+    // var i = 0;
+    // var materialCount = $ function() {
+    //   ($('.materials).each(i++));
+    // }
+    
+    $('.materials-list').on('click', '.add-material-btn', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      $('.materials-list').append('<li>' + material + '</li>')
+    })
+  }
+  
+);
+

@@ -29,25 +29,31 @@
   </div>
 
   <h3>Materials</h3>
-  <%= f.fields_for(:materials) do |ff| %>
-    <div class="field">
-      <%= ff.label :piece %><br>
-      <%= ff.text_field :piece %>
-    </div>
-  <% end %>
+  <ul class="materials-list"> 
+    <%= f.fields_for(:materials) do |ff| %>
+      <li>
+        <div class="field material">
+          <%= ff.label :piece %><br>
+          <%= ff.text_field :piece, :class=> "new-material" %>
+        </div>
+      </li>  
+      <button type="button" class="add-material-btn">+</button>
+    <% end %>
+  </ul>  
 
   <h3>Instructions</h3>
-  <%= f.fields_for(:instructions) do |ff| %>
-    <div class="field">
-      <%= ff.label :information %><br>
-      <%= ff.text_field :information %>
-    </div>
-    <div class="field">
-      <%= ff.label :order %><br>
-      <%= ff.number_field :order %>
-    </div>
-  <% end %>
-
+  <ul class="instructions-list">
+    <%= f.fields_for(:instructions) do |ff| %>
+      <div class="field instructions">
+        <%= ff.label :information %><br>
+        <%= ff.text_field :information, :class=> "new-instruction" %>
+      </div>
+      <div class="field">
+        <%= ff.label :order %><br>
+        <%= ff.number_field :order %>
+      </div>
+    <% end %>
+  </ul>
 
   <div class="actions">
     <%= f.submit %>
