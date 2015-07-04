@@ -2,7 +2,9 @@ require 'test_helper'
 
 class MaterialsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @material = materials(:one)
+    @experiment = experiments(:one)
   end
 
   test "should get index" do
@@ -18,7 +20,7 @@ class MaterialsControllerTest < ActionController::TestCase
 
   test "should create material" do
     assert_difference('Material.count') do
-      post :create, material: { experiment_id: @material.experiment_id, piece: @material.piece }
+      post :create, material: { experiment_id: @experiment.id, piece: @material.piece }
     end
 
     assert_redirected_to material_path(assigns(:material))

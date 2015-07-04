@@ -24,6 +24,8 @@ class MaterialsController < ApplicationController
   # POST /materials
   # POST /materials.json
   def create
+    @experiment = Experiment.new
+    @experiment.user_id = current_user.id
     @material = Material.new(material_params)
     @material.experiment_id = @experiment.id
     respond_to do |format|
