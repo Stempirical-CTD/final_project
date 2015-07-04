@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150703205050) do
+ActiveRecord::Schema.define(version: 20150704040924) do
+
+  create_table "experiment_votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "experiment_id"
+    t.integer  "value"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "experiment_votes", ["experiment_id"], name: "index_experiment_votes_on_experiment_id"
+  add_index "experiment_votes", ["user_id"], name: "index_experiment_votes_on_user_id"
 
   create_table "experiments", force: :cascade do |t|
     t.integer  "user_id"
@@ -21,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150703205050) do
     t.float    "complete_time"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "name"
   end
 
   create_table "instructions", force: :cascade do |t|

@@ -1,5 +1,4 @@
 <h1>Listing Experiments</h1>
-
     <% @experiments.each do |experiment| %>
         <br>
         Username<br>
@@ -9,7 +8,7 @@
         Lesson<br>
         <%= experiment.lesson %><br>
         Youtube link<br>
-        <%= experiment.youtube_link %><br>
+        <a href="<%= experiment.youtube_link %>">Go To Youtube Experiment</a><br>
         Complete time<br>
         <%= experiment.complete_time %><br>
         Materials<br>
@@ -20,8 +19,10 @@
         <% experiment.instructions.each do |instruction| %>
           <%= instruction.order %> | <%= instruction.information %><br>
         <% end %>
-
-
+        <em>
+          -- <%= experiment.user.username %>
+          | <%= pluralize experiment.votes, "vote" %> |
+        </em>
         <%= link_to 'Show', experiment %> |
         <%= link_to 'Edit', edit_experiment_path(experiment) %> |
         <%= link_to 'Destroy', experiment, method: :delete, data: { confirm: 'Are you sure?' } %><br>
