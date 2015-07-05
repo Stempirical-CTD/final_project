@@ -1,5 +1,5 @@
 class ExperimentsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show, :vote]
+  before_filter :authenticate_user!, except: [:index, :show, :vote, :mess_ratings]
   before_action :set_experiment, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /experiments
