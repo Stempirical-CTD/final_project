@@ -13,3 +13,133 @@
  *= require_tree .
  *= require_self
  */
+ 
+/* golden-ratio type-scale */
+
+html {font-size: 1em;}
+
+body {
+  background-color: #EEE;
+  font-family: 'Raleway', sans-serif;;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
+  width: 80%;
+  margin: 1.5em 5em;
+}
+
+p {margin-bottom: 1.3em;}
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3em;
+}
+
+h2 {font-size: 2.5em;}
+
+h3 {font-size: 1.75em;}
+
+h4 {font-size: 1em;}
+
+small, .font_small {font-size: 0.618em;}
+
+
+
+/* defaults */
+
+form {
+  display: block;
+  padding: 1.5em;
+}
+
+input {
+    display: inline-block;
+    border: 0.1em solid #323232;
+    font-size: 1em;
+    background-color: #EEE;
+    margin: 1em 0.5em;
+    outline-color: #DFF5D1;
+}
+
+/*header*/
+
+.user-status {
+  float: right;
+}
+
+/* buttons */
+
+button {
+  top: 2;
+  background-color: #67AF64;
+  border: 0;
+  padding: 1em;
+}
+
+/*view: show*/
+.container {
+ 
+}
+
+/* search box */
+
+#search {
+  display: inline-block;
+  position: absolute;
+  top: 2;
+} 
+
+#search input {
+    position: relative;
+    border: 0.07em solid #323232;
+    background-color: #EEE;
+    float: left;
+    font-family: sans-serif;
+    font-size: 1em;
+    margin: 0;
+    padding: 0.5em;
+    transition: background 0.3s ease-in-out 0s;
+    width: 300px;
+}
+
+#search button {
+    overflow: hidden;
+    position: fixed;
+    display: inline;
+    background-color: #67AF64;
+    cursor: pointer;
+    padding: 0.95em;
+    border: 0.1em solid #323232;
+}
+
+#search button:hover {
+    background-color:#323232;
+}
+
+.search-button {
+  color: #EEE;
+  font-size: 2em;
+  transition: background 0.3s ease-in-out 0s;
+}
+
+ /*ratings  
+
+.fa-star-o, .fa-star-half, .fa-star {
+  color: #67AF64;
+  margin: 0.5em;
+}*/
+
+/*links*/
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out 0s;
+  color: #47623A;
+}

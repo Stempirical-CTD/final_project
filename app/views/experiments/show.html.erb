@@ -3,25 +3,28 @@
   <%= @experiment.user_id %>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @experiment.description %>
-</p>
+<div class="container">
+  <p>
+    <strong>Description:</strong>
+    <%= @experiment.description %>
+  </p>
+  
+  <p>
+    <strong>Lesson:</strong>
+    <%= @experiment.lesson %>
+  </p>
+  
+  <p>
+    <strong>Youtube link:</strong>
+    <%= @experiment.youtube_link %>
+  </p>
+  
+  <p>
+    <strong>Complete time:</strong>
+    <%= @experiment.complete_time %>
+  </p>
+</div>
 
-<p>
-  <strong>Lesson:</strong>
-  <%= @experiment.lesson %>
-</p>
-
-<p>
-  <strong>Youtube link:</strong>
-  <%= @experiment.youtube_link %>
-</p>
-
-<p>
-  <strong>Complete time:</strong>
-  <%= @experiment.complete_time %>
-</p>
 <p>
   <strong>Materials:</strong><br>
   <% @experiment.materials.each do |material| %>

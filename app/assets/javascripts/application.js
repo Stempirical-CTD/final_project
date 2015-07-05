@@ -17,16 +17,14 @@
 $(function () {
   
     var material = $('.material').html();
-    // var i = 0;
-    // var materialCount = $ function() {
-    //   ($('.materials).each(i++));
-    // }
+    var i = 0;
     
     $('.materials-list').on('click', '.add-material-btn', function (e) {
       e.preventDefault();
       e.stopPropagation();
       
-      $('.materials-list').append('<li>' + material + '</li>')
+      $('.materials-list').each().append('<li>' + material[i] + '</li>');
+      
     })
   }
   
