@@ -12,7 +12,9 @@ class Experiment < ActiveRecord::Base
   accepts_nested_attributes_for :instructions
 
   validates :description, :lesson, :complete_time, :name, presence: true
-
+  validates_format_of :youtube_link,
+      :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
+      :on => :create
   def self.by_votes
     data = select('experiments.*, coalesce(value, 0) as votes').
     joins('left join experiment_votes on experiment_id=experiments.id').

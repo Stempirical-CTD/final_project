@@ -2,13 +2,16 @@
     <% @experiments.each do |experiment| %>
         <br>
         Username<br>
-        <%= experiment[0].user.username %><br>
+        <%= experiment.user.username %><br>
         Experiment Name<br>
         <%= experiment.name %><br>
         Description<br>
         <%= experiment.description %><br>
         Lesson<br>
         <%= experiment.lesson %><br>
+        Youtube link<br>
+        <a href="<%= experiment.youtube_link %>">Go To Youtube Experiment</a><br>
+        Complete time<br>
         <%= experiment.complete_time %><br>
         Materials<br>
         <% experiment.materials.each do |material| %>
@@ -21,9 +24,6 @@
         <div class="embed-container">
           <%= embed(experiment.youtube_link) %>
         </div>
-        Youtube link<br>
-        <a href="<%= experiment.youtube_link %>">Go To Youtube Experiment</a><br>
-        Complete time<br>
         <%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %>
         Messy Rating : <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %><br>
         <em>
