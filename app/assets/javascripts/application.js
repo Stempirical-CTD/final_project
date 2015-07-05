@@ -18,16 +18,20 @@
 
 $(function () {
   
-    var material = $('.material').html();
-    var i = 0;
-    
-    $('.materials-list').on('click', '.add-material-btn', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
+    if ($('.experiment').length) {
+      var material = $('.material').html();
+      console.log('doin stuff');
       
-      $('.materials-list').each().append('<li>' + material[i] + '</li>');
+      $('.unordered-list').sortable();
+      $('.unordered-list').disableSelection();
       
-    })
-  }
+      $('.materials-list').on('click', '.add-material-btn', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+      $('.materials-list').append('<li>' + material + '</li>');
+      
+      material = material.replace(/\[[0-9]+\]/g, '[' + $('.materials-list').length + ']').replace(/_[0-9]+_/g, '_' + $('.materials-list').length + '_');
+      });
   
-);
+});

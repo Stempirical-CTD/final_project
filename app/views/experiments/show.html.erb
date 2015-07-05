@@ -20,19 +20,13 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
     <%= @experiment.lesson %>
   </p>
 
-<p>
-
-  <strong>Youtube link:</strong>
-  <a href="<%= @experiment.youtube_link %>">Go To Youtube Experiment</a><br>
-</p>
-
-<p>
-  <strong>Complete time:</strong>
-  <%= @experiment.complete_time %>
-</p>
-<p>
+  <p>
+    <strong>Complete time:</strong>
+    <%= @experiment.complete_time %>
+  </p>
 </div>
 
+<p>
   <strong>Materials:</strong><br>
   <% @experiment.materials.each do |material| %>
     - <%= material.piece %><br>
@@ -47,6 +41,12 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
 <div class="embed-container">
   <%= embed(@experiment.youtube_link) %>
 </div>
+
+<p>
+  <strong>Youtube link:</strong>
+  <a href="<%= @experiment.youtube_link %>">Go To Youtube Experiment</a><br>
+</p>
+
 <em>
   -- <%= @experiment.user.username %>
   | <%= pluralize @experiment.votes, "vote" %>

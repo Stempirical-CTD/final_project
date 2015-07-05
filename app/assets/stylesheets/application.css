@@ -20,7 +20,7 @@ html {font-size: 1em;}
 
 body {
   background-color: #EEE;
-  font-family: 'Raleway', sans-serif;;
+  font-family: 'Raleway', sans-serif;
   font-weight: 400;
   line-height: 1.45;
   color: #333;
@@ -31,6 +31,7 @@ body {
 p {margin-bottom: 1.3em;}
 
 h1, h2, h3, h4 {
+  display: block;
   margin: 1.414em 0 0.5em;
   font-weight: inherit;
   line-height: 1.2;
@@ -58,18 +59,24 @@ form {
   padding: 1.5em;
 }
 
-input {
+input, .text_area {
     display: inline-block;
     border: 0.1em solid #323232;
+    font-family: 'Raleway', sans-serif;
     font-size: 1em;
     background-color: #EEE;
     margin: 1em 0.5em;
-    outline-color: #DFF5D1;
+    outline-color: #DFF5D1;   
+}
+
+ul {
+  list-style-type: none;
 }
 
 /*header*/
 
 .user-status {
+  display: block;
   float: right;
 }
 
@@ -87,15 +94,9 @@ button {
  
 }
 
-/* search box */
+/* add material */
 
-#search {
-  display: inline-block;
-  position: absolute;
-  top: 2;
-} 
-
-#search input {
+.new-material {
     position: relative;
     border: 0.07em solid #323232;
     background-color: #EEE;
@@ -108,21 +109,21 @@ button {
     width: 300px;
 }
 
-#search button {
+.add-material-button {
     overflow: hidden;
     position: fixed;
     display: inline;
     background-color: #67AF64;
     cursor: pointer;
     padding: 0.95em;
-    border: 0.1em solid #323232;
+    border: 0.2em solid #323232;
 }
 
-#search button:hover {
+/*.add-material-button:hover {
     background-color:#323232;
-}
+}*/
 
-.search-button {
+.add-material-button {
   color: #EEE;
   font-size: 2em;
   transition: background 0.3s ease-in-out 0s;
@@ -141,5 +142,5 @@ a {
   font-weight: bold;
   text-decoration: none;
   transition: background 0.3s ease-in-out 0s;
-  color: #47623A;
+  color: #67AF64;
 }
