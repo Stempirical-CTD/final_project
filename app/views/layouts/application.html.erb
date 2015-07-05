@@ -19,6 +19,7 @@
     <%= link_to 'Login', new_user_session_path %>
   <% end %>
   | <%= link_to_unless_current("Experiments", experiments_path) %>
+  | <%= link_to_unless_current("Experiments By Messiness", mess_ratings_experiments_path) %>
 <%= yield %>
 
 </body>
