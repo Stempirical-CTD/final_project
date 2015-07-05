@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ExperimentsControllerTest < ActionController::TestCase
   setup do
-    @user = users(:one)
+    sign_in users(:one)
     @experiment = experiments(:one)
     @experiments = Experiment.all
   end
@@ -20,7 +20,7 @@ class ExperimentsControllerTest < ActionController::TestCase
 
   test "should create experiment" do
     assert_difference('Experiment.count') do
-      post :create, experiment: { complete_time: @experiment.complete_time, description: @experiment.description, lesson: @experiment.lesson, user_id: @experiment.user_id, youtube_link: @experiment.youtube_link }
+      post :create, experiment: { id: @experiment, complete_time: @experiment.complete_time, description: @experiment.description, lesson: @experiment.lesson, user_id: @experiment.user_id, youtube_link: @experiment.youtube_link }
     end
 
     assert_redirected_to experiment_path(assigns(:experiment))
@@ -33,7 +33,7 @@ class ExperimentsControllerTest < ActionController::TestCase
 
   test "should get edit" do
     get :edit, id: @experiment
-    assert_response :success
+    assert_redirected_to edit_experiment_path
   end
 
   test "should update experiment" do

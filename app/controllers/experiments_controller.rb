@@ -8,6 +8,12 @@ class ExperimentsController < ApplicationController
     @experiments = Experiment.by_votes
   end
 
+  def mess_ratings
+    @experiments = Experiment.all.select do |e|
+      e.rates("name").select("stars")[0].stars
+    end
+  end
+
   # GET /experiments/1
   # GET /experiments/1.json
   def show

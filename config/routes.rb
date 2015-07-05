@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   resources :instructions
   resources :materials
   devise_for :users
   resources :experiments do
+    collection do
+      get 'mess_ratings'
+    end
     member { post :vote }
   end
   root to: 'experiments#index'

@@ -2,10 +2,10 @@
 
 one:
   experiment_id: 1
-  step: MyText
+  information: MyText
   order: 1
 
 two:
   experiment_id: 1
-  step: MyText
-  order: 1
+  information: MyText
+  order: 2
