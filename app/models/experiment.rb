@@ -11,17 +11,34 @@ class Experiment < ActiveRecord::Base
   has_many :instructions, dependent: :destroy
   accepts_nested_attributes_for :instructions
 
-  validates :description, :lesson, :complete_time, presence: true
+  validates :description, :lesson, :complete_time, :name, presence: true
 
   def self.by_votes
-    select('experiments.*, coalesce(SUM(value), 0) as votes').
+    data = select('experiments.*, coalesce(value, 0) as votes').
     joins('left join experiment_votes on experiment_id=experiments.id').
-    group('experiment_id').
+    # group('experiment_id').
     order('votes desc')
+    # data.each do |d|
+    # end
+    return data
   end
 
   def votes
     read_attribute(:votes) || experiment_votes.sum(:value)
+  end
+
+  def self.order_by_mess
+    # new_exp_array = self.all.map do |e|
+      # [e, e.average("name").nil? ? 0 : e.average("name").avg]
+      self.all.select do |e|
+      if e.rates("name").select("stars") == []
+        e
+      else
+        e.rates("name").select("stars")[0].stars
+      end
+      # e.star_rating(e)
+    end
+    # new_exp_array.sort {|a,b| b[-1] <=> a[1]}
   end
 
 end

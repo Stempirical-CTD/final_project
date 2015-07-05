@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
@@ -21,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :youtube_link %><br>
-    <%= f.text_area :youtube_link %>
+    <%= f.url_field :youtube_link %>
   </div>
   <div class="field">
     <%= f.label :complete_time %><br>
