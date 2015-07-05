@@ -2,6 +2,7 @@
   <strong>User:</strong>
   <%= @experiment.user_id %>
 </p>
+<%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
 Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %>
 <p>
   <strong>Name:</strong>
@@ -43,6 +44,9 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
     <%= instruction.order %> | <%= instruction.information %><br>
   <% end %>
 </p>
+<div class="embed-container">
+  <%= embed(@experiment.youtube_link) %>
+</div>
 <em>
   -- <%= @experiment.user.username %>
   | <%= pluralize @experiment.votes, "vote" %>
@@ -54,4 +58,4 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
 
 
 <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
-<%= link_to 'Back', experiments_path %>
+<%= link_to 'Back', root_path %>
