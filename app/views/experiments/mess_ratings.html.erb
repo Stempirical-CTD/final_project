@@ -1,8 +1,8 @@
 <h1>Listing Experiments</h1>
-    <% @experiments.reverse.each do |experiment| %>
+    <% @experiments.each do |experiment| %>
         <br>
         Username<br>
-        <%= experiment.user.username %><br>
+        <%= experiment[0].user.username %><br>
         Experiment Name<br>
         <%= experiment.name %><br>
         Description<br>

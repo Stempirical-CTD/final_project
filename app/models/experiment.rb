@@ -28,17 +28,18 @@ class Experiment < ActiveRecord::Base
   end
 
   def self.order_by_mess
-    # new_exp_array = self.all.map do |e|
-      # [e, e.average("name").nil? ? 0 : e.average("name").avg]
-      self.all.select do |e|
-      if e.rates("name").select("stars") == []
-        e
-      else
-        e.rates("name").select("stars")[0].stars
-      end
-      # e.star_rating(e)
+    new_exp_array = self.all.map do |e|
+      [e, e.average("name").nil? ? 0 : e.average("name").avg]
     end
-    # new_exp_array.sort {|a,b| b[-1] <=> a[1]}
+    new_exp_array.sort_by(&:last).reverse #same as new_exp_array.sort {|a,b| b[-1] <=> a[1]}
+      # self.all.select do |e|
+      # if e.rates("name").select("stars") == []
+      #   e
+      # else
+      #   e.rates("name").select("stars")[0].stars
+      # end
+      # e.star_rating(e)
+    # end
   end
 
 end
