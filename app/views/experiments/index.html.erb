@@ -19,6 +19,10 @@
         <% experiment.instructions.each do |instruction| %>
           <%= instruction.order %> | <%= instruction.information %><br>
         <% end %><br>
+        <div class="embed-container">
+          <%= embed(experiment.youtube_link) %>
+        </div>
+        <br>
         Messy Rating : <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %><br>
         <em>
           -- <%= experiment.user.username %>
