@@ -2,7 +2,9 @@ require 'test_helper'
 
 class InstructionsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @instruction = instructions(:one)
+    @experiment = experiments(:one)
   end
 
   test "should get index" do
@@ -18,7 +20,7 @@ class InstructionsControllerTest < ActionController::TestCase
 
   test "should create instruction" do
     assert_difference('Instruction.count') do
-      post :create, instruction: { experiment_id: @instruction.experiment_id, order: @instruction.order, step: @instruction.step }
+      post :create, instruction: { id: @instruction.id, experiment_id: @experiment_id, order: @instruction.order, information: @instruction.information }
     end
 
     assert_redirected_to instruction_path(assigns(:instruction))
@@ -35,7 +37,7 @@ class InstructionsControllerTest < ActionController::TestCase
   end
 
   test "should update instruction" do
-    patch :update, id: @instruction, instruction: { experiment_id: @instruction.experiment_id, order: @instruction.order, step: @instruction.step }
+    patch :update, id: @instruction, instruction: { experiment_id: @instruction.experiment_id, order: @instruction.order, information: @instruction.information }
     assert_redirected_to instruction_path(assigns(:instruction))
   end
 

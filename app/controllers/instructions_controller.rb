@@ -24,6 +24,8 @@ class InstructionsController < ApplicationController
   # POST /instructions
   # POST /instructions.json
   def create
+    @experiment = Experiment.new
+    @experiment.user_id = current_user.id
     @instruction = Instruction.new(instruction_params)
     @instruction.experiment_id = @experiment.id
 
@@ -65,6 +67,6 @@ class InstructionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instruction_params
-      params.require(:instruction).permit(:experiment_id, :step, :order)
+      params.require(:instruction).permit(:experiment_id, :information, :order)
     end
 end

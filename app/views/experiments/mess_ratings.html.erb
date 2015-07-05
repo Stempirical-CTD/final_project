@@ -1,5 +1,5 @@
 <h1>Listing Experiments</h1>
-    <% @experiments.each do |experiment| %>
+    <% @experiments.reverse.each do |experiment| %>
         <br>
         Username<br>
         <%= experiment.user.username %><br>

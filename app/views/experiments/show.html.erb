@@ -2,6 +2,11 @@
   <strong>User:</strong>
   <%= @experiment.user_id %>
 </p>
+Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %>
+<p>
+  <strong>Name:</strong>
+  <%= @experiment.name %>
+</p>
 
 <div class="container">
   <p>
@@ -13,19 +18,20 @@
     <strong>Lesson:</strong>
     <%= @experiment.lesson %>
   </p>
-  
-  <p>
-    <strong>Youtube link:</strong>
-    <%= @experiment.youtube_link %>
-  </p>
-  
-  <p>
-    <strong>Complete time:</strong>
-    <%= @experiment.complete_time %>
-  </p>
-</div>
 
 <p>
+
+  <strong>Youtube link:</strong>
+  <a href="<%= @experiment.youtube_link %>">Go To Youtube Experiment</a><br>
+</p>
+
+<p>
+  <strong>Complete time:</strong>
+  <%= @experiment.complete_time %>
+</p>
+<p>
+</div>
+
   <strong>Materials:</strong><br>
   <% @experiment.materials.each do |material| %>
     - <%= material.piece %><br>
@@ -42,7 +48,7 @@
   | <%= pluralize @experiment.votes, "vote" %>
   <% if current_user && current_user.can_vote_for?(@experiment) %>
     | <%= link_to "up", vote_experiment_path(@experiment, value: 1), method: "post" %>
-    | <%= link_to "down", vote_experiment_path(@experiment, value: -1), method: "post" %>
+    | <%= link_to "down", vote_experiment_path(@experiment, value: -1), method: "post" %> |
   <% end %>
 </em>
 
