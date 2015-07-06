@@ -21,18 +21,33 @@ $(function () {
     if ($('.experiment').length) {
       var material = $('.material').html();
 
-      // $('.unordered-list').sortable();
-      // $('.unordered-list').disableSelection();
-
-      $('.unordered-list').on('click', '.add-material-btn', function (e) {
+      $('.unordered-list-materials').on('click', '.add-material-btn', function (e) {
         e.preventDefault();
         e.stopPropagation();
 
-      material = material.replace(/\[[0-9]+\]/g, '[' + $('.unordered-list li').length + ']')
-      .replace(/_[0-9]+_/g, '_' + $('.unordered-list li').length + '_');
-     console.log('doin stuff');
+      material = material.replace(/\[[0-9]+\]/g, '[' + $('.unordered-list-materials li').length + ']')
+      .replace(/_[0-9]+_/g, '_' + $('.unordered-list-materials li').length + '_');
      
-      $('.unordered-list').append('<li>' + material + '</li>')
+      $('.unordered-list-materials').append('<li>' + material + '</li>')
+ })
+ 
+ }
+ 
+ });
+
+$(function () {
+
+    if ($('.experiment').length) {
+      var instruction = $('.instruction-fields').html();
+
+      $('.unordered-list-instructions').on('click', '.add-instruction-btn', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+      instruction = instruction.replace(/\[[0-9]+\]/g, '[' + $('.unordered-list-instructions li').length + ']')
+      .replace(/_[0-9]+_/g, '_' + $('.unordered-list-instructions li').length + '_');
+     
+      $('.unordered-list-instructions').append('<li>' + instruction + '</li>')
  })
  
  }
