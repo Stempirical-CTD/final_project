@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :experiments
   has_many :experiment_votes
   validates :username, presence: true
+  
   def total_votes
     ExperimentVote.joins(:experiment).where(experiments: {user_id: self.id}).sum('value')
   end

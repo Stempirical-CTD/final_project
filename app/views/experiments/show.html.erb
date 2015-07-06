@@ -59,4 +59,5 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
 <!-- Please call pinit.js only once per page -->
 <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', root_path %> |
+<%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
