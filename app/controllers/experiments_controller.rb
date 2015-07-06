@@ -86,7 +86,7 @@ class ExperimentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_params
       params.require(:experiment).permit(:user_id, :name, :description, :lesson, :youtube_link, :complete_time,
-          materials_attributes: [:id, :experiment_id, :piece],
+          materials_attributes: [:id, :experiment_id, :item],
           instructions_attributes: [:id, :experiment_id, :information, :order],
           experiment_votes: [:id, :value, :experiment_id])
     end

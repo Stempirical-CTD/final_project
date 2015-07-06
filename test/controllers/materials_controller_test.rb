@@ -20,7 +20,7 @@ class MaterialsControllerTest < ActionController::TestCase
 
   test "should create material" do
     assert_difference('Material.count') do
-      post :create, material: { experiment_id: @experiment.id, piece: @material.piece }
+      post :create, material: { experiment_id: @experiment.id, item: @material.item }
     end
 
     assert_redirected_to material_path(assigns(:material))
@@ -37,7 +37,7 @@ class MaterialsControllerTest < ActionController::TestCase
   end
 
   test "should update material" do
-    patch :update, id: @material, material: { experiment_id: @material.experiment_id, piece: @material.piece }
+    patch :update, id: @material, material: { experiment_id: @material.experiment_id, item: @material.item }
     assert_redirected_to material_path(assigns(:material))
   end
 

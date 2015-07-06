@@ -29,7 +29,7 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
 <p>
   <strong>Materials:</strong><br>
   <% @experiment.materials.each do |material| %>
-    - <%= material.piece %><br>
+    - <%= material.item %><br>
   <% end %>
 </p>
 <p>
