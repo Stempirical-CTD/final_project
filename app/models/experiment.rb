@@ -12,7 +12,9 @@ class Experiment < ActiveRecord::Base
   accepts_nested_attributes_for :instructions
 
   validates :description, :lesson, :complete_time, :name, presence: true
-
+  validates_format_of :youtube_link,
+      :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
+      :on => :create
   def self.by_votes
     data = select('experiments.*, coalesce(value, 0) as votes').
     joins('left join experiment_votes on experiment_id=experiments.id').
@@ -28,17 +30,10 @@ class Experiment < ActiveRecord::Base
   end
 
   def self.order_by_mess
-    # new_exp_array = self.all.map do |e|
-      # [e, e.average("name").nil? ? 0 : e.average("name").avg]
-      self.all.select do |e|
-      if e.rates("name").select("stars") == []
-        e
-      else
-        e.rates("name").select("stars")[0].stars
-      end
-      # e.star_rating(e)
+    new_exp_array = self.all.map do |e|
+      [e, e.average("name").nil? ? 0 : e.average("name").avg]
     end
-    # new_exp_array.sort {|a,b| b[-1] <=> a[1]}
+    new_exp_array.sort_by(&:last).reverse #same as new_exp_array.sort {|a,b| b[-1] <=> a[1]}
   end
-
+  
 end
