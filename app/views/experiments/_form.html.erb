@@ -35,31 +35,34 @@
   </div>
 
   <h3>Materials</h3>
-  <ul class="unordered-list"> 
+  <ul class="unordered-list-materials"> 
     <%= f.fields_for(:materials) do |ff| %>
       <li>
-      <div class="materials-list">
         <div class="field material">
           <%= ff.label :piece %><br>
           <%= ff.text_field :piece, :class=> "new-material" %>
         </div>
-      </div>
       </li>  
       <button type="button" class="add-material-btn">+</button>
     <% end %>
   </ul>  
 
   <h3>Instructions</h3>
-  <ul class="instructions-list">
+  <ul class="unordered-list-instructions">
     <%= f.fields_for(:instructions) do |ff| %>
-      <div class="field instructions">
-        <%= ff.label :information %><br>
-        <%= ff.text_field :information, :class=> "new-instruction" %>
-      </div>
-      <div class="field">
-        <%= ff.label :order %><br>
-        <%= ff.number_field :order %>
-      </div>
+      <li>
+      <div class="instruction-fields">
+        <div class="field instruction">
+          <%= ff.label :information %><br>
+          <%= ff.text_field :information, :class=> "new-instruction" %>
+        </div>
+        <div class="field">
+          <%= ff.label :order %><br>
+          <%= ff.number_field :order %>
+        </div>
+      </div>  
+      </li>
+      <button type="button" class="add-instruction-btn">+</button>
     <% end %>
   </ul>
 
