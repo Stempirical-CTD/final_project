@@ -11,17 +11,21 @@ class Experiment < ActiveRecord::Base
   has_many :instructions, dependent: :destroy
   accepts_nested_attributes_for :instructions
 
-  validates :description, :lesson, :complete_time, presence: true
+  validates :description, :lesson, :complete_time, :name, presence: true
+  validates_format_of :youtube_link,
+      :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
+      :on => :create
 
   def self.by_votes
-    select('experiments.*, coalesce(SUM(value), 0) as votes').
-    joins('left join experiment_votes on experiment_id=experiments.id').
-    group('experiment_id').
-    order('votes desc')
+    all.sort_by {|e| e.experiment_votes.count}.reverse
   end
 
   def votes
     read_attribute(:votes) || experiment_votes.sum(:value)
+  end
+
+  def self.order_by_mess
+    (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
   end
 
 end

@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+<div class="experiment">
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
+
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
@@ -21,7 +27,7 @@
   </div>
   <div class="field">
     <%= f.label :youtube_link %><br>
-    <%= f.text_area :youtube_link %>
+    <%= f.url_field :youtube_link %>
   </div>
   <div class="field">
     <%= f.label :complete_time %><br>
@@ -29,27 +35,40 @@
   </div>
 
   <h3>Materials</h3>
-  <%= f.fields_for(:materials) do |ff| %>
-    <div class="field">
-      <%= ff.label :piece %><br>
-      <%= ff.text_field :piece %>
-    </div>
-  <% end %>
+  <ul class="unordered-list-materials"> 
+    <%= f.fields_for(:materials) do |ff| %>
+      <li>
+        <div class="field material">
+          <%= ff.label :piece %><br>
+          <%= ff.text_field :piece, :class=> "new-material" %>
+        </div>
+      </li>  
+      <button type="button" class="add-material-btn">+</button>
+    <% end %>
+  </ul>  
 
   <h3>Instructions</h3>
-  <%= f.fields_for(:instructions) do |ff| %>
-    <div class="field">
-      <%= ff.label :information %><br>
-      <%= ff.text_field :information %>
-    </div>
-    <div class="field">
-      <%= ff.label :order %><br>
-      <%= ff.number_field :order %>
-    </div>
-  <% end %>
-
+  <ul class="unordered-list-instructions">
+    <%= f.fields_for(:instructions) do |ff| %>
+      <li>
+      <div class="instruction-fields">
+        <div class="field instruction">
+          <%= ff.label :information %><br>
+          <%= ff.text_field :information, :class=> "new-instruction" %>
+        </div>
+        <div class="field">
+          <%= ff.label :order %><br>
+          <%= ff.number_field :order %>
+        </div>
+      </div>  
+      </li>
+      <button type="button" class="add-instruction-btn">+</button>
+    <% end %>
+  </ul>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
+</div>

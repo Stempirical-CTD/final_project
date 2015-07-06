@@ -17,9 +17,3 @@ class User < ActiveRecord::Base
   end
 
 end
-
-
-# Experiment.last.rates("name").select("stars")
-# => <ActiveRecord::AssociationRelation [#<Rate id: nil, stars: 5.0>]>
-# Experiment.last.rates("name").select("stars")[0].stars
-# => 5.0

@@ -1,4 +1,5 @@
 class InstructionsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_instruction, only: [:show, :edit, :update, :destroy]
 
   # GET /instructions

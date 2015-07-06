@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   resources :experiments do
     collection do
       get 'mess_ratings'
+      get 'complete_time_rating'
     end
     member { post :vote }
   end
-  root to: 'experiments#index'
+  root 'experiments#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
