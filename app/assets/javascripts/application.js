@@ -16,22 +16,22 @@
 //= require jquery.raty
 //= require ratyrate
 
-$(function () {
-  
-    if ($('.experiment').length) {
-      var material = $('.material').html();
-      console.log('doin stuff');
-      
-      $('.unordered-list').sortable();
-      $('.unordered-list').disableSelection();
-      
-      $('.materials-list').on('click', '.add-material-btn', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-      $('.materials-list').append('<li>' + material + '</li>');
-      
-      material = material.replace(/\[[0-9]+\]/g, '[' + $('.materials-list').length + ']').replace(/_[0-9]+_/g, '_' + $('.materials-list').length + '_');
-      });
-  
-});
+// $(function () {
+//
+//     if ($('.experiment').length) {
+//       var material = $('.material').html();
+//       console.log('doin stuff');
+//
+//       $('.unordered-list').sortable();
+//       $('.unordered-list').disableSelection();
+//
+//       $('.materials-list').on('click', '.add-material-btn', function (e) {
+//         e.preventDefault();
+//         e.stopPropagation();
+//
+//       $('.materials-list').append('<li>' + material + '</li>');
+//
+//       material = material.replace(/\[[0-9]+\]/g, '[' + $('.materials-list').length + ']').replace(/_[0-9]+_/g, '_' + $('.materials-list').length + '_');
+//       });
+//
+// });
