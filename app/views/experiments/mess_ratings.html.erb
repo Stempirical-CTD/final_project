@@ -1,5 +1,6 @@
 <h1>Listing Experiments</h1>
-    <% @experiments.each do |experiment| %>
+    <% @experiments.each do |exp| %>
+    <% experiment = exp[0] %>
         <br>
         Username<br>
         <%= experiment.user.username %><br>

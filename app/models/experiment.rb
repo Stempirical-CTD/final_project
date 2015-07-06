@@ -34,14 +34,6 @@ class Experiment < ActiveRecord::Base
       [e, e.average("name").nil? ? 0 : e.average("name").avg]
     end
     new_exp_array.sort_by(&:last).reverse #same as new_exp_array.sort {|a,b| b[-1] <=> a[1]}
-      # self.all.select do |e|
-      # if e.rates("name").select("stars") == []
-      #   e
-      # else
-      #   e.rates("name").select("stars")[0].stars
-      # end
-      # e.star_rating(e)
-    # end
   end
-
+  
 end
