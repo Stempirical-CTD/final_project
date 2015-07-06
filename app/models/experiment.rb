@@ -17,7 +17,7 @@ class Experiment < ActiveRecord::Base
       :on => :create
 
   def self.by_votes
-    all.sort_by {|e| e.experiment_votes.count}
+    all.sort_by {|e| e.experiment_votes.count}.reverse
   end
 
   def votes
