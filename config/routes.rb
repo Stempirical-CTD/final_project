@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :experiments do
     collection do
       get 'mess_ratings'
+      get 'complete_time_rating'
     end
     member { post :vote }
   end
