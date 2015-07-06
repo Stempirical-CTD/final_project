@@ -17,13 +17,7 @@ class Experiment < ActiveRecord::Base
       :on => :create
 
   def self.by_votes
-    data = select('experiments.*, coalesce(value, 0) as votes').
-    joins('left join experiment_votes on experiment_id=experiments.id').
-    # group('experiment_id').
-    order('votes desc')
-    # data.each do |d|
-    # end
-    return data
+    all.sort_by {|e| e.experiment_votes.count}.reverse
   end
 
   def votes
@@ -31,10 +25,7 @@ class Experiment < ActiveRecord::Base
   end
 
   def self.order_by_mess
-    new_exp_array = self.all.map do |e|
-      [e, e.average("name").nil? ? 0 : e.average("name").avg]
-    end
-    new_exp_array.sort_by(&:last).reverse #same as new_exp_array.sort {|a,b| b[-1] <=> a[1]}
+    (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
   end
 
 end

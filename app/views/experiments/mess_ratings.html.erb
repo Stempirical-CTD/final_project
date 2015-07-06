@@ -1,6 +1,5 @@
 <h1>Listing Experiments</h1>
-    <% @experiments.each do |exp| %>
-    <% experiment = exp[0] %>
+    <% @experiments.each do |experiment| %>
         <br>
         Username<br>
         <%= experiment.user.username %><br>
@@ -29,9 +28,9 @@
         Messy Rating : <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %><br>
         <em>
           -- <%= experiment.user.username %>
-          | <%= pluralize experiment.votes, "vote" %> |
+          | <%= pluralize experiment.votes, "vote" %>
         </em>
-        <%= link_to 'Show', experiment %> |
+        | <%= link_to 'Show', experiment %> |
         <%= link_to 'Edit', edit_experiment_path(experiment) %> |
         <%= link_to 'Destroy', experiment, method: :delete, data: { confirm: 'Are you sure?' } %><br>
     <% end %><br>

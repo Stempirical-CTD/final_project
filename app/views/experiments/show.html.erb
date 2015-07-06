@@ -3,7 +3,7 @@
   <%= @experiment.user_id %>
 </p>
 <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
-Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %>
+Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %><br>
 <p>
   <strong>Name:</strong>
   <%= @experiment.name %>

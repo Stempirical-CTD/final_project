@@ -12,6 +12,10 @@ class ExperimentsController < ApplicationController
     @experiments = Experiment.order_by_mess
   end
 
+  def complete_time_rating
+    @experiments = Experiment.all.order(:complete_time)
+  end
+
   # GET /experiments/1
   # GET /experiments/1.json
   def show
