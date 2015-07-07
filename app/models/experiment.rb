@@ -40,10 +40,5 @@ class Experiment < ActiveRecord::Base
         :access_key_id => ENV["AMS3_ID"],
         :secret_access_key => ENV["AMS3_KEY"]}
   end
-  # AMS3_ID
-  # AMS3_KEY
-  # Access Key ID:
-  # AKIAJOYY77NJE7M5UCHQ
-  # Secret Access Key:
-  # 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
+  
 end

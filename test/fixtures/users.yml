@@ -7,9 +7,9 @@
 one:
   username: "userone"
   email: "user@userone.com"
-  encrypted_password: <%= BCrypt::Password.create("password") %>
+  encrypted_password: "password"
 
 two:
   username: "usertwo"
   email: "user@usertwo.com"
-  encrypted_password: <%= BCrypt::Password.create("password") %>
+  encrypted_password: "password"
