@@ -2,7 +2,10 @@ class Experiment < ActiveRecord::Base
   ratyrate_rateable "name"
   belongs_to :user
 
-  has_attached_file :uploaded_file#, :styles => { :medium => "300x300>", :thumb => "100x100>" }#, :default_url => "/images/:style/missing.png"
+  has_attached_file :uploaded_file,
+                    :storage => :s3,
+                    :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
+
   validates_attachment_content_type :uploaded_file, :content_type => /\Aimage\/.*\Z/
   has_many :comments, as: :commentable
 
@@ -32,4 +35,15 @@ class Experiment < ActiveRecord::Base
     (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
   end
 
+  def s3_credentials
+    {:bucket => "stempirical",
+        :access_key_id => ENV["AMS3_ID"],
+        :secret_access_key => ENV["AMS3_KEY"]}
+  end
+  # AMS3_ID
+  # AMS3_KEY
+  # Access Key ID:
+  # AKIAJOYY77NJE7M5UCHQ
+  # Secret Access Key:
+  # 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
 end
