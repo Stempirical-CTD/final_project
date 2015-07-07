@@ -2,6 +2,8 @@ class Experiment < ActiveRecord::Base
   ratyrate_rateable "name"
   belongs_to :user
 
+  has_many :comments, as: :commentable
+
   has_many :experiment_votes
   accepts_nested_attributes_for :experiment_votes
 

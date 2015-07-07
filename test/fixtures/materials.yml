@@ -2,8 +2,8 @@
 
 one:
   experiment_id: 1
-  piece: MyText
+  item: MyText
 
 two:
   experiment_id: 1
-  piece: MyText
+  item: MyText
