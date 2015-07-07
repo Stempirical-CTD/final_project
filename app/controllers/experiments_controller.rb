@@ -13,7 +13,7 @@ class ExperimentsController < ApplicationController
   end
 
   def complete_time_rating
-    @experiments = Experiment.all.order(:complete_time)
+    @experiments = Experiment.order(:complete_time)
   end
 
   # GET /experiments/1
