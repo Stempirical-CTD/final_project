@@ -26,13 +26,13 @@
         </div>
         <br>
         <%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %>
-        Messy Rating : <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %><br>
+        Messy Rating : <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %>
         <em>
           -- <%= experiment.user.username %>
           | <%= pluralize experiment.votes, "vote" %>
         </em>
         | <%= link_to 'Show', experiment %> |
-        <%= link_to 'Edit', edit_experiment_path(experiment) %> |
-    <% end %><br>
+        <%= link_to 'Edit', edit_experiment_path(experiment) %> |<br>
+    <% end %>
 
 <%= link_to 'New Experiment', new_experiment_path %>

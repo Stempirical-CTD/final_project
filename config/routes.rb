@@ -1,16 +1,26 @@
 Rails.application.routes.draw do
+
   post '/rate' => 'rater#create', :as => 'rate'
+
   resources :instructions
   resources :materials
   devise_for :users
+
+  # resources :users do #can create comments on user page when we get there
+  #   resources :comments, module: :users
+  # end
+
   resources :experiments do
+    resources :comments, module: :experiments
     collection do
       get 'mess_ratings'
       get 'complete_time_rating'
     end
     member { post :vote }
   end
+
   root 'experiments#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
