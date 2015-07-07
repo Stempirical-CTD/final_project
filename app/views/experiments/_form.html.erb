@@ -35,7 +35,8 @@
   </div>
   <div class="field">
     <%= f.label "Age" %><br>
-    <%= f.select :age, options_for_select(["Under 3", "4-6", "7-9", "10 & Up"]), :class => 'genForm_dropBox' %>
+    <%= f.select :age, options_for_select({"Under 3" => 1, "4-6" => 2, "7-9" => 3, "10 & up" => 4}), :prompt => 'Select One', :class => 'genForm_dropBox' %>
+
   </div>
 
 

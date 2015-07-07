@@ -16,6 +16,9 @@ class ExperimentsController < ApplicationController
     @experiments = Experiment.all.order(:complete_time)
   end
 
+  # def age
+  #   @experiments = Experiment.
+  # end
   # GET /experiments/1
   # GET /experiments/1.json
   def show
@@ -85,7 +88,7 @@ class ExperimentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_params
-      params.require(:experiment).permit(:user_id, :name, :description, :lesson, :youtube_link, :complete_time,
+      params.require(:experiment).permit(:user_id, :name, :description, :lesson, :youtube_link, :complete_time, :age,
           materials_attributes: [:id, :experiment_id, :piece],
           instructions_attributes: [:id, :experiment_id, :information, :order],
           experiment_votes: [:id, :value, :experiment_id])
