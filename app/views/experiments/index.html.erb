@@ -1,3 +1,5 @@
+<%= link_to 'New Experiment', new_experiment_path %>
+
 <h1>Listing Experiments</h1>
     <% @experiments.each do |experiment| %>
         <br>
@@ -9,30 +11,30 @@
         <%= experiment.description %><br>
         Lesson<br>
         <%= experiment.lesson %><br>
-        Youtube link<br>
-        <a href="<%= experiment.youtube_link %>">Go To Youtube Experiment</a><br>
         Complete time<br>
         <%= experiment.complete_time %><br>
         Materials<br>
         <% experiment.materials.each do |material| %>
-          <%= material.piece %><br>
+          <%= material.item %><br>
         <% end %>
         Instructions<br>
         <% experiment.instructions.each do |instruction| %>
           <%= instruction.order %> | <%= instruction.information %><br>
         <% end %><br>
-        <div class="embed-container">
-          <%= embed(experiment.youtube_link) %>
-        </div>
-        <br>
+        <% if experiment.youtube_link != "" %>
+          <div class="embed-container">
+            <%= embed(experiment.youtube_link) %>
+          </div>
+          Youtube link<br>
+          <a href="<%= experiment.youtube_link %>">Go To Youtube Experiment</a><br>
+          <br>
+        <% end %>
         <%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %>
-        Messy Rating : <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %><br>
+        Messy Rating : <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %>
         <em>
           -- <%= experiment.user.username %>
           | <%= pluralize experiment.votes, "vote" %>
         </em>
         | <%= link_to 'Show', experiment %> |
-        <%= link_to 'Edit', edit_experiment_path(experiment) %> |
-    <% end %><br>
-
-<%= link_to 'New Experiment', new_experiment_path %>
+        <%= link_to 'Edit', edit_experiment_path(experiment) %> |<br>
+    <% end %>

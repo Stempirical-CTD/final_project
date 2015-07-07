@@ -17,9 +17,9 @@ experiment = Experiment.create!(user_id: user.id, description: "How do scientist
     youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 1.5,
     name: "Extracting Strawberry DNA")
 
-    mat_one = Material.create!(experiment_id: experiment.id, piece: "measursing cup")
-    mat_two = Material.create!(experiment_id: experiment.id, piece: "measuring spoon")
-    mat_three = Material.create!(experiment_id: experiment.id, piece: "rubbing alcohol")
+    mat_one = Material.create!(experiment_id: experiment.id, item: "measursing cup")
+    mat_two = Material.create!(experiment_id: experiment.id, item: "measuring spoon")
+    mat_three = Material.create!(experiment_id: experiment.id, item: "rubbing alcohol")
 
     instruction_one = Instruction.create!(experiment_id: experiment.id,
         information: "Chill the rubbing alcohol in the freezer. (You'll need it later.)",
@@ -41,9 +41,9 @@ experiment_two = Experiment.create!(user_id: user_two.id, name: "How To Make A S
     lesson: "demonstrates static electricity",
     youtube_link: "https://www.youtube.com/watch?v=XtE0uXGMC-0", complete_time: 1)
 
-    mat_four= Material.create!(experiment_id: experiment_two.id, piece: "pencil with erasser")
-    mat_five= Material.create!(experiment_id: experiment_two.id, piece: "aluminum tray")
-    mat_six= Material.create!(experiment_id: experiment_two.id, piece: "wool cloth")
+    mat_four= Material.create!(experiment_id: experiment_two.id, item: "pencil with erasser")
+    mat_five= Material.create!(experiment_id: experiment_two.id, item: "aluminum tray")
+    mat_six= Material.create!(experiment_id: experiment_two.id, item: "wool cloth")
 
     instruction_four = Instruction.create!(experiment_id: experiment_two.id,
         information: "Stick a pushpin through the center of the aluminum tray
