@@ -39,16 +39,16 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
     <%= instruction.order %> | <%= instruction.information %><br>
   <% end %>
 </p>
+<% if @experiment.youtube_link != "" %>
+  <div class="embed-container">
+    <%= embed(@experiment.youtube_link) %>
+  </div>
 
-<div class="embed-container">
-  <%= embed(@experiment.youtube_link) %>
-</div>
-
-<p>
-  <strong>Youtube link:</strong>
-  <a href="<%= @experiment.youtube_link %>">Go To Youtube Experiment</a><br>
-</p>
-
+  <p>
+    <strong>Youtube link:</strong>
+    <a href="<%= @experiment.youtube_link %>">Go To Youtube Experiment</a><br>
+  </p>
+<% end %>
 <em>
   -- <%= @experiment.user.username %>
   | <%= pluralize @experiment.votes, "vote" %>
@@ -63,8 +63,13 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
 <!-- Please call pinit.js only once per page -->
 <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
 
-<%= render partial: "comments/form", locals: {commentable: @experiment} %>
-<%= render partial: "comments/comments", locals: {commentable: @experiment} %>
+<% if user_signed_in? %>
+  <%= render partial: "comments/form", locals: {commentable: @experiment} %>
+<% end %>
+
+<div id="all-comments">
+  <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
+</div>
 
 <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
 <%= link_to 'Back', root_path %> |
