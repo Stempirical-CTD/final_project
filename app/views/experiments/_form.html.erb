@@ -27,7 +27,9 @@
   </div>
   <div class="field">
     <%= f.label :uploaded_file %><br>
-    <%= f.file_field 'uploaded_file' %>
+    <%= f.file_field 'uploaded_file', id: 'pictureInput' %>
+  </div>
+  <div id="target">
   </div>
   <div class="field">
     <%= f.label :youtube_link %><br>
