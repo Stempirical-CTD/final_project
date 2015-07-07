@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.2.1'
 gem 'ratyrate'
 gem 'devise'
 gem 'rails-footnotes', '~> 4.0'
