@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.2.2'
+gem 'paperclip'
 gem 'ratyrate'
 gem 'devise'
 gem 'rails-footnotes', '~> 4.0'
