@@ -33,19 +33,24 @@
     <%= f.label :complete_time %><br>
     <%= f.number_field(:complete_time, in: 0.5..20.0, step: 0.5) %> hours
   </div>
+  <div class="field">
+    <%= f.label "Age" %><br>
+    <%= f.select :age, options_for_select(["Under 3", "4-6", "7-9", "10 & Up"]), :class => 'genForm_dropBox' %>
+  </div>
+
 
   <h3>Materials</h3>
-  <ul class="unordered-list-materials"> 
+  <ul class="unordered-list-materials">
     <%= f.fields_for(:materials) do |ff| %>
       <li>
         <div class="field material">
           <%= ff.label :piece %><br>
           <%= ff.text_field :piece, :class=> "new-material" %>
         </div>
-      </li>  
+      </li>
       <button type="button" class="add-material-btn">+</button>
     <% end %>
-  </ul>  
+  </ul>
 
   <h3>Instructions</h3>
   <ul class="unordered-list-instructions">
@@ -60,7 +65,7 @@
           <%= ff.label :order %><br>
           <%= ff.number_field :order %>
         </div>
-      </div>  
+      </div>
       </li>
       <button type="button" class="add-instruction-btn">+</button>
     <% end %>
