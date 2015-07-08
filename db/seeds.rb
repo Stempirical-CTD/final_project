@@ -93,6 +93,32 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
             Look at that burst of color! It's like the 4th of July in a bowl of milk!",
             order: 4)
     instruction_one = Instruction.create!(experiment_id: experiment_two.id,
-          information: "Pour enough milk in the dinner plate to completely cover
-            the bottom to the depth of about 1/4 inch. Allow the milk to settle.",
+          information: "Add another drop of soap to the tip of the cotton swab
+          and try it again. Experiment with placing the cotton swab at different
+          places in the milk. Notice that the colors in the milk continue to move
+          even when the cotton swab is removed. What makes the food coloring
+          in the milk move?",
             order: 5)
+
+  experiment_three = Experiment.create!(user_id: user.id,
+    description: "Watch old pennies turn bright and shiny right before your eyes!",
+    lesson: "http://www.ehow.com/about_5133409_do-pennies-corrode.html",
+    youtube_link: "https://www.youtube.com/watch?v=LYAC7lYC9xY", complete_time: 1,
+    name: "Oxidation of Copper Pennies")
+
+    mat_one = Material.create!(experiment_id: experiment_three.id, item: "  20 dull, dirty pennies")
+    mat_two = Material.create!(experiment_id: experiment_three.id, item: "1/4 cup white vinegar")
+    mat_three = Material.create!(experiment_id: experiment_three.id, item: "1 teaspoon salt")
+    mat_four = Material.create!(experiment_id: experiment_three.id, item: "A clear, shallow bowl (not metal)")
+    mat_five = Material.create!(experiment_id: experiment_three.id, item: "Paper towels")
+
+
+
+
+
+
+
+
+
+A clean steel screw or bolt
+Paper towels
