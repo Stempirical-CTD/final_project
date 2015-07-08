@@ -11,9 +11,6 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
 # experiment = Experiment.create!(user_id: user.id, description: "How do scientists take DNA out
 #     of a living thing? It's not that hard—there are lots of ways to do it! You
 #     can follow the steps below. Either way you'll have strawberry DNA at the end!",
-#     lesson: "Strawberries, bacteria, humans—all living things have genes, and
-#         all of these genes are made of DNA. That's why scientists can take a
-#         gene from one living thing and put it into another.",
 #     youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 1.5,
 #     name: "Extracting Strawberry DNA")
 #
@@ -163,3 +160,9 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
       from the balloon into the bottle and mixes with the vinegar.
       Watch the fizz-inflator at work!",
         order: 4)
+
+  experiment_four = Experiment.create!(user_id: user.id,
+    description: "Build a balloon inflater.",
+    lesson: " ",
+    youtube_link: "https://www.youtube.com/watch?v=t--PRg1kd8g", complete_time: 1,
+    name: "Inflating a balloon")
