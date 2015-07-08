@@ -19,6 +19,11 @@
         <% experiment.instructions.each do |instruction| %>
           <%= instruction.order %> | <%= instruction.information %><br>
         <% end %><br>
+        <div class="exp-img">
+          <% if experiment.uploaded_file_file_name != nil %>
+            <%= image_tag experiment.uploaded_file %><br>
+          <% end %>
+        </div>
         <% if experiment.youtube_link != "" %>
           <div class="embed-container">
             <%= embed(experiment.youtube_link) %>
@@ -35,5 +40,3 @@
         | <%= link_to 'Show', experiment %> |
         <%= link_to 'Edit', edit_experiment_path(experiment) %> |
     <% end %><br>
-
-<%= link_to 'New Experiment', new_experiment_path %>
