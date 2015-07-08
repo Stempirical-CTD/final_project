@@ -36,7 +36,7 @@ class Experiment < ActiveRecord::Base
   end
 
 
-  # def age 
+  # def age
   #   #list by age  in the view page by the key and not the value
   # end
   #
@@ -51,5 +51,5 @@ class Experiment < ActiveRecord::Base
         :secret_access_key => ENV["AMS3_KEY"]}
   end
 
->>>>>>> be80b151c125c079bcf0fba14012a4576dca1561
+
 end
