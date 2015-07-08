@@ -13,7 +13,7 @@ class ExperimentsController < ApplicationController
   end
 
   def complete_time_rating
-    @experiments = Experiment.all.order(:complete_time)
+    @experiments = Experiment.order(:complete_time)
   end
 
   # def age
@@ -88,8 +88,10 @@ class ExperimentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_params
-      params.require(:experiment).permit(:user_id, :name, :description, :lesson, :youtube_link, :complete_time, :age,
-          materials_attributes: [:id, :experiment_id, :piece],
+
+      params.require(:experiment).permit(:user_id, :name, :description, :lesson, :youtube_link, :complete_time, :uploaded_file,
+          materials_attributes: [:id, :experiment_id, :item],
+
           instructions_attributes: [:id, :experiment_id, :information, :order],
           experiment_votes: [:id, :value, :experiment_id])
     end

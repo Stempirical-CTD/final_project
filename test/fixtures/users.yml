@@ -5,13 +5,11 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  id: 1
   username: "userone"
   email: "user@userone.com"
-  encrypted_password: <%= BCrypt::Password.create("password") %>
+  encrypted_password: "password"
 
 two:
-  id: 2
   username: "usertwo"
   email: "user@usertwo.com"
-  encrypted_password: <%= BCrypt::Password.create("password") %>
+  encrypted_password: "password"
