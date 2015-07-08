@@ -3,5 +3,4 @@ class Material < ActiveRecord::Base
   validates :item, presence: true
   validates :item, uniqueness: { scope: :experiment_id }
 
-  # instead of item
 end

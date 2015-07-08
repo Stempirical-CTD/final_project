@@ -2,6 +2,8 @@ class Experiment < ActiveRecord::Base
   ratyrate_rateable "name"
   belongs_to :user
 
+  has_and_belongs_to_many :concepts
+
   has_attached_file :uploaded_file,
                     :storage => :s3,
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
@@ -18,7 +20,7 @@ class Experiment < ActiveRecord::Base
   has_many :instructions, dependent: :destroy
   accepts_nested_attributes_for :instructions
 
-  validates :description, :lesson, :complete_time, :name, presence: true
+  validates :description, :complete_time, :name, presence: true
   validates_format_of :youtube_link,
       :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
       :on => :create
