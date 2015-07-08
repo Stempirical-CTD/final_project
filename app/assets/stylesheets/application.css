@@ -108,14 +108,11 @@ a {
 .user-status, .new-exp {
   position: relative;
   float: right;
-  margin: 0.5em 1em 0 0;
+  margin: 1em 1.5em 0 0;
 }
 
-.nav-links {
+.sort-nav-links {
   display: block;
-  position: absolute;
-  top: 10;
-  right: 5;
   float: right;
   width: 85%;
   margin: 0 auto;
@@ -123,17 +120,17 @@ a {
 
 .nav-tab, .new-exp {
   background-color: #E8E8E8;
-
   color: #333;
   border: 0;
-  padding: 0.6em;
+  padding: 0.5em;
   font-size: 1em;
   font-weight: bold;
   box-shadow: 0 8px 6px -8px #ccc;
+  text-align: center;
 }
 
 .nav-tab {
-  margin: 0.6em 2.5em;
+  margin: 2.5em;
   width: 7.5em;
   right: 0;
 }
@@ -142,9 +139,9 @@ a {
   width: 10em;
   display: block;
   position: absolute;
-  top: 3;
+  top: 4.5;
   right: 0;
-  margin: 
+  margin-top: 1.2em;
 }
 
 /* errors & notices */
