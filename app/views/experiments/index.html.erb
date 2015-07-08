@@ -2,13 +2,15 @@
 
 <h1 class="page-title">All Experiments</h1>
 
-    
+
     <% @experiments.each do |experiment| %>
         <br>
      <div class="experiment-card">
-        <div class="exp-img">    
-            <%= image_tag experiment.uploaded_file, class: "image" %><br>
-        </div>
+            <div class="exp-img">
+              <% if experiment.uploaded_file_file_name != nil %>
+                <%= image_tag experiment.uploaded_file, class: "image" %><br>
+              <% end %>
+            </div>
         
         <div class="exp-min-detail">
             
@@ -17,17 +19,13 @@
             <div class="exp-heading">Description<br>
             <%= experiment.description %><br></div>
             
-            <div class="exp-heading">Lesson<br>
-            <%= experiment.lesson %><br></div>
-            
             <div class="exp-heading">Complete time: <%= experiment.complete_time %> hour(s)<br>
             
-            <i class="fa fa-thumbs-up"></i><%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %><br>
-            
-            Mess Factor: <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %></div>
+            <i class="fa fa-thumbs-up"></i><%= experiment.user.username %>
+                  | <%= pluralize experiment.votes, "vote" %>
+                  
+            Mess Factor: <%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %><br><%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %></div>
            
-        </div>    
+        </div>   
      </div>
-            
     <% end %>
-    

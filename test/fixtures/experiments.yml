@@ -3,13 +3,11 @@
 one:
   user_id: 1
   description: MyText
-  lesson: MyText
   youtube_link: MyText
   complete_time: 1.5
 
 two:
   user_id: 1
   description: MyText
-  lesson: MyText
   youtube_link: MyText
   complete_time: 1.5

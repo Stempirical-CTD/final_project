@@ -20,7 +20,7 @@ class ExperimentsControllerTest < ActionController::TestCase
 
   test "should create experiment" do
     assert_difference('Experiment.count') do
-      post :create, experiment: { id: @experiment, complete_time: @experiment.complete_time, description: @experiment.description, lesson: @experiment.lesson, user_id: @experiment.user_id, youtube_link: @experiment.youtube_link }
+      post :create, experiment: { id: @experiment, complete_time: @experiment.complete_time, description: @experiment.description, user_id: @experiment.user_id, youtube_link: @experiment.youtube_link }
     end
 
     assert_redirected_to experiment_path(assigns(:experiment))
@@ -37,7 +37,7 @@ class ExperimentsControllerTest < ActionController::TestCase
   end
 
   test "should update experiment" do
-    patch :update, id: @experiment, experiment: { complete_time: @experiment.complete_time, description: @experiment.description, lesson: @experiment.lesson, user_id: @experiment.user_id, youtube_link: @experiment.youtube_link }
+    patch :update, id: @experiment, experiment: { complete_time: @experiment.complete_time, description: @experiment.description, user_id: @experiment.user_id, youtube_link: @experiment.youtube_link }
     assert_redirected_to experiment_path(assigns(:experiment))
   end
 

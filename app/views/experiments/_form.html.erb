@@ -33,13 +33,11 @@
             </div>
             
             <div class="field">
-              <%= f.label :lesson %><br>
-              <%= f.text_area :lesson, :cols => 100, :rows => 3 %>
+              <%= f.label :uploaded_file %><br>
+              <%= f.file_field 'uploaded_file', id: 'pictureInput', :rows => 3 %>
             </div>
             
-            <div class="field">
-              <%= f.label :uploaded_file %><br>
-              <%= f.file_field 'uploaded_file', :rows => 3 %>
+            <div id="target">
             </div>
             
             <div class="field">
@@ -91,15 +89,6 @@
             </div>
           </ul>
   </ul>
-
-
   
-  
-
-  
-  
-
-  
-
 <% end %>
 </div>
