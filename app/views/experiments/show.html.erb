@@ -39,7 +39,7 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
     <%= instruction.order %> | <%= instruction.information %><br>
   <% end %>
 </p>
-<% if @experiment.uploaded_file != nil %>
+<% if @experiment.uploaded_file_file_name != nil %>
   <%= image_tag @experiment.uploaded_file %>
 <% end %>
 <% if @experiment.youtube_link != "" %>
@@ -76,4 +76,6 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
 
 <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
 <%= link_to 'Back', root_path %> |
-<%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% if current_user.id == @experiment.user_id %>
+  <%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>
