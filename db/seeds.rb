@@ -145,6 +145,21 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
     mat_four = Material.create!(experiment_id: experiment_four.id, item: "Baking soda")
     mat_five = Material.create!(experiment_id: experiment_four.id, item: "Funnel or piece of paper")
 
-    instruction_one = Instruction.create!(experiment_id: experiment_three.id,
+    instruction_one = Instruction.create!(experiment_id: experiment_four.id,
       information: "Carefully pour the vinegar into the bottle.",
         order: 1)
+    instruction_two = Instruction.create!(experiment_id: experiment_four.id,
+      information: "This is the tricky part: Loosen up the balloon by stretching
+      it a few times and then use the funnel to fill it a bit more than half
+      way with baking soda. If you don’t have a funnel you can make one using
+      the paper and some tape.",
+        order: 2)
+    instruction_three = Instruction.create!(experiment_id: experiment_four.id,
+      information: "Now carefully put the neck of the balloon all the way over
+      the neck of the bottle without letting any baking soda into the bottle.",
+        order: 3)
+    instruction_four = Instruction.create!(experiment_id: experiment_four.id,
+      information: "Ready? Lift the balloon up so that the baking soda falls
+      from the balloon into the bottle and mixes with the vinegar.
+      Watch the fizz-inflator at work!",
+        order: 4)
