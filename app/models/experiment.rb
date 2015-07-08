@@ -6,7 +6,7 @@ class Experiment < ActiveRecord::Base
                     :storage => :s3,
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
-  validates_attachment_content_type :uploaded_file, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :uploaded_file, :content_type => ['image/jpeg', 'image/png', 'image/pdf']
   has_many :comments, as: :commentable
 
   has_many :experiment_votes
@@ -51,5 +51,8 @@ class Experiment < ActiveRecord::Base
         :secret_access_key => ENV["AMS3_KEY"]}
   end
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 795bad7f1ca101f55aa3601e409fdeaea523c528
 end

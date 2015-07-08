@@ -20,7 +20,17 @@
 //   width: 40%;
 //   height: 40%;
 // }
+#target img {
+  height: 10em;
+  width: 10em;
+}
 
+.exp-img {
+  img {
+    height:20em;
+    width: 20em;
+  }
+}
 .page-title {
 	margin-left: 4em;
 }
@@ -49,6 +59,6 @@
 }
 
 .exp-min-detail {
-	margin: 1.2em;	
-	
+	margin: 1.2em;
+
 }

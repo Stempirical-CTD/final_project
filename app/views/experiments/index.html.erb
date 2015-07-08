@@ -2,35 +2,36 @@
 
 <h1 class="page-title">All Experiments</h1>
 
-    
+
     <% @experiments.each do |experiment| %>
         <br>
      <div class="experiment-card">
         <div class="card-container">
-            <div class="exp-img">    
+            <div class="exp-img">
+              <% if experiment.uploaded_file_file_name != nil %>
                 <%= image_tag experiment.uploaded_file %><br>
+              <% end %>
             </div>
-            
+
             <div class="exp-min-detail">
-                
+
                 <h3><a><%= link_to experiment.name, experiment %></a><br></h3>
-                
+
                 <div class="exp-heading">Description</div><br>
                 <%= experiment.description %><br>
-                
+
                 <div class="exp-heading">Lesson</div><br>
                 <%= experiment.lesson %><br>
-                
+
                 <div class="exp-heading">Complete time</div><br>
                 <%= experiment.complete_time %><br>
-                
+
                 <%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %>
                 Messy Rating : <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %>
-                
+
                 <%= link_to 'Edit', edit_experiment_path(experiment) %> |<br>
             </div>
-        </div>     
+        </div>
      </div>
-            
+
     <% end %>
-    
