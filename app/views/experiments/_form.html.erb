@@ -1,4 +1,4 @@
-<%= form_for(@experiment) do |f| %>
+<%= form_for @experiment, html: { multipart: true } do |f| %>
   <% if @experiment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@experiment.errors.count, "error") %> prohibited this experiment from being saved:</h2>
@@ -26,6 +26,10 @@
     <%= f.text_area :lesson %>
   </div>
   <div class="field">
+    <%= f.label :uploaded_file %><br>
+    <%= f.file_field 'uploaded_file' %>
+  </div>
+  <div class="field">
     <%= f.label :youtube_link %><br>
     <%= f.url_field :youtube_link %>
   </div>
@@ -33,19 +37,18 @@
     <%= f.label :complete_time %><br>
     <%= f.number_field(:complete_time, in: 0.5..20.0, step: 0.5) %> hours
   </div>
-
   <h3>Materials</h3>
-  <ul class="unordered-list-materials"> 
+  <ul class="unordered-list-materials">
     <%= f.fields_for(:materials) do |ff| %>
       <li>
         <div class="field material">
           <%= ff.label :item %><br>
           <%= ff.text_field :item, :class=> "new-material" %>
         </div>
-      </li>  
+      </li>
       <button type="button" class="add-material-btn">+</button>
     <% end %>
-  </ul>  
+  </ul>
 
   <h3>Instructions</h3>
   <ul class="unordered-list-instructions">
@@ -60,7 +63,7 @@
           <%= ff.label :order %><br>
           <%= ff.number_field :order %>
         </div>
-      </div>  
+      </div>
       </li>
       <button type="button" class="add-instruction-btn">+</button>
     <% end %>

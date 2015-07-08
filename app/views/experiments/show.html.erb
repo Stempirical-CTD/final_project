@@ -39,6 +39,9 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
     <%= instruction.order %> | <%= instruction.information %><br>
   <% end %>
 </p>
+<% if @experiment.uploaded_file != nil %>
+  <%= image_tag @experiment.uploaded_file %>
+<% end %>
 <% if @experiment.youtube_link != "" %>
   <div class="embed-container">
     <%= embed(@experiment.youtube_link) %>

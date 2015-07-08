@@ -2,6 +2,11 @@ class Experiment < ActiveRecord::Base
   ratyrate_rateable "name"
   belongs_to :user
 
+  has_attached_file :uploaded_file,
+                    :storage => :s3,
+                    :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
+
+  validates_attachment_content_type :uploaded_file, :content_type => /\Aimage\/.*\Z/
   has_many :comments, as: :commentable
 
   has_many :experiment_votes
@@ -30,4 +35,10 @@ class Experiment < ActiveRecord::Base
     (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
   end
 
+  def s3_credentials
+    {:bucket => "stempirical",
+        :access_key_id => ENV["AMS3_ID"],
+        :secret_access_key => ENV["AMS3_KEY"]}
+  end
+  
 end
