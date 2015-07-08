@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
+
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
@@ -13,37 +14,40 @@
 
 
 <body>
- <header>
+ <header class="nav-bar">
    
     <h1 class="logo">stempirical</h1>
+    
     <div class="user-status">
       <% if user_signed_in? %>
-        Hello, <%= link_to current_user.username, edit_user_registration_path %>
-          (<%= current_user.total_votes %>) |
+        Hello, <%= link_to current_user.username, edit_user_registration_path %> |
           <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Login', new_user_session_path %> |
         <%= link_to 'Sign Up', new_user_registration_path %> 
       <% end %>
-    </div>
+    </div><br>
+    
+    <a><div class="new-exp"><%= link_to 'Add My Experiment', new_experiment_path %></div></a><br>
     
     <!-- Tabs -->
+      
     <div class="nav-links">
-      <a><div class="nav-tab"><%= link_to_unless_current("Mess Factor", mess_ratings_experiments_path) %></div></a>
-      <a><div class="nav-tab">Age</div></a>
-      <a><div class="nav-tab"><%= link_to_unless_current("Time", complete_time_rating_experiments_path) %></div></a>
-      <a><div class="nav-tab"><%= link_to_unless_current("Experiments", root_path) %></div></a>
+      <a><button class="nav-tab"><%= link_to_unless_current("Experiments", root_path) %></button></a>
+      <a><button class="nav-tab">Materials</button></a>
+      <a><button class="nav-tab"><%= link_to_unless_current("Time", complete_time_rating_experiments_path) %></button></a>
+      <a><button class="nav-tab">Age</button></a>
+      <a><button class="nav-tab"><%= link_to_unless_current("Mess Factor", mess_ratings_experiments_path) %></button></a>
     </div>
-    
-    <a><div class="new-exp"><%= yield %></div></a>
-    
   </header>
     
     <div class="messages">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
     </div>
-            
+          
+<div class="main-content"><%= yield %></div>         
+  
           <script type="text/javascript">
           (function(d){
               var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
@@ -53,6 +57,8 @@
               f.parentNode.insertBefore(p, f);
           }(document));
 
-</script>
+          </script>
+          
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>
