@@ -51,8 +51,4 @@ class Experiment < ActiveRecord::Base
         :secret_access_key => ENV["AMS3_KEY"]}
   end
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 795bad7f1ca101f55aa3601e409fdeaea523c528
 end

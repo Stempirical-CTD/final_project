@@ -132,3 +132,19 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
          differences and make some guesses about why they are different.
          The rinsed pennies should be bright and look brand new.",
           order: 5)
+
+  experiment_four = Experiment.create!(user_id: user.id,
+    description: "Build a balloon inflater.",
+    lesson: " ",
+    youtube_link: "https://www.youtube.com/watch?v=t--PRg1kd8g", complete_time: 1,
+    name: "Inflating a balloon")
+
+    mat_one = Material.create!(experiment_id: experiment_four.id, item: "One small empty plastic soda or water bottle")
+    mat_two = Material.create!(experiment_id: experiment_four.id, item: "1/2 cup of vinegar")
+    mat_three = Material.create!(experiment_id: experiment_four.id, item: "Small balloon")
+    mat_four = Material.create!(experiment_id: experiment_four.id, item: "Baking soda")
+    mat_five = Material.create!(experiment_id: experiment_four.id, item: "Funnel or piece of paper")
+
+    instruction_one = Instruction.create!(experiment_id: experiment_three.id,
+      information: "Carefully pour the vinegar into the bottle.",
+        order: 1)
