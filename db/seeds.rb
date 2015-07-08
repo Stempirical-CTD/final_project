@@ -41,6 +41,7 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
     mat_three = Material.create!(experiment_id: experiment_one.id, item:
       "dark colored food dye (red, blue or gree are best)")
 
+<<<<<<< HEAD
     instruction_one = Instruction.create!(experiment_id: experiment_one.id,
           information:"The three drinking glasses each must contain water at
               different temperatures. One needs to be cold, the second room temperature
@@ -111,6 +112,23 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
 
     instruction_one = Instruction.create!(experiment_id: experiment_three.id,
       information: "Put the salt and vinegar into the bowl and stir until it dissolves.",
+=======
+experiment = Experiment.create!(user_id: user.id, description: "How do scientists take DNA out
+    of a living thing? It's not that hard—there are lots of ways to do it! You
+    can follow the steps below. Either way you'll have strawberry DNA at the end!",
+    # lesson: "Strawberries, bacteria, humans—all living things have genes, and
+    #     all of these genes are made of DNA. That's why scientists can take a
+    #     gene from one living thing and put it into another.",
+    youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 1.5,
+    name: "Extracting Strawberry DNA")
+
+    mat_one = Material.create!(experiment_id: experiment.id, item: "measursing cup")
+    mat_two = Material.create!(experiment_id: experiment.id, item: "measuring spoon")
+    mat_three = Material.create!(experiment_id: experiment.id, item: "rubbing alcohol")
+
+    instruction_one = Instruction.create!(experiment_id: experiment.id,
+        information: "Chill the rubbing alcohol in the freezer. (You'll need it later.)",
+>>>>>>> 2a16e7b8bb542986928cdf9bd722b90e9a44f155
         order: 1)
     instruction_two = Instruction.create!(experiment_id: experiment_three.id,
       information: "Put the pennies into the bowl for about 5 minutes.
@@ -136,11 +154,20 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
     youtube_link: "https://www.youtube.com/watch?v=t--PRg1kd8g", complete_time: 1,
     name: "Inflating a balloon")
 
+<<<<<<< HEAD
     mat_one = Material.create!(experiment_id: experiment_four.id, item: "One small empty plastic soda or water bottle")
     mat_two = Material.create!(experiment_id: experiment_four.id, item: "1/2 cup of vinegar")
     mat_three = Material.create!(experiment_id: experiment_four.id, item: "Small balloon")
     mat_four = Material.create!(experiment_id: experiment_four.id, item: "Baking soda")
     mat_five = Material.create!(experiment_id: experiment_four.id, item: "Funnel or piece of paper")
+=======
+experiment_two = Experiment.create!(user_id: user_two.id, name: "How To Make A Spark",
+    description: " A lightning bolt is basically a dramatic display of static electricity
+        in action. You see lightning when a spark of moving electrons races up or
+        down between a cloud and the ground.",
+    # lesson: "demonstrates static electricity",
+    youtube_link: "https://www.youtube.com/watch?v=XtE0uXGMC-0", complete_time: 1)
+>>>>>>> 2a16e7b8bb542986928cdf9bd722b90e9a44f155
 
     instruction_one = Instruction.create!(experiment_id: experiment_four.id,
       information: "Carefully pour the vinegar into the bottle.",
