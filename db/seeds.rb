@@ -74,25 +74,25 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
           information: "Pour enough milk in the dinner plate to completely cover
             the bottom to the depth of about 1/4 inch. Allow the milk to settle.",
             order: 1)
-    instruction_one = Instruction.create!(experiment_id: experiment_two.id,
+    instruction_two = Instruction.create!(experiment_id: experiment_two.id,
           information: "Add one drop of each of the four colors of food coloring
             - red, yellow, blue, and green - to the milk. Keep the drops close
             together in the center of the plate of milk.",
             order: 2)
-    instruction_one = Instruction.create!(experiment_id: experiment_two.id,
+    instruction_three = Instruction.create!(experiment_id: experiment_two.id,
           information: "Find a clean cotton swab for the next part of the experiment.
              Predict what will happen when you touch the tip of the cotton swab
              to the center of the milk. It's important not to stir the mix.
              Just touch it with the tip of the cotton swab. Go ahead and try it.
              Did anything happen?",
             order: 3)
-    instruction_one = Instruction.create!(experiment_id: experiment_two.id,
+    instruction_four = Instruction.create!(experiment_id: experiment_two.id,
           information: "Now place a drop of liquid dish soap on the other end
             of the cotton swab. Place the soapy end of the cotton swab back in the
             middle of the milk and hold it there for 10 to 15 seconds.
             Look at that burst of color! It's like the 4th of July in a bowl of milk!",
             order: 4)
-    instruction_one = Instruction.create!(experiment_id: experiment_two.id,
+    instruction_five = Instruction.create!(experiment_id: experiment_two.id,
           information: "Add another drop of soap to the tip of the cotton swab
           and try it again. Experiment with placing the cotton swab at different
           places in the milk. Notice that the colors in the milk continue to move
@@ -112,13 +112,23 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
     mat_four = Material.create!(experiment_id: experiment_three.id, item: "A clear, shallow bowl (not metal)")
     mat_five = Material.create!(experiment_id: experiment_three.id, item: "Paper towels")
 
-
-
-
-
-
-
-
-
-A clean steel screw or bolt
-Paper towels
+    instruction_one = Instruction.create!(experiment_id: experiment_three.id,
+      information: "Put the salt and vinegar into the bowl and stir until it dissolves.",
+        order: 1)
+    instruction_two = Instruction.create!(experiment_id: experiment_three.id,
+      information: "Put the pennies into the bowl for about 5 minutes.
+        Watch them when they first go in. What do you see?",
+        order: 2)
+    instruction_three = Instruction.create!(experiment_id: experiment_three.id,
+      information: "Take half the pennies out and place them on a paper towel.",
+        order: 3)
+    instruction_four = Instruction.create!(experiment_id: experiment_three.id,
+      information: "Take the second half out and rinse them off very well.
+        Place them on a paper towel and mark it as being “rinsed.”",
+        order: 4)
+      instruction_five = Instruction.create!(experiment_id: experiment_three.id,
+        information: "Wait about an hour and then check back on your two piles.
+         What differences does your child see between the two? Record the
+         differences and make some guesses about why they are different.
+         The rinsed pennies should be bright and look brand new.",
+          order: 5)
