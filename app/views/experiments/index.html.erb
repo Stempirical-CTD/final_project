@@ -6,30 +6,27 @@
     <% @experiments.each do |experiment| %>
         <br>
      <div class="experiment-card">
-        <div class="card-container">
-            <div class="exp-img">    
-                <%= image_tag experiment.uploaded_file %><br>
-            </div>
+        <div class="exp-img">    
+            <%= image_tag experiment.uploaded_file, class: "image" %><br>
+        </div>
+        
+        <div class="exp-min-detail">
             
-            <div class="exp-min-detail">
-                
-                <h3><a><%= link_to experiment.name, experiment %></a><br></h3>
-                
-                <div class="exp-heading">Description</div><br>
-                <%= experiment.description %><br>
-                
-                <div class="exp-heading">Lesson</div><br>
-                <%= experiment.lesson %><br>
-                
-                <div class="exp-heading">Complete time</div><br>
-                <%= experiment.complete_time %><br>
-                
-                <%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %>
-                Messy Rating : <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %>
-                
-                <%= link_to 'Edit', edit_experiment_path(experiment) %> |<br>
-            </div>
-        </div>     
+            <h3 class="exp-title"><a><%= link_to experiment.name, experiment %></a><br></h3>
+            
+            <div class="exp-heading">Description</div><br>
+            <%= experiment.description %><br>
+            
+            <div class="exp-heading">Lesson</div><br>
+            <%= experiment.lesson %><br>
+            
+            <div class="exp-heading">Complete time: <%= experiment.complete_time %> hour(s)</div><br>
+            
+            <i class="fa fa-thumbs-up"></i><%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %><br>
+            
+            Mess Factor: <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %>
+           
+        </div>    
      </div>
             
     <% end %>

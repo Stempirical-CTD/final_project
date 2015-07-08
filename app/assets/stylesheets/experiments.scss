@@ -28,27 +28,87 @@
 .experiment-card {
 	display: block;
 	width: 80%;
+	height: 18em;
 	background-color: #F2F3F4;
   	box-shadow: -0 0 20px #ccc;
 	margin: 1em auto;
 	padding: 1em;
 }
 
-.card-container {
-	padding: 1.5em;
+.exp-title {
+	transition: all .2s ease-in-out; 
 }
 
-.exp-img {
-	float: left;
-	padding: 1.5em;
+.exp-title:hover { 
+	transform: scale(1.05); 
 }
 
 .exp-heading {
 	font-weight: bold;
 	padding: 0;
+	margin: 0;
 }
 
 .exp-min-detail {
-	margin: 1.2em;	
-	
+	display: inline-block;
+	position: relative;
+	float: right;
+	margin: 0 0.5%;	
+	height: 20em;
+	width: 63%;
 }
+
+.image {
+	float: left;
+	margin: 2.5% 0 0 2.5%;
+	height: 15em;
+	width: 30%;
+	box-shadow: -0 0 10px #CCC;
+}
+
+// create experiment view tab navigation 
+
+ul#tabs {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+	font-size: 1.3em;
+}
+ul#tabs li {
+    display: inline-block;
+    background-color: #F2F3F4;
+    padding: 5px 20px;
+	box-shadow: -0 0 10px #CCC;
+	border-bottom: solid 2px #323232;
+    margin-bottom: 0;
+    color: #323232;
+    cursor: pointer;
+}
+ul#tabs li:hover {
+    background-color: #CCC;
+}
+ul#tabs li.active {
+    background-color: #E8E8E8;
+	border-bottom: solid 3px #323232;
+}
+ul#tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul#tab li {
+    display: none;
+}
+ul#tab li.active {
+    display: block;
+	width: 50%;
+	background-color: #F2F3F4;
+	margin: 0 auto;
+	padding: 1em;
+	box-shadow: -0 0 20px #ccc;
+}
+
+.form-container {
+	padding: 2em 2.5em;
+}
+
