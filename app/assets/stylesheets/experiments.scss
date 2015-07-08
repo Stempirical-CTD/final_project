@@ -20,3 +20,35 @@
 //   width: 40%;
 //   height: 40%;
 // }
+
+.page-title {
+	margin-left: 4em;
+}
+
+.experiment-card {
+	display: block;
+	width: 80%;
+	background-color: #F2F3F4;
+  	box-shadow: -0 0 20px #ccc;
+	margin: 1em auto;
+	padding: 1em;
+}
+
+.card-container {
+	padding: 1.5em;
+}
+
+.exp-img {
+	float: left;
+	padding: 1.5em;
+}
+
+.exp-heading {
+	font-weight: bold;
+	padding: 0;
+}
+
+.exp-min-detail {
+	margin: 1.2em;	
+	
+}
