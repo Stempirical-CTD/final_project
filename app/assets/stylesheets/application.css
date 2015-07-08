@@ -100,15 +100,13 @@ a {
 .logo {
   position: relative;
   float: left;
-  top: 2;
-  left: 2;
-  padding: 0.5em;
+  padding: .7em;
 }
 
 .user-status, .new-exp {
   position: relative;
   float: right;
-  margin: 1em 1.5em 0 0;
+  margin: 0.8em 1.5em 0 0;
 }
 
 .sort-nav-links {
