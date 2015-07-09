@@ -8,52 +8,6 @@
 user = User.create!(email: "user@userone.com", username: "userone", password: "password")
 user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password: "password")
 
-experiment = Experiment.create!(user_id: user.id, description: "How do scientists take DNA out
-    of a living thing? It's not that hard—there are lots of ways to do it! You
-    can follow the steps below. Either way you'll have strawberry DNA at the end!",
-    youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 1.5,
-    name: "Extracting Strawberry DNA")
-
-  Material.create!(experiment_id: experiment.id, item: "measursing cup")
-  Material.create!(experiment_id: experiment.id, item: "measuring spoon")
-  Material.create!(experiment_id: experiment.id, item: "rubbing alcohol")
-
-  Instruction.create!(experiment_id: experiment.id,
-      information: "Chill the rubbing alcohol in the freezer. (You'll need it later.)",
-      order_number: 1)
-  Instruction.create!(experiment_id: experiment.id,
-      information: "Mix the salt, water, and Dawn detergent in a glass or small
-          bowl. Set the mixture aside. This is your extraction liquid.",
-      order_number: 2)
-  Instruction.create!(experiment_id: experiment.id,
-      information: "Line the funnel with the cheesecloth, and put the funnel's
-          tube into the glass.",
-      order_number: 3)
-
-
-experiment_two = Experiment.create!(user_id: user_two.id, name: "How To Make A Spark",
-    description: " A lightning bolt is basically a dramatic display of static electricity
-        in action. You see lightning when a spark of moving electrons races up or
-        down between a cloud and the ground.",
-    youtube_link: "https://www.youtube.com/watch?v=XtE0uXGMC-0", complete_time: 1)
-
-  Material.create!(experiment_id: experiment_two.id, item: "pencil with erasser")
-  Material.create!(experiment_id: experiment_two.id, item: "aluminum tray")
-  Material.create!(experiment_id: experiment_two.id, item: "wool cloth")
-
-  Instruction.create!(experiment_id: experiment_two.id,
-      information: "Stick a pushpin through the center of the aluminum tray
-          then stuck the pencil eraser to the pushpin.",
-      order_number: 1)
-  Instruction.create!(experiment_id: experiment_two.id,
-      information: "Vigorously rub the wool on the Styrofoam tray for two minutes.
-          It really takes two solid minutes!",
-      order_number: 2)
-  Instruction.create!(experiment_id: experiment_two.id,
-      information: "Finally, picke up the aluminum tray using the pencil handle
-          and set it on the Styrofoam plate.",
-      order_number: 3)
-
 experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Yeast",
     description: "Does yeast seem alive to you? Well, it is. It just needs warmth
         and sugar to become active. Yeasts are living things that are so small only have
