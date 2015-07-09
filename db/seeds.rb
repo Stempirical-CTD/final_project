@@ -32,7 +32,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   lesson on chemical bonds.",
   lesson: "http://www.colorado.edu/MCEN/flowvis/galleries/2011/Team-1/Reports/Velasquez_Gary.pdf",
   youtube_link: "https://www.youtube.com/watch?v=rqQSlEViNpk", complete_time: 1,
-  name: "Surface Tension and Surfecants")
+  name: "Magic Milk")
 
   mat_one = Material.create!(experiment_id: experiment_two.id, item: "Milk (whole or 2%)")
   mat_two = Material.create!(experiment_id: experiment_two.id, item: "Dinner plate")
