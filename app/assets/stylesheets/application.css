@@ -151,7 +151,7 @@ button {
   background-color: #E8E8E8;
   font-family: 'Raleway', sans-serif;
   color: #333;
-  border_number: 0;
+  border: 0;
   padding: 0.5em;
 }
 
