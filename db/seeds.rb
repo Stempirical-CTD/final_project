@@ -278,4 +278,122 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
       illusion! Even though the two long pipe cleaners are the same length, one
       of them should look shorter than the other.",
         order: 5)
-  
+
+    experiment_eight = Experiment.create!(user_id: user.id,
+      description: "The FLoating Egg",
+      lesson: "https://en.wikipedia.org/wiki/Density",
+      youtube_link: "https://www.youtube.com/watch?v=gfuLoaEYKis", complete_time: 1,
+      name: "The FLoating Egg")
+
+      mat_one = Material.create!(experiment_id: experiment_eight.id, item: "Two dirnking glasses")
+      mat_two = Material.create!(experiment_id: experiment_eight.id, item: "Two raw eggs")
+      mat_three = Material.create!(experiment_id: experiment_eight.id, item: "Table salt")
+      mat_four = Material.create!(experiment_id: experiment_eight.id, item: "Spoon")
+
+      instruction_one = Instruction.create!(experiment_id: experiment_eight.id,
+        information: "Fill one of the drinking glasses almost to the top with
+        plain tap water.", order: 1)
+      instruction_two = Instruction.create!(experiment_id: experiment_eight.id,
+        information: "Gently drop one of the eggs into the water-filled glass.
+        It sinks right to the bottom!",
+          order: 2)
+      instruction_three = Instruction.create!(experiment_id: experiment_eight.id,
+        information: "Fill the second drinking glass half-full with water.",
+          order: 3)
+      instruction_four = Instruction.create!(experiment_id: experiment_eight.id,
+        information: "Add four tablespoons of table salt to the water, and stir.",
+          order: 4)
+      instruction_five = Instruction.create!(experiment_id: experiment_eight.id,
+        information: "Fill the rest of the cup with water, almost to the top.",
+          order: 5)
+      instruction_six = Instruction.create!(experiment_id: experiment_eight.id,
+        information: "Gently place the second egg into the salt water solution… it floats!",
+          order: 6)
+
+
+
+
+  experiment_nine = Experiment.create!(user_id: user.id,
+    description: "Drops on a Penny",
+    lesson: "https://www.scienceworld.ca/resources/activities/drops-penny",
+    youtube_link: "https://www.youtube.com/watch?v=XQbr9Ic8_hA", complete_time: 1,
+    name: "Drops on a Penny")
+
+    mat_one = Material.create!(experiment_id: experiment_nine.id, item: "A Penny")
+    mat_two = Material.create!(experiment_id: experiment_nine.id, item: "An eyedropper")
+    mat_three = Material.create!(experiment_id: experiment_nine.id, item: "Water")
+    mat_four = Material.create!(experiment_id: experiment_nine.id, item: "mineral/baby/olive oil")
+    mat_five = Material.create!(experiment_id: experiment_nine.id, item: "corn syrup")
+
+
+    instruction_one = Instruction.create!(experiment_id: experiment_nine.id,
+      information: "Place a penny on a table or desk.", order: 1)
+    instruction_two = Instruction.create!(experiment_id: experiment_nine.id,
+      information: "Holding the eyedropper close to the surface of the penny,
+      carefully squeeze water droplets onto the penny, one at a time. The droplets
+      should pool up on the penny, creating a big droplet of water.
+      Get the students to count the drops.",
+        order: 2)
+    instruction_three = Instruction.create!(experiment_id: experiment_nine.id,
+      information: "Stop squeezing when the droplet on the penny breaks up and
+       overflows. The count is the number of drops that the penny could hold
+       before the one that caused the penny to overflow.",
+        order: 3)
+    instruction_four = Instruction.create!(experiment_id: experiment_nine.id,
+      information: "Wipe off the penny or use a new one.",
+        order: 4)
+    instruction_five = Instruction.create!(experiment_id: experiment_nine.id,
+      information: "As before, gradually add drops of oil or syrup to the
+      surface of the penny using the eyedropper. Count the drops.",
+        order: 5)
+
+
+
+
+  experiment_ten = Experiment.create!(user_id: user.id,
+    description: "Hot Air balloon",
+    lesson: "http://www.eballoon.org/balloon/how-it-works.html",
+    youtube_link: "https://www.youtube.com/watch?v=sMeOv_Z-_ic", complete_time: 1,
+    name: "Go up and away with this homemade hot air balloon")
+
+    mat_one = Material.create!(experiment_id: experiment_ten.id, item: "Large lawn garbage bags")
+    mat_two = Material.create!(experiment_id: experiment_ten.id, item: "dry cleaning bags")
+    mat_three = Material.create!(experiment_id: experiment_ten.id, item: "straws")
+    mat_four = Material.create!(experiment_id: experiment_ten.id, item: "coat hangers")
+    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "string")
+    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "scotch tape")
+    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "hairdryer")
+
+
+    instruction_one = Instruction.create!(experiment_id: experiment_ten.id,
+      information: "Can you make a hot air balloon? It doesn't have to carry
+      people, but it has to go high.", order: 1)
+    instruction_two = Instruction.create!(experiment_id: experiment_ten.id,
+      information: "You can use garbage bags, dry cleaning or shopping bags,
+      straws, coat hangers, string, and scotch tape. Use a hairdryer to create
+      hot air. Before you start, make sure to get permission from an adult to use
+      the hairdryer.",
+        order: 2)
+
+  experiment_eleven = Experiment.create!(user_id: user_two.id, name: "How To Make A Spark",
+    description: " A lightning bolt is basically a dramatic display of static electricity
+        in action. You see lightning when a spark of moving electrons races up or
+        down between a cloud and the ground.",
+    youtube_link: "https://www.youtube.com/watch?v=XtE0uXGMC-0", complete_time: 1)
+
+  Material.create!(experiment_id: experiment_eleven.id, item: "pencil with eraser")
+  Material.create!(experiment_id: experiment_eleven.id, item: "aluminum tray")
+  Material.create!(experiment_id: experiment_eleven.id, item: "wool cloth")
+
+  Instruction.create!(experiment_id: experiment_eleven.id,
+      information: "Stick a pushpin through the center of the aluminum tray
+          then stuck the pencil eraser to the pushpin.",
+      order_number: 1)
+  Instruction.create!(experiment_id: experiment_eleven.id,
+      information: "Vigorously rub the wool on the Styrofoam tray for two minutes.
+          It really takes two solid minutes!",
+      order_number: 2)
+  Instruction.create!(experiment_id: experiment_eleven.id,
+      information: "Finally, picke up the aluminum tray using the pencil handle
+          and set it on the Styrofoam plate.",
+      order_number: 3)

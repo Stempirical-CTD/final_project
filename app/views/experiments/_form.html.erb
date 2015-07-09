@@ -11,12 +11,8 @@
     </div>
   <% end %>
 
-<div class="experiment">
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_area :name %>
-  </div>
 
+<<<<<<< HEAD
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
@@ -55,30 +51,85 @@
       </li>
       <button type="button" class="add-material-btn">+</button>
     <% end %>
+=======
+<div class="experiment">
+  <ul id="tabs">
+      <li class="active">Basics</li>
+      <li>Materials</li>
+      <li>Instructions</li>
+>>>>>>> 1ab3eafccd6c3dacdde1af0af38967233cd83489
   </ul>
-
-  <h3>Instructions</h3>
-  <ul class="unordered-list-instructions">
-    <%= f.fields_for(:instructions) do |ff| %>
-      <li>
-      <div class="instruction-fields">
-        <div class="field instruction">
-          <%= ff.label :information %><br>
-          <%= ff.text_field :information, :class=> "new-instruction" %>
-        </div>
-        <div class="field">
-          <%= ff.label :order %><br>
-          <%= ff.number_field :order %>
-        </div>
-      </div>
+  
+  <ul id="tab">
+      <li class="active">
+          <div class="form-container">
+            <div class="field">
+              <%= f.label :name %><br>
+              <%= f.text_area :name, :cols => 100, :rows => 3 %>
+            </div>
+          
+            <div class="field">
+              <%= f.label :description %><br>
+              <%= f.text_area :description, :cols => 100, :rows => 3 %>
+            </div>
+            
+            <div class="field">
+              <%= f.label :uploaded_file %><br>
+              <%= f.file_field 'uploaded_file', id: 'pictureInput', :rows => 3 %>
+            </div>
+            
+            <div id="target">
+            </div>
+            
+            <div class="field">
+              <%= f.label :youtube_link %><br>
+              <%= f.url_field :youtube_link, :rows => 3%>
+            </div>
+            
+            <div class="field">
+              <%= f.label :complete_time %><br>
+              <%= f.number_field(:complete_time, in: 0.5..20.0, step: 0.5) %> hours
+            </div>
+          </div>  
       </li>
-      <button type="button" class="add-instruction-btn">+</button>
-    <% end %>
+      
+      <li>
+          <ul class="unordered-list-materials">
+            <%= f.fields_for(:materials) do |ff| %>
+              <li>
+                <div class="field material">
+                  <%= ff.label :item %><br>
+                  <%= ff.text_field :item, :class=> "new-material" %>
+                </div>
+              </li>
+              <button type="button" class="add-material-btn"><i class="fa fa-plus"></i></button>
+            <% end %>
+          </ul>
+      </li>
+      
+      <li>
+          <ul class="unordered-list-instructions">
+            <%= f.fields_for(:instructions) do |ff| %>
+              <li>
+              <div class="instruction-fields">
+                <div class="field instruction">
+                  <%= ff.label :information %><br>
+                  <%= ff.text_field :information, :class=> "new-instruction" %>
+                </div>
+                <div class="field">
+                  <%= ff.label :order %><br>
+                  <%= ff.number_field :order %>
+                </div>
+              </div>
+              </li>
+              <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i></button>
+            <% end %>
+            
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          </ul>
   </ul>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
+  
 <% end %>
 </div>

@@ -76,6 +76,6 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
 
 <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
 <%= link_to 'Back', root_path %> |
-<% if current_user.id == @experiment.user_id %>
+<% if user_signed_in? == true && current_user.id == @experiment.user_id %>
   <%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>
