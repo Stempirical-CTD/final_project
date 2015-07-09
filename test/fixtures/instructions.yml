@@ -3,9 +3,9 @@
 one:
   experiment_id: 1
   information: MyText
-  order: 1
+  order_number: 1
 
 two:
   experiment_id: 1
   information: MyText
-  order: 2
+  order_number: 2

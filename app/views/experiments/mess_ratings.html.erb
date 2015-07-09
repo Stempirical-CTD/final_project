@@ -15,7 +15,7 @@
         <% end %>
         Instructions<br>
         <% experiment.instructions.each do |instruction| %>
-          <%= instruction.order %> | <%= instruction.information %><br>
+          <%= instruction.order_number %> | <%= instruction.information %><br>
         <% end %><br>
         <div class="exp-img">
           <% if experiment.uploaded_file_file_name != nil %>
