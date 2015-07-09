@@ -42,11 +42,11 @@
 }
 
 .exp-title {
-	transition: all .2s ease-in-out; 
+	transition: all .2s ease-in-out;
 }
 
-.exp-title:hover { 
-	transform: scale(1.05); 
+.exp-title:hover {
+	transform: scale(1.05);
 }
 
 .exp-heading {
@@ -60,7 +60,7 @@
 	position: relative;
 	float: right;
 	line-height: 1.6em;
-	margin: 0 0.5%;	
+	margin: 0 0.5%;
 	height: 20em;
 	width: 63%;
 }
@@ -73,7 +73,7 @@
 	box-shadow: -0 0 10px #CCC;
 }
 
-// create experiment view tab navigation 
+// create experiment view tab navigation
 
 ul#tabs {
     list-style-type: none;
@@ -87,15 +87,15 @@ ul#tabs li {
     padding: 5px 20px;
     color: #323232;
     cursor: pointer;
-	border_number-bottom: solid 3px #F2F3F4;
+	border-bottom: solid 3px #F2F3F4;
 }
 ul#tabs li:hover {
     background-color: #E8E8E8;
-	border_number-bottom: solid 3px #E8E8E8;
+	border-bottom: solid 3px #E8E8E8;
 }
 ul#tabs li.active {
-	border_number-bottom: solid 3px #323232;
-	transition: all 0.2s ease-in-out; 
+	border-bottom: solid 3px #323232;
+	transition: all 0.2s ease-in-out;
 }
 ul#tab {
     list-style-type: none;
