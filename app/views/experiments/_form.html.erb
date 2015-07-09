@@ -12,11 +12,52 @@
   <% end %>
 
 
+<<<<<<< HEAD
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :uploaded_file %><br>
+    <%= f.file_field 'uploaded_file', id: 'pictureInput' %>
+  </div>
+  <div id="target">
+  </div>
+  <div class="field">
+    <%= f.label :youtube_link %><br>
+    <%= f.url_field :youtube_link %>
+  </div>
+  <div class="field">
+    <%= f.label :complete_time %><br>
+    <%= f.number_field(:complete_time, in: 0.5..20.0, step: 0.5) %> hours
+  </div>
+
+  <div class="field">
+    <%= f.label "Age" %><br>
+    <%= f.select :age, options_for_select({"Under 3" => 1, "4-6" => 2, "7-9" => 3, "10 & up" => 4}), :prompt => 'Select One', :class => 'genForm_dropBox' %>
+
+  </div>
+
+
+
+  <h3>Materials</h3>
+  <ul class="unordered-list-materials">
+    <%= f.fields_for(:materials) do |ff| %>
+      <li>
+        <div class="field material">
+          <%= ff.label :item %><br>
+          <%= ff.text_field :item, :class=> "new-material" %>
+        </div>
+      </li>
+      <button type="button" class="add-material-btn">+</button>
+    <% end %>
+=======
 <div class="experiment">
   <ul id="tabs">
       <li class="active">Basics</li>
       <li>Materials</li>
       <li>Instructions</li>
+>>>>>>> 1ab3eafccd6c3dacdde1af0af38967233cd83489
   </ul>
   
   <ul id="tab">

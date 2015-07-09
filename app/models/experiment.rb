@@ -37,6 +37,16 @@ class Experiment < ActiveRecord::Base
     (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
   end
 
+
+  # def age
+  #   #list by age  in the view page by the key and not the value
+  # end
+  #
+  # # def self.order_by_age
+  # #   ages.values.sort { |k,v| v[] }
+  # # end
+
+
   def s3_credentials
     {:bucket => "stempirical",
         :access_key_id => ENV["AMS3_ID"],
