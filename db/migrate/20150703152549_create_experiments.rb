@@ -3,9 +3,10 @@ class CreateExperiments < ActiveRecord::Migration
     create_table :experiments do |t|
       t.integer :user_id
       t.text :description
-      t.text :lesson
       t.text :youtube_link
       t.float :complete_time
+      t.string :name
+      t.integer :age
 
       t.timestamps null: false
     end

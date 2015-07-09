@@ -68,6 +68,6 @@ class InstructionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instruction_params
-      params.require(:instruction).permit(:experiment_id, :information, :order)
+      params.require(:instruction).permit(:experiment_id, :information, :order_number)
     end
 end

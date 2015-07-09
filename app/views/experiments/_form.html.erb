@@ -94,7 +94,7 @@
       </li>
       
       <li>
-          <ul class="unordered-list-materials">
+          <ul class="unorder_numbered-list-materials">
             <%= f.fields_for(:materials) do |ff| %>
               <li>
                 <div class="field material">
@@ -108,7 +108,7 @@
       </li>
       
       <li>
-          <ul class="unordered-list-instructions">
+          <ul class="unorder_numbered-list-instructions">
             <%= f.fields_for(:instructions) do |ff| %>
               <li>
               <div class="instruction-fields">
@@ -117,8 +117,8 @@
                   <%= ff.text_field :information, :class=> "new-instruction" %>
                 </div>
                 <div class="field">
-                  <%= ff.label :order %><br>
-                  <%= ff.number_field :order %>
+                  <%= ff.label :order_number %><br>
+                  <%= ff.number_field :order_number %>
                 </div>
               </div>
               </li>

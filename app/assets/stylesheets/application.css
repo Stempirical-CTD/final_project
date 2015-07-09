@@ -58,7 +58,7 @@ form {
 input {
     display: inline-block;
     font-family: 'Raleway', sans-serif;
-    border: 0.1em solid #323232;
+    border_number: 0.1em solid #323232;
     font-size: 1em;
     margin: 1em 0.5em;
     outline-color: #DFF5D1; 
@@ -118,7 +118,7 @@ a {
 .nav-tab, .new-exp {
   background-color: #E8E8E8;
   color: #333;
-  border: 0;
+  border_number: 0;
   padding: 0.5em;
   font-size: 1em;
   font-weight: bold;
@@ -151,7 +151,7 @@ button {
   background-color: #E8E8E8;
   font-family: 'Raleway', sans-serif;
   color: #333;
-  border: 0;
+  border_number: 0;
   padding: 0.5em;
 }
 
@@ -159,7 +159,7 @@ button {
 
 .new-material {
     position: relative;
-    border: 0.07em solid #323232;
+    border_number: 0.07em solid #323232;
     float: left;
     font-size: 1em;
     margin: 0;

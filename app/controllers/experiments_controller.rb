@@ -1,5 +1,5 @@
 class ExperimentsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show, :vote, :mess_ratings]
+  before_filter :authenticate_user!, except: [:index, :show, :vote, :mess_ratings, :complete_time_rating]
   before_action :set_experiment, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /experiments
@@ -9,7 +9,7 @@ class ExperimentsController < ApplicationController
   end
 
   def mess_ratings
-    @experiments = Experiment.order_by_mess
+    @experiments = Experiment.order_number_by_mess
   end
 
   def complete_time_rating
@@ -92,7 +92,8 @@ class ExperimentsController < ApplicationController
 
           materials_attributes: [:id, :experiment_id, :item],
 
-          instructions_attributes: [:id, :experiment_id, :information, :order],
+          instructions_attributes: [:id, :experiment_id, :information, :order_number],
+
           experiment_votes: [:id, :value, :experiment_id])
     end
 end

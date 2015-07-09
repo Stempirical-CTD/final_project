@@ -36,7 +36,7 @@ Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate'
 <p>
   <strong>Instructions:</strong><br>
   <% @experiment.instructions.each do |instruction| %>
-    <%= instruction.order %> | <%= instruction.information %><br>
+    <%= instruction.order_number %> | <%= instruction.information %><br>
   <% end %>
 </p>
 <% if @experiment.uploaded_file_file_name != nil %>
