@@ -14,19 +14,20 @@ experiment_one = Experiment.create!(user_id: user.id,
   mat_three = Material.create!(experiment_id: experiment_one.id, item:
     "dark colored food dye (red, blue or gree are best)")
 
-  instruction_one = Instruction.create!(experiment_id: experiment_one.id,
+  Instruction.create!(experiment_id: experiment_one.id,
     information:"The three drinking glasses each must contain water at
       different temperatures. One needs to be cold, the second room temperature
-      (straight from the tap) and the third needs to be very hot. Place all three
-      glasses of water next to each other on a bench. Wait until the water in all
-      three glasses appears still. Then, as quickly as possible, ass two drops of
-      the food dye to each glass. For the best effect, the dye should be added to
-      the cold glass first, then the room temperature glass and last to the hot
-      water glass. It is also best to add the food dye with minimal splashing so
-      that the food dye entering the water is a minimal source of disturbance.
-      That said, it is best for your child to add the food dye herself as this
-      increases her involvement and will make the results far more interesting.",
+      (straight from the tap) and the third needs to be very hot.",
       order_number: 1)
+  Instruction.create!(experiment_id: experiment_one.id,
+    information: "Place all three glasses of water next to each other on a bench.
+        Wait until the water in all three glasses appears still.", order_number: 2)
+  Instruction.create!(experiment_id: experiment_one.id,
+    information: "Then, as quickly as possible, place two drops of the food dye
+        to each glass. For the best effect, the dye should be added to the cold
+        glass first, then the room temperature glass and last to the hot water glass.
+        It is also best to add the food dye with minimal splashing so that the food
+        dye entering the water is a minimal source of disturbance.", order_number: 3)
 
 experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   lesson on chemical bonds.",
@@ -608,3 +609,54 @@ experiment_nineteen = Experiment.create!(user_id: user_two.id, name: "Solar Oven
     information: "To take food out of the oven, open up the lid of the pizza box,
     and using oven mitts or potholders, lift the glass dish out of the oven.",
     order_number: 8)
+
+concept_one = Concept.create!(name: "Human Body")
+concept_two = Concept.create!(name: "Design & Build")
+concept_three = Concept.create!(name: "DNA")
+concept_four = Concept.create!(name: "Molecular Behavior")
+concept_five = Concept.create!(name: "Electricity")
+concept_six = Concept.create!(name: "Liquids")
+concept_seven = Concept.create!(name: "Gases")
+concept_eight = Concept.create!(name: "Water Cycle")
+concept_nine = Concept.create!(name: "Chemical Reactions")
+concept_ten = Concept.create!(name: "Energy")
+concept_eleven = Concept.create!(name: "Periodic Table")
+
+#Human Body Relationships
+ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_three.id)
+ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_four.id)
+ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_two.id)
+
+#Molecular Behavior
+ConceptRelationship.create!(parent_id: concept_four.id, child_id: concept_five.id)
+ConceptRelationship.create!(parent_id: concept_four.id, child_id: concept_ten.id)
+ConceptRelationship.create!(parent_id: concept_four.id, child_id: concept_nine.id)
+ConceptRelationship.create!(parent_id: concept_four.id, child_id: concept_six.id)
+ConceptRelationship.create!(parent_id: concept_four.id, child_id: concept_seven.id)
+
+#liquids
+ConceptRelationship.create!(parent_id: concept_six.id, child_id: concept_nine.id)
+ConceptRelationship.create!(parent_id: concept_six.id, child_id: concept_eight.id)
+
+#Gases
+ConceptRelationship.create!(parent_id: concept_seven.id, child_id: concept_eight.id)
+
+#Chemical Reactions
+ConceptRelationship.create!(parent_id: concept_nine.id, child_id: concept_eleven.id)
+
+experiment_one.concepts << concept_four #water color in cups
+experiment_two.concepts << concept_nine #magic milk
+experiment_three.concepts << concept_eleven #Cleaning pennies
+experiment_four.concepts << concept_nine #inflate a balloon
+experiment_five.concepts << concept_three #Strawberry DNA
+experiment_six.concepts << concept_two #Mechanical Grabber
+experiment_seven.concepts << concept_one #Arrows Optical Illusion
+experiment_eight.concepts << concept_six #Floating Egg
+experiment_nine.concepts << concept_six #Drops on a Penny
+experiment_ten.concepts << concept_seven #Air Balloon
+experiment_eleven.concepts << concept_five #Make a Spark
+experiment_fifteen.concepts << concept_nine #Yeast
+experiment_sixteen.concepts << concept_nine #Soap Powered Boat
+experiment_seventeen.concepts << concept_eight #Solar Still
+experiment_eighteen.concepts << concept_five #Static Electricity
+experiment_nineteen.concepts << concept_ten #Solar Oven
