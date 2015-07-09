@@ -28,41 +28,51 @@
 // all experiments page
 
 .page-title {
-	margin-left: 4em;
+	display: block;
+	margin: 0 auto 0.5em;
+	width: 100%;
+	text-align: center;
 }
 
 .experiment-card {
 	display: block;
-	width: 80%;
+	width: 60%;
 	height: 18em;
 	background-color: #F2F3F4;
-  	box-shadow: -0 0 20px #ccc;
-	margin: 1em auto;
+  	box-shadow: -0 0 10px #ccc;
+	margin: 0 auto 1em;
 	padding: 1em;
 }
 
 .exp-title {
 	transition: all .2s ease-in-out;
+	margin: 1em 0;
 }
 
 .exp-title:hover {
 	transform: scale(1.05);
 }
 
-.exp-heading {
-	font-weight: bold;
-	padding: 0;
-	margin: 0;
+.exp-min-detail {
+	position: relative;
+	line-height: 1.6em;
+	margin: 0 5%;
+	height: 20em;
 }
 
-.exp-min-detail {
-	display: inline-block;
-	position: relative;
+.exp-ratings {
+	font-weight: bold;
+	padding: 0;
 	float: right;
-	line-height: 1.6em;
-	margin: 0 0.5%;
-	height: 20em;
-	width: 63%;
+	text-align: right;
+	margin: 0.5em 0;
+}
+
+.concept-icon {
+	float: left;
+	margin: 1em 0 1em 1em;
+	font-size: 5em;
+	width: 20%;
 }
 
 .image {
