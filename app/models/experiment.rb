@@ -53,8 +53,8 @@ class Experiment < ActiveRecord::Base
         :secret_access_key => ENV["AMS3_KEY"]}
   end
 
-  def find_parent_concepts(experiment)
-    experiment.concepts
+  def find_parent_concepts
+    self.concepts
   end
 
   def find_children_concepts(experiment)
