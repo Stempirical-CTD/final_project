@@ -6,7 +6,6 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
 experiment_one = Experiment.create!(user_id: user.id,
   description: "This water science experiment demonstrates the degree of motion
     of water molecules at different temperatures.",
-  lesson: "https://en.wikipedia.org/wiki/Brownian_motion",
   youtube_link: "https://www.youtube.com/watch?v=iTbEmvdzvxg", complete_time: 1, name: "Brownian Motion",
   concept: "Molecular Behavior")
 
@@ -139,7 +138,6 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_five = Experiment.create!(user_id: user.id,
     description: "How do scientists take DNA out of a living thing? It's not
     that hard—there are lots of ways to do it!",
-    lesson: "https://en.wikipedia.org/wiki/Plant_genetics",
     youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 1.5,
     name: "Extracting Strawberry DNA", concept: "DNA")
      mat_one = Material.create!(experiment_id: experiment_five.id, item: "Strawberry")
@@ -254,7 +252,6 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_seven = Experiment.create!(user_id: user.id,
     description: "Arrows Optical Illusion",
-    lesson: " ",
     youtube_link: "https://www.youtube.com/watch?v=eN-DB_XuhRs", complete_time: 1,
     name: "Arrows Optical Illusion", concept: "Human Body")
 
@@ -285,7 +282,6 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
     experiment_eight = Experiment.create!(user_id: user.id,
       description: "The FLoating Egg",
-      lesson: "https://en.wikipedia.org/wiki/Density",
       youtube_link: "https://www.youtube.com/watch?v=gfuLoaEYKis", complete_time: 1,
       name: "The FLoating Egg", concept: "Liquids")
 
@@ -319,7 +315,6 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_nine = Experiment.create!(user_id: user.id,
     description: "Drops on a Penny",
-    lesson: "https://www.scienceworld.ca/resources/activities/drops-penny",
     youtube_link: "https://www.youtube.com/watch?v=XQbr9Ic8_hA", complete_time: 1,
     name: "Drops on a Penny", concept: "Liquids")
 
@@ -617,12 +612,34 @@ experiment_nineteen = Experiment.create!(user_id: user_two.id, name: "Solar Oven
     and using oven mitts or potholders, lift the glass dish out of the oven.",
     order_number: 8)
 
-concept_one = Concept.create!(name: "Human Body")
-concept_two = Concept.create!(name: "Design & Build")
-concept_three = Concept.create!(name: "DNA")
-concept_four = Concept.create!(name: "Molecular Behavior")
-concept_five = Concept.create!(name: "Electricity")
-concept_six = Concept.create!(name: "Liquids")
+concept_one = Concept.create!(name: "Human Body",
+description_link: "https://faculty.washington.edu/chudler/chvision.html",
+video_link: "https://www.youtube.com/watch?v=B5LbmZG1DNM")
+
+concept_two = Concept.create!(name: "Design & Build",
+description_link: "http://whatisengineering.com/",
+video_link: "https://www.youtube.com/watch?v=NUuWXqRJmns")
+
+concept_three = Concept.create!(name: "DNA",
+description_link: "https://simple.wikipedia.org/wiki/DNA",
+"https://en.wikipedia.org/wiki/Plant_genetics",
+video_link: "https://www.youtube.com/watch?v=zwibgNGe4aY")
+
+concept_four = Concept.create!(name: "Molecular Behavior",
+description_link: "https://en.wikipedia.org/wiki/Brownian_motion",
+video_link: "https://www.youtube.com/watch?v=4m5JnJBq2AU",
+"https://www.youtube.com/watch?v=N82KqCfVlZE")
+
+concept_five = Concept.create!(name: "Electricity",
+description_link: "http://www.sciencemadesimple.com/static.html",
+video_link: "https://www.youtube.com/watch?v=yc2-363MIQs")
+
+concept_six = Concept.create!(name: "Liquids",
+description_link: "https://en.wikipedia.org/wiki/Density",
+"http://study.com/academy/lesson/cohesion-in-water-definition-example-quiz.html",
+video_link: "https://www.youtube.com/watch?v=UukRgqzk-KE",
+"https://www.youtube.com/watch?v=HVT3Y3_gHGg")
+
 concept_seven = Concept.create!(name: "Gases")
 concept_eight = Concept.create!(name: "Water Cycle")
 concept_nine = Concept.create!(name: "Chemical Reactions")
