@@ -20,7 +20,7 @@ class Experiment < ActiveRecord::Base
   has_many :instructions, dependent: :destroy
   accepts_nested_attributes_for :instructions
 
-  validates :description, :complete_time, :name, :concept, presence: true
+  validates :description, :complete_time, :name, presence: true
   validates_format_of :youtube_link,
       :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
       :on => :create
@@ -53,11 +53,5 @@ class Experiment < ActiveRecord::Base
         :secret_access_key => ENV["AMS3_KEY"]}
   end
 
-  def find_parent_concepts
 
-  end
-
-  def find_children_concepts(experiment)
-
-  end
 end

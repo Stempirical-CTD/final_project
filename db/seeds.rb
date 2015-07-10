@@ -278,7 +278,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
     experiment_eight = Experiment.create!(user_id: user.id,
       description: "The FLoating Egg",
       youtube_link: "https://www.youtube.com/watch?v=gfuLoaEYKis", complete_time: 1,
-      name: "The FLoating Egg", concept: "Liquids")
+      name: "The FLoating Egg")
 
       mat_one = Material.create!(experiment_id: experiment_eight.id, item: "Two dirnking glasses")
       mat_two = Material.create!(experiment_id: experiment_eight.id, item: "Two raw eggs")
@@ -533,8 +533,7 @@ experiment_nineteen = Experiment.create!(user_id: user_two.id, name: "Solar Oven
         fry an egg on the sidewalk? Have you ever wondered if it's true? Find out with
         this easy, fun, and delicious solar oven science project that uses only household
         items and a pizza box. Plus, learn about absorption, insulation, and the sun's energy.",
-    youtube_link: "https://www.youtube.com/watch?v=xZJmz_tF4NU", complete_time: 2,
-    concept: "Energy")
+    youtube_link: "https://www.youtube.com/watch?v=xZJmz_tF4NU", complete_time: 2)
 
   Material.create!(experiment_id: experiment_nineteen.id, item: "Cardboard pizza
       box (the kind delivered pizza comes in")
