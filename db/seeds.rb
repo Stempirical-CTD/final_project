@@ -676,7 +676,7 @@ experiment_six.concepts << concept_two #Mechanical Grabber
 experiment_seven.concepts << concept_one #Arrows Optical Illusion
 experiment_eight.concepts << concept_six #Floating Egg
 experiment_nine.concepts << concept_six #Drops on a Penny
-experiment_ten.concepts << concept_seven #Air Balloon
+experiment_ten.concepts << concept_seven << concept_two #Hot Air Balloon
 experiment_eleven.concepts << concept_five #Make a Spark
 experiment_fifteen.concepts << concept_nine #Yeast
 experiment_sixteen.concepts << concept_nine #Soap Powered Boat
