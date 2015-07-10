@@ -6,33 +6,32 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
 experiment_one = Experiment.create!(user_id: user.id,
   description: "This water science experiment demonstrates the degree of motion
     of water molecules at different temperatures.",
-  lesson: "https://en.wikipedia.org/wiki/Brownian_motion",
-  youtube_link: "https://www.youtube.com/watch?v=iTbEmvdzvxg", complete_time: 1, name: "Brownian Motion")
+  youtube_link: "https://www.youtube.com/watch?v=iTbEmvdzvxg", complete_time: 1, name: "Colored Water")
 
   mat_one = Material.create!(experiment_id: experiment_one.id, item: "three clear drinking glasses")
   mat_two = Material.create!(experiment_id: experiment_one.id, item: "hot water")
   mat_three = Material.create!(experiment_id: experiment_one.id, item:
-    "dark colored food dye (red, blue or gree are best)")
+    "dark colored food dye (red, blue or green are best).")
 
-  instruction_one = Instruction.create!(experiment_id: experiment_one.id,
+  Instruction.create!(experiment_id: experiment_one.id,
     information:"The three drinking glasses each must contain water at
       different temperatures. One needs to be cold, the second room temperature
-      (straight from the tap) and the third needs to be very hot. Place all three
-      glasses of water next to each other on a bench. Wait until the water in all
-      three glasses appears still. Then, as quickly as possible, ass two drops of
-      the food dye to each glass. For the best effect, the dye should be added to
-      the cold glass first, then the room temperature glass and last to the hot
-      water glass. It is also best to add the food dye with minimal splashing so
-      that the food dye entering the water is a minimal source of disturbance.
-      That said, it is best for your child to add the food dye herself as this
-      increases her involvement and will make the results far more interesting.",
+      (straight from the tap) and the third needs to be very hot.",
       order_number: 1)
+  Instruction.create!(experiment_id: experiment_one.id,
+    information: "Place all three glasses of water next to each other on a bench.
+        Wait until the water in all three glasses appears still.", order_number: 2)
+  Instruction.create!(experiment_id: experiment_one.id,
+    information: "Then, as quickly as possible, place two drops of the food dye
+        to each glass. For the best effect, the dye should be added to the cold
+        glass first, then the room temperature glass and last to the hot water glass.
+        It is also best to add the food dye with minimal splashing so that the food
+        dye entering the water is a minimal source of disturbance.", order_number: 3)
 
 experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   lesson on chemical bonds.",
-  lesson: "http://www.colorado.edu/MCEN/flowvis/galleries/2011/Team-1/Reports/Velasquez_Gary.pdf",
   youtube_link: "https://www.youtube.com/watch?v=rqQSlEViNpk", complete_time: 1,
-  name: "Surface Tension and Surfecants")
+  name: "Magic Milk")
 
   mat_one = Material.create!(experiment_id: experiment_two.id, item: "Milk (whole or 2%)")
   mat_two = Material.create!(experiment_id: experiment_two.id, item: "Dinner plate")
@@ -72,9 +71,8 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_three = Experiment.create!(user_id: user.id,
     description: "Watch old pennies turn bright and shiny right before your eyes!",
-    lesson: "http://www.ehow.com/about_5133409_do-pennies-corrode.html",
     youtube_link: "https://www.youtube.com/watch?v=LYAC7lYC9xY", complete_time: 1,
-    name: "Oxidation of Copper Pennies")
+    name: "Penny Cleaner")
 
     mat_one = Material.create!(experiment_id: experiment_three.id, item: "  20 dull, dirty pennies")
     mat_two = Material.create!(experiment_id: experiment_three.id, item: "1/4 cup white vinegar")
@@ -105,7 +103,6 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_four = Experiment.create!(user_id: user.id,
     description: "Build a balloon inflater.",
-    lesson: " ",
     youtube_link: "https://www.youtube.com/watch?v=t--PRg1kd8g", complete_time: 1,
     name: "Inflating a balloon")
 
@@ -137,9 +134,8 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_five = Experiment.create!(user_id: user.id,
     description: "How do scientists take DNA out of a living thing? It's not
     that hard—there are lots of ways to do it!",
-    lesson: "https://en.wikipedia.org/wiki/Plant_genetics",
     youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 1.5,
-    name: "Extracting Strawberry DNA")
+    name: "Strawberry DNA")
      mat_one = Material.create!(experiment_id: experiment_five.id, item: "Strawberry")
      mat_two = Material.create!(experiment_id: experiment_five.id, item: "Isopropyl alcohol (5 mL)")
      mat_three = Material.create!(experiment_id: experiment_five.id, item: "Dish soap (10 mL)")
@@ -206,7 +202,6 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_six = Experiment.create!(user_id: user.id,
     description: "Pick Up Trash Without Touching It.",
-    lesson: " ",
     youtube_link: "https://www.youtube.com/watch?v=sCoqrc9LAxg", complete_time: 1,
     name: "Machanical Grabber")
 
@@ -252,7 +247,6 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_seven = Experiment.create!(user_id: user.id,
     description: "Arrows Optical Illusion",
-    lesson: " ",
     youtube_link: "https://www.youtube.com/watch?v=eN-DB_XuhRs", complete_time: 1,
     name: "Arrows Optical Illusion")
 
@@ -283,7 +277,6 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
     experiment_eight = Experiment.create!(user_id: user.id,
       description: "The FLoating Egg",
-      lesson: "https://en.wikipedia.org/wiki/Density",
       youtube_link: "https://www.youtube.com/watch?v=gfuLoaEYKis", complete_time: 1,
       name: "The FLoating Egg")
 
@@ -317,7 +310,6 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_nine = Experiment.create!(user_id: user.id,
     description: "Drops on a Penny",
-    lesson: "https://www.scienceworld.ca/resources/activities/drops-penny",
     youtube_link: "https://www.youtube.com/watch?v=XQbr9Ic8_hA", complete_time: 1,
     name: "Drops on a Penny")
 
@@ -353,10 +345,10 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
 
   experiment_ten = Experiment.create!(user_id: user.id,
-    description: "Hot Air balloon",
+    description: "Go up and away with this homemade hot air balloon",
     lesson: "http://www.eballoon.org/balloon/how-it-works.html",
     youtube_link: "https://www.youtube.com/watch?v=sMeOv_Z-_ic", complete_time: 1,
-    name: "Go up and away with this homemade hot air balloon")
+    name: "Hot Air Balloon")
 
     mat_one = Material.create!(experiment_id: experiment_ten.id, item: "Large lawn garbage bags")
     mat_two = Material.create!(experiment_id: experiment_ten.id, item: "dry cleaning bags")
@@ -400,7 +392,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
           and set it on the Styrofoam plate.",
       order_number: 3)
 
-experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Yeast",
+experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Activating Yeast",
     description: "Does yeast seem alive to you? Well, it is. It just needs warmth
         and sugar to become active. Yeasts are living things that are so small only have
         one cell. They can't make their own food. So, if you don't give them food,
@@ -608,3 +600,86 @@ experiment_nineteen = Experiment.create!(user_id: user_two.id, name: "Solar Oven
     information: "To take food out of the oven, open up the lid of the pizza box,
     and using oven mitts or potholders, lift the glass dish out of the oven.",
     order_number: 8)
+
+concept_one = Concept.create!(name: "Human Body",
+description_link: "https://faculty.washington.edu/chudler/chvision.html",
+video_link: "https://www.youtube.com/watch?v=B5LbmZG1DNM")
+
+concept_two = Concept.create!(name: "Design & Build",
+description_link: "http://whatisengineering.com/",
+video_link: "https://www.youtube.com/watch?v=NUuWXqRJmns")
+
+concept_three = Concept.create!(name: "DNA",
+description_link: "https://en.wikipedia.org/wiki/Plant_genetics",
+video_link: "https://www.youtube.com/watch?v=zwibgNGe4aY")
+
+concept_four = Concept.create!(name: "Molecular Behavior",
+description_link: "https://en.wikipedia.org/wiki/Brownian_motion",
+video_link: "https://www.youtube.com/watch?v=4m5JnJBq2AU")
+
+concept_five = Concept.create!(name: "Electricity",
+description_link: "http://www.sciencemadesimple.com/static.html",
+video_link: "https://www.youtube.com/watch?v=yc2-363MIQs")
+
+concept_six = Concept.create!(name: "Liquids",
+description_link: "https://en.wikipedia.org/wiki/Properties_of_water",
+video_link: "https://www.youtube.com/watch?v=HVT3Y3_gHGg")
+
+concept_seven = Concept.create!(name: "Gases",
+description_link: "https://en.wikipedia.org/wiki/Gas",
+video_link: "https://www.youtube.com/watch?v=GIPrsWuSkQc")
+
+concept_eight = Concept.create!(name: "Water Cycle",
+description_link: "https://simple.wikipedia.org/wiki/Water_cycle",
+video_link: "https://www.youtube.com/watch?v=al-do-HGuIk")
+
+concept_nine = Concept.create!(name: "Chemical Reactions",
+description_link: "https://en.wikipedia.org/wiki/Chemical_reaction",
+video_link: "http://chemistry.about.com/od/chemicalreactions/a/reactiontypes.htm")
+
+concept_ten = Concept.create!(name: "Energy",
+description_link:"https://en.wikipedia.org/wiki/Solar_energy",
+video_link: "https://www.youtube.com/watch?v=GqtUWyDR1fg")
+
+concept_eleven = Concept.create!(name: "Periodic Table",
+description_link: "http://www.ehow.com/about_5133409_do-pennies-corrode.html",
+video_link: "https://www.youtube.com/watch?v=uPkEGAHo78o")
+
+#Human Body Relationships
+ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_three.id)
+ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_four.id)
+ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_two.id)
+
+#Molecular Behavior
+ConceptRelationship.create!(parent_id: concept_four.id, child_id: concept_five.id)
+ConceptRelationship.create!(parent_id: concept_four.id, child_id: concept_ten.id)
+ConceptRelationship.create!(parent_id: concept_four.id, child_id: concept_nine.id)
+ConceptRelationship.create!(parent_id: concept_four.id, child_id: concept_six.id)
+ConceptRelationship.create!(parent_id: concept_four.id, child_id: concept_seven.id)
+
+#liquids
+ConceptRelationship.create!(parent_id: concept_six.id, child_id: concept_nine.id)
+ConceptRelationship.create!(parent_id: concept_six.id, child_id: concept_eight.id)
+
+#Gases
+ConceptRelationship.create!(parent_id: concept_seven.id, child_id: concept_eight.id)
+
+#Chemical Reactions
+ConceptRelationship.create!(parent_id: concept_nine.id, child_id: concept_eleven.id)
+
+experiment_one.concepts << concept_four #water color in cups
+experiment_two.concepts << concept_nine #magic milk
+experiment_three.concepts << concept_eleven #Cleaning pennies
+experiment_four.concepts << concept_nine #inflate a balloon
+experiment_five.concepts << concept_three #Strawberry DNA
+experiment_six.concepts << concept_two #Mechanical Grabber
+experiment_seven.concepts << concept_one #Arrows Optical Illusion
+experiment_eight.concepts << concept_six #Floating Egg
+experiment_nine.concepts << concept_six #Drops on a Penny
+experiment_ten.concepts << concept_seven #Air Balloon
+experiment_eleven.concepts << concept_five #Make a Spark
+experiment_fifteen.concepts << concept_nine #Yeast
+experiment_sixteen.concepts << concept_nine #Soap Powered Boat
+experiment_seventeen.concepts << concept_eight #Solar Still
+experiment_eighteen.concepts << concept_five #Static Electricity
+experiment_nineteen.concepts << concept_ten #Solar Oven
