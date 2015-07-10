@@ -611,24 +611,20 @@ description_link: "http://whatisengineering.com/",
 video_link: "https://www.youtube.com/watch?v=NUuWXqRJmns")
 
 concept_three = Concept.create!(name: "DNA",
-description_link: "https://simple.wikipedia.org/wiki/DNA",
-"https://en.wikipedia.org/wiki/Plant_genetics",
+description_link: "https://en.wikipedia.org/wiki/Plant_genetics",
 video_link: "https://www.youtube.com/watch?v=zwibgNGe4aY")
 
 concept_four = Concept.create!(name: "Molecular Behavior",
 description_link: "https://en.wikipedia.org/wiki/Brownian_motion",
-video_link: "https://www.youtube.com/watch?v=4m5JnJBq2AU",
-"https://www.youtube.com/watch?v=N82KqCfVlZE")
+video_link: "https://www.youtube.com/watch?v=4m5JnJBq2AU")
 
 concept_five = Concept.create!(name: "Electricity",
 description_link: "http://www.sciencemadesimple.com/static.html",
 video_link: "https://www.youtube.com/watch?v=yc2-363MIQs")
 
 concept_six = Concept.create!(name: "Liquids",
-description_link: "https://en.wikipedia.org/wiki/Density",
-"http://study.com/academy/lesson/cohesion-in-water-definition-example-quiz.html",
-video_link: "https://www.youtube.com/watch?v=UukRgqzk-KE",
-"https://www.youtube.com/watch?v=HVT3Y3_gHGg")
+description_link: "https://en.wikipedia.org/wiki/Properties_of_water",
+video_link: "https://www.youtube.com/watch?v=HVT3Y3_gHGg")
 
 concept_seven = Concept.create!(name: "Gases",
 description_link: "https://en.wikipedia.org/wiki/Gas",
@@ -639,8 +635,7 @@ description_link: "https://simple.wikipedia.org/wiki/Water_cycle",
 video_link: "https://www.youtube.com/watch?v=al-do-HGuIk")
 
 concept_nine = Concept.create!(name: "Chemical Reactions",
-description_link: "http://www.colorado.edu/MCEN/flowvis/galleries/2011/Team-1/Reports/Velasquez_Gary.pdf",
-"https://en.wikipedia.org/wiki/Chemical_reaction",
+description_link: "https://en.wikipedia.org/wiki/Chemical_reaction",
 video_link: "http://chemistry.about.com/od/chemicalreactions/a/reactiontypes.htm")
 
 concept_ten = Concept.create!(name: "Energy",
@@ -648,8 +643,7 @@ description_link:"https://en.wikipedia.org/wiki/Solar_energy",
 video_link: "https://www.youtube.com/watch?v=GqtUWyDR1fg")
 
 concept_eleven = Concept.create!(name: "Periodic Table",
-description_link: "https://en.wikipedia.org/wiki/Periodic_table",
-"http://www.ehow.com/about_5133409_do-pennies-corrode.html",
+description_link: "http://www.ehow.com/about_5133409_do-pennies-corrode.html",
 video_link: "https://www.youtube.com/watch?v=uPkEGAHo78o")
 
 #Human Body Relationships
