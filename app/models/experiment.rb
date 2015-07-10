@@ -20,7 +20,7 @@ class Experiment < ActiveRecord::Base
   has_many :instructions, dependent: :destroy
   accepts_nested_attributes_for :instructions
 
-  validates :description, :complete_time, :name, presence: true
+  validates :description, :complete_time, :name, :concept, presence: true
   validates_format_of :youtube_link,
       :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
       :on => :create
