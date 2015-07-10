@@ -54,7 +54,7 @@ class Experiment < ActiveRecord::Base
   end
 
   def find_parent_concepts
-    self.concepts
+
   end
 
   def find_children_concepts(experiment)
