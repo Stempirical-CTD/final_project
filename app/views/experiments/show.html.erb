@@ -1,80 +1,92 @@
-<p>
-  <strong>User:</strong>
-  <%= @experiment.user_id %>
-</p>
-<%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
-Messy Rating : <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %><br>
-<p>
-  <strong>Name:</strong>
-  <%= @experiment.name %>
-</p>
-
-<div class="container">
-  <p>
-    <strong>Description:</strong>
-    <%= @experiment.description %>
-  </p>
-
-  <p>
-    <strong>Complete time:</strong>
-    <%= @experiment.complete_time %>
-  </p>
-
-  <p>
-    <strong>Age:</strong>
-    <%= @experiment.age %>
-  </p>
-</div>
-
-<p>
-  <strong>Materials:</strong><br>
-  <% @experiment.materials.each do |material| %>
-    - <%= material.item %><br>
-  <% end %>
-</p>
-
-<p>
-  <strong>Instructions:</strong><br>
-  <% @experiment.instructions.each do |instruction| %>
-    <%= instruction.order_number %> | <%= instruction.information %><br>
-  <% end %>
-</p>
-<% if @experiment.uploaded_file_file_name != nil %>
-  <%= image_tag @experiment.uploaded_file %>
-<% end %>
-<% if @experiment.youtube_link != "" %>
-  <div class="embed-container">
-    <%= embed(@experiment.youtube_link) %>
+<main class="show-container">
+ 
+  <div class="show-ratings">
+  
+  <!--placeholder icon-->
+  <div class="show-concept-icon">
+    <i class="fa fa-sun-o"></i>
+    <a>Learn More about [Concept]</a>
   </div>
+  
+  <% if current_user && current_user.can_vote_for?(@experiment) %> | 
+  <i class="fa fa-thumbs-up"></i><%= link_to "up", vote_experiment_path(@experiment, value: 1), method: "post" %> 
+  <% end %>
+  
+  Submitted By User: 
+  <%= @experiment.user_id %>
+    <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
+    <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
+    <%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %>
+  
+  <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
+  <!-- Please call pinit.js only once per page -->
+  <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
 
-  <p>
-    <strong>Youtube link:</strong>
-    <a href="<%= @experiment.youtube_link %>">Go To Youtube Experiment</a><br>
-  </p>
-<% end %>
-<em>
-  -- <%= @experiment.user.username %>
-  | <%= pluralize @experiment.votes, "vote" %>
-</em>
+  <i class="fa fa-thumbs-up"></i>
+  <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
+  <%= pluralize @experiment.votes, "like" %>
 
-<% if current_user && current_user.can_vote_for?(@experiment) %>
-  | <%= link_to "up", vote_experiment_path(@experiment, value: 1), method: "post" %>
-<% end %><br>
+  <h4 class="show-exp-heading">Age:</h4>
+  <%= @experiment.age %>
+  
+  Time: <%= @experiment.complete_time %> hour(s) 
+    
+  Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %> <i class="fa fa-recycle"></i> | 
+       
+    
+  </div>
+  
+  <div class="show-basics">
+    <h3 class="page-title"><%= @experiment.name %></h3>
+    
+    <div class="exp-image">
+      <% if @experiment.uploaded_file_file_name != nil %>
+        <%= image_tag @experiment.uploaded_file %>
+      <% end %>
+    </div>
+  
+    <p class="show-exp-description">
+      <%= @experiment.description %>
+    </p>
+ </div>
+  
+  <div class="instruction-video">
+    <h3>Materials:</h3><br>
+      <% if @experiment.youtube_link != "" %>
+        <div class="embed-container">
+          <%= embed(@experiment.youtube_link) %>
+        </div>
+        <a href="<%= @experiment.youtube_link %>">View on YouTube</a>
+      <% end %>
+  </div>
+  
+  <div class="row3">
+    <div class="show-materials">
+      <h3>Materials:</h3><br>
+      <% @experiment.materials.each do |material| %>
+        - <%= material.item %><br>
+      <% end %>
+    </div>
+    
+    <div class="show-instructions">
+      <h3>Instructions:</h3><br>
+      <% @experiment.instructions.each do |instruction| %>
+        <%= instruction.order_number %> | <%= instruction.information %><br>
+      <% end %>
+    </div>
+  </div>  
+</main>
+  
+  <div class="comments">
+  
+    <div id="all-comments">
+      <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
+    </div>
+    
+     <% if user_signed_in? %>
+      <%= render partial: "comments/form", locals: {commentable: @experiment} %>
+    <% end %>
+    
+  </div>    
 
-<a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
-<!-- Please call pinit.js only once per page -->
-<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
-
-<% if user_signed_in? %>
-  <%= render partial: "comments/form", locals: {commentable: @experiment} %>
-<% end %>
-
-<div id="all-comments">
-  <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
-</div>
-
-<%= link_to 'Edit', edit_experiment_path(@experiment) %> |
-<%= link_to 'Back', root_path %> |
-<% if user_signed_in? == true && current_user.id == @experiment.user_id %>
-  <%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
-<% end %>

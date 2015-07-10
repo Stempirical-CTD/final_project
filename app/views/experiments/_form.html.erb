@@ -15,6 +15,7 @@
 <div class="experiment">
   <ul id="tabs">
       <li class="active">Basics</li>
+      <li>Concepts</li>
       <li>Materials</li>
       <li>Instructions</li>
 
@@ -43,7 +44,7 @@
 
             <div class="field">
               <%= f.label :youtube_link %><br>
-              <%= f.url_field :youtube_link, :rows => 3%>
+              <%= f.url_field :youtube_link, :class => "tutorial-link" %>
             </div>
 
             <div class="field">
@@ -52,9 +53,13 @@
             </div>
           </div>
       </li>
-
+      
+      <li>  
+       <!-- ADD CONCEPT CHECKBOXES HERE! --> 
+      </li>
+      
       <li>
-          <ul class="unorder_numbered-list-materials">
+          <ul class="unordered-list-materials">
             <%= f.fields_for(:materials) do |ff| %>
               <li>
                 <div class="field material">
@@ -62,36 +67,38 @@
                   <%= ff.text_field :item, :class=> "new-material" %>
                 </div>
               </li>
-              <button type="button" class="add-material-btn"><i class="fa fa-plus"></i></button>
             <% end %>
+            
           </ul>
+          <button type="button" class="add-material-btn"><i class="fa fa-plus"></i></button>
       </li>
 
       <li>
-          <ul class="unorder_numbered-list-instructions">
+          <ul class="unordered-list-instructions">
             <%= f.fields_for(:instructions) do |ff| %>
               <li>
               <div class="instruction-fields">
-                <div class="field instruction">
-                  <%= ff.label :information %><br>
-                  <%= ff.text_field :information, :class=> "new-instruction" %>
-                </div>
                 <div class="field">
                   <%= ff.label :order_number %><br>
                   <%= ff.number_field :order_number %>
                 </div>
+                <div class="field instruction">
+                  <%= ff.label :information %><br>
+                  <%= ff.text_field :information, :class=> "new-instruction" %>
+                </div>
               </div>
               </li>
-              <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i></button>
+              
             <% end %>
-      </li>
-            
 
-            <div class="actions">
-              <%= f.submit %>
-            </div>
           </ul>
+          <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i></button>
+          
+          <div class="actions">
+              <%= f.submit %>
+          </div>
+      </li>
   </ul>
-
+  
 <% end %>
 </div>
