@@ -21,7 +21,7 @@
             <div class="exp-ratings">
                 Time: <%= experiment.complete_time %> hour(s) |
                   
-                Mess Factor: <%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %> <i class="fa fa-recycle"></i> | 
+                Mess Factor: <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %> |
                 
                 <i class="fa fa-thumbs-up"></i>
                 <%= pluralize experiment.votes, "like" %>

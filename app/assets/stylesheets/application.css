@@ -58,7 +58,7 @@ form {
 input {
     display: inline-block;
     font-family: 'Raleway', sans-serif;
-    border_number: 0.1em solid #323232;
+    border: 0.1em solid #323232;
     font-size: 1em;
     margin: 1em 0.5em;
     outline-color: #DFF5D1; 
@@ -118,7 +118,7 @@ a {
 .nav-tab, .new-exp {
   background-color: #E8E8E8;
   color: #333;
-  border_number: 0;
+  border: 0;
   padding: 0.5em;
   font-size: 1em;
   font-weight: bold;
@@ -157,15 +157,22 @@ button {
 
 /* add material */
 
-.new-material {
-    position: relative;
-    border_number: 0.07em solid #323232;
-    float: left;
-    font-size: 1em;
-    margin: 0;
-    padding: 0.5em;
-    transition: background 0.3s ease-in-out 0s;
-    width: 300px;
+.new-material li {
+    .material {
+      position: relative;
+      border: 0.07em solid #323232;
+      float: left;
+      font-size: 1em;
+      margin: 0;
+      padding: 0.5em;
+      transition: background 0.3s ease-in-out 0s;
+      width: 300px;
+      z-index: 5;
+  }
+}
+
+.material {
+  z-index: 5;
 }
 
  /*ratings  
@@ -174,3 +181,7 @@ button {
   color: #67AF64;
   margin: 0.5em;
 }*/
+
+.star:hover {
+  cursor: default;
+}
