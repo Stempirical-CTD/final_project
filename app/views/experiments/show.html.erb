@@ -9,8 +9,7 @@
   </div>
   
   <% if current_user && current_user.can_vote_for?(@experiment) %> | 
-  <i class="fa fa-thumbs-up"></i><%= link_to "up", vote_experiment_path(@experiment, value: 1), method: "post" %> | 
-  <i class="fa fa-thumbs-down"></i><%= link_to "down", vote_experiment_path(@experiment, value: -1), method: "post" %> |
+  <i class="fa fa-thumbs-up"></i><%= link_to "up", vote_experiment_path(@experiment, value: 1), method: "post" %> 
   <% end %>
   
   Submitted By User: 
@@ -23,7 +22,6 @@
   <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
   <!-- Please call pinit.js only once per page -->
   <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
-
 
   <i class="fa fa-thumbs-up"></i>
   <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
