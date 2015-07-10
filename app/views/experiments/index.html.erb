@@ -6,26 +6,30 @@
     <% @experiments.each do |experiment| %>
         <br>
      <div class="experiment-card">
-        
+
         <!--placeholder icon-->
         <div class="concept-icon"><i class="fa fa-sun-o"></i>
         </div>
 
         <div class="exp-min-detail">
-            
+
             <h3 class="exp-title"><a><%= link_to experiment.name, experiment %></a><br></h3>
-           
+
             <%= experiment.description %><br>
-        
-            
+
+
             <div class="exp-ratings">
                 Time: <%= experiment.complete_time %> hour(s) |
-                  
-                Mess Factor: <%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %> <i class="fa fa-recycle"></i> | 
-                
+
+                Mess Factor: <%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %>
+                <!-- <div class="star-container"> -->
+                  <div class="star">
+                    : <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_after_rate => true %><br>
+                  </div>
+                <!-- </div> -->
                 <i class="fa fa-thumbs-up"></i>
                 <%= pluralize experiment.votes, "like" %>
            </div>
-        </div>    
+        </div>
      </div>
     <% end %>

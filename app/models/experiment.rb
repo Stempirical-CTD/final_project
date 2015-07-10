@@ -53,11 +53,20 @@ class Experiment < ActiveRecord::Base
         :secret_access_key => ENV["AMS3_KEY"]}
   end
 
-  def find_parent_concepts
-    self.concepts
+  def concept_parents
+    array = []
+    concepts.each do |c|
+      array << c.parents
+    end
+    array.uniq
   end
 
-  def find_children_concepts(experiment)
+  def concept_children
+    array = []
+    concepts.select do |c|
+      array << c.children
+    end
+    array.uniq
 
   end
 end

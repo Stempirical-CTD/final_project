@@ -15,6 +15,9 @@
  */
 
 /* defaults */
+.star:hover {
+  cursor: default;
+}
 
 html {font-size: 1em;}
 
@@ -61,7 +64,7 @@ input {
     border_number: 0.1em solid #323232;
     font-size: 1em;
     margin: 1em 0.5em;
-    outline-color: #DFF5D1; 
+    outline-color: #DFF5D1;
 }
 
 ul {
@@ -168,7 +171,7 @@ button {
     width: 300px;
 }
 
- /*ratings  
+ /*ratings
 
 .fa-star-o, .fa-star-half, .fa-star {
   color: #67AF64;
