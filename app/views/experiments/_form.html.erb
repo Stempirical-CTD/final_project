@@ -44,7 +44,7 @@
 
             <div class="field">
               <%= f.label :youtube_link %><br>
-              <%= f.url_field :youtube_link, :rows => 3%>
+              <%= f.url_field :youtube_link, :class => "tutorial-link" %>
             </div>
 
             <div class="field">
@@ -55,8 +55,9 @@
       </li>
       
       <li>
-         
-
+        
+      </li>
+      
       <li>
           <ul class="unordered-list-materials">
             <%= f.fields_for(:materials) do |ff| %>
@@ -67,8 +68,9 @@
                 </div>
               </li>
             <% end %>
-            <button type="button" class="add-material-btn"><i class="fa fa-plus"></i></button>
+            
           </ul>
+          <button type="button" class="add-material-btn"><i class="fa fa-plus"></i></button>
       </li>
 
       <li>
@@ -76,23 +78,26 @@
             <%= f.fields_for(:instructions) do |ff| %>
               <li>
               <div class="instruction-fields">
-                <div class="field instruction">
-                  <%= ff.label :information %><br>
-                  <%= ff.text_field :information, :class=> "new-instruction" %>
-                </div>
                 <div class="field">
                   <%= ff.label :order_number %><br>
                   <%= ff.number_field :order_number %>
                 </div>
+                <div class="field instruction">
+                  <%= ff.label :information %><br>
+                  <%= ff.text_field :information, :class=> "new-instruction" %>
+                </div>
               </div>
               </li>
-              <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i></button>
+              
             <% end %>
-            
-            <div class="actions">
-              <%= f.submit %>
-            </div>
+           
           </ul>
+          <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i></button>
+          
+          <div class="actions">
+              <%= f.submit %>
+          </div>
+      </li>
   </ul>
   
 <% end %>
