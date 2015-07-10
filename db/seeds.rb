@@ -6,13 +6,12 @@ user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password
 experiment_one = Experiment.create!(user_id: user.id,
   description: "This water science experiment demonstrates the degree of motion
     of water molecules at different temperatures.",
-  youtube_link: "https://www.youtube.com/watch?v=iTbEmvdzvxg", complete_time: 1, name: "Brownian Motion",
-  concept: "Molecular Behavior")
+  youtube_link: "https://www.youtube.com/watch?v=iTbEmvdzvxg", complete_time: 1, name: "Colored Water")
 
   mat_one = Material.create!(experiment_id: experiment_one.id, item: "three clear drinking glasses")
   mat_two = Material.create!(experiment_id: experiment_one.id, item: "hot water")
   mat_three = Material.create!(experiment_id: experiment_one.id, item:
-    "dark colored food dye (red, blue or gree are best).")
+    "dark colored food dye (red, blue or green are best).")
 
   Instruction.create!(experiment_id: experiment_one.id,
     information:"The three drinking glasses each must contain water at
@@ -31,9 +30,8 @@ experiment_one = Experiment.create!(user_id: user.id,
 
 experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   lesson on chemical bonds.",
-  lesson: "http://www.colorado.edu/MCEN/flowvis/galleries/2011/Team-1/Reports/Velasquez_Gary.pdf",
   youtube_link: "https://www.youtube.com/watch?v=rqQSlEViNpk", complete_time: 1,
-  name: "Magic Milk", concept: "Chemical Reactions")
+  name: "Magic Milk")
 
   mat_one = Material.create!(experiment_id: experiment_two.id, item: "Milk (whole or 2%)")
   mat_two = Material.create!(experiment_id: experiment_two.id, item: "Dinner plate")
@@ -73,9 +71,8 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_three = Experiment.create!(user_id: user.id,
     description: "Watch old pennies turn bright and shiny right before your eyes!",
-    lesson: "http://www.ehow.com/about_5133409_do-pennies-corrode.html",
     youtube_link: "https://www.youtube.com/watch?v=LYAC7lYC9xY", complete_time: 1,
-    name: "Oxidation of Copper Pennies", concept: "Periodic Table")
+    name: "Penny Cleaner")
 
     mat_one = Material.create!(experiment_id: experiment_three.id, item: "  20 dull, dirty pennies")
     mat_two = Material.create!(experiment_id: experiment_three.id, item: "1/4 cup white vinegar")
@@ -106,9 +103,8 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_four = Experiment.create!(user_id: user.id,
     description: "Build a balloon inflater.",
-    lesson: " ",
     youtube_link: "https://www.youtube.com/watch?v=t--PRg1kd8g", complete_time: 1,
-    name: "Inflating a balloon", concept: "Chemical Reactions")
+    name: "Inflating a balloon")
 
     mat_one = Material.create!(experiment_id: experiment_four.id, item: "One small empty plastic soda or water bottle")
     mat_two = Material.create!(experiment_id: experiment_four.id, item: "1/2 cup of vinegar")
@@ -139,7 +135,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
     description: "How do scientists take DNA out of a living thing? It's not
     that hard—there are lots of ways to do it!",
     youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 1.5,
-    name: "Extracting Strawberry DNA", concept: "DNA")
+    name: "Strawberry DNA")
      mat_one = Material.create!(experiment_id: experiment_five.id, item: "Strawberry")
      mat_two = Material.create!(experiment_id: experiment_five.id, item: "Isopropyl alcohol (5 mL)")
      mat_three = Material.create!(experiment_id: experiment_five.id, item: "Dish soap (10 mL)")
@@ -206,9 +202,8 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_six = Experiment.create!(user_id: user.id,
     description: "Pick Up Trash Without Touching It.",
-    lesson: " ",
     youtube_link: "https://www.youtube.com/watch?v=sCoqrc9LAxg", complete_time: 1,
-    name: "Machanical Grabber", concept: "Design & Build")
+    name: "Machanical Grabber")
 
     mat_one = Material.create!(experiment_id: experiment_six.id, item: "Wire clothes hanger
      (Use the type with a cardboard tube attached to open-ended wire.)")
@@ -253,7 +248,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_seven = Experiment.create!(user_id: user.id,
     description: "Arrows Optical Illusion",
     youtube_link: "https://www.youtube.com/watch?v=eN-DB_XuhRs", complete_time: 1,
-    name: "Arrows Optical Illusion", concept: "Human Body")
+    name: "Arrows Optical Illusion")
 
     mat_one = Material.create!(experiment_id: experiment_seven.id, item: "Pipe cleaners")
     mat_two = Material.create!(experiment_id: experiment_seven.id, item: "scissors")
@@ -316,7 +311,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_nine = Experiment.create!(user_id: user.id,
     description: "Drops on a Penny",
     youtube_link: "https://www.youtube.com/watch?v=XQbr9Ic8_hA", complete_time: 1,
-    name: "Drops on a Penny", concept: "Liquids")
+    name: "Drops on a Penny")
 
     mat_one = Material.create!(experiment_id: experiment_nine.id, item: "A Penny")
     mat_two = Material.create!(experiment_id: experiment_nine.id, item: "An eyedropper")
@@ -350,10 +345,10 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
 
   experiment_ten = Experiment.create!(user_id: user.id,
-    description: "Hot Air balloon",
+    description: "Go up and away with this homemade hot air balloon",
     lesson: "http://www.eballoon.org/balloon/how-it-works.html",
     youtube_link: "https://www.youtube.com/watch?v=sMeOv_Z-_ic", complete_time: 1,
-    name: "Go up and away with this homemade hot air balloon", concept: "Gases")
+    name: "Hot Air Balloon")
 
     mat_one = Material.create!(experiment_id: experiment_ten.id, item: "Large lawn garbage bags")
     mat_two = Material.create!(experiment_id: experiment_ten.id, item: "dry cleaning bags")
@@ -378,8 +373,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
     description: " A lightning bolt is basically a dramatic display of static electricity
         in action. You see lightning when a spark of moving electrons races up or
         down between a cloud and the ground.",
-    youtube_link: "https://www.youtube.com/watch?v=XtE0uXGMC-0", complete_time: 1,
-    concept: "Electricity")
+    youtube_link: "https://www.youtube.com/watch?v=XtE0uXGMC-0", complete_time: 1)
 
   Material.create!(experiment_id: experiment_eleven.id, item: "pencil with eraser")
   Material.create!(experiment_id: experiment_eleven.id, item: "aluminum tray")
@@ -398,14 +392,13 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
           and set it on the Styrofoam plate.",
       order_number: 3)
 
-experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Yeast",
+experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Activating Yeast",
     description: "Does yeast seem alive to you? Well, it is. It just needs warmth
         and sugar to become active. Yeasts are living things that are so small only have
         one cell. They can't make their own food. So, if you don't give them food,
         they don't become active. It's almost like they're asleep. If you make it warm
         and give them some food they become active.",
-    youtube_link: "https://www.youtube.com/watch?v=odxvp-3nSw4", complete_time: 1.5,
-    concept: "Chemical Reactions")
+    youtube_link: "https://www.youtube.com/watch?v=odxvp-3nSw4", complete_time: 1.5)
 
   Material.create!(experiment_id: experiment_fifteen.id, item: "1 package of yeast")
   Material.create!(experiment_id: experiment_fifteen.id, item: "warm water")
@@ -424,8 +417,7 @@ experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Yeast",
 experiment_sixteen = Experiment.create!(user_id: user.id, name: "Soap Powered Boat",
     description: "Argh, ye landlubbers. Sail the soapy seas with this activity
         full of high and low surface tension.",
-    youtube_link: "https://www.youtube.com/watch?v=qz9hkWhZfRM", complete_time: 1.5,
-    concept: "CHemical Reactions")
+    youtube_link: "https://www.youtube.com/watch?v=qz9hkWhZfRM", complete_time: 1.5)
 
   Material.create!(experiment_id: experiment_sixteen.id, item: "4 Styrofoam plates")
   Material.create!(experiment_id: experiment_sixteen.id, item: "2 Styrofoam bowls")
@@ -464,8 +456,7 @@ experiment_seventeen = Experiment.create!(user_id: user_two.id, name: "Solar Sti
     description: "Water evaporates in the same way from lakes, rivers, and oceans.
         The water heats up, turns into a gas, and then condenses to fall back down
         as rain and.",
-    youtube_link: "https://www.youtube.com/watch?v=m408EZTGD64", complete_time: 2,
-    concept: "Water Cycle")
+    youtube_link: "https://www.youtube.com/watch?v=m408EZTGD64", complete_time: 2)
 
   Material.create!(experiment_id: experiment_seventeen.id, item: "large bowl")
   Material.create!(experiment_id: experiment_seventeen.id, item: "short glass or cup")
@@ -512,8 +503,7 @@ experiment_eighteen = Experiment.create!(user_id: user.id, name: "Static Electri
         fun static electricity experiments. Find out about positively and negatively
         charged particles using a few basic items, can you control if they will be
         attracted or unattracted to each other?",
-    youtube_link: "https://www.youtube.com/watch?v=-w-GoSJpvdw", complete_time: 0.5,
-    concept: "Electricity")
+    youtube_link: "https://www.youtube.com/watch?v=-w-GoSJpvdw", complete_time: 0.5)
 
   Material.create!(experiment_id: experiment_eighteen.id, item: "2 inflated
       balloons with string attached")
@@ -640,11 +630,27 @@ description_link: "https://en.wikipedia.org/wiki/Density",
 video_link: "https://www.youtube.com/watch?v=UukRgqzk-KE",
 "https://www.youtube.com/watch?v=HVT3Y3_gHGg")
 
-concept_seven = Concept.create!(name: "Gases")
-concept_eight = Concept.create!(name: "Water Cycle")
-concept_nine = Concept.create!(name: "Chemical Reactions")
-concept_ten = Concept.create!(name: "Energy")
-concept_eleven = Concept.create!(name: "Periodic Table")
+concept_seven = Concept.create!(name: "Gases",
+description_link: "https://en.wikipedia.org/wiki/Gas",
+video_link: "https://www.youtube.com/watch?v=GIPrsWuSkQc")
+
+concept_eight = Concept.create!(name: "Water Cycle",
+description_link: "https://simple.wikipedia.org/wiki/Water_cycle",
+video_link: "https://www.youtube.com/watch?v=al-do-HGuIk")
+
+concept_nine = Concept.create!(name: "Chemical Reactions",
+description_link: "http://www.colorado.edu/MCEN/flowvis/galleries/2011/Team-1/Reports/Velasquez_Gary.pdf",
+"https://en.wikipedia.org/wiki/Chemical_reaction",
+video_link: "http://chemistry.about.com/od/chemicalreactions/a/reactiontypes.htm")
+
+concept_ten = Concept.create!(name: "Energy",
+description_link:"https://en.wikipedia.org/wiki/Solar_energy",
+video_link: "https://www.youtube.com/watch?v=GqtUWyDR1fg")
+
+concept_eleven = Concept.create!(name: "Periodic Table",
+description_link: "https://en.wikipedia.org/wiki/Periodic_table",
+"http://www.ehow.com/about_5133409_do-pennies-corrode.html",
+video_link: "https://www.youtube.com/watch?v=uPkEGAHo78o")
 
 #Human Body Relationships
 ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_three.id)
