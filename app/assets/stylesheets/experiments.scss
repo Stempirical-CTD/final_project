@@ -37,12 +37,13 @@
 .experiment-card {
 	display: block;
 	width: 60%;
-	height: 22em; 
-	// height: auto; ?
+	// height: 20em; 
+	height: auto; 
 	background-color: #F2F3F4;
   	box-shadow: -0 0 10px #ccc;
 	margin: 0 auto 1em;
 	padding: 1em;
+	overflow: hidden;
 }
 
 .exp-title {
@@ -135,12 +136,59 @@ ul#tab li.active {
 
 // show experiment details view
 
-.show-materials, .show-instructions {
+.show-container {
 	display: block;
-	width: 60%;
+	box-shadow: -0 0 10px #ccc;
+	width: 80%;
 	height: auto;
-	background-color: #F2F3F4;
-  	box-shadow: -0 0 10px #ccc;
+	overflow: hidden;
+	padding: 2em;
 	margin: 1em auto;
+}
+
+.instruction-video, .show-materials, .show-instructions, .comments, .pin-it, .show-basics, .show-ratings {
+	line-height: 1.5em;
+}
+
+.instruction-video, .show-materials, .show-instructions, .comments {
+	display: block;
+	height: auto;
+	margin: 2em auto;
 	padding: 1em;
+}
+
+.show-basics {
+	float: left;
+	width: 50%;
+}
+
+.show-ratings {
+	float: left;
+	width: 30%;
+	margin-left: 10%;
+	margin-right: 1em;
+}
+
+.instruction-video {
+	clear: both;
+	width: 30%;
+	text-align: center;
+}
+
+.show-materials {
+	width: 30%;
+	float: left;
+	margin-left: 7.5%;
+}
+
+.show-instructions {
+	width: 50%;
+	float: left;
+}
+
+.comments {
+	clear: both;
+	width: 30%;
+	margin: 0 auto;
+	box-shadow: -0 0 10px #ccc;
 }
