@@ -346,7 +346,6 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_ten = Experiment.create!(user_id: user.id,
     description: "Go up and away with this homemade hot air balloon",
-    lesson: "http://www.eballoon.org/balloon/how-it-works.html",
     youtube_link: "https://www.youtube.com/watch?v=sMeOv_Z-_ic", complete_time: 1,
     name: "Hot Air Balloon")
 
