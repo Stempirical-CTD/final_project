@@ -38,15 +38,16 @@
 	background-color: #F2F3F4;
   	box-shadow: -0 0 10px #ccc;
 	margin: 2em auto;
-	padding-bottom: 2em;
+	padding: 2em;
 	overflow: hidden;
 }
 
 .concept-icon {
-	display: inline-block;
-	padding: 1em;
+	float: left;
+	margin: 0 auto;
 	font-size: 5rem;
-	overflow: hidden;
+	padding: 1em;
+	width: 20%;
 }
 
 .exp-title {
@@ -59,9 +60,9 @@
 }
 
 .exp-index-detail {
-	display: inline-block;
+	float: right;
 	line-height: 1.6em;
-	width: 65%;
+	width: 60%;
 }
 
 .exp-ratings {
@@ -95,6 +96,7 @@
 
 .star:hover {
   cursor: default;
+  opacity: 1.0;
 }
 
 .time {
@@ -109,5 +111,6 @@
 .mess-rate-disable {
 	display: inline;
 	padding: 0.5em;
-	z-index: 3;
+	z-index: 5;
+	opacity: 1;
 }
