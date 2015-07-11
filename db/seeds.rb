@@ -392,6 +392,53 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
           and set it on the Styrofoam plate.",
       order_number: 3)
 
+  experiment_twelve = Experiment.create!(user_id: user_two.id, name: "How Plants Absorb Water",
+    description: "Used food coloring and cabbage leaves to show how
+    plants absorb water (and nutrients) up through their stems. You can also do this
+    experiment with white flowers too!",
+    youtube_link: "", complete_time: 1)
+
+  Material.create!(experiment_id: experiment_twelve.id, item: "Cabbage leaves")
+  Material.create!(experiment_id: experiment_twelve.id, item: "Food colouring")
+  Material.create!(experiment_id: experiment_twelve.id, item: "Water")
+  Material.create!(experiment_id: experiment_twelve.id, item: "Jars")
+
+  Instruction.create!(experiment_id: experiment_twelve.id,
+      information: "First you will need to add some water to each jar.",
+      order_number: 1)
+  Instruction.create!(experiment_id: experiment_twelve.id,
+      information: "Then add a different coloured food dye to each jar. Use
+      about 10 drops per jar to make sure the water is nice and vibrant.",
+      order_number: 2)
+  Instruction.create!(experiment_id: experiment_twelve.id,
+      information: "Add a separate cabbage leaf/flower to each jar.",
+      order_number: 3)
+
+  experiment_thirteen = Experiment.create!(user_id: user_two.id, name: "Weather You Can See",
+    description: "When a rain cloud gets so full of water, the water will break
+    through the cloud and start to fall to the ground.",
+    youtube_link: "", complete_time: 1)
+
+  Material.create!(experiment_id: experiment_thirteen.id, item: "Clean jar")
+  Material.create!(experiment_id: experiment_thirteen.id, item: "Water (any temperature)")
+  Material.create!(experiment_id: experiment_thirteen.id, item: "Shaving cream")
+  Material.create!(experiment_id: experiment_thirteen.id, item: "Cup of water with a little food coloring")
+  Material.create!(experiment_id: experiment_thirteen.id, item: "Pipette (or soon)")
+  Material.create!(experiment_id: experiment_thirteen.id, item: "Food coloring")
+
+  Instruction.create!(experiment_id: experiment_thirteen.id,
+      information: "Fill jar about 3/4 full of water.",
+      order_number: 1)
+  Instruction.create!(experiment_id: experiment_thirteen.id,
+      information: "Spray shaving cream to cover top of water completely.",
+      order_number: 2)
+  Instruction.create!(experiment_id: experiment_thirteen.id,
+      information: "Drip water on top of the shaving cream using pipette.",
+      order_number: 3)
+  Instruction.create!(experiment_id: experiment_thirteen.id,
+      information: "Drip food coloring on top of the shaving cream the shaving cream.",
+      order_number: 4)
+
 experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Activating Yeast",
     description: "Does yeast seem alive to you? Well, it is. It just needs warmth
         and sugar to become active. Yeasts are living things that are so small only have
@@ -609,7 +656,7 @@ concept_two = Concept.create!(name: "Design & Build",
 description_link: "http://whatisengineering.com/",
 video_link: "https://www.youtube.com/watch?v=NUuWXqRJmns")
 
-concept_three = Concept.create!(name: "DNA",
+concept_three = Concept.create!(name: "Plants",
 description_link: "https://en.wikipedia.org/wiki/Plant_genetics",
 video_link: "https://www.youtube.com/watch?v=zwibgNGe4aY")
 
@@ -678,6 +725,8 @@ experiment_eight.concepts << concept_six #Floating Egg
 experiment_nine.concepts << concept_six #Drops on a Penny
 experiment_ten.concepts << concept_seven << concept_two #Hot Air Balloon
 experiment_eleven.concepts << concept_five #Make a Spark
+experiment_twelve.concepts << concept_three << concept_six #Plant absorbing water
+experiment_thirteen.concepts << concept_six << concept_eight #rainclouds
 experiment_fifteen.concepts << concept_nine #Yeast
 experiment_sixteen.concepts << concept_nine #Soap Powered Boat
 experiment_seventeen.concepts << concept_eight #Solar Still
