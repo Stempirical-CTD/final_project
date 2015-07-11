@@ -1,4 +1,4 @@
-<main class="show-container">
+<div class="row1">
  
   <div class="show-ratings">
   
@@ -8,31 +8,28 @@
     <a>Learn More about [Concept]</a>
   </div>
   
-  <% if current_user && current_user.can_vote_for?(@experiment) %> | 
-  <i class="fa fa-thumbs-up"></i><%= link_to "up", vote_experiment_path(@experiment, value: 1), method: "post" %> 
-  <% end %>
-  
   Submitted By User: 
-  <%= @experiment.user_id %>
+  <%= @experiment.user.username %>
     <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
     <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
     <%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %><br>
+  
+  <% if current_user && current_user.can_vote_for?(@experiment) %>  
+  <%= link_to "up", vote_experiment_path(@experiment, value: 1), method: "post", class: "fa fa-thumbs-up" %> 
   <% end %>
+    
+  <%= pluralize @experiment.votes, "like" %><br>
   
   <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
   <!-- Please call pinit.js only once per page -->
   <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
 
-  <i class="fa fa-thumbs-up"></i>
-  <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
-  <%= pluralize @experiment.votes, "like" %>
-
-  <h4 class="show-exp-heading">Age:</h4>
-  <%= @experiment.age %>
+  Age: <%= @experiment.age %><br>
   
   Time: <%= @experiment.complete_time %> hour(s) 
     
-  Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %> <i class="fa fa-recycle"></i> | 
+  Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %> <i class="fa fa-recycle"></i> 
        
     
   </div>
@@ -50,9 +47,10 @@
       <%= @experiment.description %>
     </p>
  </div>
+</div>
   
   <div class="instruction-video">
-    <h3>Materials:</h3><br>
+    <h3>Tutorial:</h3><br>
       <% if @experiment.youtube_link != "" %>
         <div class="embed-container">
           <%= embed(@experiment.youtube_link) %>
@@ -61,13 +59,13 @@
       <% end %>
   </div>
   
-  <div class="row3">
+<div class="row3">  
     <div class="show-materials">
       <h3>Materials:</h3><br>
-      <div class="show-material">
         <% @experiment.materials.each do |material| %>
+        <div class="show-material">  
           - <%= material.item %><br>
-      </div>
+        </div>
       <% end %>
     </div>
     
@@ -79,8 +77,10 @@
         </div>
       <% end %>
     </div>
-  </div>  
-</main>
+</div>
+
+  <div class="recommended">
+  </div>
   
   <div class="comments">
   
