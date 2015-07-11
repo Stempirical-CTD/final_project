@@ -15,39 +15,40 @@
 
 <body>
  <header class="nav-bar">
-   
+
     <h1 class="logo">stempirical</h1>
-    
+
     <div class="user-status">
       <% if user_signed_in? %>
         Hello, <%= link_to current_user.username, edit_user_registration_path %> |
           <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Login', new_user_session_path %> |
-        <%= link_to 'Sign Up', new_user_registration_path %> 
+        <%= link_to 'Sign Up', new_user_registration_path %>
       <% end %>
     </div><br>
-    
+
     <a><div class="new-exp"><%= link_to 'Add My Experiment', new_experiment_path %></div></a><br>
-    
+
     <!-- Tabs -->
-      
+
     <div class="sort-nav-links">
-      <a><button class="nav-tab"><%= link_to_unless_current("Experiments", root_path) %></button></a>
-      <a><button class="nav-tab">Materials</button></a>
-      <a><button class="nav-tab"><%= link_to_unless_current("Time", complete_time_rating_experiments_path) %></button></a>
-      <a><button class="nav-tab">Age</button></a>
-      <a><button class="nav-tab"><%= link_to_unless_current("Mess Factor", mess_ratings_experiments_path) %></button></a>
+      <div class="nav-button"><%= link_to_unless_current("Experiments", root_path, :class => "nav-tab") %></div>
+      <div class="nav-button"><a href="#" class="nav-tab">Materials</a></div>
+      <div class="nav-button"><%= link_to_unless_current("Time", complete_time_rating_experiments_path, :class => "nav-tab") %></div>
+      <div class="nav-button"><a href="#" class="nav-tab">Age</a></div>
+      <div class="nav-button"><%= link_to_unless_current("Mess Factor", mess_ratings_experiments_path, :class => "nav-tab") %></div>
+      <div class="nav-button"><%= link_to_unless_current("Concepts", concepts_path, :class => "nav-tab") %></div>
     </div>
   </header>
-    
+
     <div class="messages">
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
     </div>
-          
-<div class="main-content"><%= yield %></div>         
-  
+
+<div class="main-content"><%= yield %></div>
+
           <script type="text/javascript">
           (function(d){
               var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');

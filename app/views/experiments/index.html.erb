@@ -2,30 +2,20 @@
 
 <h1 class="page-title">All Experiments</h1>
 
+<% @experiments.each do |experiment| %>
 
-    <% @experiments.each do |experiment| %>
-        <br>
-     <div class="experiment-card">
-        
-        <!--placeholder icon-->
-        <div class="concept-icon"><i class="fa fa-sun-o"></i>
+<div class="experiment-card">
+    <!--placeholder icon-->
+    <div class="concept-icon"><i class="fa fa-sun-o"></i>
+    </div>
+    <div class="exp-index-detail">
+        <h3 class="exp-title"><a><%= link_to experiment.name, experiment %></a><br></h3>
+        <%= experiment.description %><br>
+        <div class="exp-ratings">
+            <div class="time">Time: <%= experiment.complete_time %> hour(s) </div>  |
+            <div class="mess-rate-disable">Mess Factor: <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %></div>  | 
+            <i class="fa fa-thumbs-up"></i><%= pluralize experiment.votes, "like" %>
         </div>
-
-        <div class="exp-min-detail">
-            
-            <h3 class="exp-title"><a><%= link_to experiment.name, experiment %></a><br></h3>
-           
-            <%= experiment.description %><br>
-        
-            
-            <div class="exp-ratings">
-                Time: <%= experiment.complete_time %> hour(s) |
-                  
-                Mess Factor: <%= experiment.average("name").nil? ? '0' : experiment.average("name").avg %> <i class="fa fa-recycle"></i> | 
-                
-                <i class="fa fa-thumbs-up"></i>
-                <%= pluralize experiment.votes, "like" %>
-           </div>
-        </div>    
-     </div>
-    <% end %>
+    </div>    
+</div>
+<% end %>

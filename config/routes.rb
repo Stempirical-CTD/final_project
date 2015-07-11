@@ -1,18 +1,5 @@
 Rails.application.routes.draw do
   resources :concepts
-  # get 'concepts/index'
-  #
-  # get 'concepts/show'
-  #
-  # get 'concepts/new'
-  #
-  # get 'concepts/edit'
-  #
-  # get 'concepts/create'
-  #
-  # get 'concepts/update'
-  #
-  # get 'concepts/destroy'
 
   post '/rate' => 'rater#create', :as => 'rate'
 

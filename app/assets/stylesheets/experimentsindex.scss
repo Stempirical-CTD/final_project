@@ -20,10 +20,7 @@
 //   width: 40%;
 //   height: 40%;
 // }
-#target img {
-  height: 10em;
-  width: 10em;
-}
+
 
 // all experiments page
 
@@ -37,30 +34,42 @@
 .experiment-card {
 	display: block;
 	width: 60%;
-	height: 18em;
+	height: auto; 
 	background-color: #F2F3F4;
   	box-shadow: -0 0 10px #ccc;
-	margin: 0 auto 1em;
-	padding: 1em;
+	margin: 2em auto;
+	padding: 2em;
+	overflow: hidden;
+}
+
+.concept-icon {
+	float: left;
+	margin: 0 auto;
+	font-size: 5rem;
+	padding: 5% 0 0 9%;
+	width: 20%;
+	overflow: hidden;
 }
 
 .exp-title {
 	transition: all .2s ease-in-out;
-	margin: 1em 0;
+	margin-bottom: 1em;
 }
 
 .exp-title:hover {
 	transform: scale(1.05);
 }
 
-.exp-min-detail {
-	position: relative;
+.exp-index-detail {
+	float: right;
 	line-height: 1.6em;
-	margin: 0 5%;
-	height: 20em;
+	width: 68%;
 }
 
 .exp-ratings {
+	position: relative;
+	right: 0;
+	bottom: 0;
 	font-weight: bold;
 	padding: 0;
 	float: right;
@@ -68,11 +77,8 @@
 	margin: 0.5em 0;
 }
 
-.concept-icon {
-	float: left;
-	margin: 1em 0 1em 1em;
-	font-size: 5em;
-	width: 20%;
+.fa-thumbs-up {
+	padding: 0.5em;
 }
 
 .image {
@@ -83,49 +89,29 @@
 	box-shadow: -0 0 10px #CCC;
 }
 
-// create experiment view tab navigation
+ /*ratings  */
 
-ul#tabs {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-	font-size: 1.3em;
+.star {
+  display: inline-block;
 }
-ul#tabs li {
-    display: inline-block;
-    background-color: #E8E8E8;
-    padding: 5px 20px;
-    color: #323232;
-    cursor: pointer;
-	border-bottom: solid 2px #E8E8E8;
+
+.star:hover {
+  cursor: default;
+  opacity: 1.0;
 }
-ul#tabs li:hover {
-    background-color: #F2F3F4;
-	border-bottom: solid 2px #F2F3F4;
+
+.time {
+	display: inline;
+	padding: 0.5em;
 }
-ul#tabs li.active {
-	background-color: #F2F3F4;
-	border-bottom: solid 2px #F2F3F4;
-	transition: all 0.2s ease-in-out;
+
+.raty-cancel {
+	display: none;
 }
-ul#tab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-ul#tab li {
-    display: none;
-}
-ul#tab li.active {
-    display: block;
-	width: 50%;
-	background-color: #F2F3F4;
-	margin: 0 auto;
-	padding: 1em;
-	box-shadow: -0 0 10px #CCC;
+
+.mess-rate-disable {
+	display: inline;
+	padding: 0.5em;
 	z-index: 5;
-}
-
-.form-container {
-	padding: 2em 2.5em;
+	opacity: 1;
 }
