@@ -1,7 +1,6 @@
 <h1>Concepts</h1>
 <% @concepts.each do |concept| %>
 <%= link_to concept.name, concept_path(concept) %><br>
-  For an indepth descirption of <%= concept.name %> click <a href="<%= concept.description_link %>">here</a><br>
   Video Explaining <a href="<%= concept.video_link %>"><%= concept.name %></a><br>
   <% concept.experiments.map do |experiment| %>
     <%= link_to experiment.name, experiment_path(experiment) %><br>

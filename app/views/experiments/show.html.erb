@@ -1,5 +1,5 @@
 <div class="row1">
- 
+
   <div class="show-ratings">
 
   <!--placeholder icon-->
@@ -7,32 +7,32 @@
     <i class="fa fa-sun-o"></i>
     <a>Learn More about [Concept]</a>
   </div>
-  
+
   <i class="fa fa-lightbulb-o"></i>
-  Submitted By User: 
+  Submitted By User:
   <%= @experiment.user.username %>
     <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
     <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
     <%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
   <% end %><br>
-  
-<% if current_user && current_user.can_vote_for?(@experiment) %> 
+
+<% if current_user && current_user.can_vote_for?(@experiment) %>
   <%= link_to content_tag(:i, nil, class: 'fa fa-thumbs-up'), vote_experiment_path(@experiment, value: 1), method: "post" %>
   <% end %>
-    
+
   <%= pluralize @experiment.votes, "like" %><br>
-  
+
   <i class="fa fa-pinterest-p"></i>
   <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
   <!-- Please call pinit.js only once per page -->
   <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
 
-  <i class="fa fa-users"></i> <%= @experiment.age %> years <br> 
-  
+  <i class="fa fa-users"></i> <%= @experiment.age %> years <br>
+
   <i class="fa fa-clock-o"></i> <%= @experiment.complete_time %> hour(s) <br>
-    
-  <i class="fa fa-recycle"></i> Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %> 
-       
+
+  <i class="fa fa-recycle"></i> Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
+
   </div>
 
   <div class="show-basics">
@@ -64,7 +64,7 @@
     <div class="show-materials">
       <h3>Materials:</h3><br>
         <% @experiment.materials.each do |material| %>
-        <div class="show-material">  
+        <div class="show-material">
           - <%= material.item %><br>
         </div>
       <% end %>
@@ -82,7 +82,7 @@
 
   <div class="recommended">
   </div>
-  
+
 <% if user_signed_in? || @experiment.comments != [] %>
   <div class="comments">
     <% if @experiment.comments != [] %>
@@ -125,8 +125,7 @@
   <% end %>
 <% end %>
 <br>
-
-<% @experiment.concepts.each do |c| %>
+<% @experiment.concepts.map do |c| %>
   Based on your interest on <%= c.name %>, you might be interested in the following experiment(s):<br>
   <% if c.parents.count >= 1 %>
     <% random_parent = c.parents.sample %>
