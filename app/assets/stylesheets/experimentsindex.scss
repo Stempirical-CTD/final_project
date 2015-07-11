@@ -34,28 +34,36 @@
 .experiment-card {
 	display: block;
 	width: 60%;
-	// height: 20em; 
 	height: auto; 
 	background-color: #F2F3F4;
   	box-shadow: -0 0 10px #ccc;
-	margin: 0 auto 1em;
-	padding: 1em;
+	margin: 2em auto;
+	padding: 2em;
+	overflow: hidden;
+}
+
+.concept-icon {
+	float: left;
+	margin: 0 auto;
+	font-size: 5rem;
+	padding: 5% 0 0 9%;
+	width: 20%;
 	overflow: hidden;
 }
 
 .exp-title {
 	transition: all .2s ease-in-out;
-	margin: 1em 0;
+	margin-bottom: 1em;
 }
 
 .exp-title:hover {
 	transform: scale(1.05);
 }
 
-.exp-min-detail {
-	position: relative;
+.exp-index-detail {
+	float: right;
 	line-height: 1.6em;
-	margin: 0 5%;
+	width: 68%;
 }
 
 .exp-ratings {
@@ -69,10 +77,8 @@
 	margin: 0.5em 0;
 }
 
-.concept-icon {
-	float: left;
-	margin: 1em 0 1em 1em;
-	font-size: 500%;
+.fa-thumbs-up {
+	padding: 0.5em;
 }
 
 .image {
@@ -91,4 +97,21 @@
 
 .star:hover {
   cursor: default;
+  opacity: 1.0;
+}
+
+.time {
+	display: inline;
+	padding: 0.5em;
+}
+
+.raty-cancel {
+	display: none;
+}
+
+.mess-rate-disable {
+	display: inline;
+	padding: 0.5em;
+	z-index: 5;
+	opacity: 1;
 }

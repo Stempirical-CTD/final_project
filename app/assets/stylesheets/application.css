@@ -73,6 +73,7 @@ input {
 textarea {
   outline-color: #DFF5D1;
   font-size: 1em;
+  background-color: none;
 }
 
 ul {
@@ -83,6 +84,10 @@ a {
   text-decoration: none;
   color: #323232;
   font-weight: bold;
+}
+
+i {
+  padding: 0.5em;
 }
 
 .main-content {
@@ -99,7 +104,7 @@ a {
   display: block;
   position: fixed;
   width: 100%;
-  height: 9em;
+  height: 9.5em;
   background-color: #F2F3F4;
   top: 0;
   left: 0;
@@ -114,18 +119,28 @@ a {
 }
 
 .user-status, .new-exp {
-  position: relative;
   float: right;
-  margin: 0.8em 1.5em 0 0;
 }
+
+.user-status {
+  padding: 1.2em;
+}
+
+.new-exp {
+  width: 10em;
+  display: block;
+  margin: 1.6em 1em;
+  position: absolute; 
+  right: 0;
+}  
 
 .sort-nav-links {
   display: block;
   position: relative;
-  margin: 2.8% 20%;
+  margin: 2.3% 20%;
 }
 
-.nav-tab, .new-exp {
+.nav-button, .new-exp {
   background-color: #E8E8E8;
   color: #333;
   border: 0;
@@ -137,20 +152,12 @@ a {
 }
 
 
-.nav-tab {
-  margin: 1%;
-  width: 20%; /*change*/
+.nav-button {
+  display: inline-block;
+  margin: 1.5%;
+  width: 6.5em;
   right: 0;
   border-radius: 5;
-}
-
-.new-exp {
-  width: 10em;
-  display: block;
-  position: absolute;
-  top: 4.5;
-  right: 0;
-  margin-top: 1.2em;
 }
 
 /* errors & notices */

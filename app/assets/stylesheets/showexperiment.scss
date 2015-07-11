@@ -1,13 +1,23 @@
 // Show Experiment Details View
 
-.show-container {
-	display: block;
-	box-shadow: -0 0 10px #ccc;
-	width: 80%;
-	height: auto;
-	overflow: hidden;
-	padding: 2em;
-	margin: 1em auto;
+// .show-container {
+// 	display: block;
+// 	box-shadow: -0 0 10px #ccc;
+// 	width: 80%;
+// 	height: auto;
+// 	overflow: hidden;
+// 	padding: 2em;
+// 	margin: 1em auto;
+// }
+
+.row1 {
+	width: 70%;
+	margin: auto;
+} 
+
+.row3 {
+	width: 90%;
+	margin: auto;
 }
 
 .instruction-video, .show-materials, .show-instructions, .comments, .pin-it, .show-basics, .show-ratings {
@@ -17,6 +27,7 @@
 .instruction-video, .show-materials, .show-instructions, .comments {
 	display: block;
 	height: auto;
+	overflow: hidden;
 	margin: 2em auto;
 	padding: 1em;
 }
@@ -24,35 +35,62 @@
 .show-basics {
 	float: left;
 	width: 50%;
+	box-shadow: -0 0 5px #ccc;
+	height: auto;
+	overflow: hidden;
+	padding: 1em;
+	margin: 1em;
 }
 
 .show-ratings {
 	float: left;
 	width: 30%;
-	margin-left: 10%;
-	margin-right: 1em;
+	box-shadow: -0 0 5px #ccc;
+	height: auto;
+	overflow: hidden;
+	padding: 1em;
+	margin: 1em;
 }
 
 .instruction-video {
 	clear: both;
 	width: 30%;
 	text-align: center;
+	box-shadow: -0 0 5px #ccc;
+	height: auto;
+	overflow: hidden;
+	padding: 1em;
+	margin: 1em auto;
 }
 
 .show-materials {
-	width: 30%;
+	width: 40%;
 	float: left;
-	margin-left: 7.5%;
+	box-shadow: -0 0 5px #ccc;
+	height: auto;
+	overflow: hidden;
+	padding: 1em;
+	margin: 1em;
+	line-height: 1.7em;
 }
 
 .show-instructions {
 	width: 50%;
-	float: left;
+	float: right;
+	box-shadow: -0 0 5px #ccc;
+	height: auto;
+	overflow: hidden;
+	padding: 1em;
+	margin: 1em;
+}
+
+.show-instruction, .show-materials > div {
+	line-height: 1.7em;
 }
 
 .comments {
 	clear: both;
 	width: 30%;
 	margin: 0 auto;
-	box-shadow: -0 0 10px #ccc;
+	box-shadow: -0 0 5px #ccc;
 }

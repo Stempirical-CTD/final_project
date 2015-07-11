@@ -1,3 +1,102 @@
+<div class="row1">
+ 
+  <div class="show-ratings">
+
+  <!--placeholder icon-->
+  <div class="show-concept-icon">
+    <i class="fa fa-sun-o"></i>
+    <a>Learn More about [Concept]</a>
+  </div>
+  
+  <i class="fa fa-lightbulb-o"></i>
+  Submitted By User: 
+  <%= @experiment.user.username %>
+    <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
+    <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
+    <%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %><br>
+  
+<% if current_user && current_user.can_vote_for?(@experiment) %> 
+  <%= link_to content_tag(:i, nil, class: 'fa fa-thumbs-up'), vote_experiment_path(@experiment, value: 1), method: "post" %>
+  <% end %>
+    
+  <%= pluralize @experiment.votes, "like" %><br>
+  
+  <i class="fa fa-pinterest-p"></i>
+  <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
+  <!-- Please call pinit.js only once per page -->
+  <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
+
+  <i class="fa fa-users"></i> <%= @experiment.age %> years <br> 
+  
+  <i class="fa fa-clock-o"></i> <%= @experiment.complete_time %> hour(s) <br>
+    
+  <i class="fa fa-recycle"></i> Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %> 
+       
+  </div>
+
+  <div class="show-basics">
+    <h3 class="page-title"><%= @experiment.name %></h3>
+
+    <div class="exp-image">
+      <% if @experiment.uploaded_file_file_name != nil %>
+        <%= image_tag @experiment.uploaded_file %>
+      <% end %>
+    </div>
+
+    <p class="show-exp-description">
+      <%= @experiment.description %>
+    </p>
+ </div>
+</div>
+
+  <div class="instruction-video">
+    <h3>Instructional Video:</h3><br>
+      <% if @experiment.youtube_link != "" %>
+        <div class="embed-container">
+          <%= embed(@experiment.youtube_link) %>
+        </div>
+        <a href="<%= @experiment.youtube_link %>">View on YouTube</a>
+      <% end %>
+  </div>
+
+  <div class="row3">
+    <div class="show-materials">
+      <h3>Materials:</h3><br>
+        <% @experiment.materials.each do |material| %>
+        <div class="show-material">  
+          - <%= material.item %><br>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="show-instructions">
+      <h3>Instructions:</h3><br>
+      <% @experiment.instructions.each do |instruction| %>
+        <div class="show-instruction">
+          <%= instruction.order_number %> | <%= instruction.information %><br>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+  <div class="recommended">
+  </div>
+  
+<% if user_signed_in? || @experiment.comments != [] %>
+  <div class="comments">
+    <% if @experiment.comments != [] %>
+      <div id="all-comments">
+        <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= render partial: "comments/form", locals: {commentable: @experiment} %>
+    <% end %>
+  </div>
+<% end %>
+
+
 <% if @children.count > 0 %>
   <h3>Children Concepts(<%= @children.count %>):</h3>
   <% if @children.count >= 1 %>
@@ -48,95 +147,4 @@
     <% end %>
   <% end %>
 
-<% end %>
-<br>
-<main class="show-container">
-
-  <div class="show-ratings">
-
-  <!--placeholder icon-->
-  <div class="show-concept-icon">
-    <i class="fa fa-sun-o"></i>
-    <a>Learn More about [Concept]</a>
-  </div>
-
-  <% if current_user && current_user.can_vote_for?(@experiment) %> |
-  <%= link_to content_tag(:i, nil, class: 'fa fa-thumbs-up'), vote_experiment_path(@experiment, value: 1), method: "post" %>
-  <% end %>
-
-  Submitted By User:
-  <%= @experiment.user.username %>
-    <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
-    <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
-    <%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
-  <% end %>
-
-  <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
-  <!-- Please call pinit.js only once per page -->
-  <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
-
-  <i class="fa fa-thumbs-up"></i>
-  <%= pluralize @experiment.votes, "like" %>
-
-  <h4 class="show-exp-heading">Age:</h4>
-  <%= @experiment.age %>
-
-  Time: <%= @experiment.complete_time %> hour(s)
-
-  Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %> <i class="fa fa-recycle"></i> |
-
-
-  </div>
-
-  <div class="show-basics">
-    <h3 class="page-title"><%= @experiment.name %></h3>
-
-    <div class="exp-image">
-      <% if @experiment.uploaded_file_file_name != nil %>
-        <%= image_tag @experiment.uploaded_file %>
-      <% end %>
-    </div>
-
-    <p class="show-exp-description">
-      <%= @experiment.description %>
-    </p>
- </div>
-
-  <div class="instruction-video">
-    <h3>Instructional Video:</h3><br>
-      <% if @experiment.youtube_link != "" %>
-        <div class="embed-container">
-          <%= embed(@experiment.youtube_link) %>
-        </div>
-        <a href="<%= @experiment.youtube_link %>">View on YouTube</a>
-      <% end %>
-  </div>
-
-  <div class="row3">
-    <div class="show-materials">
-      <h3>Materials:</h3><br>
-      <% @experiment.materials.each do |material| %>
-        - <%= material.item %><br>
-      <% end %>
-    </div>
-
-    <div class="show-instructions">
-      <h3>Instructions:</h3><br>
-      <% @experiment.instructions.each do |instruction| %>
-        <%= instruction.order_number %> | <%= instruction.information %><br>
-      <% end %>
-    </div>
-  </div>
-</main>
-<% if user_signed_in? || @experiment.comments != [] %>
-  <div class="comments">
-    <% if @experiment.comments != [] %>
-      <div id="all-comments">
-        <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
-      </div>
-    <% end %>
-    <% if user_signed_in? %>
-      <%= render partial: "comments/form", locals: {commentable: @experiment} %>
-    <% end %>
-  </div>
 <% end %>
