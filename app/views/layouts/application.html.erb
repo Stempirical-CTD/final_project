@@ -33,11 +33,11 @@
     <!-- Tabs -->
       
     <div class="sort-nav-links">
-      <%= link_to_unless_current("Experiments", root_path, :class => "nav-tab") %>
-      <a href="#" class="nav-tab">Materials</a>
-      <%= link_to_unless_current("Time", complete_time_rating_experiments_path, :class => "nav-tab") %>
-      <a href="#" class="nav-tab">Age</a>
-      <%= link_to_unless_current("Mess Factor", mess_ratings_experiments_path, :class => "nav-tab") %>
+      <div class="nav-button"><%= link_to_unless_current("Experiments", root_path, :class => "nav-tab") %></div>
+      <div class="nav-button"><a href="#" class="nav-tab">Materials</a></div>
+      <div class="nav-button"><%= link_to_unless_current("Time", complete_time_rating_experiments_path, :class => "nav-tab") %></div>
+      <div class="nav-button"><a href="#" class="nav-tab">Age</a></div>
+      <div class="nav-button"><%= link_to_unless_current("Mess Factor", mess_ratings_experiments_path, :class => "nav-tab") %></div>
     </div>
   </header>
     
