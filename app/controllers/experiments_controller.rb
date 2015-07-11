@@ -22,6 +22,8 @@ class ExperimentsController < ApplicationController
   # GET /experiments/1
   # GET /experiments/1.json
   def show
+    @parents = @experiment.concept_parents
+    @children = @experiment.concept_children
   end
 
   # GET /experiments/new

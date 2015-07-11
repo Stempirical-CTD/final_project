@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710132644) do
+ActiveRecord::Schema.define(version: 20150708195453) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 20150710132644) do
     t.string   "uploaded_file_content_type"
     t.integer  "uploaded_file_file_size"
     t.datetime "uploaded_file_updated_at"
-    t.text     "lesson"
   end
 
   create_table "instructions", force: :cascade do |t|

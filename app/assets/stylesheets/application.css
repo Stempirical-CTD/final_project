@@ -15,6 +15,9 @@
  */
 
 /* defaults */
+.star:hover {
+  cursor: default;
+}
 
 html {font-size: 1em;}
 
@@ -64,11 +67,11 @@ input {
     border: 0.1em solid #323232;
     font-size: 1em;
     margin: 1em 0.5em;
-    outline-color: #DFF5D1; 
+    outline-color: #DFF5D1;
 }
 
 textarea {
-  outline-color: #DFF5D1; 
+  outline-color: #DFF5D1;
   font-size: 1em;
 }
 
@@ -163,5 +166,3 @@ button {
   border: 0;
   padding: 1em;
 }
-
-
