@@ -1,36 +1,53 @@
-<h3>Children Concepts:</h3><br>
-<%= @children[0].count %><br>
-<% if @children[0].count >= 1 %>
-  <% @children[0].each do |c| %>
-    <%= c.name %><br>
-  <% end %>
-  <%= @children[0].each {|c| c.name } %><br>
-  <%= @children[0].map {|c| c.name } %><br>
-<% end %>
-<br>
-<h3>Parent Concepts:</h3><br>
-<%= @parents[0].count %><br>
-<% if @parents[0].count >= 1 %>
-  <%= @experiment.concepts.first.parents[0].name %><br>
-  <%= @parents[0][0].name %><br>
-<% end %>
-<br>
-Basen on your interest on <%= @experiment.concepts[0].name %>, you might be interested in the following experiment(s):<br>
-<% if @parents[0].count >= 1 %>
-  <% random_parent = @parents[0].each {|c| c.name }.sample %>
-  <%= link_to "#{root_url}experiments/#{random_parent.experiments[0].id}" do %>
-    <%= random_parent.experiments[0].name %><br>
+<% if @children.count > 0 %>
+  <h3>Children Concepts(<%= @children.count %>):</h3>
+  <% if @children.count >= 1 %>
+    <% @children.map do |children| %><br>
+    <h4>Experiments for <%= children.name %></h4>
+      <% children.experiments.map do |exp| %>
+        <%= exp.name %><br>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= @children.name %>
   <% end %>
 <% end %>
+<br>
+<% if @parents.count > 0 %>
+  <h3>Parent Concepts(<%= @parents.count %>):</h3>
+  <% if @parents.count >= 1 %>
+    <% @parents.map do |parent| %>
+      <h4>Experiments for <%= parent.name %></h4>
+      <% parent.experiments.map do |exp| %>
+        <%= exp.name %><br>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= @parents.name %>
+  <% end %>
+<% end %>
+<br>
 
-<% if @children[0].count >= 1 %>
-  <% if @parents[0].count != 0 %>
-    <h3>OR</h3>
+<% @experiment.concepts.each do |c| %>
+  Based on your interest on <%= c.name %>, you might be interested in the following experiment(s):<br>
+  <% if c.parents.count >= 1 %>
+    <% random_parent = c.parents.sample %>
+    <% random_parent_experiment = random_parent.experiments.sample %>
+    <%= link_to "#{root_url}experiments/#{random_parent_experiment.id}" do %>
+      <%= random_parent_experiment.name %><br>
+    <% end %>
   <% end %>
-  <% random_child = @children[0].each {|c| c.name }.sample %>
-  <%= link_to "#{root_url}experiments/#{random_child.experiments[0].id}" do %>
-    <%= random_child.experiments[0].name %>
+
+  <% if c.children.count >= 1 %>
+    <% if c.parents.count != 0 %>
+      <h3>OR</h3>
+    <% end %>
+    <% random_child = c.children.sample %>
+    <% random_child_experiment = random_child.experiments.sample %>
+    <%= link_to "#{root_url}experiments/#{random_child_experiment.id}" do %>
+      <%= random_child_experiment.name %>
+    <% end %>
   <% end %>
+
 <% end %>
 <br>
 <p>

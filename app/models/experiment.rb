@@ -37,16 +37,6 @@ class Experiment < ActiveRecord::Base
     (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
   end
 
-
-  # def age
-  #   #list by age  in the view page by the key and not the value
-  # end
-  #
-  # # def self.order_by_age
-  # #   ages.values.sort { |k,v| v[] }
-  # # end
-
-
   def s3_credentials
     {:bucket => "stempirical",
         :access_key_id => ENV["AMS3_ID"],
@@ -56,17 +46,41 @@ class Experiment < ActiveRecord::Base
   def concept_parents
     array = []
     concepts.each do |c|
-      array << c.parents
+      array += c.parents
     end
     array.uniq
   end
 
   def concept_children
     array = []
-    concepts.select do |c|
-      array << c.children
+    concepts.each do |c|
+      array += c.children
     end
     array.uniq
+  end
 
+    # array = []
+    # counter = 0
+    # loop do
+    #   if counter > 1 && array.count > 0
+    #     array.each do |c|
+    #       array << c.children
+    #     end
+    #     array.uniq
+    #   else
+    #     concepts.each do |c|
+    #       array << c.parents
+    #     end
+    #     counter += 1
+    #     array.uniq
+    #   end
+    # end
+
+  def number_of_concepts
+    Concept.count
+  end
+
+  def related_concept_count
+    concept_parents[0].count + concept_children[0].count
   end
 end
