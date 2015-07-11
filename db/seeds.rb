@@ -7,7 +7,7 @@ experiment_one = Experiment.create!(user_id: user.id,
   description: "This water science experiment demonstrates the degree of motion
     of water molecules at different temperatures.",
   youtube_link: "https://www.youtube.com/watch?v=iTbEmvdzvxg", complete_time: 1, name: "Colored Water",
-  age: "Under 3")
+  age: "3 & Under")
 
   mat_one = Material.create!(experiment_id: experiment_one.id, item: "three clear drinking glasses")
   mat_two = Material.create!(experiment_id: experiment_one.id, item: "hot water")
@@ -418,7 +418,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_thirteen = Experiment.create!(user_id: user_two.id, name: "Weather You Can See",
     description: "When a rain cloud gets so full of water, the water will break
     through the cloud and start to fall to the ground.",
-    youtube_link: "https://www.youtube.com/watch?v=pglbX1xtofE", complete_time: 1, age: "Under 3")
+    youtube_link: "https://www.youtube.com/watch?v=pglbX1xtofE", complete_time: 1, age: "3 & Under")
 
   Material.create!(experiment_id: experiment_thirteen.id, item: "Clean jar")
   Material.create!(experiment_id: experiment_thirteen.id, item: "Water (any temperature)")
