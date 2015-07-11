@@ -31,6 +31,7 @@ class ExperimentsController < ApplicationController
     @experiment = Experiment.new
     @experiment.materials.build
     @experiment.instructions.build
+    @experiment.concepts.build
   end
 
   # GET /experiments/1/edit
@@ -91,11 +92,9 @@ class ExperimentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_params
       params.require(:experiment).permit(:user_id, :name, :description, :youtube_link, :complete_time, :uploaded_file,
-
           materials_attributes: [:id, :experiment_id, :item],
-
           instructions_attributes: [:id, :experiment_id, :information, :order_number],
-
-          experiment_votes: [:id, :value, :experiment_id])
+          experiment_votes: [:id, :value, :experiment_id],
+          concepts_attributes: [:experiment_id, :name, :description_link, :video_link])
     end
 end
