@@ -7,7 +7,7 @@ experiment_one = Experiment.create!(user_id: user.id,
   description: "This water science experiment demonstrates the degree of motion
     of water molecules at different temperatures.",
   youtube_link: "https://www.youtube.com/watch?v=iTbEmvdzvxg", complete_time: 1, name: "Colored Water",
-  )
+  age: "Under 3")
 
   mat_one = Material.create!(experiment_id: experiment_one.id, item: "three clear drinking glasses")
   mat_two = Material.create!(experiment_id: experiment_one.id, item: "hot water")
@@ -32,7 +32,7 @@ experiment_one = Experiment.create!(user_id: user.id,
 experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   lesson on chemical bonds.",
   youtube_link: "https://www.youtube.com/watch?v=rqQSlEViNpk", complete_time: 1,
-  name: "Magic Milk")
+  name: "Magic Milk", age: "4-6")
 
   mat_one = Material.create!(experiment_id: experiment_two.id, item: "Milk (whole or 2%)")
   mat_two = Material.create!(experiment_id: experiment_two.id, item: "Dinner plate")
@@ -73,7 +73,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_three = Experiment.create!(user_id: user.id,
     description: "Watch old pennies turn bright and shiny right before your eyes!",
     youtube_link: "https://www.youtube.com/watch?v=LYAC7lYC9xY", complete_time: 1,
-    name: "Penny Cleaner")
+    name: "Penny Cleaner", age: "7-9")
 
     mat_one = Material.create!(experiment_id: experiment_three.id, item: "  20 dull, dirty pennies")
     mat_two = Material.create!(experiment_id: experiment_three.id, item: "1/4 cup white vinegar")
@@ -105,7 +105,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_four = Experiment.create!(user_id: user.id,
     description: "Build a balloon inflater.",
     youtube_link: "https://www.youtube.com/watch?v=t--PRg1kd8g", complete_time: 1,
-    name: "Inflating a balloon")
+    name: "Inflating a balloon", age: "4-6")
 
     mat_one = Material.create!(experiment_id: experiment_four.id, item: "One small empty plastic soda or water bottle")
     mat_two = Material.create!(experiment_id: experiment_four.id, item: "1/2 cup of vinegar")
@@ -136,7 +136,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
     description: "How do scientists take DNA out of a living thing? It's not
     that hard—there are lots of ways to do it!",
     youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 1.5,
-    name: "Strawberry DNA")
+    name: "Strawberry DNA", age: "10 & up")
      mat_one = Material.create!(experiment_id: experiment_five.id, item: "Strawberry")
      mat_two = Material.create!(experiment_id: experiment_five.id, item: "Isopropyl alcohol (5 mL)")
      mat_three = Material.create!(experiment_id: experiment_five.id, item: "Dish soap (10 mL)")
@@ -204,7 +204,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_six = Experiment.create!(user_id: user.id,
     description: "Pick Up Trash Without Touching It.",
     youtube_link: "https://www.youtube.com/watch?v=sCoqrc9LAxg", complete_time: 1,
-    name: "Machanical Grabber")
+    name: "Machanical Grabber", age:"10 & up")
 
     mat_one = Material.create!(experiment_id: experiment_six.id, item: "Wire clothes hanger
      (Use the type with a cardboard tube attached to open-ended wire.)")
@@ -249,7 +249,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_seven = Experiment.create!(user_id: user.id,
     description: "Arrows Optical Illusion",
     youtube_link: "https://www.youtube.com/watch?v=eN-DB_XuhRs", complete_time: 1,
-    name: "Arrows Optical Illusion")
+    name: "Arrows Optical Illusion", age:"7-9")
 
     mat_one = Material.create!(experiment_id: experiment_seven.id, item: "Pipe cleaners")
     mat_two = Material.create!(experiment_id: experiment_seven.id, item: "scissors")
@@ -279,7 +279,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
     experiment_eight = Experiment.create!(user_id: user.id,
       description: "The FLoating Egg",
       youtube_link: "https://www.youtube.com/watch?v=gfuLoaEYKis", complete_time: 1,
-      name: "The FLoating Egg")
+      name: "The FLoating Egg", age:"4-6")
 
       mat_one = Material.create!(experiment_id: experiment_eight.id, item: "Two dirnking glasses")
       mat_two = Material.create!(experiment_id: experiment_eight.id, item: "Two raw eggs")
@@ -312,7 +312,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_nine = Experiment.create!(user_id: user.id,
     description: "Drops on a Penny",
     youtube_link: "https://www.youtube.com/watch?v=XQbr9Ic8_hA", complete_time: 1,
-    name: "Drops on a Penny")
+    name: "Drops on a Penny", age:"7-9")
 
     mat_one = Material.create!(experiment_id: experiment_nine.id, item: "A Penny")
     mat_two = Material.create!(experiment_id: experiment_nine.id, item: "An eyedropper")
@@ -347,9 +347,8 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
 
   experiment_ten = Experiment.create!(user_id: user.id,
     description: "Go up and away with this homemade hot air balloon",
-    lesson: "http://www.eballoon.org/balloon/how-it-works.html",
     youtube_link: "https://www.youtube.com/watch?v=sMeOv_Z-_ic", complete_time: 1,
-    name: "Hot Air Balloon")
+    name: "Hot Air Balloon", age:"10 & up")
 
     mat_one = Material.create!(experiment_id: experiment_ten.id, item: "Large lawn garbage bags")
     mat_two = Material.create!(experiment_id: experiment_ten.id, item: "dry cleaning bags")
@@ -374,7 +373,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
     description: " A lightning bolt is basically a dramatic display of static electricity
         in action. You see lightning when a spark of moving electrons races up or
         down between a cloud and the ground.",
-    youtube_link: "https://www.youtube.com/watch?v=XtE0uXGMC-0", complete_time: 1)
+    youtube_link: "https://www.youtube.com/watch?v=XtE0uXGMC-0", complete_time: 1, age:"10 & up")
 
   Material.create!(experiment_id: experiment_eleven.id, item: "pencil with eraser")
   Material.create!(experiment_id: experiment_eleven.id, item: "aluminum tray")
@@ -397,7 +396,8 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
     description: "Used food coloring and cabbage leaves to show how
     plants absorb water (and nutrients) up through their stems. You can also do this
     experiment with white flowers too!",
-    youtube_link: "https://www.youtube.com/watch?v=x9ma86cASmg", complete_time: 1)
+    youtube_link: "https://www.youtube.com/watch?v=x9ma86cASmg", complete_time: 1,
+    age: "4-6")
 
   Material.create!(experiment_id: experiment_twelve.id, item: "Cabbage leaves")
   Material.create!(experiment_id: experiment_twelve.id, item: "Food colouring")
@@ -418,7 +418,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
   experiment_thirteen = Experiment.create!(user_id: user_two.id, name: "Weather You Can See",
     description: "When a rain cloud gets so full of water, the water will break
     through the cloud and start to fall to the ground.",
-    youtube_link: "https://www.youtube.com/watch?v=pglbX1xtofE", complete_time: 1)
+    youtube_link: "https://www.youtube.com/watch?v=pglbX1xtofE", complete_time: 1, age: "Under 3")
 
   Material.create!(experiment_id: experiment_thirteen.id, item: "Clean jar")
   Material.create!(experiment_id: experiment_thirteen.id, item: "Water (any temperature)")
@@ -446,7 +446,8 @@ experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Activating 
         one cell. They can't make their own food. So, if you don't give them food,
         they don't become active. It's almost like they're asleep. If you make it warm
         and give them some food they become active.",
-    youtube_link: "https://www.youtube.com/watch?v=odxvp-3nSw4", complete_time: 1.5)
+    youtube_link: "https://www.youtube.com/watch?v=odxvp-3nSw4", complete_time: 1.5,
+    age: "7-9")
 
   Material.create!(experiment_id: experiment_fifteen.id, item: "1 package of yeast")
   Material.create!(experiment_id: experiment_fifteen.id, item: "warm water")
@@ -465,7 +466,8 @@ experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Activating 
 experiment_sixteen = Experiment.create!(user_id: user.id, name: "Soap Powered Boat",
     description: "Argh, ye landlubbers. Sail the soapy seas with this activity
         full of high and low surface tension.",
-    youtube_link: "https://www.youtube.com/watch?v=qz9hkWhZfRM", complete_time: 1.5)
+    youtube_link: "https://www.youtube.com/watch?v=qz9hkWhZfRM", complete_time: 1.5,
+    age: "7-9")
 
   Material.create!(experiment_id: experiment_sixteen.id, item: "4 Styrofoam plates")
   Material.create!(experiment_id: experiment_sixteen.id, item: "2 Styrofoam bowls")
@@ -504,7 +506,8 @@ experiment_seventeen = Experiment.create!(user_id: user_two.id, name: "Solar Sti
     description: "Water evaporates in the same way from lakes, rivers, and oceans.
         The water heats up, turns into a gas, and then condenses to fall back down
         as rain and.",
-    youtube_link: "https://www.youtube.com/watch?v=m408EZTGD64", complete_time: 2)
+    youtube_link: "https://www.youtube.com/watch?v=m408EZTGD64", complete_time: 2,
+    age: "10 & up")
 
   Material.create!(experiment_id: experiment_seventeen.id, item: "large bowl")
   Material.create!(experiment_id: experiment_seventeen.id, item: "short glass or cup")
@@ -551,7 +554,8 @@ experiment_eighteen = Experiment.create!(user_id: user.id, name: "Static Electri
         fun static electricity experiments. Find out about positively and negatively
         charged particles using a few basic items, can you control if they will be
         attracted or unattracted to each other?",
-    youtube_link: "https://www.youtube.com/watch?v=-w-GoSJpvdw", complete_time: 0.5)
+    youtube_link: "https://www.youtube.com/watch?v=-w-GoSJpvdw", complete_time: 0.5,
+    age: "10 & up")
 
   Material.create!(experiment_id: experiment_eighteen.id, item: "2 inflated
       balloons with string attached")
@@ -581,7 +585,8 @@ experiment_nineteen = Experiment.create!(user_id: user_two.id, name: "Solar Oven
         fry an egg on the sidewalk? Have you ever wondered if it's true? Find out with
         this easy, fun, and delicious solar oven science project that uses only household
         items and a pizza box. Plus, learn about absorption, insulation, and the sun's energy.",
-    youtube_link: "https://www.youtube.com/watch?v=xZJmz_tF4NU", complete_time: 2)
+    youtube_link: "https://www.youtube.com/watch?v=xZJmz_tF4NU", complete_time: 2,
+    age: "10 & up")
 
   Material.create!(experiment_id: experiment_nineteen.id, item: "Cardboard pizza
       box (the kind delivered pizza comes in")
