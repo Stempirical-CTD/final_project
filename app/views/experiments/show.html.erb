@@ -15,8 +15,8 @@
     <%= link_to 'Destroy', @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
   <% end %><br>
   
-  <% if current_user && current_user.can_vote_for?(@experiment) %>  
-  <%= link_to "up", vote_experiment_path(@experiment, value: 1), method: "post", class: "fa fa-thumbs-up" %> 
+<% if current_user && current_user.can_vote_for?(@experiment) %> |
+  <%= link_to content_tag(:i, nil, class: 'fa fa-thumbs-up'), vote_experiment_path(@experiment, value: 1), method: "post" %>
   <% end %>
     
   <%= pluralize @experiment.votes, "like" %><br>
@@ -27,7 +27,7 @@
 
   Age: <%= @experiment.age %><br>
   
-  Time: <%= @experiment.complete_time %> hour(s) 
+  Time: <%= @experiment.complete_time %> hour(s) <br>
     
   Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %> <i class="fa fa-recycle"></i> 
        
