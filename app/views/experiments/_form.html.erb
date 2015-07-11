@@ -53,11 +53,11 @@
             </div>
           </div>
       </li>
-      
-      <li>  
-       <!-- ADD CONCEPT CHECKBOXES HERE! --> 
+
+      <li>
+       <!-- ADD CONCEPT CHECKBOXES HERE! -->
       </li>
-      
+
       <li>
           <ul class="unordered-list-materials">
             <%= f.fields_for(:materials) do |ff| %>
@@ -68,7 +68,7 @@
                 </div>
               </li>
             <% end %>
-            
+
           </ul>
           <button type="button" class="add-material-btn"><i class="fa fa-plus"></i></button>
       </li>
@@ -88,17 +88,17 @@
                 </div>
               </div>
               </li>
-              
-            <% end %>
 
+            <% end %>
+            
           </ul>
           <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i></button>
-          
+
           <div class="actions">
               <%= f.submit %>
           </div>
       </li>
   </ul>
-  
+
 <% end %>
 </div>

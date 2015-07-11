@@ -1,7 +1,7 @@
 <div class="row1">
  
   <div class="show-ratings">
-  
+
   <!--placeholder icon-->
   <div class="show-concept-icon">
     <i class="fa fa-sun-o"></i>
@@ -33,26 +33,25 @@
     
   <i class="fa fa-recycle"></i> Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %> 
        
-    
   </div>
-  
+
   <div class="show-basics">
     <h3 class="page-title"><%= @experiment.name %></h3>
-    
+
     <div class="exp-image">
       <% if @experiment.uploaded_file_file_name != nil %>
         <%= image_tag @experiment.uploaded_file %>
       <% end %>
     </div>
-  
+
     <p class="show-exp-description">
       <%= @experiment.description %>
     </p>
  </div>
 </div>
-  
+
   <div class="instruction-video">
-    <h3>Tutorial:</h3><br>
+    <h3>Instructional Video:</h3><br>
       <% if @experiment.youtube_link != "" %>
         <div class="embed-container">
           <%= embed(@experiment.youtube_link) %>
@@ -60,8 +59,8 @@
         <a href="<%= @experiment.youtube_link %>">View on YouTube</a>
       <% end %>
   </div>
-  
-<div class="row3">  
+
+  <div class="row3">
     <div class="show-materials">
       <h3>Materials:</h3><br>
         <% @experiment.materials.each do |material| %>
@@ -70,7 +69,7 @@
         </div>
       <% end %>
     </div>
-    
+
     <div class="show-instructions">
       <h3>Instructions:</h3><br>
       <% @experiment.instructions.each do |instruction| %>
@@ -84,15 +83,68 @@
   <div class="recommended">
   </div>
   
+<% if user_signed_in? || @experiment.comments != [] %>
   <div class="comments">
-  
-    <div id="all-comments">
-      <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
-    </div>
-    
-     <% if user_signed_in? %>
+    <% if @experiment.comments != [] %>
+      <div id="all-comments">
+        <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
       <%= render partial: "comments/form", locals: {commentable: @experiment} %>
     <% end %>
-    
-  </div>    
+  </div>
+<% end %>
 
+
+<% if @children.count > 0 %>
+  <h3>Children Concepts(<%= @children.count %>):</h3>
+  <% if @children.count >= 1 %>
+    <% @children.map do |children| %><br>
+    <h4>Experiments for <%= children.name %></h4>
+      <% children.experiments.map do |exp| %>
+        <%= exp.name %><br>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= @children.name %>
+  <% end %>
+<% end %>
+<br>
+<% if @parents.count > 0 %>
+  <h3>Parent Concepts(<%= @parents.count %>):</h3>
+  <% if @parents.count >= 1 %>
+    <% @parents.map do |parent| %>
+      <h4>Experiments for <%= parent.name %></h4>
+      <% parent.experiments.map do |exp| %>
+        <%= exp.name %><br>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= @parents.name %>
+  <% end %>
+<% end %>
+<br>
+
+<% @experiment.concepts.each do |c| %>
+  Based on your interest on <%= c.name %>, you might be interested in the following experiment(s):<br>
+  <% if c.parents.count >= 1 %>
+    <% random_parent = c.parents.sample %>
+    <% random_parent_experiment = random_parent.experiments.sample %>
+    <%= link_to "#{root_url}experiments/#{random_parent_experiment.id}" do %>
+      <%= random_parent_experiment.name %><br>
+    <% end %>
+  <% end %>
+
+  <% if c.children.count >= 1 %>
+    <% if c.parents.count != 0 %>
+      <h3>OR</h3>
+    <% end %>
+    <% random_child = c.children.sample %>
+    <% random_child_experiment = random_child.experiments.sample %>
+    <%= link_to "#{root_url}experiments/#{random_child_experiment.id}" do %>
+      <%= random_child_experiment.name %>
+    <% end %>
+  <% end %>
+
+<% end %>

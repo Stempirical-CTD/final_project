@@ -50,7 +50,6 @@ function dynamicAdder(btnSelector, listSelector) {
     }
 }
 
-
 $(function () {
     dynamicAdder('.add-material-btn', '.unordered-list-materials');
     dynamicAdder('.add-instruction-btn', '.unordered-list-instructions');
