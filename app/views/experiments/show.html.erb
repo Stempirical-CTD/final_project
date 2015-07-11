@@ -64,15 +64,19 @@
   <div class="row3">
     <div class="show-materials">
       <h3>Materials:</h3><br>
-      <% @experiment.materials.each do |material| %>
-        - <%= material.item %><br>
+      <div class="show-material">
+        <% @experiment.materials.each do |material| %>
+          - <%= material.item %><br>
+      </div>
       <% end %>
     </div>
     
     <div class="show-instructions">
       <h3>Instructions:</h3><br>
       <% @experiment.instructions.each do |instruction| %>
-        <%= instruction.order_number %> | <%= instruction.information %><br>
+        <div class="show-instruction">
+          <%= instruction.order_number %> | <%= instruction.information %><br>
+        </div>
       <% end %>
     </div>
   </div>  

@@ -17,6 +17,7 @@
 .instruction-video, .show-materials, .show-instructions, .comments {
 	display: block;
 	height: auto;
+	overflow: hidden;
 	margin: 2em auto;
 	padding: 1em;
 }
@@ -40,14 +41,18 @@
 }
 
 .show-materials {
-	width: 30%;
+	width: 40%;
 	float: left;
 	margin-left: 7.5%;
 }
 
 .show-instructions {
 	width: 50%;
-	float: left;
+	float: right;
+}
+
+.show-instruction, .show-material {
+	line-height: 1.6em;
 }
 
 .comments {
