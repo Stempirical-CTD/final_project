@@ -129,15 +129,15 @@
     </div>
   </div>
 </main>
-
+<% if user_signed_in? || @experiment.comments != [] %>
   <div class="comments">
-
-    <div id="all-comments">
-      <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
-    </div>
-
-     <% if user_signed_in? %>
+    <% if @experiment.comments != [] %>
+      <div id="all-comments">
+        <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
+      </div>
+    <% end %>
+    <% if user_signed_in? %>
       <%= render partial: "comments/form", locals: {commentable: @experiment} %>
     <% end %>
-
   </div>
+<% end %>
