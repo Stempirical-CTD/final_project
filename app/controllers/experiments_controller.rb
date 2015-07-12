@@ -10,12 +10,13 @@ class ExperimentsController < ApplicationController
 
   def mess_ratings
     @experiments = Experiment.order_by_mess
-    # @experiments = experiments_by_mess.by_votes
+    #@experiments = Experiment.order_by_mess_complete_time
+    # @experiments = Experiment.where(complete_time: 1).order_by_mess
   end
 
   def complete_time_rating
-    # @experiments = Experiment.order(:complete_time :asc, :by_votes)
-    @experiments = Experiment.order(:complete_time)
+    # @experiments = Experiment.order(complete_time: :asc, user_id: :asc)
+    @experiments = Experiment.time
   end
 
   # def age

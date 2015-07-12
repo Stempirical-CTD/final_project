@@ -1,12 +1,30 @@
-<h1>Concepts Tree</h1>
+<h1>Concepts Tree</h1><br>
 <% array = [] %>
-<h1><font color="red"><%= @concepts.first.name %></font></h1>
+<!-- <%= @concepts.inspect %> -->
+
+<% concepts_content = ConceptsHelper::ConceptDisplayer.new.display_concepts(@concepts.first) %>
+<% concepts_content.each do |line| %>
+  <% if line[:type] == :heading %>
+    <%= "<h#{line[:level]}>".html_safe %>
+      <%= line[:name] %>
+    <%= "</h#{line[:level]}>".html_safe %>
+  <% else %>
+    <%= line[:text] %> | 
+  <% end %>
+<% end %>
+
+<hr/>
+
+<!-- <h1><font color="red"><%= @concepts.first.name %></font></h1>
 <% array << @concepts.first.name %>
 <% @concepts.first.experiments.map do |q| %>
     <%= q.name %> |
 <% end %>
 <% @concepts.first.children.map do |a| %>
   <% if !array.include?(a.name) %>
+
+
+
     <h2><font color="orange"><%= a.name %></font></h2>
     <% array << a.name %>
     <% array.uniq %>
@@ -42,7 +60,7 @@
       <% end %>
     <% end %>
   <% end %>
-<% end %>
+<% end %> -->
 <br>
 <br>
 

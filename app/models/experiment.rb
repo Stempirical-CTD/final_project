@@ -24,6 +24,7 @@ class Experiment < ActiveRecord::Base
   validates_format_of :youtube_link,
       :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
       :on => :create
+  scope :time, -> { order(:complete_time) }
 
   def self.by_votes
     all.sort_by {|e| e.experiment_votes.count}.reverse
@@ -35,6 +36,10 @@ class Experiment < ActiveRecord::Base
 
   def self.order_by_mess
     (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
+  end
+
+  def self.order_by_mess_complete_time
+    (all.sort_by {|e| [e.average("name").nil? ? 0 : e.average("name").avg, e.complete_time]}).reverse
   end
 
   def s3_credentials
@@ -58,12 +63,12 @@ class Experiment < ActiveRecord::Base
     end
     array.uniq
   end
-
-  def number_of_concepts
-    Concept.count
-  end
-
-  def related_concept_count
-    concept_parents[0].count + concept_children[0].count
-  end
+  #
+  # def number_of_concepts
+  #   Concept.count
+  # end
+  #
+  # def related_concept_count
+  #   concept_parents[0].count + concept_children[0].count
+  # end
 end
