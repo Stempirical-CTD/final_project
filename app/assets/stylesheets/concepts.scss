@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .concept-img {
-  height: 10em;
-  width: 10em;
+  max-height: 5em;
+  max-width: 5em;
 }
 .concept-img-small{
   height: 2em;
@@ -11,5 +11,5 @@
 }
 .icon-small {
   height: 2em;
-  width: 2em;
+  width: 2em; 
 }

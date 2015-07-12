@@ -46,15 +46,26 @@
 <br>
 <br>
 
+<h1 class="page-title">All Experiments</h1>
+
 <h1>Concepts</h1>
 <% @concepts.each do |concept| %>
-<%= image_tag "#{concept.name}.png", class: "concept-img" %><br>
-<%= link_to concept.name, concept_path(concept) %><br>
-  Video Explaining <a href="<%= concept.video_link %>"><%= concept.name %></a><br>
-  <% concept.experiments.map do |experiment| %>
-    <%= link_to experiment.name, experiment_path(experiment) %><br>
-  <% end %>
-  <br>
+<div class="experiment-card">
+
+  <%= image_tag "#{concept.name}.png", class: "concept-img" %><br>
+
+  <div class="exp-index-detail">
+
+    <h3 class="exp-title"><a><%= link_to concept.name, concept_path(concept) %></a><br></h3>
+
+
+    Video Explaining <a href="<%= concept.video_link %>"><%= concept.name %></a><br>
+    <% concept.experiments.map do |experiment| %>
+      <%= link_to experiment.name, experiment_path(experiment) %><br>
+    <% end %>
+    <br>
+  </div>
+</div>
 <% end %>
 
 <!-- notes below
