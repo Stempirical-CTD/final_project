@@ -39,8 +39,7 @@
   <%= image_tag "time.png", class: "icon-small" %>
   <%= @experiment.complete_time %> hour(s) <br>
 
-  <%= image_tag "splat-off.png", class: "icon-small" %>
-  <%= image_tag "splat-on.png", class: "icon-small" %>
+
 
   Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
   <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %>

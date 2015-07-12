@@ -276,7 +276,7 @@ experiment_seven = Experiment.create!(user_id: user.id,
       order_number: 5)
 
 experiment_eight = Experiment.create!(user_id: user.id,
-  description: "The FLoating Egg",
+  description: "The Floating Egg",
   youtube_link: "https://www.youtube.com/watch?v=gfuLoaEYKis", complete_time: 1,
   name: "The FLoating Egg")
 

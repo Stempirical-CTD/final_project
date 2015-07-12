@@ -20,9 +20,9 @@ $(function(){
       halfShow:    $halfShow,
       single:      $single,
       path:        $(this).attr('data-star-path'),
-      starOn:      $(this).attr('data-recycle-on'),
-      starOff:     $(this).attr('data-recycle-off'),
-      starHalf:    $(this).attr('data-recycle-half'),
+      starOn:      $(this).attr('data-splat-on'),
+      starOff:     $(this).attr('data-splat-off'),
+      starHalf:    $(this).attr('data-splat-half'),
       cancel:      $(this).attr('data-cancel'),
       cancelPlace: $(this).attr('data-cancel-place'),
       cancelHint:  $(this).attr('data-cancel-hint'),
@@ -41,7 +41,7 @@ $(function(){
         if ($(evt.target).data('readonly') === 'true') {
           return;
         }
-        
+
         var _this = this;
         if (score == null) { score = 0; }
         $.post('<%= Rails.application.class.routes.url_helpers.rate_path %>',
