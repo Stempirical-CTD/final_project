@@ -504,17 +504,17 @@ experiment_eighteen = Experiment.create!(user_id: user.id, name: "Static Electri
   Material.create!(experiment_id: experiment_eighteen.id, item: "Aluminium can")
   Material.create!(experiment_id: experiment_eighteen.id, item: "Woolen fabric")
 
-  Instruction.create!(experiment_id: experiment_seventeen.id,
+  Instruction.create!(experiment_id: experiment_eighteen.id,
     information: "Rub the 2 balloons one by one against the woolen fabric, then
         try moving the balloons together, do they want to or are they unattracted
         to each other?",
     order_number: 1)
-  Instruction.create!(experiment_id: experiment_seventeen.id,
+  Instruction.create!(experiment_id: experiment_eighteen.id,
     information: "Rub 1 of the balloons back and forth on your hair then slowly
         it pull it away, ask someone nearby what they can see or if there's nobody
         else around try looking in a mirror.",
     order_number: 2)
-  Instruction.create!(experiment_id: experiment_seventeen.id,
+  Instruction.create!(experiment_id: experiment_eighteen.id,
     information: "Put the aluminium can on its side on a table, after rubbing the
     balloon on your hair again hold the balloon close to the can and watch as it
     rolls towards it, slowly move the balloon away from the can and it will follow.",

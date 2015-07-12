@@ -1,5 +1,5 @@
 <div class="row1">
- 
+
   <div class="show-ratings">
 
   <div class="exp-image">
@@ -10,39 +10,38 @@
 
   <!--placeholder icon-->
   <div class="show-concept-icon">
-    [concept icon]
       <% @experiment.concepts.each do |c| %>
-       Learn more about <%= link_to c.name, concept_path(c) %>
+        <%= image_tag "#{c.name}.png", class: "concept-img-small" %>
+       Learn more about <%= link_to c.name, concept_path(c) %><br>
       <% end %>
   </div>
-  
-   [submitted by user icon]
-  Submitted By User: 
+
+   <%= image_tag "submitted by user.png", class: "icon-small" %>
+  Submitted By User:
   <%= @experiment.user.username %>
     <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
     <%= link_to content_tag(:i, nil, class: 'fa fa-pencil'), edit_experiment_path(@experiment) %> |
     <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o'), @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
   <% end %><br>
-  
-<% if current_user && current_user.can_vote_for?(@experiment) %> 
+
+<% if current_user && current_user.can_vote_for?(@experiment) %>
   <%= link_to content_tag(:i, nil, class: 'fa fa-thumbs-up'), vote_experiment_path(@experiment, value: 1), method: "post" %>
   <% end %>
-    
+
   <%= pluralize @experiment.votes, "like" %><br>
-  
   <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
   <!-- Please call pinit.js only once per page -->
   <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
 
-  [age icon]
-  <%= @experiment.age %> years <br> 
-  
-  [time icon]
+  <%= image_tag "age.png", class: "icon-small" %>
+  <%= @experiment.age %> years <br>
+
+  <%= image_tag "time.png", class: "icon-small" %>
   <%= @experiment.complete_time %> hour(s) <br>
-  
-  [mess icon] 
-  Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %> 
-       
+
+  <%= image_tag "mess.png", class: "icon-small" %>
+  Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
+  <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %>
   </div>
 
   <div class="show-basics">
@@ -51,7 +50,7 @@
     <p class="show-exp-description">
       <%= @experiment.description %>
     </p>
-    
+
     <div class="instruction-video">
     <h3>Instructional Video:</h3><br>
     <% if @experiment.youtube_link != "" %>
@@ -67,11 +66,11 @@
     <div class="show-materials">
       <h3>Materials:</h3><br>
         <% @experiment.materials.each do |material| %>
-        <div class="show-material">  
+        <div class="show-material">
           - <%= material.item %><br>
         </div>
       <% end %>
-        
+
       <div class="recommended">
       <% @experiment.concepts.each do |c| %>
         Based on your interest on <%= link_to c.name, concept_path(c) %>, you might be interested in the following experiment(s):<br>
@@ -82,7 +81,7 @@
           <%= random_parent_experiment.name %><br>
         <% end %>
       <% end %>
-        
+
         <% if c.children.count >= 1 %>
           <% if c.parents.count != 0 %>
             <h3>OR</h3>
@@ -94,10 +93,10 @@
         <% end %>
       <% end %>
     <% end %>
-    </div>  
+    </div>
   </div>
-    
-    
+
+
 
     <div class="show-instructions">
       <h3>Instructions:</h3><br>
@@ -108,7 +107,7 @@
       <% end %>
     </div>
 </div>
-  
+
 <% if user_signed_in? || @experiment.comments != [] %>
   <div class="comments">
     <% if @experiment.comments != [] %>
@@ -137,8 +136,8 @@
     <% end %>
   <% end %>
   <br>
-  
-  
+
+
   <% if @parents.count > 0 %>
     <h3>Parent Concepts(<%= @parents.count %>):</h3>
     <% if @parents.count >= 1 %>
@@ -154,4 +153,3 @@
   <% end %>
   <br>
 </div>
-  
