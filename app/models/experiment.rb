@@ -59,23 +59,6 @@ class Experiment < ActiveRecord::Base
     array.uniq
   end
 
-    # array = []
-    # counter = 0
-    # loop do
-    #   if counter > 1 && array.count > 0
-    #     array.each do |c|
-    #       array << c.children
-    #     end
-    #     array.uniq
-    #   else
-    #     concepts.each do |c|
-    #       array << c.parents
-    #     end
-    #     counter += 1
-    #     array.uniq
-    #   end
-    # end
-
   def number_of_concepts
     Concept.count
   end

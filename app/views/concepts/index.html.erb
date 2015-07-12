@@ -48,7 +48,7 @@
 
 <h1>Concepts</h1>
 <% @concepts.each do |concept| %>
-<%= image_tag "#{concept.name}.png", class: "concept-img" %>
+<%= image_tag "#{concept.name}.png", class: "concept-img" %><br>
 <%= link_to concept.name, concept_path(concept) %><br>
   Video Explaining <a href="<%= concept.video_link %>"><%= concept.name %></a><br>
   <% concept.experiments.map do |experiment| %>
@@ -57,6 +57,7 @@
   <br>
 <% end %>
 
+<!-- notes below
 
 Concepts
 Human Body
@@ -118,4 +119,4 @@ Solar Oven
 Periodic Table
 For an indepth descirption of Periodic Table click here
 Video Explaining Periodic Table
-Penny Cleaner
+Penny Cleaner -->
