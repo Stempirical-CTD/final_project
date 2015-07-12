@@ -10,13 +10,13 @@
 
   <!--placeholder icon-->
   <div class="show-concept-icon">
-    <i class="fa fa-sun-o"></i>
+    [concept icon]
       <% @experiment.concepts.each do |c| %>
        Learn more about <%= link_to c.name, concept_path(c) %>
       <% end %>
   </div>
 
-  <i class="fa fa-lightbulb-o"></i>
+   [submitted by user icon]
   Submitted By User:
   <%= @experiment.user.username %>
     <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
@@ -29,17 +29,18 @@
   <% end %>
 
   <%= pluralize @experiment.votes, "like" %><br>
-
-  <i class="fa fa-pinterest-p"></i>
   <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
   <!-- Please call pinit.js only once per page -->
   <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
 
-  <i class="fa fa-users"></i> <%= @experiment.age %> years <br>
+  [age icon]
+  <%= @experiment.age %> years <br>
 
-  <i class="fa fa-clock-o"></i> <%= @experiment.complete_time %> hour(s) <br>
+  [time icon]
+  <%= @experiment.complete_time %> hour(s) <br>
 
-  <i class="fa fa-recycle"></i> Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
+  [mess icon]
+  Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
 
   </div>
 
