@@ -33,7 +33,7 @@ class Experiment < ActiveRecord::Base
     read_attribute(:votes) || experiment_votes.sum(:value)
   end
 
-  def self.order_number_by_mess
+  def self.order_by_mess
     (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
   end
 
