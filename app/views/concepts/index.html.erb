@@ -1,3 +1,39 @@
+<h1>Concepts Tree</h1>
+<% array = [] %>
+<h1><font color="red"><%= @concepts.first.name %></font></h1>
+<% @concepts.first.experiments.map do |q| %>
+  <%= q.name %> |
+  <% array << q.name %>
+<% end %>
+<% @concepts.first.children.map do |a| %>
+  <% array << a.name %>
+  <h2><font color="orange"><%= a.name %></font></h2>
+  <% a.experiments.map do |r| %>
+  <% array << r.name %>
+    <%= r.name %> |
+  <% end %>
+  <% a.children.map do |b| %>
+    <% array << b.name %>
+    <% array.uniq %>
+    <% a.children.count - array.count %>
+
+    <h3><font color="green"><%= b.name %></font></h3>
+    <% b.experiments.map do |s| %>
+      <% array << s.name %>
+      <%= s.name %> |
+      <% end %>
+    <% b.children.map do |c| %>
+      <% array << c.name %>
+      <h4><font color="blue"><%= c.name %></font></h4>
+      <% c.experiments.map do |t| %>
+        <% array << t.name %>
+        <%= t.name %> |
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<br>
 <h1>Concepts</h1>
 <% @concepts.each do |concept| %>
 <%= link_to concept.name, concept_path(concept) %><br>

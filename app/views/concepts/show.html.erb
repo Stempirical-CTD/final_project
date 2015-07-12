@@ -11,9 +11,9 @@
     <% end %>
 </div>
 For an indepth descirption of <%= @concept.name %> click <a href="<%= @concept.description_link %>">here</a><br>
+<br>
 <% @concept.experiments.map do |experiment| %>
-  <%= experiment.name %><br>
-  <%= experiment.description %><br>
+  <%= link_to experiment.name, experiment_path(experiment) %><br>
+  Description: <%= experiment.description %><br>
+  <br>
 <% end %>
-
-Concept Tree
