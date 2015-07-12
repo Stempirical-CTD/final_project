@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="app/assets/images/fontell/css">
 
 </head>
 
@@ -34,11 +35,11 @@
 
     <div class="sort-nav-links">
       <div class="nav-button"><%= link_to_unless_current("Experiments", root_path, :class => "nav-tab") %></div>
+      <div class="nav-button"><%= link_to_unless_current("Concepts", concepts_path, :class => "nav-tab") %></div>
       <div class="nav-button"><a href="#" class="nav-tab">Materials</a></div>
       <div class="nav-button"><%= link_to_unless_current("Time", complete_time_rating_experiments_path, :class => "nav-tab") %></div>
       <div class="nav-button"><a href="#" class="nav-tab">Age</a></div>
       <div class="nav-button"><%= link_to_unless_current("Mess Factor", mess_ratings_experiments_path, :class => "nav-tab") %></div>
-      <div class="nav-button"><%= link_to_unless_current("Concepts", concepts_path, :class => "nav-tab") %></div>
     </div>
   </header>
 

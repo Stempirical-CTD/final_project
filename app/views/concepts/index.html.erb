@@ -1,38 +1,49 @@
 <h1>Concepts Tree</h1>
 <% array = [] %>
 <h1><font color="red"><%= @concepts.first.name %></font></h1>
+<% array << @concepts.first.name %>
 <% @concepts.first.experiments.map do |q| %>
-  <%= q.name %> |
-  <% array << q.name %>
+    <%= q.name %> |
 <% end %>
 <% @concepts.first.children.map do |a| %>
-  <% array << a.name %>
-  <h2><font color="orange"><%= a.name %></font></h2>
-  <% a.experiments.map do |r| %>
-  <% array << r.name %>
-    <%= r.name %> |
+  <% if !array.include?(a.name) %>
+    <h2><font color="orange"><%= a.name %></font></h2>
+    <% array << a.name %>
+    <% array.uniq %>
+    <% a.experiments.map do |r| %>
+      <%= r.name %> |
+    <% end %>
+  <% else %>
+    <% next %>
   <% end %>
   <% a.children.map do |b| %>
-    <% array << b.name %>
-    <% array.uniq %>
-    <% a.children.count - array.count %>
-
-    <h3><font color="green"><%= b.name %></font></h3>
-    <% b.experiments.map do |s| %>
-      <% array << s.name %>
-      <%= s.name %> |
-      <% end %>
+    <% if !array.include?(b.name) %>
+      <% array << b.name %>
+      <% array.uniq %>
+      <h3><font color="green"><%= b.name %></font></h3>
+      <% b.experiments.map do |s| %>
+        <%= s.name %> |
+        <% end %>
+    <% else %>
+      <% next %>
+    <% end %>
     <% b.children.map do |c| %>
-      <% array << c.name %>
-      <h4><font color="blue"><%= c.name %></font></h4>
-      <% c.experiments.map do |t| %>
-        <% array << t.name %>
-        <%= t.name %> |
+      <% if !array.include?(c.name) %>
+        <% array << c.name %>
+        <% array.uniq %>
+        <h4><font color="blue"><%= c.name %></font></h4>
+        <% c.experiments.map do |t| %>
+          <% array << t.name %>
+          <% array.uniq %>
+          <%= t.name %> |
+        <% end %>
+      <% else %>
+        <% next %>
       <% end %>
     <% end %>
   <% end %>
 <% end %>
-
+<br>
 <br>
 <h1>Concepts</h1>
 <% @concepts.each do |concept| %>
@@ -43,3 +54,71 @@
   <% end %>
   <br>
 <% end %>
+
+
+Concepts
+Human Body
+For an indepth descirption of Human Body click here
+Video Explaining Human Body
+Arrows Optical Illusion
+
+  <i class="fa fa-cogs"></i>
+Design & Build
+For an indepth descirption of Design & Build click here
+Video Explaining Design & Build
+Machanical Grabber
+Hot Air Balloon
+
+DNA
+For an indepth descirption of DNA click here
+Video Explaining DNA
+Strawberry DNA
+
+  <i class="icon-network"></i>
+Molecular Behavior
+For an indepth descirption of Molecular Behavior click here
+Video Explaining Molecular Behavior
+Colored Water
+
+  <i class="fa fa-bolt"></i>
+Electricity
+For an indepth descirption of Electricity click here
+Video Explaining Electricity
+How To Make A Spark
+Static Electricity
+
+  <i class="fa fa-tint"></i>
+Liquids
+For an indepth descirption of Liquids click here
+Video Explaining Liquids
+The FLoating Egg
+Drops on a Penny
+
+Gases
+For an indepth descirption of Gases click here
+Video Explaining Gases
+Hot Air Balloon
+
+  <i class="fa fa-cloud"></i>
+Water Cycle
+For an indepth descirption of Water Cycle click here
+Video Explaining Water Cycle
+Solar Still
+
+Chemical Reactions
+For an indepth descirption of Chemical Reactions click here
+Video Explaining Chemical Reactions
+Magic Milk
+Inflating a balloon
+Activating Yeast
+Soap Powered Boat
+
+Energy
+For an indepth descirption of Energy click here
+Video Explaining Energy
+Solar Oven
+
+Periodic Table
+For an indepth descirption of Periodic Table click here
+Video Explaining Periodic Table
+Penny Cleaner
