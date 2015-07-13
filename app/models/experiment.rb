@@ -36,6 +36,19 @@ class Experiment < ActiveRecord::Base
     read_attribute(:votes) || experiment_votes.sum(:value)
   end
 
+  def return_age
+    # ages = {1 => "3 & Under", 2 => "4-6", 3 => "7-9", 4 => "10 & up"}
+    if self.age == 1
+      "3 & Under"
+    elsif self.age == 2
+      "4-6"
+    elsif self.age == 3
+      "7-9"
+    elsif self.age == 4
+      "10 & up"
+    end
+  end
+
   def self.order_by_mess
     (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
   end

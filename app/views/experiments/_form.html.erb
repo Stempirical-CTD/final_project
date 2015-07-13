@@ -53,12 +53,7 @@
             </div>
             <div class="field">
               <%= f.label :age %> years<br>
-              <%= f.select :age, options_for_select([["Under 3", 1], ["4-6",2], ["7-9",3],["10 & up", 4]])%>
-        <!-- "Under 3" = "1"
-            "4-6" = "2"
-            "7-9" = "3"
-            "10 & up" = "4"
-        -->
+              <%= f.select :age, options_for_select([["Under 3", 1], ["4-6",2], ["7-9",3],["10 & up", 4]]), {:prompt => 'Choose an Age'}%>
           </div>
           </div>
 

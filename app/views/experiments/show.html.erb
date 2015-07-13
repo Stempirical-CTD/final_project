@@ -34,7 +34,7 @@
   <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
 
   <%= image_tag "age.png", class: "icon-small" %>
-  <%= @experiment.age %> years <br>
+  <%= @experiment.return_age %> years <br>
 
   <%= image_tag "time.png", class: "icon-small" %>
   <%= @experiment.complete_time %> hour(s) <br>
@@ -47,7 +47,6 @@
 
   <div class="show-basics">
     <h3 class="page-title"><%= @experiment.name %></h3>
-
     <p class="show-exp-description">
       <%= @experiment.description %>
     </p>
