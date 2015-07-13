@@ -1,3 +1,19 @@
 <h1>Concepts#show</h1>
 <p>Find me in app/views/concepts/show.html.erb</p>
 <%= @concept.name %>
+<div class="concept-video">
+  <h3>Concept Video:</h3><br>
+    <% if @concept.video_link != "" %>
+      <div class="embed-container">
+        <%= embed(@concept.video_link) %>
+      </div>
+      <a href="<%= @concept.video_link %>">View on YouTube</a><br>
+    <% end %>
+</div>
+For an indepth descirption of <%= @concept.name %> click <a href="<%= @concept.description_link %>">here</a><br>
+<br>
+<% @concept.experiments.map do |experiment| %>
+  <%= link_to experiment.name, experiment_path(experiment) %><br>
+  Description: <%= experiment.description %><br>
+  <br>
+<% end %>

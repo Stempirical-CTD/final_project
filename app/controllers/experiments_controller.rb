@@ -13,10 +13,12 @@ class ExperimentsController < ApplicationController
   end
 
   def mess_ratings
-    @experiments = Experiment.order_number_by_mess
+    @experiments = Experiment.order_by_mess
+    # @experiments = experiments_by_mess.by_votes
   end
 
   def complete_time_rating
+    # @experiments = Experiment.order(:complete_time :asc, :by_votes)
     @experiments = Experiment.order(:complete_time)
   end
 
