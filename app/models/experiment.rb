@@ -4,6 +4,9 @@ class Experiment < ActiveRecord::Base
 
   has_and_belongs_to_many :concepts
 
+  # has_many :concepts_experiments
+  # has_many :concepts, through: :concepts_experiments
+
   has_attached_file :uploaded_file,
                     :storage => :s3,
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }

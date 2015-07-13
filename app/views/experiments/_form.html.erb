@@ -51,11 +51,38 @@
               <%= f.label :complete_time %><br>
               <%= f.number_field(:complete_time, in: 0.5..20.0, step: 0.5) %> hours
             </div>
+            <div class="field">
+              <%= f.label :age %> years<br>
+              <%= f.select :age, options_for_select([["Under 3", 1], ["4-6",2], ["7-9",3],["10 & up", 4]])%>
+        <!-- "Under 3" = "1"
+            "4-6" = "2"
+            "7-9" = "3"
+            "10 & up" = "4"
+        -->
           </div>
+          </div>
+
       </li>
 
       <li>
-       <!-- ADD CONCEPT CHECKBOXES HERE! -->
+
+      <div>
+        <% Concept.all.each do |concept| %>
+          <%= check_box_tag('concepts[]', concept.id, false, id: "concept_#{concept.id}")%>
+          <%= label_tag("concept_#{concept.id}",concept.name) %>
+        <% end %>
+      </div>
+       <!-- concept_one = "Human Body",
+            concept_two = "Design & Build",
+            concept_three = "Plants",
+            concept_four = "Molecular Behavior",
+            concept_five = "Electricity",
+            concept_six = "Liquids",
+            concept_seven = "Gases",
+            concept_eight = "Water Cycle",
+            concept_nine = "Chemical Reactions",
+            concept_ten = "Energy",
+            concept_eleven = "Periodic Table" -->
       </li>
 
       <li>
@@ -90,7 +117,7 @@
               </li>
 
             <% end %>
-            
+
           </ul>
           <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i></button>
 
