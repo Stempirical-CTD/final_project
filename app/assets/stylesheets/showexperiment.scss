@@ -3,7 +3,7 @@
 	width: 90%;
 	height: auto;
 	overflow: hidden;
-	margin: auto;
+	margin: 2em auto;
 }  
 
 .row3 {
@@ -32,10 +32,13 @@
 .show-ratings {
 	float: left;
 	width: 30%;
+	position: relative;
+	left: 6;
 	height: auto;
 	overflow: hidden;
 	padding: 1em;
 	margin: 1em;
+	box-shadow: -0 0 10px #ccc;
 }
 
 .show-basics {
@@ -46,12 +49,14 @@
 	overflow: hidden;
 	padding: 1em;
 	margin: 1em;
+	box-shadow: -0 0 10px #ccc;
 }
 
 .instruction-video {
 	clear: both;
 	text-align: center;
-	height: auto;
+	height: 15em;
+	width: 15em;
 	overflow: hidden;
 	padding: 1em;
 	margin: 1em auto;
@@ -64,11 +69,7 @@
 	overflow: hidden;
 	padding: 1em;
 	margin: 1em 0 0 1em;
-}
-
-.recommended {
-	border-top: 1px solid #ccc;
-	padding-top: 1em;
+	box-shadow: -0 0 10px #ccc;
 }
 
 .show-instructions {
@@ -78,15 +79,36 @@
 	overflow: hidden;
 	padding: 1em;
 	margin-right: 1em;
+	box-shadow: -0 0 10px #ccc;
 }
 
 .show-instruction, .show-materials > div {
 	line-height: 1.7em;
+	margin: 1em;
+}
+
+.recommended {
+	float: left;
+	display: block;
+	border-top: 1px solid #ccc;
+	padding-top: 1em;
+	box-shadow: -0 0 10px #ccc;
+	width: 30%;
+}
+
+.extended-learning {
+	float: left;
+	display: block;
+	border-top: 1px solid #ccc;
+	padding-top: 1em;
+	box-shadow: -0 0 10px #ccc;
+	width: 30%;
 }
 
 .comments {
-	clear: both;
+	float: right;
 	width: 30%;
 	margin: 0 auto;
 	box-shadow: -0 0 5px #ccc;
 }
+
