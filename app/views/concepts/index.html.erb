@@ -2,6 +2,7 @@
 
 <% concepts_content = ConceptsHelper::ConceptDisplayer.new.display_concepts(@concepts.first) %>
 <% concepts_content.each do |line| %>
+<div class="concept-<%= line[:level] %>">
   <% if line[:type] == :heading %>
     <%= "<h#{line[:level]}>".html_safe %>
       <%= line[:name] %>
@@ -9,7 +10,9 @@
   <% else %>
     <%= line[:text] %> |
   <% end %>
+</div>
 <% end %>
+</div>
 
 <hr/>
 

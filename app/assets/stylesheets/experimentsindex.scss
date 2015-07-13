@@ -32,61 +32,102 @@
 
 .experiment-card {
 	display: block;
-	width: 60%;
-	height: auto;
+	width: 40%;
+	height: 13em;
+	overflow: hidden;
 	background-color: #F2F3F4;
   	box-shadow: -0 0 10px #ccc;
-	margin: 2em auto;
-	padding: 2em;
-	overflow: hidden;
+	margin: 1em auto;
 }
 
-.concept-icon {
+// .concept-icon {
+// 	float: left;
+// 	margin: 1.5em auto;
+// 	width: 50%;
+// 	text-align: center;
+// }
+
+.info-half {
 	float: left;
-	margin: 0 auto;
-	font-size: 5rem;
-	padding: 5% 0 0 9%;
-	width: 20%;
-	overflow: hidden;
+	font-variant: small-caps;
+	width: 50%;
+}
+
+.photo-half {
+	float: right;
+	max-height: 100%;
+	width: 50%;
+	position: relative;
+}
+
+photo-half:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	background: rgba(0,255,0, 0.5);
+}
+
+.concept-img {
+	display: block;
+	position: relative;
+	// left: 40%;
+	margin: 0.5em auto;
+}
+
+.concept-title {
+	text-align: center;
+	margin: 0;
+	padding: 0;
 }
 
 .exp-title {
-	transition: all .2s ease-in-out;
-	margin-bottom: 1em;
+	// transition: all .2s ease-in-out;
+	margin: 0.5em;
+	display: block;
+	text-align: center;
+	font-variant: small-caps;
 }
 
 .exp-title:hover {
-	transform: scale(1.05);
+	// transform: scale(1.05);
 }
 
-.exp-index-detail {
-	float: right;
-	line-height: 1.6em;
-	width: 68%;
+.index-photo { /* need opacity or filter */
+	zoom: 2;  //increase if you have very small images
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
 }
 
-.exp-ratings {
-	position: relative;
-	right: 0;
-	bottom: 0;
+.exp-ratings { /* how to move down? */
+	font-variant: small-caps;
+	position: absolute;
+	right: 30%;
 	font-weight: bold;
+	line-height: 1.6em;
 	padding: 0;
 	float: right;
 	text-align: right;
 	margin: 0.5em 0;
+	z-index: 1;
 }
 
 .fa-thumbs-up {
 	padding: 0.5em;
 }
 
-.image {
-	float: left;
-	margin: 2.5% 0 0 2.5%;
-	height: 15em;
-	width: 30%;
-	box-shadow: -0 0 10px #CCC;
-}
+// .image {
+// 	float: left;
+// 	margin: 2.5% 0 0 2.5%;
+// 	height: 15em;
+// 	width: 30%;
+// 	box-shadow: -0 0 10px #CCC;
+// }
 
  /*ratings  */
 

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     collection do
       get 'mess_ratings'
       get 'complete_time_rating'
+      get 'ages'
     end
     member { post :vote }
   end
