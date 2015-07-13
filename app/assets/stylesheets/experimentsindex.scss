@@ -96,12 +96,13 @@ photo-half:before {
 	// transform: scale(1.05);
 }
 
-.index-photo { /* need opacity or filter */
+.photo-half img { /* need opacity or filter */
 	zoom: 2;  //increase if you have very small images
     height: auto;
     max-height: 100%;
     width: auto;
     max-width: 100%;
+	opacity: 0.6em;
 }
 
 .exp-ratings { /* how to move down? */
@@ -150,8 +151,18 @@ photo-half:before {
 }
 
 .mess-rate-disable {
-	display: inline;
+	display: relative;
 	padding: 0.5em;
 	z-index: 5;
 	opacity: 1;
+	&:after {
+		content: " ";
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
 }
+
+	
