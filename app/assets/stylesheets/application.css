@@ -109,7 +109,7 @@ i {
   top: 0;
   left: 0;
   box-shadow: 0 8px 6px -6px #ccc;
-  z-index: 1;
+  z-index: 2;
 }
 
 .logo {
@@ -155,7 +155,7 @@ i {
 .nav-button {
   display: inline-block;
   margin: 0.5%;
-  width: 6em;
+  width: 8em;
   right: 0;
   border-radius: 5;
 }
