@@ -4,6 +4,9 @@ class Experiment < ActiveRecord::Base
 
   has_and_belongs_to_many :concepts
 
+  # has_many :concepts_experiments
+  # has_many :concepts, through: :concepts_experiments
+
   has_attached_file :uploaded_file,
                     :storage => :s3,
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
@@ -31,6 +34,19 @@ class Experiment < ActiveRecord::Base
 
   def votes
     read_attribute(:votes) || experiment_votes.sum(:value)
+  end
+
+  def return_age
+    # ages = {1 => "3 & Under", 2 => "4-6", 3 => "7-9", 4 => "10 & up"}
+    if self.age == 1
+      "3 & Under"
+    elsif self.age == 2
+      "4-6"
+    elsif self.age == 3
+      "7-9"
+    elsif self.age == 4
+      "10 & up"
+    end
   end
 
   def self.order_by_mess

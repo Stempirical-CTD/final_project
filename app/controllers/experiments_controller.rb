@@ -8,6 +8,10 @@ class ExperimentsController < ApplicationController
     @experiments = Experiment.by_votes
   end
 
+  def ages
+    @experiments = Experiment.order(:age)
+  end
+
   def mess_ratings
     @experiments = Experiment.order_by_mess
     # @experiments = experiments_by_mess.by_votes
@@ -17,6 +21,10 @@ class ExperimentsController < ApplicationController
     # @experiments = Experiment.order(:complete_time :asc, :by_votes)
     @experiments = Experiment.order(:complete_time)
   end
+
+  # def display_ages
+  #   @experiments = Experiment.return_ages
+  # end
 
   # def age
   #   @experiments = Experiment.
@@ -45,8 +53,12 @@ class ExperimentsController < ApplicationController
   def create
     @experiment = Experiment.new(experiment_params)
     @experiment.user_id = current_user.id
+    # params[:concepts].each do |concept_id|
+    #   @experiment.concepts_experiment.new(concept_id: concept_id)
+    # end
     respond_to do |format|
       if @experiment.save
+        params[:concepts].each { |c| @experiment.concepts << Concept.find(c) }
         format.html { redirect_to @experiment, notice: 'Experiment was successfully created.' }
       else
         format.html { render :new }
@@ -93,7 +105,7 @@ class ExperimentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_params
-      params.require(:experiment).permit(:user_id, :name, :description, :youtube_link, :complete_time, :uploaded_file,
+      params.require(:experiment).permit(:user_id, :name, :description, :youtube_link, :complete_time, :uploaded_file, :age,
           materials_attributes: [:id, :experiment_id, :item],
           instructions_attributes: [:id, :experiment_id, :information, :order_number],
           experiment_votes: [:id, :value, :experiment_id],
