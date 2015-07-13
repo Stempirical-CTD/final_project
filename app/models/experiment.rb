@@ -4,9 +4,6 @@ class Experiment < ActiveRecord::Base
 
   has_and_belongs_to_many :concepts
 
-  # has_many :concepts_experiments
-  # has_many :concepts, through: :concepts_experiments
-
   has_attached_file :uploaded_file,
                     :storage => :s3,
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
@@ -29,30 +26,10 @@ class Experiment < ActiveRecord::Base
       :on => :create
   scope :time, -> { order(:complete_time) }
 
-  def self.text_search(query, material)
-    if material != ""
-      where("name LIKE ?", "%#{query}%")
-      where("description LIKE ?", "%#{query}%")
-      material = Material.where("item LIKE ?", "%#{material}")
-      material.map {|m| m.experiment}
-    else
-      where("name LIKE ?", "%#{query}%")
-      where("description LIKE ?", "%#{query}%")
-    end
-    # where("materials LIKE ?", "%#{query}%")
-
-    # if query
-    #   find(:all, :conditions => ['name LIKE ?', "%#{query}%"])
-    # else
-    #   find(:all)
-    # end
-    # #more advanced search
-    # if query.present?
-    #   where("name ilike :q or description ilike :q", q: "%#{query}%")#sqlite
-    #   # where("name @@ :q or description @@ :q", q: query)#pgsql
-    # else
-    #   scoped
-    # end
+  def self.text_search(query)
+    q = "%#{query}%"
+    joins(:materials)
+        .where("name LIKE ? OR description LIKE ? OR item LIKE ?", q, q, q).uniq
   end
 
   def self.by_votes
@@ -64,7 +41,6 @@ class Experiment < ActiveRecord::Base
   end
 
   def return_age
-    # ages = {1 => "3 & Under", 2 => "4-6", 3 => "7-9", 4 => "10 & up"}
     if self.age == 1
       "3 & Under"
     elsif self.age == 2
@@ -105,12 +81,5 @@ class Experiment < ActiveRecord::Base
     end
     array.uniq
   end
-  #
-  # def number_of_concepts
-  #   Concept.count
-  # end
-  #
-  # def related_concept_count
-  #   concept_parents[0].count + concept_children[0].count
-  # end
+
 end

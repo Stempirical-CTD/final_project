@@ -7,10 +7,10 @@ class ExperimentsController < ApplicationController
   def index
     # @experiments = Experiment.all
     if params[:query]
-      @experiments = Experiment.text_search(params[:query], params[:material])
+      @experiments = Experiment.text_search(params[:query])
       if @experiments.length == 0
         flash.now[:notice] = "No items found"
-        @experiments = Experiment.by_votes
+        
       end
     else
       @experiments = Experiment.by_votes
