@@ -162,7 +162,12 @@ i {
 
 /* errors & notices */
 
-
+.messages {
+  display: block;
+  position: absolute;
+  top: 11em;
+  margin: 0 auto;
+}
 
 /* buttons */
 

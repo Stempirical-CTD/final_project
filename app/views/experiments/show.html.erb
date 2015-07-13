@@ -2,6 +2,8 @@
 
   <div class="show-ratings">
 
+    <h3 class="page-title"><%= @experiment.name %></h3>
+
     <div class="exp-image">
         <% if @experiment.uploaded_file_file_name != nil %>
           <%= image_tag @experiment.uploaded_file %>
@@ -46,7 +48,6 @@
   </div>
 
   <div class="show-basics">
-    <h3 class="page-title"><%= @experiment.name %></h3>
 
     <p class="show-exp-description">
       <%= @experiment.description %>
@@ -71,8 +72,19 @@
           - <%= material.item %><br>
         </div>
       <% end %>
+  </div>
 
-      <div class="recommended">
+    <div class="show-instructions">
+      <h3>Instructions:</h3><br>
+      <% @experiment.instructions.each do |instruction| %>
+        <div class="show-instruction">
+          <%= instruction.order_number %> | <%= instruction.information %><br>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<div class="recommended">
       <% @experiment.concepts.each do |c| %>
         Based on your interest on <%= link_to c.name, concept_path(c) %>, you might be interested in the following experiment(s):<br>
         <% if c.parents.count >= 1 %>
@@ -94,20 +106,7 @@
         <% end %>
       <% end %>
     <% end %>
-    </div>
   </div>
-
-
-
-    <div class="show-instructions">
-      <h3>Instructions:</h3><br>
-      <% @experiment.instructions.each do |instruction| %>
-        <div class="show-instruction">
-          <%= instruction.order_number %> | <%= instruction.information %><br>
-        </div>
-      <% end %>
-    </div>
-</div>
 
 <% if user_signed_in? || @experiment.comments != [] %>
   <div class="comments">
