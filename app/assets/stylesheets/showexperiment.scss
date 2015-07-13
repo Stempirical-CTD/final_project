@@ -3,11 +3,12 @@
 	width: 90%;
 	height: auto;
 	overflow: hidden;
-	margin: auto;
+	margin: 2em auto;
 }  
 
 .row3 {
 	border-top: 1px solid #ccc;
+	box-shadow: -0 0 10px #ccc;
 }
 
 .instruction-video, .show-materials, .show-instructions, .comments, .pin-it, .show-basics, .show-ratings {
@@ -32,10 +33,13 @@
 .show-ratings {
 	float: left;
 	width: 30%;
+	position: relative;
+	left: 6;
 	height: auto;
 	overflow: hidden;
 	padding: 1em;
 	margin: 1em;
+	box-shadow: -0 0 10px #ccc;
 }
 
 .show-basics {
@@ -46,12 +50,14 @@
 	overflow: hidden;
 	padding: 1em;
 	margin: 1em;
+	box-shadow: -0 0 10px #ccc;
 }
 
 .instruction-video {
 	clear: both;
 	text-align: center;
-	height: auto;
+	height: 15em;
+	width: 15em;
 	overflow: hidden;
 	padding: 1em;
 	margin: 1em auto;
@@ -82,6 +88,7 @@
 
 .show-instruction, .show-materials > div {
 	line-height: 1.7em;
+	margin: 1em;
 }
 
 .comments {
