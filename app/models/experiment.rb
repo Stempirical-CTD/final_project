@@ -26,6 +26,32 @@ class Experiment < ActiveRecord::Base
       :on => :create
   scope :time, -> { order(:complete_time) }
 
+  def self.text_search(query, material)
+    if material != ""
+      where("name LIKE ?", "%#{query}%")
+      where("description LIKE ?", "%#{query}%")
+      material = Material.where("item LIKE ?", "%#{material}")
+      material.map {|m| m.experiment}
+    else
+      where("name LIKE ?", "%#{query}%")
+      where("description LIKE ?", "%#{query}%")
+    end
+    # where("materials LIKE ?", "%#{query}%")
+
+    # if query
+    #   find(:all, :conditions => ['name LIKE ?', "%#{query}%"])
+    # else
+    #   find(:all)
+    # end
+    # #more advanced search
+    # if query.present?
+    #   where("name ilike :q or description ilike :q", q: "%#{query}%")#sqlite
+    #   # where("name @@ :q or description @@ :q", q: query)#pgsql
+    # else
+    #   scoped
+    # end
+  end
+
   def self.by_votes
     all.sort_by {|e| e.experiment_votes.count}.reverse
   end

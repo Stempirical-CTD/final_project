@@ -1,4 +1,5 @@
 module ConceptsHelper
+
   class ConceptDisplayer
     def initialize
       @already_displayed_concepts = []
@@ -30,6 +31,6 @@ module ConceptsHelper
       return @content
     end
 
-
   end
+  
 end

@@ -1,6 +1,4 @@
 <h1>Concepts Tree</h1><br>
-<% array = [] %>
-<!-- <%= @concepts.inspect %> -->
 
 <% concepts_content = ConceptsHelper::ConceptDisplayer.new.display_concepts(@concepts.first) %>
 <% concepts_content.each do |line| %>
@@ -9,64 +7,17 @@
       <%= line[:name] %>
     <%= "</h#{line[:level]}>".html_safe %>
   <% else %>
-    <%= line[:text] %> | 
+    <%= line[:text] %> |
   <% end %>
 <% end %>
 
 <hr/>
 
-<!-- <h1><font color="red"><%= @concepts.first.name %></font></h1>
-<% array << @concepts.first.name %>
-<% @concepts.first.experiments.map do |q| %>
-    <%= q.name %> |
-<% end %>
-<% @concepts.first.children.map do |a| %>
-  <% if !array.include?(a.name) %>
-
-
-
-    <h2><font color="orange"><%= a.name %></font></h2>
-    <% array << a.name %>
-    <% array.uniq %>
-    <% a.experiments.map do |r| %>
-      <%= r.name %> |
-    <% end %>
-  <% else %>
-    <% next %>
-  <% end %>
-  <% a.children.map do |b| %>
-    <% if !array.include?(b.name) %>
-      <% array << b.name %>
-      <% array.uniq %>
-      <h3><font color="green"><%= b.name %></font></h3>
-      <% b.experiments.map do |s| %>
-        <%= s.name %> |
-        <% end %>
-    <% else %>
-      <% next %>
-    <% end %>
-    <% b.children.map do |c| %>
-      <% if !array.include?(c.name) %>
-        <% array << c.name %>
-        <% array.uniq %>
-        <h4><font color="blue"><%= c.name %></font></h4>
-        <% c.experiments.map do |t| %>
-          <% array << t.name %>
-          <% array.uniq %>
-          <%= t.name %> |
-        <% end %>
-      <% else %>
-        <% next %>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %> -->
 <br>
 <br>
 
-<h1 class="page-title">All Experiments</h1>
+<h1 class="page-title">All Concepts</h1>
 
-<h1>Concepts</h1>
 <% @concepts.each do |concept| %>
 <div class="experiment-card">
 
