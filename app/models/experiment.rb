@@ -27,6 +27,33 @@ class Experiment < ActiveRecord::Base
   validates_format_of :youtube_link,
       :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
       :on => :create
+  scope :time, -> { order(:complete_time) }
+
+  def self.text_search(query, material)
+    if material != ""
+      where("name LIKE ?", "%#{query}%")
+      where("description LIKE ?", "%#{query}%")
+      material = Material.where("item LIKE ?", "%#{material}")
+      material.map {|m| m.experiment}
+    else
+      where("name LIKE ?", "%#{query}%")
+      where("description LIKE ?", "%#{query}%")
+    end
+    # where("materials LIKE ?", "%#{query}%")
+
+    # if query
+    #   find(:all, :conditions => ['name LIKE ?', "%#{query}%"])
+    # else
+    #   find(:all)
+    # end
+    # #more advanced search
+    # if query.present?
+    #   where("name ilike :q or description ilike :q", q: "%#{query}%")#sqlite
+    #   # where("name @@ :q or description @@ :q", q: query)#pgsql
+    # else
+    #   scoped
+    # end
+  end
 
   def self.by_votes
     all.sort_by {|e| e.experiment_votes.count}.reverse
@@ -53,6 +80,10 @@ class Experiment < ActiveRecord::Base
     (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
   end
 
+  def self.order_by_mess_complete_time
+    (all.sort_by {|e| [e.average("name").nil? ? 0 : e.average("name").avg, e.complete_time]}).reverse
+  end
+
   def s3_credentials
     {:bucket => "stempirical",
         :access_key_id => ENV["AMS3_ID"],
@@ -74,12 +105,12 @@ class Experiment < ActiveRecord::Base
     end
     array.uniq
   end
-
-  def number_of_concepts
-    Concept.count
-  end
-
-  def related_concept_count
-    concept_parents[0].count + concept_children[0].count
-  end
+  #
+  # def number_of_concepts
+  #   Concept.count
+  # end
+  #
+  # def related_concept_count
+  #   concept_parents[0].count + concept_children[0].count
+  # end
 end

@@ -5,7 +5,27 @@ class ExperimentsController < ApplicationController
   # GET /experiments
   # GET /experiments.json
   def index
-    @experiments = Experiment.by_votes
+    # @experiments = Experiment.all
+    if params[:query]
+      @experiments = Experiment.text_search(params[:query], params[:material])
+      if @experiments.length == 0
+        flash.now[:notice] = "No items found"
+        @experiments = Experiment.by_votes
+      end
+    else
+      @experiments = Experiment.by_votes
+    end
+    # if params[:query]
+    #   @experiments = Experiment.find(:all, :conditions => ['name LIKE ?', "%#{params[:query]}%"])
+    #   @concept_choices = Concept.all.map(&:name)
+    #   if @experiments.size.zero?
+    #     flash[:notice] = "No items found"
+    #     @experiments = Experiment.by_votes
+    #   end
+    # else
+    # # @experiments = Experiment.text_search(params[:query])#.page(params[:page]).per_page(3)
+    #   @experiments = Experiment.by_votes
+    # end
   end
 
   def ages
@@ -13,22 +33,16 @@ class ExperimentsController < ApplicationController
   end
 
   def mess_ratings
-    @experiments = Experiment.order_by_mess
-    # @experiments = experiments_by_mess.by_votes
+    # @experiments = Experiment.order_by_mess
+    @experiments = Experiment.order_by_mess_complete_time
+    # @experiments = Experiment.where(complete_time: 1).order_by_mess
   end
 
   def complete_time_rating
-    # @experiments = Experiment.order(:complete_time :asc, :by_votes)
-    @experiments = Experiment.order(:complete_time)
+    # @experiments = Experiment.order(complete_time: :asc, user_id: :asc)
+    @experiments = Experiment.time
   end
 
-  # def display_ages
-  #   @experiments = Experiment.return_ages
-  # end
-
-  # def age
-  #   @experiments = Experiment.
-  # end
   # GET /experiments/1
   # GET /experiments/1.json
   def show
@@ -95,7 +109,6 @@ class ExperimentsController < ApplicationController
       redirect_to :back, alert: "Unable to vote, perhaps you already did."
     end
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
