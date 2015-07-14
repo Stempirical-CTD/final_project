@@ -20,7 +20,6 @@ module ConceptsHelper
         experiments = concept.experiments.each do |experiment|
           @content << {
             type: :list_item,
-            level: level,
             text: experiment.name
           }
         end
