@@ -15,9 +15,6 @@
  */
 
 /* defaults */
-.star:hover {
-  cursor: default;
-}
 
 html {font-size: 1em;}
 
@@ -62,12 +59,15 @@ label {
 }
 
 input {
-    display: inline-block;
+    /*display: inline-block;*/
     font-family: 'Raleway', sans-serif;
     border: 0.1em solid #323232;
     font-size: 1em;
-    margin: 1em 0.5em;
     outline-color: #DFF5D1;
+}
+
+input:not('.search') {
+  margin: 1em 0.5em;
 }
 
 textarea {
@@ -76,8 +76,8 @@ textarea {
   background-color: none;
 }
 
-ul {
-  list-style-type: none;
+li {
+  list-style: none;
 }
 
 a {
@@ -86,17 +86,12 @@ a {
   font-weight: bold;
 }
 
-i {
-  padding: 0.5em;
-}
-
 .main-content {
   clear: both;
   display: block;
   position: relative;
-  padding-top: 10em;
+  padding-top: 6em;
 }
-
 
 /*navigation bar*/
 
@@ -104,7 +99,7 @@ i {
   display: block;
   position: fixed;
   width: 100%;
-  height: 5em;
+  height: 4em;
   background-color: #F2F3F4;
   top: 0;
   left: 0;
@@ -112,49 +107,41 @@ i {
   z-index: 2;
 }
 
-.logo, .sort-nav-links, .nav-button, .new-exp, .user-status, .search {
+.nav-link, .user-status {
   position: relative;
-  top: 0.5em;
+  top: 0.4em;
   float: left;
+  padding: 0.3em 0.7em 0.7em;
+  margin: 0.5em;
 }
 
 .logo {
-  padding: 0.3em 0.7em;
+  float: left;
+  padding: 0.4em 0 0 1em;
 }
 
-#search-form {
-  display: inline-block;
-  top: 0.5em;
+.search {
+  float: left;
+  padding: -1.2em 0.8em;
+  margin-left: 0.5em;
+  height: 1.2em;
 }
 
-.new-exp {
-  width: 10em;
-  margin: 0.5em;
-}  
+.nav-link {
+  font-size: 1.1em;
+}
+
+.nav-link:hover {
+  border-bottom: 5px solid #323232;
+  font-weight: bold;
+}
 
 .user-status {
+  position: relative;
+  top: 0.5em;
+  padding: 0.3em 0.7em;
   margin: 0.5em;
-  padding-top: 0.3em;
-}
-
-/*.sort-nav-links {
-  margin: 0.5em 2%;
-}*/
-
-.nav-button, .new-exp {
-  background-color: #E8E8E8;
-  color: #333;
-  border: 0;
-  padding: 0.5em;
-  font-size: 1em;
-  font-weight: bold;
-  box-shadow: 0 8px 6px -8px #ccc;
-  text-align: center;
-}
-
-.nav-button {
-  margin: 0.5%;
-  width: 8em;
+  float: right;
 }
 
 /* errors & notices */

@@ -6,51 +6,25 @@
 
 .form-container {
 	padding: 2em 2.5em;
+  width: 70%;
+  margin: 0 auto;
   overflow: hidden;
   height: auto;
 }
 
-// create experiment view tab navigation
+.form-container input {
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
+}
 
-ul#tabs {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-	  font-size: 1.3em;
-}
-ul#tabs li {
-    display: inline-block;
-    background-color: #E8E8E8;
-    padding: 5px 20px;
-    color: #323232;
-    cursor: pointer;
-	  border-bottom: solid 2px #E8E8E8;
-}
-ul#tabs li:hover {
-    background-color: #F2F3F4;
-	border-bottom: solid 2px #F2F3F4;
-}
-ul#tabs li.active {
-	background-color: #F2F3F4;
-	border-bottom: solid 2px #F2F3F4;
-	transition: all 0.2s ease-in-out;
-}
-ul#tab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-ul#tab > li {
-    display: none;
-}
-ul#tab > li.active {
-    display: block;
-	width: 50%;
-	background-color: #F2F3F4;
-	margin: 0 auto;
-	padding: 1em;
-	box-shadow: -0 0 10px #CCC;
-	z-index: 50;
+.concept-checkbox, .concept-checkbox-label {
+  padding: 0.3em;
+}  
+
+.new-exp-concept {
+
 }
 
 //inputs
@@ -77,9 +51,6 @@ textarea {
   width: 10em;
 }
 
-
-
-
 // add material 
 
 .new-material li {
@@ -95,4 +66,9 @@ textarea {
 
 .material {
   z-index: 5;
+  
+.add-material-btn, .add-instruction-btn {
+  float: right;
+  margin-left: 0;
+}
 }

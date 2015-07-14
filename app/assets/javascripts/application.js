@@ -16,6 +16,10 @@
 //= require jquery.raty
 //= require ratyrate
 
+// $('.nav-link').click(function(e){
+//     $('.nav-link').css("color", "black");
+//     $(this).css("color", "red");
+// });
 
 // create experiment view: tab navigation
 

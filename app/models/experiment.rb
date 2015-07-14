@@ -39,20 +39,7 @@ class Experiment < ActiveRecord::Base
       where("name LIKE ?", "%#{query}%")
       where("description LIKE ?", "%#{query}%")
     end
-    # where("materials LIKE ?", "%#{query}%")
 
-    # if query
-    #   find(:all, :conditions => ['name LIKE ?', "%#{query}%"])
-    # else
-    #   find(:all)
-    # end
-    # #more advanced search
-    # if query.present?
-    #   where("name ilike :q or description ilike :q", q: "%#{query}%")#sqlite
-    #   # where("name @@ :q or description @@ :q", q: query)#pgsql
-    # else
-    #   scoped
-    # end
   end
 
   def self.by_votes
