@@ -18,18 +18,6 @@
 
     <h1 class="logo">stempirical</h1>
 
-    <div class="user-status">
-      <% if user_signed_in? %>
-        Hello, <%= link_to current_user.username, edit_user_registration_path %> |
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Login', new_user_session_path %> |
-        <%= link_to 'Sign Up', new_user_registration_path %>
-      <% end %>
-    </div><br>
-
-    <a><div class="new-exp"><%= link_to 'Add My Experiment', new_experiment_path %></div></a><br>
-
     <!-- Tabs -->
     <div class="sort-nav-links">
       <div class="nav-button"><%= link_to_unless_current("Experiments", root_path, :class => "nav-tab") %></div>
@@ -39,12 +27,26 @@
 
       <div class="nav-button"><%= link_to_unless_current("Age", ages_experiments_path, :class => "nav-tab") %></div>
       <div class="nav-button"><%= link_to_unless_current("Mess Factor", mess_ratings_experiments_path, :class => "nav-tab") %></div>-->
-      <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
-      <%= text_field_tag :query, params[:query], placeholder: "Search Experiments", class: "exp-search" %>
-      <%= text_field_tag :material, params[:material], placeholder: "Search for Materials", class: "mat-search" %>
-      <%= submit_tag "Search" %>
+      
+      <div class="search">
+        <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
+          <%= text_field_tag :query, params[:query], placeholder: "Search Experiments", class: "exp-search" %>
+          <!--<%= text_field_tag :material, params[:material], placeholder: "Search for Materials", class: "mat-search" %>-->
+          <%= submit_tag "Search" %>
+        <% end %>
+      </div>
+    </div>
+    
+    <a><div class="new-exp"><%= link_to 'Add My Experiment', new_experiment_path %></div></a>
+      
+    <div class="user-status">
+      <% if user_signed_in? %>
+        Hello, <%= link_to current_user.username, edit_user_registration_path %> |
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path %> |
+        <%= link_to 'Sign Up', new_user_registration_path %>
       <% end %>
-
     </div>
   </header>
 

@@ -104,7 +104,7 @@ i {
   display: block;
   position: fixed;
   width: 100%;
-  height: 9.5em;
+  height: 5em;
   background-color: #F2F3F4;
   top: 0;
   left: 0;
@@ -112,52 +112,49 @@ i {
   z-index: 2;
 }
 
-.logo {
+.logo, .sort-nav-links, .nav-button, .new-exp, .user-status, .search {
   position: relative;
+  top: 0.5em;
   float: left;
-  padding: .7em;
 }
 
-.user-status, .new-exp {
-  float: right;
+.logo {
+  padding: 0.3em 0.7em;
 }
 
-.user-status {
-  padding: 1.2em;
+#search-form {
+  display: inline-block;
+  top: 0.5em;
 }
 
 .new-exp {
   width: 10em;
-  display: block;
-  margin: 1.6em 1em;
-  position: absolute; 
-  right: 0;
+  margin: 0.5em;
 }  
 
-.sort-nav-links {
-  display: block;
-  position: relative;
-  margin: 2.3% 20%;
+.user-status {
+  margin: 0.5em;
+  padding-top: 0.3em;
 }
+
+/*.sort-nav-links {
+  margin: 0.5em 2%;
+}*/
 
 .nav-button, .new-exp {
   background-color: #E8E8E8;
   color: #333;
   border: 0;
-  padding: 0.5em 1em;
+  padding: 0.5em;
   font-size: 1em;
   font-weight: bold;
   box-shadow: 0 8px 6px -8px #ccc;
   text-align: center;
 }
 
-
 .nav-button {
-  display: inline-block;
   margin: 0.5%;
   width: 8em;
-  right: 0;
-  border-radius: 5;
 }
 
 /* errors & notices */
