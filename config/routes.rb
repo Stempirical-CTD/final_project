@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :concepts
+  resources :concepts do
+    collection do
+      get 'concept_tree'
+    end
+  end
+
+
 
   post '/rate' => 'rater#create', :as => 'rate'
 

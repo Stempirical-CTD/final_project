@@ -5,43 +5,36 @@ class ExperimentsController < ApplicationController
   # GET /experiments
   # GET /experiments.json
   def index
-    # @experiments = Experiment.all
     if params[:query]
       @experiments = Experiment.text_search(params[:query])
       if @experiments.length == 0
         flash.now[:notice] = "No items found"
-        
+      end
+    elsif params[:organize]
+      if params[:organize] == "1"
+        @experiments = Experiment.order(:age)
+      elsif params[:organize] == "2"
+        @experiments = Experiment.time
       end
     else
       @experiments = Experiment.by_votes
     end
-    # if params[:query]
-    #   @experiments = Experiment.find(:all, :conditions => ['name LIKE ?', "%#{params[:query]}%"])
-    #   @concept_choices = Concept.all.map(&:name)
-    #   if @experiments.size.zero?
-    #     flash[:notice] = "No items found"
-    #     @experiments = Experiment.by_votes
-    #   end
-    # else
-    # # @experiments = Experiment.text_search(params[:query])#.page(params[:page]).per_page(3)
-    #   @experiments = Experiment.by_votes
-    # end
   end
 
-  def ages
-    @experiments = Experiment.order(:age)
-  end
-
-  def mess_ratings
-    # @experiments = Experiment.order_by_mess
-    @experiments = Experiment.order_by_mess_complete_time
-    # @experiments = Experiment.where(complete_time: 1).order_by_mess
-  end
-
-  def complete_time_rating
-    # @experiments = Experiment.order(complete_time: :asc, user_id: :asc)
-    @experiments = Experiment.time
-  end
+  # def ages
+  #   @experiments = Experiment.order(:age)
+  # end
+  #
+  # def mess_ratings
+  #   # @experiments = Experiment.order_by_mess
+  #   @experiments = Experiment.time
+  #   # @experiments = Experiment.where(complete_time: 1).order_by_mess
+  # end
+  #
+  # def complete_time_rating
+  #   # @experiments = Experiment.order(complete_time: :asc, user_id: :asc)
+  #   @experiments = Experiment.time
+  # end
 
   # GET /experiments/1
   # GET /experiments/1.json
@@ -67,9 +60,6 @@ class ExperimentsController < ApplicationController
   def create
     @experiment = Experiment.new(experiment_params)
     @experiment.user_id = current_user.id
-    # params[:concepts].each do |concept_id|
-    #   @experiment.concepts_experiment.new(concept_id: concept_id)
-    # end
     respond_to do |format|
       if @experiment.save
         params[:concepts].each { |c| @experiment.concepts << Concept.find(c) }

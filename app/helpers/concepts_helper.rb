@@ -13,12 +13,14 @@ module ConceptsHelper
           type: :heading,
           level: level,
           name: concept.name,
+
         }
         # @html << "<h#{level}>#{ concept.name }</h#{level}>"
 
         experiments = concept.experiments.each do |experiment|
           @content << {
             type: :list_item,
+            level: level,
             text: experiment.name
           }
         end
@@ -32,5 +34,5 @@ module ConceptsHelper
     end
 
   end
-  
+
 end

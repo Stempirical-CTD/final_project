@@ -11,5 +11,39 @@
 }
 .icon-small {
   max-height: 2em;
-  max-width: 2em; 
+  max-width: 2em;
 }
+
+///concept tree
+.section-group {
+	clear: both;
+	padding: 0px 6px;
+	margin: 1px;
+  overflow: auto;
+}
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 1%;
+  text-align: center;
+}
+.col:first-child { margin-left: 1%; }
+   /*-- our cleafix hack -- */
+
+   /*  GRID OF FIVE  */
+   .span_5_of_5 {
+   	width: 90%;
+   }
+   .span_4_of_5 {
+   	width: 72%;
+   }
+   .span_3_of_5 {
+   	width: 54%;
+   }
+   .span_2_of_5 {
+   	width: 36%;
+   }
+   .span_1_of_5 {
+   	width: 18%;
+   }

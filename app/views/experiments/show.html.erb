@@ -130,7 +130,7 @@
       <% @children.map do |children| %><br>
       <h4>Experiments for <%= children.name %></h4>
         <% children.experiments.map do |exp| %>
-          <%= exp.name %><br>
+          <%= link_to exp.name, experiment_path(exp) %><br>
         <% end %>
       <% end %>
     <% else %>
@@ -146,7 +146,7 @@
       <% @parents.map do |parent| %>
         <h4>Experiments for <%= parent.name %></h4>
         <% parent.experiments.map do |exp| %>
-          <%= exp.name %><br>
+          <%= link_to exp.name, experiment_path(exp) %><br>
         <% end %>
       <% end %>
     <% else %>

@@ -1,0 +1,32 @@
+<% concepts_content = ConceptsHelper::ConceptDisplayer.new.display_concepts(@concepts.first) %>
+<% concepts_content.each do |line| %>
+<div class="concept-<%= line[:level] %>">
+  <% if line[:type] == :heading %>
+    <%= "<h#{line[:level]}>".html_safe %>
+      <%= line[:name] %>
+    <%= "</h#{line[:level]}>".html_safe %>
+  <% else %>
+    <%= line[:text] %> |
+  <% end %>
+</div>
+<% end %>
+<br>
+<hr/>
+<div class="section-group">
+	<div class="col span_1_of_5">
+	1 of 5
+	</div>
+	<div class="col span_1_of_5">
+	1 of 5
+	</div>
+	<div class="col span_1_of_5">
+    <%= @concepts.first.name %>
+    <%= image_tag "#{@concepts.first.name}.png", class: "concept-img" %>
+	</div>
+	<div class="col span_1_of_5">
+	1 of 5
+	</div>
+	<div class="col span_1_of_5">
+	1 of 5
+	</div>
+</div>
