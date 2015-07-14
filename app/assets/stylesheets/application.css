@@ -122,16 +122,24 @@ a {
 
 .search {
   float: left;
-  padding: -1.2em 0.8em;
   margin-left: 0.5em;
-  height: 1.2em;
+  margin-top: 0.2em;
 }
+
+.exp-search {
+  line-height: 1.5em;
+  }
 
 .nav-link {
   font-size: 1.1em;
 }
 
 .nav-link:hover {
+  border-bottom: 5px solid #323232;
+  font-weight: bold;
+}
+
+div.active {
   border-bottom: 5px solid #323232;
   font-weight: bold;
 }
