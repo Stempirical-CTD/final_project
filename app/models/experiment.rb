@@ -24,6 +24,7 @@ class Experiment < ActiveRecord::Base
   validates_format_of :youtube_link,
       :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
       :on => :create
+
   scope :by_time, -> { order(:complete_time) }
 
   def self.text_search(query, order)

@@ -36,7 +36,7 @@ $(function() {
         <%= image_tag "Human Body.png", class: "concept-img" %>
         <div class="experiments">
           <% Experiment.joins(:concepts).where('concepts.name' => ['Human Body']).map do |e| %>
-            <%= link_to e.name, experiment_path(e) %>
+            <%= link_to e.name, experiment_path(e) %><br>
           <% end %>
         </div>
       </div>
@@ -79,7 +79,7 @@ $(function() {
         <%= image_tag "Molecular Behavior.png", class: "concept-img" %>
         <div class="experiments">
           <% Experiment.joins(:concepts).where('concepts.name' => ['Molecular Behavior']).map do |e| %>
-            <%= link_to e.name, experiment_path(e) %>
+            <%= link_to e.name, experiment_path(e) %><br>
           <% end %>
         </div>
       </div>
@@ -140,7 +140,7 @@ $(function() {
         <%= image_tag "Chemical Reactions.png", class: "concept-img" %>
         <div class="experiments">
           <% Experiment.joins(:concepts).where('concepts.name' => ['Chemical Reactions']).map do |e| %>
-            <%= link_to e.name, experiment_path(e) %>
+            <%= link_to e.name, experiment_path(e) %><br>
           <% end %>
         </div>
       </div>
