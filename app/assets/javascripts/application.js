@@ -15,6 +15,7 @@
 //= require_tree .
 //= require jquery.raty
 //= require ratyrate
+//= require jquery-ui
 
 // $('.nav-link').click(function(e){
 //     $('.nav-link').css("color", "black");
