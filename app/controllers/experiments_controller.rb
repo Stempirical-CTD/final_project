@@ -6,24 +6,24 @@ class ExperimentsController < ApplicationController
   # GET /experiments.json
   def index
     if params[:query]
-      @experiments = Experiment.text_search(params[:query])
+      @experiments = Experiment.text_search(params[:query], params[:organize])
       if @experiments.length == 0
         flash.now[:notice] = "No items found"
       end
     elsif params[:organize]
-      if params[:organize] == "1"
+      if params[:organize] == "2"
+        @experiments = Experiment.order(:complete_time)
+      elsif params[:organize] == "1"
         @experiments = Experiment.order(:age)
-      elsif params[:organize] == "2"
-        @experiments = Experiment.time
       end
     else
       @experiments = Experiment.by_votes
     end
   end
 
-  # def ages
-  #   @experiments = Experiment.order(:age)
-  # end
+  def ages
+    @experiments = Experiment.order(:complete_time)
+  end
   #
   # def mess_ratings
   #   # @experiments = Experiment.order_by_mess

@@ -40,16 +40,11 @@
 
       <div class="nav-button"><%= link_to_unless_current("Age", ages_experiments_path, :class => "nav-tab") %></div>
       <div class="nav-button"><%= link_to_unless_current("Mess Factor", mess_ratings_experiments_path, :class => "nav-tab") %></div>-->
-      <!-- search forms -->
-      <!-- <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
+      <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
       <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "exp-search" %>
+      <%= select_tag "organize", options_for_select([["Age", 1],["Time",2]], params[:organize]),{:prompt => 'Choose Filter'} %>
       <%= submit_tag "Search" %>
       <% end %>
-      <%= form_tag experiments_path, :method => "get", class: "filter-form" do %>
-      <%= select_tag "organize", options_for_select([["Age", 1],["Time",2]], params[:organize]),{:prompt => 'Choose Filter'} %>
-      <%= submit_tag "Order" %>
-      <% end %> -->
-
 
     </div>
   </header>
