@@ -24,17 +24,6 @@ class ExperimentsController < ApplicationController
   def ages
     @experiments = Experiment.order(:complete_time)
   end
-  #
-  # def mess_ratings
-  #   # @experiments = Experiment.order_by_mess
-  #   @experiments = Experiment.time
-  #   # @experiments = Experiment.where(complete_time: 1).order_by_mess
-  # end
-  #
-  # def complete_time_rating
-  #   # @experiments = Experiment.order(complete_time: :asc, user_id: :asc)
-  #   @experiments = Experiment.time
-  # end
 
   # GET /experiments/1
   # GET /experiments/1.json
