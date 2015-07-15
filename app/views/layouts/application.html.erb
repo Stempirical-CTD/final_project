@@ -21,8 +21,7 @@
 
   <div class="search">
     <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
-    <%= select_tag "organize" , options_for_select([["Age", 1],["Time",2]], params[:organize]), {:prompt => 'Sort By'} %>  
-    
+    <!--<span class="sort"><%= select_tag "organize" , options_for_select([["Age", 1],["Time",2]], params[:organize]), {:prompt => 'Sort By'} %></sort>  -->
     <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "exp-search" %>
       <button class="fa fa-search"></button>
     <% end %>
@@ -30,22 +29,22 @@
 
   <!-- Tabs -->
   <div class="nav-links">
-    <div class="nav-link"><%= link_to_unless_current("Concept Tree", concepts_path) %></div>
-    <div class="nav-link active"><%= link_to_unless_current("All Experiments", root_path) %></div>
-    <div class="nav-link"><%= link_to "Add My Experiment", new_experiment_path %></div>
+    <div class="nav-link <%= 'active' if current_page?(concepts_path) %>"><%= link_to "Concept Tree", concepts_path %></div>
+    <div class="nav-link <%= 'active' if current_page?(root_path) %>"><%= link_to "All Experiments", root_path %></div>
+    <div class="nav-link <%= 'active' if current_page?(new_experiment_path) %>"><%= link_to "Add My Experiment", new_experiment_path %></div>
   </div>
 
     <div class="user-status">
       <% if user_signed_in? %>
-        Hello, <%= link_to current_user.username, edit_user_registration_path %> |
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <%= link_to current_user.username, edit_user_registration_path %> |
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Login', new_user_session_path %> |
         <%= link_to 'Sign Up', new_user_registration_path %>
       <% end %>
     </div>
 
-  </header>
+ </header>
 
 <div class="messages">
     <p class="notice"><%= notice %></p>

@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require reset
  *= require_tree .
  *= require_self
  */
@@ -47,7 +48,7 @@ h3 {font-size: 1.4em;}
 
 h4 {font-size: 1.24em;}
 
-small, .font_small {font-size: 0.618em;}
+small, .font_small {font-size: 0.8em;}
 
 form {
   padding: 1.5em;
@@ -81,10 +82,6 @@ a {
   color: #229805;
 }
 
-a:visited {
-  color: #229805;
-}
-
 .main-content {
   clear: both;
   display: block;
@@ -108,24 +105,27 @@ a:visited {
 
 .nav-links {
   position: relative;
-  margin: 1.5em auto;
-  left: 25%;
+  margin-top: 1.2%;
+  width: 50%;
+  float: right; 
 }
 
-.nav-link, .user-status {
-  display: inline;
-}
+/*.nav-link, .user-status {
+  float: right;
+  font-size: 1.1em;
+  padding: 0.3em 0.7em 0.7em;
+}*/
 
 .nav-link {
   font-size: 1.1em;
   padding: 0.3em 0.7em 0.7em;
-  display: inline;
+  display: inline-block;
 }
 
 .nav-link:hover {
   border-bottom: 5px solid #229805;
   font-weight: bold;
-  color: ##229805;
+  color: #229805;
 }
 
 div.active {
@@ -134,7 +134,12 @@ div.active {
 }
 
 .user-status {
-  
+  position: absolute;
+  top: 1.4%;
+  right: 1em;
+  padding: 0.5em 0.7em;
+  margin: 0.5em;
+  font-size: 1.1em;
 }
 
 .logo {
@@ -144,38 +149,39 @@ div.active {
   color: #229805;
 }
 
+#organize {
+  border: 0;
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  outline: none;
+}
+
+.sort {  
+   border: 0.1em solid #323232;
+   padding: 0.1em;
+   margin-right: 0.5em;
+   outline-color: #DFF5D1;
+   position: relative;
+   top: 20%;
+   height: 1.5em;
+}
+
 .search {
   float: left;
   margin-left: 0.5em;
-  position: relative;
-  top: 20%;
-}
-
-#organize {
-  /*-webkit-appearance: none;
-  -moz-appearance: none;
-   appearance: none;*/
-   border: 0.1em solid #323232;
-   border-radius: 0;
-   font-size: 1.2em;
-   font-family: 'Raleway', sans-serif;
-   border: 0.1em solid #323232;
-   font-size: 1em;
-   padding: 0.3em;
-   margin-right: 0.5em;
-   outline-color: #DFF5D1;
-   position: absolute;
-   top: 15%;
-   /*background: url('arrow-down.png')  no-repeat;*/
+  position: absolute;
+  top: 7%;
+  left: 6%;
 }
 
 .exp-search {
   line-height: 1.5em;
   padding: 0.1em;
+  margin-left: 0.5em;
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 8em;
-  }
+}
 
 .fa-search {
   position: absolute;
@@ -183,16 +189,8 @@ div.active {
   background-color: #229805;
   border: 0.1em solid #323232;
   margin-left: -0.3em;
-  top: 15%;
+  top: 20%;
   left: 19em;
-}
-
-.user-status {
-  position: absolute;
-  top: 0.5em;
-  right: 1em;
-  padding: 0.3em 0.7em;
-  margin: 0.5em;
 }
 
 /* errors & notices */

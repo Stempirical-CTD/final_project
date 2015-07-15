@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+label {
+  display: inline-block;
+  margin-bottom: 1em;
+  position: relative;
+}
 
 .form-container {
 	padding: 2em 2.5em;
@@ -13,10 +17,6 @@
 }
 
 .form-container .field {
-  margin-bottom: 1em;
-}
-
-.form-container label {
   margin-bottom: 1em;
 }
 
@@ -55,8 +55,20 @@ textarea {
   background-color: #FFF;
 }
 
-#pictureInput button {
-  background-color: green;
+#experiment_age {
+    /*-webkit-appearance: none;
+  -moz-appearance: none;
+   appearance: none;*/
+   border: 0.1em solid #323232;
+   border-radius: 0;
+   font-size: 1.2em;
+   font-family: 'Raleway', sans-serif;
+   border: 0.1em solid #323232;
+   font-size: 1em;
+   margin-right: 0.5em;
+   outline-color: #DFF5D1;
+   height: 1.8em;
+   /*background: url('arrow-down.png')  no-repeat;*/
 }
 
 // media 
@@ -68,15 +80,19 @@ textarea {
 
 // add material 
 
+.new-materials, .new-instructions {
+  border-bottom: 0.1em solid #323232;
+  position: relative;
+}
+
 .new-material li {
-      position: relative;
       border: 0.07em solid #323232;
-      float: left;
       font-size: 1em;
       margin: 0;
       padding: 0.5em;
       transition: background 0.3s ease-in-out 0s;
-      width: 50%;
+      line-height: 1.5em; 
+      position: absolute;
 }
 
 .material {
@@ -84,9 +100,7 @@ textarea {
 }
 
 .add-material-btn, .add-instruction-btn {
-  float: right;
-  margin-left: 0;
-  padding: 0.31em;
+  padding: 0.35em;
   background-color: #229805;
   border: 0.1em solid #323232;
 }

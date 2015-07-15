@@ -28,11 +28,11 @@
 	border-bottom: 1px solid #9CA69F;
 }
 
-.index-photo img {
-	height: 70%;
-	position: absolute;
-	zoom: 2;
-	width: 100%; 
+.index-photo {
+	display: block;
+	min-height: 70%;
+	background-size: cover;
+	color: #EEE;
 }	
 
 .index-likes {
