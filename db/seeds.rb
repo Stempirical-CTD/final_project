@@ -578,7 +578,7 @@ experiment_eighteen = Experiment.create!(user_id: user.id, name: "Static Electri
     rolls towards it, slowly move the balloon away from the can and it will follow.",
     order_number: 3)
 
-F Experiment.create!(user_id: user_two.id, name: "Solar Oven",
+  experiment_nineteen = Experiment.create!(user_id: user_two.id, name: "Solar Oven",
     description: "Use the sun's energy to heat up a tasty treat with this simple
         solar oven! Have you ever heard the expression that it's so hot out you could
         fry an egg on the sidewalk? Have you ever wondered if it's true? Find out with
