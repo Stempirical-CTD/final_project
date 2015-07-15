@@ -4,114 +4,66 @@
 
 
 // all experiments page
+.index-wrapper {
+	display: inline;
+	position: relative;
+	left: 13em;
+}
 
 .page-title {
 	display: block;
 	margin: 0 auto 0.5em;
 	width: 100%;
 	text-align: center;
+	text-transform: uppercase;
 }
 
-.experiment-card {
-	display: block;
-	width: 40%;
-	height: 13em;
-	overflow: hidden;
-	background-color: #F2F3F4;
-  	box-shadow: -0 0 10px #ccc;
-	margin: 1em auto;
-}
-
-// .concept-icon {
-// 	float: left;
-// 	margin: 1.5em auto;
-// 	width: 50%;
-// 	text-align: center;
-// }
-
-.info-half {
-	float: left;
-	font-variant: small-caps;
-	width: 50%;
-}
-
-.photo-half {
-	float: right;
-	max-height: 100%;
-	width: 50%;
+.index-experiment-card {
+	display: inline-block;
 	position: relative;
+	width: 35%;
+	height: 25em;
+	margin: 0.5em 1.5em 1.5em 0;
+	padding-bottom: 0.5em;
+	border-bottom: 1px solid #9CA69F;
 }
 
-photo-half:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-	background: rgba(0,255,0, 0.5);
-}
-
-.concept-img {
-	display: block;
-	position: relative;
-	// left: 40%;
-	margin: 0.5em auto;
-}
-
-.concept-title {
-	text-align: center;
-	margin: 0;
-	padding: 0;
-}
-
-.exp-title {
-	// transition: all .2s ease-in-out;
-	margin: 0.5em;
-	display: block;
-	text-align: center;
-	font-variant: small-caps;
-}
-
-.exp-title:hover {
-	// transform: scale(1.05);
-}
-
-.photo-half img { /* need opacity or filter */
-	zoom: 2;  //increase if you have very small images
-    height: auto;
-    max-height: 100%;
-    width: auto;
-    max-width: 100%;
-	opacity: 0.6em;
-}
-
-.exp-ratings { /* how to move down? */
-	font-variant: small-caps;
+.index-photo img {
+	height: 70%;
 	position: absolute;
-	right: 30%;
-	font-weight: bold;
-	line-height: 1.6em;
-	padding: 0;
-	float: right;
-	text-align: right;
-	margin: 0.5em 0;
-	z-index: 1;
-}
+	zoom: 2;
+	width: 100%; 
+}	
 
-.fa-thumbs-up {
+.index-likes {
+	z-index: 10;
 	padding: 0.5em;
 }
 
-// .image {
-// 	float: left;
-// 	margin: 2.5% 0 0 2.5%;
-// 	height: 15em;
-// 	width: 30%;
-// 	box-shadow: -0 0 10px #CCC;
-// }
+.index-exp-title {
+	// transition: all .2s ease-in-out;
+	display: block;
+	position: relative;
+	text-align: center;
+	background-color: #323232;
+	width: 100%;
+	padding: 0.5em 0;
+	margin-top: 50%;
+	text-transform: uppercase;
+}
 
+.index-exp-ratings {
+	position: absolute;
+	max-width: 100%;
+	margin-left: 2em;
+	font-size: 0.85em;
+}
+
+.index-concept-icon, .index-age, .index-time, .index-mess {
+	display: inline-block;
+	text-align: center;
+	padding: 0.4em;
+}
  /*ratings  */
 
 .star {
@@ -123,18 +75,12 @@ photo-half:before {
   opacity: 1.0;
 }
 
-.time {
-	display: inline;
-	padding: 0.5em;
-}
-
 .raty-cancel {
 	display: none;
 }
 
 .mess-rate-disable {
-	display: relative;
-	padding: 0.5em;
+	position: relative;
 	z-index: 5;
 	opacity: 1;
 	&:after {
