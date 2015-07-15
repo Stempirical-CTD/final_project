@@ -50,12 +50,7 @@ h4 {font-size: 1.24em;}
 small, .font_small {font-size: 0.618em;}
 
 form {
-  display: block;
   padding: 1.5em;
-}
-
-label {
-  margin: 1em 0;
 }
 
 input {
@@ -173,7 +168,8 @@ div.active {
 .messages {
   display: block;
   position: absolute;
-  top: 11em;
+  top: 4.5em;
+  left: 2em;
   margin: 0 auto;
 }
 

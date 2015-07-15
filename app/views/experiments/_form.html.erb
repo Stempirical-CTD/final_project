@@ -14,35 +14,35 @@
 
 <div class="experiment">
   <div class="form-container">
-    <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_area :name, :cols => 100, :rows => 3 %>
+    <div class="field new-exp-name">
+      <%= f.label :experiment_name %><br>
+      <%= f.text_area :name, :cols => 100, :rows => 2 %>
     </div>
 
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_area :description, :cols => 100, :rows => 3 %>
+    <div class="field new-description">
+      <%= f.label :description %><br> <small>(Share guidance here.)</small>
+      <%= f.text_area :description, :cols => 100, :rows => 2 %>
     </div>
 
-    <div class="field">
-      <%= f.label :uploaded_file %><br>
-      <%= f.file_field 'uploaded_file', id: 'pictureInput', :rows => 3 %>
+    <div class="field new-photo">
+      <%= f.label :upload_a_photo %><br>
+      <%= f.file_field 'uploaded_file', id: 'pictureInput', :rows => 2 %>
     </div>
 
     <div id="target">
     </div>
 
-    <div class="field">
-      <%= f.label :youtube_link %><br>
+    <div class="field new-youtube">
+      <%= f.label :Link_to_a_YouTube_Tutorial %><br>
       <%= f.url_field :youtube_link, :class => "tutorial-link" %>
     </div>
 
-    <div class="field">
+    <div class="field new-time">
       <%= f.label :complete_time %><br>
       <%= f.number_field(:complete_time, in: 0.5..20.0, step: 0.5) %> hours
     </div>
-    <div class="field">
-      <%= f.label :age %> years<br>
+    <div class="field new-years">
+      <%= f.label :age %> in years<br>
       <%= f.select :age, options_for_select([["Under 3", 1], ["4-6",2], ["7-9",3],["10 & up", 4]]), {:prompt => 'Choose an Age'}%>
   </div>
 
@@ -55,11 +55,10 @@
   </li>
 
   <li>
-      <ul class="unordered-list-materials">
+      <ul class="field unordered-list-materials"><h3>Materials:</h3> 
         <%= f.fields_for(:materials) do |ff| %>
           <li>
             <div class="field material">
-              <%= ff.label :item %><br>
               <%= ff.text_field :item, :class=> "new-material" %>
             </div>
           </li>
@@ -67,12 +66,11 @@
       </ul>
       <button type="button" class="add-material-btn"><i class="fa fa-plus"></i></button>
   </li>
-  <ul class="unordered-list-instructions">
+  <ul class="field unordered-list-instructions"><h3>Instructions:</h3>
     <%= f.fields_for(:instructions) do |ff| %>
       <li>
       <div class="instruction-fields">
         <div class="field instruction">
-          <%= ff.label "Step 1" %><br>
           <%= ff.text_field :information, :class=> "new-instruction" %>
         </div>
       </div>

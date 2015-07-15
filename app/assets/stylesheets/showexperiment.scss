@@ -80,16 +80,17 @@
 // materials & instructions
 
 .show-materials, .show-instructions {
-	display: inline-block;
 	position: relative;
 	height: auto;
 	overflow: hidden;
-	width: 45%;
 	border-bottom: solid 2px #E8E8E8;
+	margin: 2em 7em;
 }
 
 .show-materials {
-	margin-left: 5em;
+	position: relative;
+	width: 35%;
+	
 }
 
 .show-instruction {
