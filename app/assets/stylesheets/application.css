@@ -82,8 +82,12 @@ li {
 
 a {
   text-decoration: none;
-  color: #229805;
   font-weight: bold;
+  color: #229805;
+}
+
+a:visited {
+  color: #229805;
 }
 
 .main-content {
@@ -100,12 +104,13 @@ a {
   position: fixed;
   width: 100%;
   height: 4em;
-  background-color: #F2F3F4;
+  background-color: #F2F3F4;;
   top: 0;
   left: 0;
   box-shadow: 0 8px 6px -6px #ccc;
   z-index: 2;
 }
+
 
 .nav-link, .user-status {
   position: relative;
@@ -113,34 +118,45 @@ a {
   float: left;
   padding: 0.3em 0.7em 0.7em;
   margin: 0.5em;
+  color: #229805;
 }
 
 .logo {
   float: left;
   padding: 0.4em 0 0 1em;
+  font-family: 'Chelsea Market', sans-serif;
+  color: #229805;
 }
 
 .search {
   float: left;
   margin-left: 0.5em;
-  margin-top: 0.2em;
 }
 
 .exp-search {
   line-height: 1.5em;
   }
+  
+.fa-search {
+  padding: 0.31em;
+  background-color: #229805;
+  border: 0.1em solid #323232;
+  margin-left: -0.3em;
+}
 
 .nav-link {
   font-size: 1.1em;
+  color: #229805;
 }
 
 .nav-link:hover {
-  border-bottom: 5px solid #323232;
+  border-bottom: 5px solid #229805;
   font-weight: bold;
+  color: ##229805;
 }
 
 div.active {
-  border-bottom: 5px solid #323232;
+  border-bottom: 5px solid #229805;
   font-weight: bold;
 }
 
@@ -163,10 +179,11 @@ div.active {
 
 /* buttons */
 
-button {
+/*button {
   background-color: #E8E8E8;
   font-family: 'Raleway', sans-serif;
   color: #333;
   border: 0;
   padding: 1em;
-}
+}*/
+

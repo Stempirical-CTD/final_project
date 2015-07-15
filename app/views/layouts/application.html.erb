@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Chelsea+Market' rel='stylesheet' type='text/css'>
 
 </head>
 
@@ -22,15 +23,16 @@
     <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
       <%= text_field_tag :query, params[:query], placeholder: "Search Experiments", class: "exp-search" %>
       <!--<%= text_field_tag :material, params[:material], placeholder: "Search for Materials", class: "mat-search" %>-->
-      <%= submit_tag "Search" %>
+      <button class="fa fa-search"></button>  
+      <!--<%= submit_tag "Search" %>-->
     <% end %>
   </div>
       
   <!-- Tabs -->
   <div class="nav-links">
-    <div class="nav-link active"><%= link_to_unless_current("Concept Tree", concepts_path) %></div>
-    <div class="nav-link"><%= link_to_unless_current("All Experiments", root_path) %></div>
-    <div class="nav-link"><%= link_to 'Add My Experiment', new_experiment_path %></div>
+    <div class="nav-link"><%= link_to_unless_current("Concept Tree", concepts_path) %></div>
+    <div class="nav-link active"><%= link_to_unless_current("All Experiments", root_path) %></div>
+    <div class="nav-link"><%= link_to "Add My Experiment", new_experiment_path %></div>
   </div>
       
     <div class="user-status">
