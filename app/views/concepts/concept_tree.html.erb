@@ -1,0 +1,170 @@
+<br>
+<hr/>
+<div class="section-group">
+  <div class="row 1">
+  	<div class="col span_1_of_5">
+  	</div>
+  	<div class="col span_1_of_5">
+  	</div>
+  	<div class="col span_1_of_5">
+      <%= @concepts.first.name %>
+      <%= image_tag "#{@concepts.first.name}.png", class: "concept-img" %>
+  	</div>
+  	<div class="col span_1_of_5">
+  	</div>
+  	<div class="col span_1_of_5">
+  	</div>
+  </div>
+  <div class="row 1">
+    <div class="col span_1_of_5">
+    </div>
+    <div class="col span_1_of_5">
+    </div>
+    <div class="col span_1_of_5">
+      <% @concepts.find_by_id(1).experiments.map do |experiment| %>
+      <%= experiment.name %>
+      <% end %>
+    </div>
+    <div class="col span_1_of_5">
+    </div>
+    <div class="col span_1_of_5">
+    </div>
+  </div>
+
+  <div class="row 2">
+  	<div class="col span_1_of_5">
+  	</div>
+  	<div class="col span_1_of_5">
+      <%= @concepts.find_by_id(3).name %>
+      <%= image_tag "#{@concepts.find_by_id(3).name}.png", class: "concept-img" %>
+  	</div>
+  	<div class="col span_1_of_5">
+      <%= @concepts.find_by_id(4).name %>
+      <%= image_tag "#{@concepts.find_by_id(4).name}.png", class: "concept-img" %>
+  	</div>
+  	<div class="col span_1_of_5">
+      <%= @concepts.find_by_id(2).name %>
+      <%= image_tag "#{@concepts.find_by_id(2).name}.png", class: "concept-img" %>
+  	</div>
+  	<div class="col span_1_of_5">
+  	</div>
+  </div>
+  <div class="row 1">
+    <div class="col span_1_of_5">
+    </div>
+    <div class="col span_1_of_5">
+      <% @concepts.find_by_id(3).experiments.map do |experiment| %>
+      <%= experiment.name %>
+      <% end %>
+    </div>
+    <div class="col span_1_of_5">
+      <% @concepts.find_by_id(4).experiments.map do |experiment| %>
+      <%= experiment.name %>
+      <% end %>
+    </div>
+    <div class="col span_1_of_5">
+      <% @concepts.find_by_id(2).experiments.map do |experiment| %>
+      <%= experiment.name %>
+      <% end %>
+    </div>
+    <div class="col span_1_of_5">
+    </div>
+  </div>
+
+  <div class="row 3">
+  	<div class="col span_1_of_5">
+      <%= @concepts.find_by_id(7).name %>
+      <%= image_tag "#{@concepts.find_by_id(7).name}.png", class: "concept-img" %>
+  	</div>
+  	<div class="col span_1_of_5">
+      <%= @concepts.find_by_id(6).name %>
+      <%= image_tag "#{@concepts.find_by_id(6).name}.png", class: "concept-img" %>
+  	</div>
+  	<div class="col span_1_of_5">
+      <%= @concepts.find_by_id(9).name %>
+      <%= image_tag "#{@concepts.find_by_id(9).name}.png", class: "concept-img" %>
+  	</div>
+  	<div class="col span_1_of_5">
+      <%= @concepts.find_by_id(10).name %>
+      <%= image_tag "#{@concepts.find_by_id(10).name}.png", class: "concept-img" %>
+  	</div>
+  	<div class="col span_1_of_5">
+      <%= @concepts.find_by_id(5).name %>
+      <%= image_tag "#{@concepts.find_by_id(5).name}.png", class: "concept-img" %>
+  	</div>
+  </div>
+  <div class="row 1">
+    <div class="col span_1_of_5">
+      <% @concepts.find_by_id(7).experiments.map do |experiment| %>
+      <%= experiment.name %>
+      <% end %>
+    </div>
+    <div class="col span_1_of_5">
+      <% @concepts.find_by_id(6).experiments.map do |experiment| %>
+      <%= experiment.name %>
+      <% end %>
+    </div>
+    <div class="col span_1_of_5">
+      <% @concepts.find_by_id(9).experiments.map do |experiment| %>
+      <%= experiment.name %>
+      <% end %>
+    </div>
+    <div class="col span_1_of_5">
+      <% @concepts.find_by_id(10).experiments.map do |experiment| %>
+      <%= experiment.name %>
+      <% end %>
+    </div>
+    <div class="col span_1_of_5">
+      <% @concepts.find_by_id(5).experiments.each_with_index do |experiment, index| %>
+      <%= experiment.name %>
+        <% if (index + 1) != @concepts.find_by_id(5).experiments.length %>
+          |
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row 4">
+  	<div class="col span_1_of_5">
+  	</div>
+  	<div class="col span_1_of_5">
+      <%= @concepts.find_by_id(8).name %>
+      <%= image_tag "#{@concepts.find_by_id(8).name}.png", class: "concept-img" %>
+  	</div>
+  	<div class="col span_1_of_5">
+      <%= @concepts.find_by_id(11).name %>
+      <%= image_tag "#{@concepts.find_by_id(11).name}.png", class: "concept-img" %>
+      <div class="experiment">
+        <% @concepts.find_by_id(11).experiments.each_with_index do |experiment, index| %>
+        <%= experiment.name %>
+          <% if (index + 1) != @concepts.find_by_id(11).experiments.length %>
+            |
+          <% end %>
+        <% end %>
+      </div>
+  	</div>
+  	<div class="col span_1_of_5">
+  	</div>
+  	<div class="col span_1_of_5">
+  	</div>
+  </div>
+  <div class="row 1">
+    <div class="col span_1_of_5">
+    </div>
+    <div class="col span_1_of_5">
+      <% @concepts.find_by_id(8).experiments.each_with_index do |experiment, index| %>
+      <%= experiment.name %>
+        <% if (index + 1) != @concepts.find_by_id(10).experiments.length + 1 %>
+          |
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col span_1_of_5">
+    </div>
+    <div class="col span_1_of_5">
+    </div>
+    <div class="col span_1_of_5">
+    </div>
+  </div>
+
+</div>
