@@ -9,14 +9,31 @@
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Chelsea+Market' rel='stylesheet' type='text/css'>
 
 </head>
 
 
 <body>
- <header class="nav-bar">
+<header class="nav-bar">
 
-    <h1 class="logo">stempirical</h1>
+ <h1 class="logo">stempirical</h1>
+
+  <div class="search">
+    <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
+    <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "exp-search" %>
+    <%= select_tag "organize", options_for_select([["Age", 1],["Time",2]], params[:organize]),{:prompt => 'Choose Filter'} %>
+    <%= submit_tag "Search" %>
+      <button class="fa fa-search"></button>
+    <% end %>
+  </div>
+
+  <!-- Tabs -->
+  <div class="nav-links">
+    <div class="nav-link"><%= link_to_unless_current("Concept Tree", concepts_path) %></div>
+    <div class="nav-link active"><%= link_to_unless_current("All Experiments", root_path) %></div>
+    <div class="nav-link"><%= link_to "Add My Experiment", new_experiment_path %></div>
+  </div>
 
     <div class="user-status">
       <% if user_signed_in? %>
@@ -26,33 +43,14 @@
         <%= link_to 'Login', new_user_session_path %> |
         <%= link_to 'Sign Up', new_user_registration_path %>
       <% end %>
-    </div><br>
-
-    <a><div class="new-exp"><%= link_to 'Add My Experiment', new_experiment_path %></div></a><br>
-
-    <!-- Tabs -->
-    <div class="sort-nav-links">
-      <div class="nav-button"><%= link_to_unless_current("Experiments", root_path, :class => "nav-tab") %></div>
-      <div class="nav-button"><%= link_to_unless_current("Concept Tree", concepts_path, :class => "nav-tab") %></div>
-      <div class="nav-button"><%= link_to_unless_current("Tree Diagram", concept_tree_concepts_path, :class => "nav-tab") %></div>
-      <!--<div class="nav-button"><a href="#" class="nav-tab">Materials</a></div>
-      <div class="nav-button"><%= link_to_unless_current("Time", complete_time_rating_experiments_path, :class => "nav-tab") %></div>
-
-      <div class="nav-button"><%= link_to_unless_current("Age", ages_experiments_path, :class => "nav-tab") %></div>
-      <div class="nav-button"><%= link_to_unless_current("Mess Factor", mess_ratings_experiments_path, :class => "nav-tab") %></div>-->
-      <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
-      <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "exp-search" %>
-      <%= select_tag "organize", options_for_select([["Age", 1],["Time",2]], params[:organize]),{:prompt => 'Choose Filter'} %>
-      <%= submit_tag "Search" %>
-      <% end %>
-
     </div>
+
   </header>
 
-    <div class="messages">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-    </div>
+<div class="messages">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+</div>
 
 <div class="main-content"><%= yield %></div>
 
