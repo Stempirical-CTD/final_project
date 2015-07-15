@@ -15,7 +15,7 @@
 <div class="experiment">
   <div class="form-container">
     <div class="field new-exp-name">
-      <%= f.label :experiment_name %><br>
+      Experiment Name<br>
       <%= f.text_area :name, :cols => 100, :rows => 2 %>
     </div>
 
@@ -70,6 +70,10 @@
     <%= f.fields_for(:instructions) do |ff| %>
       <li>
       <div class="instruction-fields">
+       <div class="field instruction">
+          <%= ff.number_field :order_number %>
+        </div>
+      
         <div class="field instruction">
           <%= ff.text_field :information, :class=> "new-instruction" %>
         </div>

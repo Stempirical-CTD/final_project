@@ -106,42 +106,20 @@ a:visited {
   z-index: 2;
 }
 
+.nav-links {
+  position: relative;
+  margin: 1.5em auto;
+  left: 25%;
+}
 
 .nav-link, .user-status {
-  position: relative;
-  top: 0.4em;
-  float: left;
-  padding: 0.3em 0.7em 0.7em;
-  margin: 0.5em;
-  color: #229805;
-}
-
-.logo {
-  float: left;
-  padding: 0.4em 0 0 1em;
-  font-family: 'Chelsea Market', sans-serif;
-  color: #229805;
-}
-
-.search {
-  float: left;
-  margin-left: 0.5em;
-}
-
-.exp-search {
-  line-height: 1.5em;
-  }
-
-.fa-search {
-  padding: 0.31em;
-  background-color: #229805;
-  border: 0.1em solid #323232;
-  margin-left: -0.3em;
+  display: inline;
 }
 
 .nav-link {
   font-size: 1.1em;
-  color: #229805;
+  padding: 0.3em 0.7em 0.7em;
+  display: inline;
 }
 
 .nav-link:hover {
@@ -156,11 +134,65 @@ div.active {
 }
 
 .user-status {
+  
+}
+
+.logo {
+  float: left;
+  padding: 0.4em 0 0 1em;
+  font-family: 'Chelsea Market', sans-serif;
+  color: #229805;
+}
+
+.search {
+  float: left;
+  margin-left: 0.5em;
   position: relative;
+  top: 20%;
+}
+
+#organize {
+  /*-webkit-appearance: none;
+  -moz-appearance: none;
+   appearance: none;*/
+   border: 0.1em solid #323232;
+   border-radius: 0;
+   font-size: 1.2em;
+   font-family: 'Raleway', sans-serif;
+   border: 0.1em solid #323232;
+   font-size: 1em;
+   padding: 0.3em;
+   margin-right: 0.5em;
+   outline-color: #DFF5D1;
+   position: absolute;
+   top: 15%;
+   /*background: url('arrow-down.png')  no-repeat;*/
+}
+
+.exp-search {
+  line-height: 1.5em;
+  padding: 0.1em;
+  position: absolute;
+  top: 15%;
+  left: 8em;
+  }
+
+.fa-search {
+  position: absolute;
+  padding: 0.35em;
+  background-color: #229805;
+  border: 0.1em solid #323232;
+  margin-left: -0.3em;
+  top: 15%;
+  left: 19em;
+}
+
+.user-status {
+  position: absolute;
   top: 0.5em;
+  right: 1em;
   padding: 0.3em 0.7em;
   margin: 0.5em;
-  float: right;
 }
 
 /* errors & notices */
