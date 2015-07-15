@@ -8,10 +8,10 @@
           <!--<% if experiment.uploaded_file_file_name != nil %>
           <%= image_tag experiment.uploaded_file %>
           <% end %>-->
-          <span class="index-exp-title"><%= experiment.name %></span>    
+          <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= experiment.name %></h3> 
+             <i class="fa fa-thumbs-up index-likes"><%= pluralize experiment.votes, "like" %></i>    
+          </span>
         </a>
-
-        <i class="fa fa-thumbs-up index-likes"><br></i><%= pluralize experiment.votes, "like" %>
 
         <div class="index-info">
               <div class="index-exp-ratings">
@@ -29,7 +29,7 @@
 
                   <div class="index-age">
                       <%= image_tag "age.png", class: "icon-small" %><br>
-                      <%= experiment.return_age %> years
+                      Ages<%= experiment.return_age %>
                   </div>
 
                 <div class="mess-rate-disable index-mess">

@@ -35,28 +35,41 @@
 	color: #EEE;
 }	
 
-.index-likes {
-	z-index: 10;
-	padding: 0.5em;
+.fa-thumbs-up {
+	margin-top: -0.3em;
 }
 
-.index-exp-title {
+.index-likes {
+	padding: 0.5em;
+	float: right;
+}
+
+.index-exp-title-bar {
 	// transition: all .2s ease-in-out;
 	display: block;
 	position: relative;
 	text-align: center;
 	background-color: #323232;
+	opacity: 0.8;
 	width: 100%;
 	padding: 0.5em 0;
 	margin-top: 50%;
+}
+
+.index-exp-title {
+	display: inline-block;
 	text-transform: uppercase;
+	margin-right: -0.3em;
 }
 
 .index-exp-ratings {
 	position: absolute;
-	max-width: 100%;
-	margin-left: 2.2em;
+	width: 100%;
 	font-size: 0.85em;
+	margin: 0.5em auto;
+	border-right: 1px solid #9CA69F;
+	border-bottom: 1px solid #9CA69F;
+	border-left: 1px solid #9CA69F;
 }
 
 .index-concept-icon, .index-age, .index-time, .index-mess {
