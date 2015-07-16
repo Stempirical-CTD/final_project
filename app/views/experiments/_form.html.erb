@@ -49,8 +49,8 @@
   <div class="new-exp-concept">
     <label>Select Concepts</label><br>
     <% Concept.all.each do |concept| %>
-      <%= check_box_tag('concepts[]', concept.id, false, id: "concept_#{concept.id}", class: "concept-checkbox")%>
-      <%= label_tag("concept_#{concept.id}",concept.name, class: "concept-checkbox-label") %><br>
+      <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
+      <%= label_tag("concept_#{concept.id}",concept.name, class: "concept-checkbox-label") %>
     <% end %>
   </div>
   </li>
@@ -67,8 +67,8 @@
       <% end %>
     </ul>
     <button type="button" class="add-material-btn"><i class="fa fa-plus"></i></button>
-  </div>  
-  
+  </div>
+
   <div class="new-instructions">
     <ul class="field unordered-list-instructions">
       <label>Instructions</label><br>
@@ -86,7 +86,7 @@
       <% end %>
     </ul>
     <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i></button>
-  </div>  
+  </div>
 
     <div class="actions">
         <%= f.submit %>

@@ -16,12 +16,9 @@
 }
 
 ///concept tree
-// .section-group {
-// 	clear: both;
-// 	padding: 0px 6px;
-// 	margin: 1px;
-//   overflow: auto;
-// }
+.section-group {
+  max-height: 20%;
+}
 .row {
 	clear: both;
 	padding: 6px 6px;
@@ -35,22 +32,145 @@
 	margin: 1% 1%;
   text-align: center;
 }
+.card {
+	display: inline-block;
+	position: relative;
+	background: #f9f9f9;
+	padding: 15px 0;
+	width: 200px;
+	text-align: center;
+  border-radius: 5px;
+}
+// down arrow at the bottom of the card
+// .down:after {
+// 	content: '';
+// 	display: block;
+// 	position: absolute;
+// 	left: 80px;
+// 	top: 100%;
+// 	width: 0;
+// 	height: 0;
+// 	border-top: 15px solid #a6a6a6;
+// 	border-right: 20px solid transparent;
+// 	border-bottom: 0 solid transparent;
+// 	border-left: 20px solid transparent;
+// }
+.card {
+  border: 1px solid;
+  border-radius: 5px;
+}
 .col:first-child { margin-left: 1%; }
-   /*-- our cleafix hack -- */
 
-   /*  GRID OF FIVE  */
-   .span_5_of_5 {
-   	width: 90%;
-   }
-   .span_4_of_5 {
-   	width: 72%;
-   }
-   .span_3_of_5 {
-   	width: 54%;
-   }
-   .span_2_of_5 {
-   	width: 36%;
-   }
-   .span_1_of_5 {
-   	width: 18%;
-   }
+ /*  GRID OF FIVE  */
+ .span_5_of_5 {
+ 	width: 90%;
+ }
+ .span_4_of_5 {
+ 	width: 72%;
+ }
+ .span_3_of_5 {
+ 	width: 54%;
+ }
+ .span_2_of_5 {
+ 	width: 36%;
+ }
+ .span_1_of_5 {
+ 	width: 18%;
+ }
+
+.row-of-ten {
+	clear: both;
+	// padding: 6px 6px;
+  width: 100%;
+	margin: 0 auto;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  overflow: auto;
+  display: inline-block;
+  position: relative;
+  // left: 10em;
+}
+.three {
+  margin-left: 2px;
+}
+.col-ten:first-child { margin-left: 1%; }
+
+  /*  connecting lines  */
+.col-ten {
+  width: 9.75%;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  margin-left: -5px;
+  color: #eee;
+
+  // margin-bottom: -10px;
+}
+.one > .span_5_of_10 {
+  border-right: 1px solid #323232;
+}
+.two > .span_4_of_10 {
+  border-top: 1px solid #323232;
+  border-left: 1px solid #323232;
+  border-radius: 5px 0 0 0;
+}
+.two > .span_5_of_10 {
+  border-top: 1px solid #323232;
+}
+.two > .span_6_of_10 {
+  border-left: 1px solid #323232;
+  border-top: 1px solid #323232;
+}
+.two > .span_7_of_10 {
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
+  border-radius: 0 5px 0 0;
+}
+.three > .span_5_of_10 {
+  border-right: 1px solid #323232;
+}
+.four > .span_2_of_10 {
+  border-top: 1px solid #323232;
+  border-left: 1px solid #323232;
+  border-radius: 5px 0 0 0;
+}
+.four > .span_3_of_10 {
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
+}
+.four > .span_4_of_10 {
+  border-top: 1px solid #323232;
+}
+.four > div.span_5_of_10 {
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
+}
+.four > div.span_6_of_10 {
+  border-top: 1px solid #323232;
+}
+.four > div.span_7_of_10 {
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
+}
+.four > div.span_8_of_10 {
+  border-top: 1px solid #323232;
+}
+.four > div.span_9_of_10 {
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
+  border-radius: 0 5px 0 0;
+}
+.five > .span_4_of_10 {
+  border-left: 1px solid #323232;
+}
+.five > .span_5_of_10 {
+  border-right: 1px solid #323232;
+}
+.six > .span_4_of_10 {
+  border-top: 1px solid #323232;
+  border-left: 1px solid #323232;
+}
+.six > .span_5_of_10 {
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
+}
