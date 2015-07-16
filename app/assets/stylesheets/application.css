@@ -68,15 +68,10 @@ h3 {font-size: 1.4em;}
 
 h4 {font-size: 1.24em;}
 
-small, .font_small {font-size: 0.618em;}
+small, .font_small {font-size: 0.8em;}
 
 form {
-  display: block;
   padding: 1.5em;
-}
-
-label {
-  margin: 1em 0;
 }
 
 input {
@@ -107,10 +102,6 @@ a {
   color: #229805;
 }
 
-a:visited {
-  color: #229805;
-}
-
 .main-content {
   clear: both;
   display: block;
@@ -132,14 +123,38 @@ a:visited {
   z-index: 2;
 }
 
-
-.nav-link, .user-status {
+.nav-links {
   position: relative;
-  top: 0.4em;
-  float: left;
+  margin-top: 1.2%;
+  width: 50%;
+  float: right; 
+}
+
+.nav-link {
+  font-size: 1.1em;
   padding: 0.3em 0.7em 0.7em;
-  margin: 0.5em;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  border-bottom: 5px solid #229805;
+  font-weight: bold;
   color: #229805;
+}
+
+div.active {
+  border-bottom: 5px solid #229805;
+  font-weight: bold;
+  color: #229805;
+}
+
+.user-status {
+  position: absolute;
+  top: 1.4%;
+  right: 1em;
+  padding: 0.5em 0.7em;
+  margin: 0.5em;
+  font-size: 1.1em;
 }
 
 .logo {
@@ -149,44 +164,48 @@ a:visited {
   color: #229805;
 }
 
+#organize {
+  border: 0;
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  outline: none;
+}
+
+.sort {  
+   border: 0.1em solid #323232;
+   padding: 0.1em;
+   margin-right: 0.5em;
+   outline-color: #DFF5D1;
+   position: relative;
+   top: 20%;
+   height: 1.5em;
+}
+
 .search {
   float: left;
   margin-left: 0.5em;
+  position: absolute;
+  top: 7%;
+  left: 6%;
 }
 
 .exp-search {
   line-height: 1.5em;
-  }
+  padding: 0.1em;
+  margin-left: 0.5em;
+  position: absolute;
+  top: 20%;
+  left: 8em;
+}
 
 .fa-search {
-  padding: 0.31em;
+  position: absolute;
+  padding: 0.35em;
   background-color: #229805;
   border: 0.1em solid #323232;
   margin-left: -0.3em;
-}
-
-.nav-link {
-  font-size: 1.1em;
-  color: #229805;
-}
-
-.nav-link:hover {
-  border-bottom: 5px solid #229805;
-  font-weight: bold;
-  color: ##229805;
-}
-
-div.active {
-  border-bottom: 5px solid #229805;
-  font-weight: bold;
-}
-
-.user-status {
-  position: relative;
-  top: 0.5em;
-  padding: 0.3em 0.7em;
-  margin: 0.5em;
-  float: right;
+  top: 20%;
+  left: 19em;
 }
 
 /* errors & notices */
@@ -194,7 +213,8 @@ div.active {
 .messages {
   display: block;
   position: absolute;
-  top: 11em;
+  top: 4.5em;
+  left: 2em;
   margin: 0 auto;
 }
 

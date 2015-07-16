@@ -24,9 +24,6 @@
 
 // navigation link - stay active
 
-$('.nav-link').click(function(){
-   $(this).toggleClass('.active');
-});
 
 // create experiment view: add fields dynamically
 function dynamicAdder(btnSelector, listSelector) {
