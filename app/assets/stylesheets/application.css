@@ -72,7 +72,7 @@ small, .font_small {font-size: 0.8em;}
 
 textarea {
   font-family: 'Raleway', sans-serif;
-  border: 0.1em solid #323232;
+  border: 0.1em solid #D6D6D6;
   font-size: 1em;
   outline-color: #DFF5D1;
   background-color: none;
@@ -110,9 +110,7 @@ a {
 }
 
 .nav-links {
-  position: relative;
   margin-top: 1.2%;
-  width: 50%;
   float: right; 
 }
 
@@ -136,7 +134,7 @@ div.active {
 
 .user-status {
   position: absolute;
-  top: 1.4%;
+  top: 0;
   right: 1em;
   padding: 0.5em 0.7em;
   margin: 0.5em;
@@ -159,7 +157,7 @@ div.active {
 }
 
 .sort {  
-   border: 0.1em solid #323232;
+   border: 0.1em solid #D6D6D6;
    padding: 0.1em;
    margin-right: 0.5em;
    outline-color: #DFF5D1;
@@ -187,7 +185,7 @@ div.active {
   top: 20%;
   left: 8em;
   font-family: 'Raleway', sans-serif;
-  border: 0.1em solid #323232;
+  border: 0.1em solid #D6D6D6;
   font-size: 1em;
   outline-color: #DFF5D1;
 }
@@ -197,7 +195,7 @@ div.active {
   padding: 0.35em;
   background-color: #229805;
   color: white;
-  border: 0.1em solid #323232;
+  border: 0.1em solid #D6D6D6;
   margin-left: -0.3em;
   top: 20%;
   left: 19em;
