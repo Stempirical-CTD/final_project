@@ -16,15 +16,23 @@ label {
   height: auto;
 }
 
-.form-container input {
-  font-family: 'Raleway', sans-serif;
-  border: 0.1em solid #323232;
-  font-size: 1em;
-  outline-color: #DFF5D1;
-} 
+// .form-container input {
+//   font-family: 'Raleway', sans-serif;
+//   border: 0.1em solid #323232;
+//   font-size: 1em;
+//   outline-color: #DFF5D1;
+// } 
 
 .new-basics, .new-media {
   border-bottom: 1px solid #323232;
+}
+
+.new-basics label {
+  text-transform: uppercase;
+}
+
+.new-description {
+  margin-bottom: 0.75em;
 }
 
 .new-exp-concept {
@@ -40,10 +48,27 @@ textarea {
   margin-bottom: 0.5em;
 }
 
+// media 
+
+#target img {
+  max-height: 15em;
+  max-width: 20em;
+  padding: 1em 0 0.5em 0;
+}
+
 .tutorial-link {
   width: 60%;
   height: 1.5em;
   line-height: 1em;
+  margin-bottom: 1.75em;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
+}
+
+.new-media {
+  margin: 1em 0;
 }
 
 #pictureInput {
@@ -51,14 +76,22 @@ textarea {
   height: 1.5em;
   background-color: #FFF;
   margin-bottom: 0.5em;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
 }
 
-.tutorial-link {
-  margin-bottom: 1em;
+.new-time {
+    padding-top: 0.5em;
 }
 
 #experiment_complete_time {
   margin-bottom: 1em;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
 }
 
 #experiment_age {
@@ -72,18 +105,6 @@ textarea {
   margin: 0 0 1em 0;
 }
 
-// #experiment_age {
-//    border: 0.1em solid #323232;
-//    border-radius: 0;
-//    font-size: 1.2em;
-//    font-family: 'Raleway', sans-serif;
-//    border: 0.1em solid #323232;
-//    font-size: 1em;
-//    margin-right: 0.5em;
-//    outline-color: #DFF5D1;
-//    height: 1.8em;
-// }
-
 .age-dropdown {
    border: 0.1em solid #323232;
    padding: 0.2em;
@@ -94,54 +115,52 @@ textarea {
 
 .new-mess {
    border-bottom: 0.1em solid #323232;
-   padding-bottom: 0.5em;
-}
-
-.concept-checkbox {
-  border: 1px solid red;
-  margin-left: 1em;
+   padding-bottom: 0.75em;
 }
 
 .new-exp-concept {
-   border-bottom: 0.1em solid #323232;
-   padding-bottom: 0.5em;
-}
-
-// media 
-
-#target img {
-  height: 10em;
-  width: 10em;
+  padding-top: 0.75em;
 }
 
 // add material 
 
 .unordered-list-materials label, .unordered-list-instructions label {
   display: block;
-  margin-bottom: -1em;
+  margin-bottom: -0.5em;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .new-materials, .new-instructions {
-  border-bottom: 0.1em solid #323232;
-  margin-bottom: 4em;
+  margin-bottom: 1.5em;
   position: relative;
+  border-top: 0.1em solid #323232;
+  padding: 0.75em;
 }
 
 .new-material, .new-instruction {
   display: inline-block;
-  position: absolute;
-  width: 90%;
+  width: 80%;
   padding: 0.3em;
+  margin: 0 10% 0.5em;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
 }
 
-.new-material li {
+.new-material li, .new-instruction li {
     border: 0.07em solid #323232;
     font-size: 1em;
     margin: 0;
     padding: 0.5em;
     transition: background 0.3s ease-in-out 0s;
     line-height: 1.5em; 
-    position: absolute;
+}
+
+.instruction-order {
+  visibility: hidden;
 }
 
 .material {
@@ -149,17 +168,35 @@ textarea {
 }
 
 .add-material-btn, .add-instruction-btn {
-  display: inline-block;
-  position: absolute;
-  right: 3em;
-  padding: 0.7em;
+  display: block;
+  margin: 0.5em auto 0;
+  padding: 0.5em 0;
   background-color: #229805;
+  color: white;
   border: 0.1em solid #323232;
   outline-color: #DFF5D1;
+  font-size: 0.9em;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif; 
+  width: 12em;
 }
 
 .new-exp-btn {
   margin: 1em;
-  padding: 0.5em;
+  padding: 1em;
   text-align: center;
+  border-top: 0.1em solid #323232;
+  margin-top: 0.75em;
+}
+
+.new-exp-btn input {
+  color: white;
+  background-color: #229805;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1.2em;
+  outline-color: #DFF5D1;
+  padding: 0.5em 0.75em;
+  margin-top: 0.75em;
+  text-transform: uppercase;
 }
