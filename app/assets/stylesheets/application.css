@@ -70,25 +70,11 @@ h4 {font-size: 1.24em;}
 
 small, .font_small {font-size: 0.8em;}
 
-form {
-  padding: 1.5em;
-}
-
-input {
-    /*display: inline-block;*/
-    font-family: 'Raleway', sans-serif;
-    border: 0.1em solid #323232;
-    font-size: 1em;
-    outline-color: #DFF5D1;
-}
-
-input:not('.search') {
-  margin: 1em 0.5em;
-}
-
 textarea {
-  outline-color: #DFF5D1;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
   font-size: 1em;
+  outline-color: #DFF5D1;
   background-color: none;
 }
 
@@ -186,6 +172,7 @@ div.active {
   position: absolute;
   top: 7%;
   left: 6%;
+  padding: 1.5em;
 }
 
 .exp-search {
@@ -195,12 +182,17 @@ div.active {
   position: absolute;
   top: 20%;
   left: 8em;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
 }
 
 .fa-search {
   position: absolute;
   padding: 0.35em;
   background-color: #229805;
+  color: white;
   border: 0.1em solid #323232;
   margin-left: -0.3em;
   top: 20%;
@@ -218,13 +210,3 @@ div.active {
   margin: 0 auto;
 }
 
-/* buttons */
-
-/*button {
-  background-color: #E8E8E8;
-  font-family: 'Raleway', sans-serif;
-  color: #333;
-  border: 0;
-  padding: 1em;
-}*/
-/**/
