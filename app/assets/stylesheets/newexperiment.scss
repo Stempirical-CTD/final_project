@@ -16,7 +16,7 @@ label {
   height: auto;
 }
 
-.form-container input {
+.form-container input:not(new-exp-button) {
   font-family: 'Raleway', sans-serif;
   border: 0.1em solid #323232;
   font-size: 1em;
@@ -25,6 +25,10 @@ label {
 
 .new-basics, .new-media {
   border-bottom: 1px solid #323232;
+}
+
+.new-description {
+  margin-bottom: 0.75em;
 }
 
 .new-exp-concept {
@@ -40,10 +44,23 @@ textarea {
   margin-bottom: 0.5em;
 }
 
+// media 
+
+#target img {
+  max-height: 15em;
+  max-width: 20em;
+  padding: 1em 0 0.5em 0;
+}
+
 .tutorial-link {
   width: 60%;
   height: 1.5em;
   line-height: 1em;
+  margin-bottom: 1.75em;
+}
+
+.new-media {
+  margin: 1em 0;
 }
 
 #pictureInput {
@@ -53,8 +70,8 @@ textarea {
   margin-bottom: 0.5em;
 }
 
-.tutorial-link {
-  margin-bottom: 1em;
+.new-time {
+    padding-top: 0.5em;
 }
 
 #experiment_complete_time {
@@ -82,15 +99,11 @@ textarea {
 
 .new-mess {
    border-bottom: 0.1em solid #323232;
-   padding-bottom: 0.5em;
+   padding-bottom: 0.75em;
 }
 
-// media 
-
-#target img {
-  max-height: 15em;
-  max-width: 20em;
-  padding: 1em 0 0.5em 0;
+.new-exp-concept {
+  padding-top: 0.75em;
 }
 
 // add material 
@@ -104,6 +117,7 @@ textarea {
   margin-bottom: 1.5em;
   position: relative;
   border-top: 0.1em solid #323232;
+  padding: 0.75em;
 }
 
 .new-material, .new-instruction {

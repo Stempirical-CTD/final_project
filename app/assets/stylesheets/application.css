@@ -70,9 +70,6 @@ h4 {font-size: 1.24em;}
 
 small, .font_small {font-size: 0.8em;}
 
-form {
-  padding: 1.5em;
-}
 
 input {
     font-family: 'Raleway', sans-serif;
@@ -81,7 +78,7 @@ input {
     outline-color: #DFF5D1;
 }
 
-input:not('.search') {
+input:not('search') { /*heroku issue? */
   margin: 1em 0.5em;
 }
 
@@ -185,6 +182,7 @@ div.active {
   position: absolute;
   top: 7%;
   left: 6%;
+  padding: 1.5em;
 }
 
 .exp-search {
@@ -219,11 +217,10 @@ div.active {
 
 /* buttons */
 
-/*button {
+button {
   background-color: #E8E8E8;
   font-family: 'Raleway', sans-serif;
   color: #333;
   border: 0;
   padding: 1em;
-}*/
-/**/
+}
