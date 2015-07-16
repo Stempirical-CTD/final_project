@@ -22,6 +22,7 @@ class Experiment < ActiveRecord::Base
 
   validates :description, :complete_time, :name, presence: true
   validates_format_of :youtube_link,
+      :allow_blank => true,
       :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
       :on => :create
 

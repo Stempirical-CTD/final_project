@@ -85,7 +85,7 @@ li {
 a {
   text-decoration: none;
   font-weight: bold;
-  color: #229805;
+  color: #323232;
 }
 
 .main-content {
@@ -124,7 +124,8 @@ a {
 
 .nav-link:hover {
   border-bottom: 5px solid #229805;
-  font-weight: bold;
+  font-weight: bold !important;
+  color: #229805 !important;
 }
 
 div.active {
@@ -147,6 +148,7 @@ div.active {
   padding: 0.4em 0 0 1em;
   font-family: 'Chelsea Market', sans-serif;
   color: #229805;
+  z-index: 20;
 }
 
 #organize {
@@ -164,6 +166,7 @@ div.active {
    position: relative;
    top: 20%;
    height: 1.5em;
+   z-index: -1;
 }
 
 .search {
@@ -173,6 +176,7 @@ div.active {
   top: 7%;
   left: 6%;
   padding: 1.5em;
+  z-index: -1;
 }
 
 .exp-search {
