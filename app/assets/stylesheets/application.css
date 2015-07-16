@@ -13,7 +13,27 @@
  *= require reset
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
+
+
+/* tooltips */
+
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#ffffff;
+	border-radius:5px;
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
+}
+
+.experiments {
+  display: none;
+  /*visibility: hidden;*/
+}
 
 /* defaults */
 

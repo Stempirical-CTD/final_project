@@ -37,7 +37,6 @@ class ExperimentsController < ApplicationController
     @experiment = Experiment.new
     @experiment.materials.build
     @experiment.instructions.build
-    @experiment.concepts.build
   end
 
   # GET /experiments/1/edit
@@ -49,25 +48,24 @@ class ExperimentsController < ApplicationController
   def create
     @experiment = Experiment.new(experiment_params)
     @experiment.user_id = current_user.id
-    respond_to do |format|
-      if @experiment.save
-        params[:concepts].each { |c| @experiment.concepts << Concept.find(c) }
-        format.html { redirect_to @experiment, notice: 'Experiment was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if params[:concepts].blank?
+      flash.now[:notice] = "You must select a Concept!!"
+      render :new
+    elsif @experiment.save
+      params[:concepts].each { |c| @experiment.concepts << Concept.find(c) }
+      redirect_to @experiment, notice: 'Experiment was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /experiments/1
   # PATCH/PUT /experiments/1.json
   def update
-    respond_to do |format|
-      if @experiment.update(experiment_params)
-        format.html { redirect_to @experiment, notice: 'Experiment was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @experiment.update(experiment_params)
+      redirect_to @experiment, notice: 'Experiment was successfully updated.'
+    else
+      render :edit
     end
   end
 
