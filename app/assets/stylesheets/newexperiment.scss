@@ -2,11 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+label {
+  display: inline-block;
+  margin: 0.5em 0;
+  position: relative;
+}
 
 .form-container {
 	padding: 2em 2.5em;
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   overflow: hidden;
   height: auto;
@@ -19,12 +23,14 @@
   outline-color: #DFF5D1;
 }
 
-.concept-checkbox, .concept-checkbox-label {
+.concept-checkbox-label {
   padding: 0.3em;
+  margin: 0.5em;
 }  
 
 .new-exp-concept {
-
+  width: 100%;
+  display: inline-block;
 }
 
 //inputs
@@ -42,6 +48,23 @@ textarea {
 #pictureInput {
   width: 60%;
   height: 1.5em;
+  background-color: #FFF;
+}
+
+#experiment_age {
+    /*-webkit-appearance: none;
+  -moz-appearance: none;
+   appearance: none;*/
+   border: 0.1em solid #323232;
+   border-radius: 0;
+   font-size: 1.2em;
+   font-family: 'Raleway', sans-serif;
+   border: 0.1em solid #323232;
+   font-size: 1em;
+   margin-right: 0.5em;
+   outline-color: #DFF5D1;
+   height: 1.8em;
+   /*background: url('arrow-down.png')  no-repeat;*/
 }
 
 // media 
@@ -53,22 +76,27 @@ textarea {
 
 // add material 
 
+.new-materials, .new-instructions {
+  border-bottom: 0.1em solid #323232;
+  position: relative;
+}
+
 .new-material li {
-      position: relative;
       border: 0.07em solid #323232;
-      float: left;
       font-size: 1em;
       margin: 0;
       padding: 0.5em;
       transition: background 0.3s ease-in-out 0s;
-      width: 80%;
+      line-height: 1.5em; 
+      position: absolute;
 }
 
 .material {
   z-index: 5;
-  
-.add-material-btn, .add-instruction-btn {
-  float: right;
-  margin-left: 0;
 }
+
+.add-material-btn, .add-instruction-btn {
+  padding: 0.35em;
+  background-color: #229805;
+  border: 0.1em solid #323232;
 }
