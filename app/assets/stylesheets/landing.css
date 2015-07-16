@@ -44,6 +44,7 @@
 .left-intro {
   width: 40%;
   margin-left: 3em;
+  margin-bottom: 20em;
 }
 
 .landing-logo {
@@ -62,4 +63,14 @@
   padding-left: 1.5em;
   margin-top: 1.5em;
   font-size: 1.5em;
+}
+
+.start {
+  border: 0;
+  padding: 0.75em 1em;
+  background-color: #FFFFF7;
+  color: #323232;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  margin: 1em 0 0 1em;
 }

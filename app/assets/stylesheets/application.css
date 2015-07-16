@@ -124,7 +124,8 @@ a {
 
 .nav-link:hover {
   border-bottom: 5px solid #229805;
-  font-weight: bold;
+  font-weight: bold !important;
+  color: #229805 !important;
 }
 
 div.active {
