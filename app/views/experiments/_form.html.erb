@@ -54,13 +54,14 @@
       <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
     </div>
 
-  <div class="new-exp-concept">
+  <span class="new-exp-concept">
     <label>Which concepts apply to this experiment?</label><br>
     <% Concept.all.each do |concept| %>
       <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
       <%= label_tag("concept_#{concept.id}",concept.name, class: "concept-checkbox-label") %>
+    </span><br>    
     <% end %>
-  </div>
+
 
   <div class="new-materials">
     <ul class="field unordered-list-materials">
@@ -73,7 +74,7 @@
         </li>
       <% end %>
     </ul>
-    <button type="button" class="add-material-btn"><i class="fa fa-plus"></i></button>
+    <button type="button" class="add-material-btn"><i class="fa fa-plus"></i> Add New Material</button>
   </div>
 
   <div class="new-instructions">
@@ -82,9 +83,9 @@
       <%= f.fields_for(:instructions) do |ff| %>
         <li>
         <div class="instruction-fields">
-         <!--<div class="field instruction">
-            <%= ff.number_field :order_number %>
-          </div>-->
+         <div class="field instruction">
+            <%= ff.number_field :order_number, :class=> "instruction-order" %>
+          </div>
           <div class="field instruction">
             <%= ff.text_field :information, :class=> "new-instruction" %>
           </div>
@@ -92,7 +93,7 @@
         </li>
       <% end %>
     </ul>
-    <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i></button>
+    <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i> Add Next Step</button>
   </div>
 
     <div class="actions new-exp-btn">

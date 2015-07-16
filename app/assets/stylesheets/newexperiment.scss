@@ -72,18 +72,6 @@ textarea {
   margin: 0 0 1em 0;
 }
 
-// #experiment_age {
-//    border: 0.1em solid #323232;
-//    border-radius: 0;
-//    font-size: 1.2em;
-//    font-family: 'Raleway', sans-serif;
-//    border: 0.1em solid #323232;
-//    font-size: 1em;
-//    margin-right: 0.5em;
-//    outline-color: #DFF5D1;
-//    height: 1.8em;
-// }
-
 .age-dropdown {
    border: 0.1em solid #323232;
    padding: 0.2em;
@@ -97,21 +85,12 @@ textarea {
    padding-bottom: 0.5em;
 }
 
-.concept-checkbox {
-  // border: 1px solid red;
-  margin-left: 1em;
-}
-
-.new-exp-concept {
-   border-bottom: 0.1em solid #323232;
-   padding-bottom: 0.5em;
-}
-
 // media 
 
 #target img {
-  height: 10em;
-  width: 10em;
+  max-height: 15em;
+  max-width: 20em;
+  padding: 1em 0 0.5em 0;
 }
 
 // add material 
@@ -122,30 +101,29 @@ textarea {
 }
 
 .new-materials, .new-instructions {
-  // border-bottom: 0.1em solid #323232;
-  margin-bottom: 4em;
+  margin-bottom: 1.5em;
   position: relative;
-}
-
-.new-instructions {
   border-top: 0.1em solid #323232;
 }
 
 .new-material, .new-instruction {
   display: inline-block;
-  position: absolute;
   width: 80%;
   padding: 0.3em;
+  margin-bottom: 0.5em;
 }
 
-.new-material li {
+.new-material li, .new-instruction li {
     border: 0.07em solid #323232;
     font-size: 1em;
     margin: 0;
     padding: 0.5em;
     transition: background 0.3s ease-in-out 0s;
     line-height: 1.5em; 
-    position: absolute;
+}
+
+.instruction-order {
+  visibility: hidden;
 }
 
 .material {
@@ -154,12 +132,15 @@ textarea {
 
 .add-material-btn, .add-instruction-btn {
   display: inline-block;
-  position: absolute;
-  right: 10em;
+  margin-top: 0.5em;
   padding: 0.7em;
   background-color: #229805;
   border: 0.1em solid #323232;
   outline-color: #DFF5D1;
+  font-size: 0.8em;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif; 
+  width: 12em;
 }
 
 .new-exp-btn {
