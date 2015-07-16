@@ -19,24 +19,30 @@
         <label>Experiment Name</label><br>
         <%= f.text_area :name, :cols => 100, :rows => 2 %>
       </div>
-  
+
       <div class="field new-description">
         <label>Description</label> <small>(Please include 2-3 sentences to describe the purpose of this experiment.)</small>
         <%= f.text_area :description, :cols => 100, :rows => 2 %>
       </div>
-    </div>  
+
+    </div>
+
     <div class="new-media">
       <div class="field new-photo">
         <label>Upload a Photo</label><br>
         <%= f.file_field 'uploaded_file', id: 'pictureInput', :rows => 2 %>
-      </div> 
+
+      </div>
       <div id="target">
-      </div>  
+      </div>
+
       <div class="field new-youtube">
         <label>Link To YouTube Tutorial</label><br>
         <%= f.url_field :youtube_link, :class => "tutorial-link" %>
       </div>
-    </div>  
+
+    </div>
+
 
     <div class="field new-time">
       <label>Time Expected to Complete</label><br>
@@ -50,7 +56,7 @@
     </div>
 
     <div class="new-mess">
-      <label>On a scale of 1 to 5, how messy is this experiment?</label><br> 
+      <label>On a scale of 1 to 5, how messy is this experiment?</label><br>
       <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
     </div>
 

@@ -1,9 +1,13 @@
 class ExperimentsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show, :vote, :mess_ratings, :complete_time_rating]
+  before_filter :authenticate_user!, except: [:index, :show, :vote, :landing_page]
   before_action :set_experiment, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /experiments
   # GET /experiments.json
+  def landing_page
+
+  end
+  
   def index
     if params[:query]
       @experiments = Experiment.text_search(params[:query], params[:organize])

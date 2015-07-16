@@ -23,11 +23,12 @@ Rails.application.routes.draw do
       get 'mess_ratings'
       get 'complete_time_rating'
       get 'ages'
+      get 'landing_page'
     end
     member { post :vote }
   end
 
-  root 'experiments#index'
+  root 'experiments#landing_page'
 
   # The priority is based upon order_number of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
