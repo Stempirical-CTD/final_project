@@ -98,7 +98,7 @@ textarea {
 }
 
 .concept-checkbox {
-  border: 1px solid red;
+  // border: 1px solid red;
   margin-left: 1em;
 }
 
@@ -122,15 +122,19 @@ textarea {
 }
 
 .new-materials, .new-instructions {
-  border-bottom: 0.1em solid #323232;
+  // border-bottom: 0.1em solid #323232;
   margin-bottom: 4em;
   position: relative;
+}
+
+.new-instructions {
+  border-top: 0.1em solid #323232;
 }
 
 .new-material, .new-instruction {
   display: inline-block;
   position: absolute;
-  width: 90%;
+  width: 80%;
   padding: 0.3em;
 }
 
@@ -151,7 +155,7 @@ textarea {
 .add-material-btn, .add-instruction-btn {
   display: inline-block;
   position: absolute;
-  right: 3em;
+  right: 10em;
   padding: 0.7em;
   background-color: #229805;
   border: 0.1em solid #323232;
