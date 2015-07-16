@@ -4,7 +4,7 @@
 
 label {
   display: inline-block;
-  margin-bottom: 1em;
+  margin: 0.5em 0;
   position: relative;
 }
 
@@ -14,10 +14,6 @@ label {
   margin: 0 auto;
   overflow: hidden;
   height: auto;
-}
-
-.form-container .field {
-  margin-bottom: 1em;
 }
 
 .form-container input {
