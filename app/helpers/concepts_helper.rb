@@ -13,6 +13,7 @@ module ConceptsHelper
           type: :heading,
           level: level,
           name: concept.name,
+
         }
         # @html << "<h#{level}>#{ concept.name }</h#{level}>"
 
@@ -32,5 +33,5 @@ module ConceptsHelper
     end
 
   end
-  
+
 end

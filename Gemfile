@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.2.1'
+gem 'jquery-ui-rails'
 gem 'paperclip'
 gem 'aws-sdk', '~> 1.6'
 gem 'ratyrate'

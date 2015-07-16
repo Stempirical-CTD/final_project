@@ -1,114 +1,145 @@
-<div class="row1">
+<h3 class="show-exp-title"><%= @experiment.name %></h3>
 
-  <div class="show-ratings">
+<div class="user-options">
+  <!--<%= image_tag "submitted by user.png", class: "icon-small" %>-->
+  Submitted By:
+  <%= @experiment.user.username %>
+    <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
+    <%= link_to content_tag(:i, nil, class: 'fa fa-pencil'), edit_experiment_path(@experiment) %> |
+    <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o'), @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %>
+</div>
 
+<div class="pin-it">
+  <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
+  <!-- Please call pinit.js only once per page -->
+  <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+</div>
 
-    <h3 class="page-title"><%= @experiment.name %></h3>
-
-
-    <div class="exp-image">
-        <% if @experiment.uploaded_file_file_name != nil %>
-          <%= image_tag @experiment.uploaded_file %>
-        <% end %>
-    </div>
-
-    <!--placeholder icon-->
-    <div class="show-concept-icon">
-        <% @experiment.concepts.each do |c| %>
-          <%= image_tag "#{c.name}.png", class: "concept-img-small" %>
-         Learn more about <%= link_to c.name, concept_path(c) %><br>
-        <% end %>
-    </div>
-
-     <%= image_tag "submitted by user.png", class: "icon-small" %>
-    Submitted By User:
-    <%= @experiment.user.username %>
-      <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
-      <%= link_to content_tag(:i, nil, class: 'fa fa-pencil'), edit_experiment_path(@experiment) %> |
-      <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o'), @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
-    <% end %><br>
-
+<div class="quality-rating">
   <% if current_user && current_user.can_vote_for?(@experiment) %>
     <%= link_to content_tag(:i, nil, class: 'fa fa-thumbs-up'), vote_experiment_path(@experiment, value: 1), method: "post" %>
     <% end %>
 
-    <%= pluralize @experiment.votes, "like" %><br>
-
-    <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
-    <!-- Please call pinit.js only once per page -->
-    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script><br>
-
-
-    <%= image_tag "age.png", class: "icon-small" %>
-    <%= @experiment.return_age %> years <br>
-
-    <%= image_tag "time.png", class: "icon-small" %>
-    <%= @experiment.complete_time %> hour(s) <br>
-
-    Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
-    <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %>
-  </div>
-
-  <div class="show-basics">
-
-    <p class="show-exp-description">
-      <%= @experiment.description %>
-    </p>
-
-    <div class="instruction-video">
-    <h3>Instructional Video:</h3><br>
-    <% if @experiment.youtube_link != "" %>
-      <div class="embed-container">
-        <%= embed(@experiment.youtube_link) %>
-      </div>
-      <a href="<%= @experiment.youtube_link %>">View on YouTube</a>
-    <% end %>
- </div>
+    <%= pluralize @experiment.votes, "like" %>
 </div>
 
-  <div class="row3">
-    <div class="show-materials">
-      <h3>Materials:</h3><br>
-        <% @experiment.materials.each do |material| %>
-        <div class="show-material">
-          - <%= material.item %><br>
-        </div>
-      <% end %>
+<div class="show-exp-image">
+    <% if @experiment.uploaded_file_file_name != nil %>
+      <%= image_tag @experiment.uploaded_file %>
+    <% end %>
+</div>
+
+<div="show-ratings">
+
+  <div class="show-concept-icon">
+  <% @experiment.concepts.each do |c| %>
+    <%= image_tag "#{c.name}.png", class: "concept-img-small" %><br>
+    <%= link_to c.name, concept_path(c) %>
+  <% end %>
   </div>
 
-    <div class="show-instructions">
-      <h3>Instructions:</h3><br>
-      <% @experiment.instructions.each do |instruction| %>
-        <div class="show-instruction">
-          <%= instruction.order_number %> | <%= instruction.information %><br>
-        </div>
-      <% end %>
+  <div class="time">
+  <%= image_tag "time.png", class: "icon-small" %><br>
+  <%= @experiment.complete_time %> hour(s)
+  </div>
+
+  <div class="age">
+  <%= image_tag "age.png", class: "icon-small" %><br>
+  <%= @experiment.return_age %> years
+  </div>
+
+  <div class="mess">
+  <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
+  Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
+  </div>
+</div>
+
+<p class="show-exp-description">
+  <%= @experiment.description %>
+</p>
+
+<div class="instruction-video">
+<h3>Instructional Video:</h3><br>
+<% if @experiment.youtube_link != "" %>
+  <div class="embed-container">
+    <%= embed(@experiment.youtube_link) %>
+  </div>
+<% end %>
+</div>
+
+<div class="show-materials">
+  <h3>Materials:</h3><br>
+    <% @experiment.materials.each do |material| %>
+    <div class="show-material">
+      - <%= material.item %><br>
     </div>
+  <% end %>
+</div>
+
+<div class="show-instructions">
+  <h3>Instructions:</h3><br>
+  <% @experiment.instructions.each do |instruction| %>
+    <div class="show-instruction">
+      <%= instruction.order_number %> | <%= instruction.information %><br>
+    </div>
+  <% end %>
 </div>
 
 <div class="recommended">
-      <% @experiment.concepts.each do |c| %>
-        Based on your interest on <%= link_to c.name, concept_path(c) %>, you might be interested in the following experiment(s):<br>
-        <% if c.parents.count >= 1 %>
-        <% random_parent = c.parents.sample %>
-        <% random_parent_experiment = random_parent.experiments.sample %>
-        <%= link_to "#{root_url}experiments/#{random_parent_experiment.id}" do %>
-          <%= random_parent_experiment.name %><br>
-        <% end %>
-      <% end %>
-
-        <% if c.children.count >= 1 %>
-          <% if c.parents.count != 0 %>
-            <h3>OR</h3>
-          <% end %>
-        <% random_child = c.children.sample %>
-        <% random_child_experiment = random_child.experiments.sample %>
-        <%= link_to "#{root_url}experiments/#{random_child_experiment.id}" do %>
-          <%= random_child_experiment.name %>
-        <% end %>
+  <% @experiment.concepts.each do |c| %>
+    Based on your interest on <%= link_to c.name, concept_path(c) %>, you might be interested in:<br>
+    <% if c.parents.count >= 1 %>
+      <% random_parent = c.parents.sample %>
+      <% random_parent_experiment = random_parent.experiments.sample %>
+      <%= link_to "#{root_url}experiments/#{random_parent_experiment.id}" do %>
+        <%= random_parent_experiment.name %><br>
       <% end %>
     <% end %>
-  </div>
+
+    <% if c.children.count >= 1 %>
+      <% if c.parents.count != 0 %>
+        <h3>OR</h3>
+      <% end %>
+      <% random_child = c.children.sample %>
+      <% random_child_experiment = random_child.experiments.sample %>
+      <%= link_to "#{root_url}experiments/#{random_child_experiment.id}" do %>
+        <%= random_child_experiment.name %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="extended-learning"> <!--need to add "link to" and "carousel" of photos with each-->
+<% if @children.count > 0 %>
+  <% if @children.count >= 1 %>
+    <% @children.map do |children| %><br>
+    <h4>To learn more about <%= children.name %>, try these:</h4>
+      <% children.experiments.map do |exp| %>
+        <%= link_to exp.name, experiment_path(exp) %><br>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to exp.name, experiment_path(exp) %>
+  <% end %>
+<% end %>
+<br>
+
+
+<% if @parents.count > 0 %>
+  <% if @parents.count >= 1 %>
+    <% @parents.map do |parent| %>
+      <h4>To learn more about <%= parent.name %>, try these:</h4>
+      <% parent.experiments.map do |exp| %>
+        <%= link_to exp.name, experiment_path(exp) %><br>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to exp.name, experiment_path(exp) %>
+  <% end %>
+<% end %>
+<br>
+</div>
 
 <% if user_signed_in? || @experiment.comments != [] %>
   <div class="comments">
@@ -118,40 +149,10 @@
       </div>
     <% end %>
     <% if user_signed_in? %>
+      <!-- <%= link_to "New Comment", new_experiment_comment_path(@experiment), remote: true %> -->
       <%= render partial: "comments/form", locals: {commentable: @experiment} %>
     <% end %>
   </div>
 <% end %>
-
-<div class="extended-learning">
-  <% if @children.count > 0 %>
-    <h3>Children Concepts(<%= @children.count %>):</h3>
-    <% if @children.count >= 1 %>
-      <% @children.map do |children| %><br>
-      <h4>Experiments for <%= children.name %></h4>
-        <% children.experiments.map do |exp| %>
-          <%= exp.name %><br>
-        <% end %>
-      <% end %>
-    <% else %>
-      <%= @children.name %>
-    <% end %>
-  <% end %>
-  <br>
-
-
-  <% if @parents.count > 0 %>
-    <h3>Parent Concepts(<%= @parents.count %>):</h3>
-    <% if @parents.count >= 1 %>
-      <% @parents.map do |parent| %>
-        <h4>Experiments for <%= parent.name %></h4>
-        <% parent.experiments.map do |exp| %>
-          <%= exp.name %><br>
-        <% end %>
-      <% end %>
-    <% else %>
-      <%= @parents.name %>
-    <% end %>
-  <% end %>
-  <br>
+<div class="new-form-container">
 </div>

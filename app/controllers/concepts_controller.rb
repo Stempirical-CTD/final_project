@@ -8,6 +8,12 @@ class ConceptsController < ApplicationController
   def show
   end
 
+  def concept_tree
+    @concepts = Concept.all
+    # @tree = Concept.first.display_concepts
+    # render json: @tree
+  end
+
   def new
     @concept = Concept.new
   end

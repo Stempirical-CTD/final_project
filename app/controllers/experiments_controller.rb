@@ -5,42 +5,24 @@ class ExperimentsController < ApplicationController
   # GET /experiments
   # GET /experiments.json
   def index
-    # @experiments = Experiment.all
     if params[:query]
-      @experiments = Experiment.text_search(params[:query], params[:material])
+      @experiments = Experiment.text_search(params[:query], params[:organize])
       if @experiments.length == 0
         flash.now[:notice] = "No items found"
-        @experiments = Experiment.by_votes
+      end
+    elsif params[:organize]
+      if params[:organize] == "2"
+        @experiments = Experiment.order(:complete_time)
+      elsif params[:organize] == "1"
+        @experiments = Experiment.order(:age)
       end
     else
       @experiments = Experiment.by_votes
     end
-    # if params[:query]
-    #   @experiments = Experiment.find(:all, :conditions => ['name LIKE ?', "%#{params[:query]}%"])
-    #   @concept_choices = Concept.all.map(&:name)
-    #   if @experiments.size.zero?
-    #     flash[:notice] = "No items found"
-    #     @experiments = Experiment.by_votes
-    #   end
-    # else
-    # # @experiments = Experiment.text_search(params[:query])#.page(params[:page]).per_page(3)
-    #   @experiments = Experiment.by_votes
-    # end
   end
 
   def ages
-    @experiments = Experiment.order(:age)
-  end
-
-  def mess_ratings
-    # @experiments = Experiment.order_by_mess
-    @experiments = Experiment.order_by_mess_complete_time
-    # @experiments = Experiment.where(complete_time: 1).order_by_mess
-  end
-
-  def complete_time_rating
-    # @experiments = Experiment.order(complete_time: :asc, user_id: :asc)
-    @experiments = Experiment.time
+    @experiments = Experiment.order(:complete_time)
   end
 
   # GET /experiments/1
@@ -55,7 +37,6 @@ class ExperimentsController < ApplicationController
     @experiment = Experiment.new
     @experiment.materials.build
     @experiment.instructions.build
-    @experiment.concepts.build
   end
 
   # GET /experiments/1/edit
@@ -67,28 +48,24 @@ class ExperimentsController < ApplicationController
   def create
     @experiment = Experiment.new(experiment_params)
     @experiment.user_id = current_user.id
-    # params[:concepts].each do |concept_id|
-    #   @experiment.concepts_experiment.new(concept_id: concept_id)
-    # end
-    respond_to do |format|
-      if @experiment.save
-        params[:concepts].each { |c| @experiment.concepts << Concept.find(c) }
-        format.html { redirect_to @experiment, notice: 'Experiment was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if params[:concepts].blank?
+      flash.now[:notice] = "You must select a Concept!!"
+      render :new
+    elsif @experiment.save
+      params[:concepts].each { |c| @experiment.concepts << Concept.find(c) }
+      redirect_to @experiment, notice: 'Experiment was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /experiments/1
   # PATCH/PUT /experiments/1.json
   def update
-    respond_to do |format|
-      if @experiment.update(experiment_params)
-        format.html { redirect_to @experiment, notice: 'Experiment was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+    if @experiment.update(experiment_params)
+      redirect_to @experiment, notice: 'Experiment was successfully updated.'
+    else
+      render :edit
     end
   end
 

@@ -2,61 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+label {
+  display: inline-block;
+  margin: 0.5em 0;
+  position: relative;
+}
 
 .form-container {
 	padding: 2em 2.5em;
+  width: 50%;
+  margin: 0 auto;
   overflow: hidden;
   height: auto;
 }
 
-// create experiment view tab navigation
+.form-container input {
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
+} 
 
-ul#tabs {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-	  font-size: 1.3em;
+.new-basics, .new-media {
+  border-bottom: 1px solid #323232;
 }
-ul#tabs li {
-    display: inline-block;
-    background-color: #E8E8E8;
-    padding: 5px 20px;
-    color: #323232;
-    cursor: pointer;
-	border-bottom: solid 2px #E8E8E8;
+
+.new-exp-concept {
+  width: 100%;
+  display: inline-block;
 }
-ul#tabs li:hover {
-    background-color: #F2F3F4;
-	border-bottom: solid 2px #F2F3F4;
-}
-ul#tabs li.active {
-	background-color: #F2F3F4;
-	border-bottom: solid 2px #F2F3F4;
-	transition: all 0.2s ease-in-out;
-}
-ul#tab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-ul#tab > li {
-    display: none;
-}
-ul#tab > li.active {
-    display: block;
-	width: 50%;
-	background-color: #F2F3F4;
-	margin: 0 auto;
-	padding: 1em;
-	box-shadow: -0 0 10px #CCC;
-	z-index: 50;
-}
+
 
 //inputs
 
 textarea {
-  width: 97%;
+  width: 100%;
+  margin-bottom: 0.5em;
 }
 
 .tutorial-link {
@@ -68,6 +49,62 @@ textarea {
 #pictureInput {
   width: 60%;
   height: 1.5em;
+  background-color: #FFF;
+  margin-bottom: 0.5em;
+}
+
+.tutorial-link {
+  margin-bottom: 1em;
+}
+
+#experiment_complete_time {
+  margin-bottom: 1em;
+}
+
+#experiment_age {
+  border: 0;
+  outline-color: #DFF5D1;
+  padding: 0.9em;
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.5em;
+  background-color: #FFF;
+  margin: 0 0 1em 0;
+}
+
+// #experiment_age {
+//    border: 0.1em solid #323232;
+//    border-radius: 0;
+//    font-size: 1.2em;
+//    font-family: 'Raleway', sans-serif;
+//    border: 0.1em solid #323232;
+//    font-size: 1em;
+//    margin-right: 0.5em;
+//    outline-color: #DFF5D1;
+//    height: 1.8em;
+// }
+
+.age-dropdown {
+   border: 0.1em solid #323232;
+   padding: 0.2em;
+   // margin: 0 0 1.5em 0;
+   outline-color: #DFF5D1;
+   background-color: #FFF;
+}   
+
+.new-mess {
+   border-bottom: 0.1em solid #323232;
+   padding-bottom: 0.5em;
+}
+
+.concept-checkbox {
+  border: 1px solid red;
+  margin-left: 1em;
+}
+
+.new-exp-concept {
+   border-bottom: 0.1em solid #323232;
+   padding-bottom: 0.5em;
 }
 
 // media 
@@ -77,22 +114,52 @@ textarea {
   width: 10em;
 }
 
-
-
-
 // add material 
 
+.unordered-list-materials label, .unordered-list-instructions label {
+  display: block;
+  margin-bottom: -1em;
+}
+
+.new-materials, .new-instructions {
+  border-bottom: 0.1em solid #323232;
+  margin-bottom: 4em;
+  position: relative;
+}
+
+.new-material, .new-instruction {
+  display: inline-block;
+  position: absolute;
+  width: 90%;
+  padding: 0.3em;
+}
+
 .new-material li {
-      position: relative;
-      border: 0.07em solid #323232;
-      float: left;
-      font-size: 1em;
-      margin: 0;
-      padding: 0.5em;
-      transition: background 0.3s ease-in-out 0s;
-      width: 80%;
+    border: 0.07em solid #323232;
+    font-size: 1em;
+    margin: 0;
+    padding: 0.5em;
+    transition: background 0.3s ease-in-out 0s;
+    line-height: 1.5em; 
+    position: absolute;
 }
 
 .material {
   z-index: 5;
+}
+
+.add-material-btn, .add-instruction-btn {
+  display: inline-block;
+  position: absolute;
+  right: 3em;
+  padding: 0.7em;
+  background-color: #229805;
+  border: 0.1em solid #323232;
+  outline-color: #DFF5D1;
+}
+
+.new-exp-btn {
+  margin: 1em;
+  padding: 0.5em;
+  text-align: center;
 }

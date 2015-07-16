@@ -6,4 +6,29 @@ class Concept < ActiveRecord::Base
 
   has_many :parents, through: :parent_relationships
   has_many :children, through: :child_relationships
+
+  def display_concepts(used_concepts = [])
+    used_concepts << self
+
+    hash = {
+      name: self.name,
+      children: [],
+      experiments: []
+    }
+
+    experiments.each do |experiment|
+      hash[:experiments] << {
+        name: experiment.name
+      }
+    end
+
+    children.each do |child|
+      unless used_concepts.include?(child)
+        hash[:children] << child.display_concepts(used_concepts)
+      end
+    end
+
+    hash
+  end
+
 end

@@ -1,36 +1,44 @@
 <h1 class="page-title">All Experiments</h1>
 
+<div class="index-wrapper">
 <% @experiments.each do |experiment| %>
 
-<div class="experiment-card">
-    <div class="info-half">
-      <% experiment.concepts.map do |c| %>
-          <%= image_tag "#{c.name}.png", class: "concept-img" %><br>
-          <div class="concept-title"><%= link_to c.name, concept_path(c) %></div><br>
-      <% end %>
+    <div class="index-experiment-card">
+        <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')">
+          <!--<% if experiment.uploaded_file_file_name != nil %>
+          <%= image_tag experiment.uploaded_file %>
+          <% end %>-->
+          <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= experiment.name %></h3> 
+             <i class="fa fa-thumbs-up index-likes"><%= pluralize experiment.votes, "like" %></i>    
+          </span>
+        </a>
 
-      <h3 class="exp-title"><a><%= link_to experiment.name, experiment %></a><br></h3>
+        <div class="index-info">
+              <div class="index-exp-ratings">
+                  <span class="ratings-container">
+                      <span class="index-concept-icon">
+                         <% c = experiment.concepts.sample %>
+                         <%= image_tag "#{c.name}.png", class: "concept-img-small" %><br>                        
+                         <%= link_to c.name, concept_path(c) %>
+                      </span>
+    
+                      <div class="index-time">
+                          <%= image_tag "time.png", class: "icon-small" %><br>
+                          <%= experiment.complete_time %> hour(s)
+                      </div>
+    
+                      <div class="index-age">
+                          <%= image_tag "age.png", class: "icon-small" %><br>
+                          Ages<%= experiment.return_age %>
+                      </div>
+    
+                    <div class="mess-rate-disable index-mess">
+                        <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
+                        Mess
+                    </div>
+                 </span>   
+              </div>
+         </div>
     </div>
-    <div class="photo-half"
-      <div class="index-photo">
-          <% if experiment.uploaded_file_file_name != nil %>
-            <%= image_tag experiment.uploaded_file %>
-          <% end %>
-      </div>
-
-      <div class="exp-ratings">
-        <i class="fa fa-thumbs-up"></i><%= pluralize experiment.votes, "like" %><br>
-
-        <%= image_tag "age.png", class: "icon-small" %>
-        <%= experiment.age %> years <br>
-
-        <%= image_tag "time.png", class: "icon-small" %>
-        <%= experiment.complete_time %> hour(s) <br>
-
-        <div class="mess-rate-disable">
-        Mess: <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %>
-        </div>
-      </div>
-    </div>
-</div>
 <% end %>
+</div>
