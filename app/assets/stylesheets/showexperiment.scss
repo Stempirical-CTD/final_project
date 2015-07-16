@@ -1,4 +1,4 @@
-.user-options, .pin-it, .show-concept-icon, .age, .time, .mess {
+.user-options, .show-concept-icon, .age, .time, .mess {
 	display: inline-block;
 	position: relative;
 }
@@ -9,7 +9,7 @@
 	left: 30em;
 }
 
-.pin-it, .quality-rating {
+.quality-rating {
 	float: left;
 	margin: 0 1em;
 }
@@ -65,7 +65,7 @@
   padding-top: 30px;
   height: auto;
   width: 50%;
-  margin: 1em auto;
+  margin: 1em auto -15em;
 }
 
 .embed-container iframe,

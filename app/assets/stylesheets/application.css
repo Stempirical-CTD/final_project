@@ -111,6 +111,7 @@ a {
 
 .nav-links {
   margin-top: 1.2%;
+  margin-right: 1em;
   float: right; 
 }
 
@@ -121,7 +122,7 @@ a {
 }
 
 .nav-link:hover {
-  border-bottom: 5px solid #229805;
+  border-bottom: 6px solid #229805;
   font-weight: bold !important;
   color: #229805 !important;
 }
@@ -136,9 +137,9 @@ div.active {
   position: absolute;
   top: 0;
   right: 1em;
-  padding: 0.5em 0.7em;
-  margin: 0.5em;
-  font-size: 1.1em;
+  padding: 0 0.5em;
+  margin: 0 0.5em;
+  font-size: 0.9em;
 }
 
 .logo {
