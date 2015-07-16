@@ -15,7 +15,9 @@
 }
 
 ///concept tree
-
+.section-group {
+  max-height: 20%;
+}
 .row {
 	clear: both;
 	padding: 6px 6px;
@@ -99,74 +101,75 @@
   position: relative;
   text-align: center;
   margin-left: -5px;
+  color: #eee;
+
   // margin-bottom: -10px;
 }
 .one > .span_5_of_10 {
-  border-right: 1px solid;
+  border-right: 1px solid #323232;
 }
-
 .two > .span_4_of_10 {
-  border-top: 1px solid;
-  border-left: 1px solid;
+  border-top: 1px solid #323232;
+  border-left: 1px solid #323232;
   border-radius: 5px 0 0 0;
 }
 .two > .span_5_of_10 {
-  border-top: 1px solid;
+  border-top: 1px solid #323232;
 }
 .two > .span_6_of_10 {
-  border-left: 1px solid;
-  border-top: 1px solid;
+  border-left: 1px solid #323232;
+  border-top: 1px solid #323232;
 }
 .two > .span_7_of_10 {
-  border-top: 1px solid;
-  border-right: 1px solid;
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
   border-radius: 0 5px 0 0;
 }
 .three > .span_5_of_10 {
-  border-right: 1px solid;
+  border-right: 1px solid #323232;
 }
 .four > .span_2_of_10 {
-  border-top: 1px solid;
-  border-left: 1px solid;
+  border-top: 1px solid #323232;
+  border-left: 1px solid #323232;
   border-radius: 5px 0 0 0;
 }
 .four > .span_3_of_10 {
-  border-top: 1px solid;
-  border-right: 1px solid;
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
 }
 .four > .span_4_of_10 {
-  border-top: 1px solid;
+  border-top: 1px solid #323232;
 }
 .four > div.span_5_of_10 {
-  border-top: 1px solid;
-  border-right: 1px solid;
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
 }
 .four > div.span_6_of_10 {
-  border-top: 1px solid;
+  border-top: 1px solid #323232;
 }
 .four > div.span_7_of_10 {
-  border-top: 1px solid;
-  border-right: 1px solid;
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
 }
 .four > div.span_8_of_10 {
-  border-top: 1px solid;
+  border-top: 1px solid #323232;
 }
 .four > div.span_9_of_10 {
-  border-top: 1px solid;
-  border-right: 1px solid;
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
   border-radius: 0 5px 0 0;
 }
 .five > .span_4_of_10 {
-  border-left: 1px solid;
+  border-left: 1px solid #323232;
 }
 .five > .span_5_of_10 {
-  border-right: 1px solid;
+  border-right: 1px solid #323232;
 }
 .six > .span_4_of_10 {
-  border-top: 1px solid;
-  border-left: 1px solid;
+  border-top: 1px solid #323232;
+  border-left: 1px solid #323232;
 }
 .six > .span_5_of_10 {
-  border-top: 1px solid;
-  border-right: 1px solid;
+  border-top: 1px solid #323232;
+  border-right: 1px solid #323232;
 }
