@@ -16,15 +16,19 @@ label {
   height: auto;
 }
 
-.form-container input:not(new-exp-button) {
-  font-family: 'Raleway', sans-serif;
-  border: 0.1em solid #323232;
-  font-size: 1em;
-  outline-color: #DFF5D1;
-} 
+// .form-container input {
+//   font-family: 'Raleway', sans-serif;
+//   border: 0.1em solid #323232;
+//   font-size: 1em;
+//   outline-color: #DFF5D1;
+// } 
 
 .new-basics, .new-media {
   border-bottom: 1px solid #323232;
+}
+
+.new-basics label {
+  text-transform: uppercase;
 }
 
 .new-description {
@@ -57,6 +61,10 @@ textarea {
   height: 1.5em;
   line-height: 1em;
   margin-bottom: 1.75em;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
 }
 
 .new-media {
@@ -68,6 +76,10 @@ textarea {
   height: 1.5em;
   background-color: #FFF;
   margin-bottom: 0.5em;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
 }
 
 .new-time {
@@ -76,6 +88,10 @@ textarea {
 
 #experiment_complete_time {
   margin-bottom: 1em;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
 }
 
 #experiment_age {
@@ -110,7 +126,10 @@ textarea {
 
 .unordered-list-materials label, .unordered-list-instructions label {
   display: block;
-  margin-bottom: -1em;
+  margin-bottom: -0.5em;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .new-materials, .new-instructions {
@@ -124,7 +143,11 @@ textarea {
   display: inline-block;
   width: 80%;
   padding: 0.3em;
-  margin-bottom: 0.5em;
+  margin: 0 10% 0.5em;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1em;
+  outline-color: #DFF5D1;
 }
 
 .new-material li, .new-instruction li {
@@ -145,14 +168,14 @@ textarea {
 }
 
 .add-material-btn, .add-instruction-btn {
-  display: inline-block;
-  margin-top: 0.5em;
-  padding: 0.7em;
+  display: block;
+  margin: 0.5em auto 0;
+  padding: 0.5em 0;
   background-color: #229805;
   color: white;
   border: 0.1em solid #323232;
   outline-color: #DFF5D1;
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: bold;
   font-family: 'Raleway', sans-serif; 
   width: 12em;
@@ -160,10 +183,20 @@ textarea {
 
 .new-exp-btn {
   margin: 1em;
-  padding: 0.5em;
+  padding: 1em;
   text-align: center;
+  border-top: 0.1em solid #323232;
+  margin-top: 0.75em;
 }
 
-.new-exp-button input {
+.new-exp-btn input {
   color: white;
+  background-color: #229805;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #323232;
+  font-size: 1.2em;
+  outline-color: #DFF5D1;
+  padding: 0.5em 0.75em;
+  margin-top: 0.75em;
+  text-transform: uppercase;
 }
