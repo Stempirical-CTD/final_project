@@ -149,6 +149,7 @@ textarea {
   margin-top: 0.5em;
   padding: 0.7em;
   background-color: #229805;
+  color: white;
   border: 0.1em solid #323232;
   outline-color: #DFF5D1;
   font-size: 0.8em;
@@ -161,4 +162,8 @@ textarea {
   margin: 1em;
   padding: 0.5em;
   text-align: center;
+}
+
+.new-exp-button input {
+  color: white;
 }
