@@ -21,22 +21,23 @@ label {
   border: 0.1em solid #323232;
   font-size: 1em;
   outline-color: #DFF5D1;
-}
+} 
 
-.concept-checkbox-label {
-  padding: 0.3em;
-  margin: 0.5em;
-}  
+.new-basics, .new-media {
+  border-bottom: 1px solid #323232;
+}
 
 .new-exp-concept {
   width: 100%;
   display: inline-block;
 }
 
+
 //inputs
 
 textarea {
-  width: 97%;
+  width: 100%;
+  margin-bottom: 0.5em;
 }
 
 .tutorial-link {
@@ -49,22 +50,61 @@ textarea {
   width: 60%;
   height: 1.5em;
   background-color: #FFF;
+  margin-bottom: 0.5em;
+}
+
+.tutorial-link {
+  margin-bottom: 1em;
+}
+
+#experiment_complete_time {
+  margin-bottom: 1em;
 }
 
 #experiment_age {
-    /*-webkit-appearance: none;
-  -moz-appearance: none;
-   appearance: none;*/
+  border: 0;
+  outline-color: #DFF5D1;
+  padding: 0.9em;
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.5em;
+  background-color: #FFF;
+  margin: 0 0 1em 0;
+}
+
+// #experiment_age {
+//    border: 0.1em solid #323232;
+//    border-radius: 0;
+//    font-size: 1.2em;
+//    font-family: 'Raleway', sans-serif;
+//    border: 0.1em solid #323232;
+//    font-size: 1em;
+//    margin-right: 0.5em;
+//    outline-color: #DFF5D1;
+//    height: 1.8em;
+// }
+
+.age-dropdown {
    border: 0.1em solid #323232;
-   border-radius: 0;
-   font-size: 1.2em;
-   font-family: 'Raleway', sans-serif;
-   border: 0.1em solid #323232;
-   font-size: 1em;
-   margin-right: 0.5em;
+   padding: 0.2em;
+   // margin: 0 0 1.5em 0;
    outline-color: #DFF5D1;
-   height: 1.8em;
-   /*background: url('arrow-down.png')  no-repeat;*/
+   background-color: #FFF;
+}   
+
+.new-mess {
+   border-bottom: 0.1em solid #323232;
+   padding-bottom: 0.5em;
+}
+
+.concept-checkbox {
+  border: 1px solid red;
+  margin-left: 1em;
+}
+
+.new-exp-concept {
+   border-bottom: 0.1em solid #323232;
+   padding-bottom: 0.5em;
 }
 
 // media 
@@ -76,19 +116,32 @@ textarea {
 
 // add material 
 
+.unordered-list-materials label, .unordered-list-instructions label {
+  display: block;
+  margin-bottom: -1em;
+}
+
 .new-materials, .new-instructions {
   border-bottom: 0.1em solid #323232;
+  margin-bottom: 4em;
   position: relative;
 }
 
+.new-material, .new-instruction {
+  display: inline-block;
+  position: absolute;
+  width: 90%;
+  padding: 0.3em;
+}
+
 .new-material li {
-      border: 0.07em solid #323232;
-      font-size: 1em;
-      margin: 0;
-      padding: 0.5em;
-      transition: background 0.3s ease-in-out 0s;
-      line-height: 1.5em; 
-      position: absolute;
+    border: 0.07em solid #323232;
+    font-size: 1em;
+    margin: 0;
+    padding: 0.5em;
+    transition: background 0.3s ease-in-out 0s;
+    line-height: 1.5em; 
+    position: absolute;
 }
 
 .material {
@@ -96,7 +149,17 @@ textarea {
 }
 
 .add-material-btn, .add-instruction-btn {
-  padding: 0.35em;
+  display: inline-block;
+  position: absolute;
+  right: 3em;
+  padding: 0.7em;
   background-color: #229805;
   border: 0.1em solid #323232;
+  outline-color: #DFF5D1;
+}
+
+.new-exp-btn {
+  margin: 1em;
+  padding: 0.5em;
+  text-align: center;
 }

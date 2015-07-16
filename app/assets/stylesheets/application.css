@@ -139,7 +139,6 @@ a {
 .nav-link:hover {
   border-bottom: 5px solid #229805;
   font-weight: bold;
-  color: #229805;
 }
 
 div.active {
@@ -206,6 +205,7 @@ div.active {
   margin-left: -0.3em;
   top: 20%;
   left: 19em;
+  outline-color: #DFF5D1;
 }
 
 /* errors & notices */
@@ -227,3 +227,4 @@ div.active {
   border: 0;
   padding: 1em;
 }*/
+/**/
