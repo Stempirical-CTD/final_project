@@ -65,11 +65,15 @@
     <label>Which concepts apply to this experiment? *</label><br>
     <div class="concept-section">
       <% Concept.all.each do |concept| %>
+        <div class="single-concept">
         <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
         <%= label_tag("concept_#{concept.id}",concept.name, class: "concept-checkbox-label") %>
-  </span><br>    
-    <% end %><br>
-    </div>    
+          </div>
+          <% end %>
+     </div>
+   </span><br>    
+        
+      
 
 
   <div class="new-materials">

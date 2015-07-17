@@ -3,12 +3,15 @@
 	margin: 0 1em 0.75em 0;
 }
 
-.show-exp-image {
-	position: relative;
+.show-exp-image { /*replicate to edit page*/
+	position: absolute;
 	width: 100%;
-	max-height: 30em;
-	overflow: hidden;
-	background: cover;
+	background-size: cover;
+	height: 100vh;
+}
+
+.largest-show-container {
+	margin-top: 34em;
 }
 
 .show-container {
@@ -49,9 +52,9 @@
 }
 
 .show-ratings {
-	width: 100%;
+	width: 70%;
 	margin: 0.5em auto;
-	padding-left: 17%; /* improve for responsiveness */
+	// padding-left: 17%; /* improve for responsiveness */
 }
 
 .show-concept-icon, .age, .time, .mess {

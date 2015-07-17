@@ -110,9 +110,17 @@ textarea {
 }
 
 .concept-section {
-    display: block;
-    width: 45%;
-    height: 5%;
+   display: block;
+   width: 55%;
+   height: 14em;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
+.single-concept {
+  width: 45%;
 }
 
 .new-exp-concept {
