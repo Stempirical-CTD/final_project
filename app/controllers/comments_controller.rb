@@ -5,7 +5,10 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(comment_params)
     @comment.user_id = current_user.id
     @comment.save
-    redirect_to @commentable, notice: "Your comment was successfully posted."
+    respond_to do |format|
+      format.html { redirect_to @commentable, notice: "Your comment was successfully posted." }
+      format.js
+    end
   end
 
   private

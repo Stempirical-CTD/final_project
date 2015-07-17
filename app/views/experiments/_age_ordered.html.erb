@@ -1,9 +1,6 @@
-<h1 class="page-title">All Experiments</h1>
-<% if params[:query] %>
-  Search Results for <%= params[:query] %>
-<% end %>
 <div class="index-wrapper">
-<% @experiments.each do |experiment| %>
+
+<% experiments.order(:age).each do |experiment| %>
 
     <div class="index-experiment-card">
         <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')">

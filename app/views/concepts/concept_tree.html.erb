@@ -21,63 +21,9 @@ $(function() {
         }
   });
 });
+
 </script>
 
-<div class="tree">
-  <!-- <ul>
-    <li>
-      <a href="#">Parent</a>
-      <ul>
-        <li>
-          <a href="#">Child</a>
-        </li>
-        <li>
-          <a href="#">Child</a>
-        </li>
-          <ul>
-            <li>
-              <a href="#">Grand Child</a>
-            </li>
-              <ul>
-                <li>
-                  <a href="#">Great Grand Child</a>
-                </li>
-              </ul>
-            <li>
-              <a href="#">Grand Child</a>
-              <ul>
-                <li>
-                  <a href="#">Great Grand Child</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Grand Child</a>
-            </li>
-              <ul>
-                <li>
-                  <a href="#">Great Grand Child</a>
-                </li>
-              </ul>
-            <li>
-              <a href="#">Grand Child</a>
-            </li>
-              <ul>
-                <li>
-                  <a href="#">Great Grand Child</a>
-                </li>
-              </ul>
-            <li>
-              <a href="#">Grand Child</a>
-            </li>
-          </ul>
-        <li>
-          <a href="#">Child</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div> -->
 <span class="container">
 <div class="section-group">
   <div class="row 1">
@@ -86,17 +32,19 @@ $(function() {
   	<div class="col span_1_of_5">
   	</div>
   	<div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.first) %>">
       <div class="card down">
-        <%= link_to "Human Body", concept_path(Concept.first) %><br>
-        <div class="icon">
-          <%= image_tag "Human Body.png", class: "concept-img" %>
-          <div class="experiments">
-            <% Experiment.joins(:concepts).where('concepts.name' => ['Human Body']).map do |e| %>
-              <%= link_to e.name, experiment_path(e) %><br>
-            <% end %>
+        Human Body
+          <div class="icon">
+            <%= image_tag "Human Body.png", class: "concept-img" %>
+            <div class="experiments">
+              <% Experiment.joins(:concepts).where('concepts.name' => ['Human Body']).map do |e| %>
+                <%= link_to e.name, experiment_path(e) %><br>
+              <% end %>
+            </div>
           </div>
-        </div>
       </div>
+      </a>
   	</div>
   	<div class="col span_1_of_5">
   	</div>
@@ -172,8 +120,9 @@ $(function() {
   	<div class="col span_1_of_5">
   	</div>
   	<div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.find_by_name("Plants")) %>">
       <div class="card">
-        <%= link_to "Plants", concept_path(Concept.find_by_name("Plants")) %><br>
+        Plants
         <div class="icon">
           <%= image_tag "Plants.png", class: "concept-img" %>
           <div class="experiments">
@@ -185,8 +134,9 @@ $(function() {
       </div>
   	</div>
     <div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.find_by_name("Molecular Behavior")) %>">
       <div class="card down">
-        <%= link_to "Molecular Behavior", concept_path(Concept.find_by_name("Molecular Behavior")) %><br>
+        Molecular Behavior
         <div class="icon">
           <%= image_tag "Molecular Behavior.png", class: "concept-img" %>
           <div class="experiments">
@@ -198,8 +148,9 @@ $(function() {
       </div>
   	</div>
     <div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.find_by_name("Design & Build")) %>">
       <div class="card">
-        <%= link_to "Design & Build", concept_path(Concept.find_by_name("Design & Build")) %><br>
+        Design & Build
         <div class="icon">
           <%= image_tag "Design & Build.png", class: "concept-img" %>
           <div class="experiments">
@@ -280,8 +231,9 @@ $(function() {
   </div>
   <div class="row 3">
     <div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.find_by_name("Gases")) %>">
       <div class="card">
-        <%= link_to "Gases", concept_path(Concept.find_by_name("Gases")) %><br>
+        Gases
         <div class="icon">
           <%= image_tag "Gases.png", class: "concept-img" %>
           <div class="experiments">
@@ -293,8 +245,9 @@ $(function() {
       </div>
   	</div>
     <div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.find_by_name("Liquids")) %>">
       <div class="card down">
-        <%= link_to "Liquids", concept_path(Concept.find_by_name("Liquids")) %><br>
+        Liquids
         <div class="icon">
           <%= image_tag "Liquids.png", class: "concept-img" %>
           <div class="experiments">
@@ -306,8 +259,9 @@ $(function() {
       </div>
   	</div>
     <div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.find_by_name("Chemical Reactions")) %>">
       <div class="card down">
-        <%= link_to "Chemical Reactions", concept_path(Concept.find_by_name("Chemical Reactions")) %><br>
+        Chemical Reactions
         <div class="icon">
           <%= image_tag "Chemical Reactions.png", class: "concept-img" %>
           <div class="experiments">
@@ -319,8 +273,9 @@ $(function() {
       </div>
   	</div>
     <div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.find_by_name("Energy")) %>">
       <div class="card">
-        <%= link_to "Energy", concept_path(Concept.find_by_name("Energy")) %><br>
+        Energy
         <div class="icon">
           <%= image_tag "Energy.png", class: "concept-img" %>
           <div class="experiments">
@@ -332,8 +287,9 @@ $(function() {
       </div>
   	</div>
     <div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.find_by_name("Electricity")) %>">
       <div class="card">
-        <%= link_to "Electricity", concept_path(Concept.find_by_name("Electricity")) %><br>
+        Electricity
         <div class="icon">
           <%= image_tag "Electricity.png", class: "concept-img" %>
           <div class="experiments">
@@ -414,8 +370,9 @@ $(function() {
   	<div class="col span_1_of_5">
   	</div>
     <div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.find_by_name("Water Cycle")) %>">
       <div class="card">
-        <%= link_to "Water Cycle", concept_path(Concept.find_by_name("Water Cycle")) %><br>
+        Water Cycle
         <div class="icon">
           <%= image_tag "Water Cycle.png", class: "concept-img" %>
           <div class="experiments">
@@ -427,10 +384,11 @@ $(function() {
       </div>
   	</div>
     <div class="col span_1_of_5 concept">
+      <a style="display:block" href="<%= concept_path(Concept.find_by_name("Periodic Table")) %>">
       <div class="card">
-        <%= link_to "Periodic Table", concept_path(Concept.find_by_name("Periodic Table")) %><br>
+        Periodic Table
         <div class="icon">
-          <%= image_tag "Periodic Table.png", class: "concept-img" %>
+          <%= image_tag "Periodic Table.png", class: "periodic-table concept-img" %>
           <div class="experiments">
             <% Experiment.joins(:concepts).where('concepts.name' => ['Periodic Table']).map do |e| %>
               <%= link_to e.name, experiment_path(e) %>
@@ -446,4 +404,3 @@ $(function() {
   </div>
 </div>
 </span>
-<!-- Experiment.joins(:concepts).where('concepts.name' => ['Electricity']) -->

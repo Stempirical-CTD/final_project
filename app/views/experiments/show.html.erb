@@ -149,7 +149,7 @@
       </div>
     <% end %>
     <% if user_signed_in? %>
-      <!-- <%= link_to "New Comment", new_experiment_comment_path(@experiment), remote: true %> -->
+      <%= link_to "New Comment", new_experiment_comment_path(@experiment), remote: true %>
       <%= render partial: "comments/form", locals: {commentable: @experiment} %>
     <% end %>
   </div>

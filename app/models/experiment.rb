@@ -22,25 +22,22 @@ class Experiment < ActiveRecord::Base
 
   validates :description, :complete_time, :name, presence: true
   validates_format_of :youtube_link,
+      :allow_blank => true,
       :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
       :on => :create
 
-  scope :by_time, -> { order(:complete_time) }
-
-  def self.text_search(query, order)
-    if order == ""
+  def self.text_search(query)#, order)
     q = "%#{query}%"
+    # if order == ""
     joins(:materials)
         .where("name LIKE ? OR description LIKE ? OR item LIKE ?", q, q, q).uniq
-    elsif order == "1"
-      q = "%#{query}%"
-      joins(:materials)
-          .where("name LIKE ? OR description LIKE ? OR item LIKE ?", q, q, q).uniq.order(:age)
-    elsif order == "2"
-      q = "%#{query}%"
-      joins(:materials)
-          .where("name LIKE ? OR description LIKE ? OR item LIKE ?", q, q, q).uniq.order(:complete_time)
-    end
+    # elsif order == "1"
+    #   joins(:materials)
+    #       .where("name LIKE ? OR description LIKE ? OR item LIKE ?", q, q, q).uniq.order(:age)
+    # elsif order == "2"
+    #   joins(:materials)
+    #       .where("name LIKE ? OR description LIKE ? OR item LIKE ?", q, q, q).uniq.order(:complete_time)
+    # end
   end
 
   def self.by_votes

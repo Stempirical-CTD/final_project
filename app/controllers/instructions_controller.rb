@@ -29,12 +29,10 @@ class InstructionsController < ApplicationController
     @experiment.user_id = current_user.id
     @instruction = Instruction.new(instruction_params)
     @instruction.experiment_id = @experiment.id
-
-    respond_to do |format|
       if @instruction.save
-        format.html { redirect_to @instruction, notice: 'Instruction was successfully created.' }
+        redirect_to @instruction, notice: 'Instruction was successfully created.' }
       else
-        format.html { render :new }
+        render :new }
       end
     end
   end
@@ -68,6 +66,6 @@ class InstructionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instruction_params
-      params.require(:instruction).permit(:experiment_id, :information, :order_number)
+      params.require(:instruction).permit(:experiment_id, :information, :order_number, :id)
     end
 end

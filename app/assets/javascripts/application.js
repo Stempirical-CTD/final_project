@@ -47,22 +47,32 @@ $(function () {
     dynamicAdder('.add-material-btn', '.unordered-list-materials');
     dynamicAdder('.add-instruction-btn', '.unordered-list-instructions');
 
- });
+});
 
  // display thumbnail of image when trying to upload
 
- $(function() {
-   $('#pictureInput').on('change', function(event) {
-     var files = event.target.files;
-     var image = files[0]
-     var reader = new FileReader();
-     reader.onload = function(file) {
-       var img = new Image();
-       console.log(file);
-       img.src = file.target.result;
-       $('#target').html(img);
-     }
-     reader.readAsDataURL(image);
-     console.log(files);
-   });
+$(function() {
+ $('#pictureInput').on('change', function(event) {
+   var files = event.target.files;
+   var image = files[0]
+   var reader = new FileReader();
+   reader.onload = function(file) {
+     var img = new Image();
+     console.log(file);
+     img.src = file.target.result;
+     $('#target').html(img);
+   }
+   reader.readAsDataURL(image);
+   console.log(files);
  });
+});
+// drop down order function
+$(function() {
+  $('.order').change(function(){
+    var selectValue = $(this).val();
+    var queryValue = $('#query').val();
+    $.ajax({ url: '/experiments/order_experiments',
+             data: {selectValue, queryValue}
+    });
+  });
+});

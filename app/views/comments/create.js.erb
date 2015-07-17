@@ -1,0 +1,6 @@
++$("#new-form-container").fadeOut();
++setTimeout(function() {
++  $("#new-form-container").html("");
++  $("#all-comments").append("<%= j(render partial: 'comments/comment', locals: {commentable: @experiment}) %>");
++  $("#new-form-container").fadeIn();
++}, 400);
