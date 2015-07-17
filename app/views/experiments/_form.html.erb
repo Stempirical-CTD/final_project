@@ -14,6 +14,7 @@
 
 <div class="experiment">
   <div class="form-container">
+    <p class="required"><i class="fa fa-asterisk"></i> = required</p>  
     <div class="new-basics">
       <div class="field new-exp-name">
         <label>Experiment Name *</label><br>
@@ -21,7 +22,7 @@
       </div>
 
       <div class="field new-description">
-        <label>Description * </label> <small>(Please include 2-3 sentences to describe the purpose of this experiment.)</small>
+        <label>Description </label> <small> (Please include 2-3 sentences to describe the purpose of this experiment.) *</small>
         <%= f.text_area :description, :cols => 100, :rows => 2 %>
       </div>
 

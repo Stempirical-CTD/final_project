@@ -16,6 +16,11 @@ label {
   height: auto;
 }
 
+.required {
+  float: right;
+  font-size: 0.6em;
+}
+
 .new-basics, .new-media {
   border-bottom: 1px solid #D6D6D6;
 }
@@ -186,5 +191,5 @@ textarea {
   font-size: 1.2em;
   outline-color: #DFF5D1;
   padding: 0.5em 0.75em;
-  margin-top: 0.75em;
+  margin: 0.75em 0 0 -0.4em;
 }
