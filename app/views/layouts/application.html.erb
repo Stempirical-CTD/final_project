@@ -35,7 +35,7 @@
     <div class="nav-link <%= 'active' if current_page?(experiments_path) %>"><%= link_to "All Experiments", experiments_path %></div>
     <div class="nav-link <%= 'active' if current_page?(new_experiment_path) %>"><%= link_to "Add My Experiment", new_experiment_path %></div>
   </div>
-  
+
     <div class="user-status">
       <% if user_signed_in? %>
         <%= link_to current_user.username, edit_user_registration_path %> |
@@ -45,7 +45,7 @@
         <%= link_to 'Sign Up', new_user_registration_path %>
       <% end %>
     </div>
- <% end %>   
+ <% end %>
 
  </header>
 
