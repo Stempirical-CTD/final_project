@@ -1,5 +1,3 @@
-require 'will_paginate/array'
-
 class ExperimentsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show, :vote, :landing_page]
   before_action :set_experiment, only: [:show, :edit, :update, :destroy, :vote]

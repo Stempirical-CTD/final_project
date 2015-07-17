@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
 ruby '2.2.1'
-
-
 gem 'jquery-ui-rails'
 gem 'paperclip'
 gem 'aws-sdk', '~> 1.6'
@@ -19,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-#pagination
+
 
 
 # Use jquery as the JavaScript library
