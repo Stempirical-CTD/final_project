@@ -96,29 +96,28 @@
   </div>
 </div>  
 
-<div class="recommended">
-  <% @experiment.concepts.each do |c| %>
-    Based on your interest on <%= link_to c.name, concept_path(c) %>, you might be interested in:<br>
-    <% if c.parents.count >= 1 %>
-      <% random_parent = c.parents.sample %>
-      <% random_parent_experiment = random_parent.experiments.sample %>
-      <%= link_to random_parent_experiment.name, "#{root_url}experiments/#{random_parent_experiment.id}" %><br>
-      <%= image_tag random_parent_experiment.uploaded_file %><br>
-    <% end %>
+<!--<div class="recommended">
+  one random parent & one random child experiment
+  <% concept = @experiment.concepts.sample %>
+  Based on your interest on <%= link_to concept.name, concept_path(concept) %>, you might be interested in:<br>
+  <% random_parent = concept.parents.sample %>
+  <% random_parent_experiment = random_parent.experiments.sample %>
+  <%= link_to random_parent_experiment.name, "#{root_url}experiments/#{random_parent_experiment.id}" %><br>
+  <%= image_tag random_parent_experiment.uploaded_file %><br>
 
-    <% if c.children.count >= 1 %>
-      <% if c.parents.count != 0 %>
-        <h3>OR</h3>
-      <% end %>
-      <% random_child = c.children.sample %>
-      <% random_child_experiment = random_child.experiments.sample %>
-      <%= link_to random_child_experiment.name, "#{root_url}experiments/#{random_child_experiment.id}" %>
-      <%= image_tag random_child_experiment.uploaded_file %><br>
+  <% if concept.children.count >= 1 %>
+    <% if concept.parents.count != 0 %>
+      <h3>OR</h3>
     <% end %>
+    <% random_child = concept.children.sample %>
+    <% random_child_experiment = random_child.experiments.sample %>
+    <%= link_to random_child_experiment.name, "#{root_url}experiments/#{random_child_experiment.id}" %><br>
+    <%= image_tag random_child_experiment.uploaded_file %><br>
   <% end %>
 </div>
 
-<div class="extended-learning"> <!--need to add "link to" and "carousel" of photos with each-->
+<div class="extended-learning"> 
+child concepts & experiments associated with them
 <% if @children.count > 0 %>
   <% if @children.count >= 1 %>
     <% @children.map do |children| %><br>
@@ -133,7 +132,7 @@
 <% end %>
 <br>
 
-
+parent concepts & experiments associated with them
 <% if @parents.count > 0 %>
   <% if @parents.count >= 1 %>
     <% @parents.map do |parent| %>
@@ -147,7 +146,7 @@
   <% end %>
 <% end %>
 <br>
-</div>
+</div>-->
 
 <% if user_signed_in? || @experiment.comments != [] %>
   <h3 class="comment-title">We Love Feedback!</h3><br>
