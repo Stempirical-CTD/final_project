@@ -175,7 +175,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
         order_number: 5)
     instruction_six = Instruction.create!(experiment_id: experiment_six.id,
       information: "Try it out. Can you pick up a piece of paper? A soda
-        can? A sock? How can you improve your grabber? ",
+        can? A sock? How can you improve your grabber?",
         order_number: 6)
 
   experiment_seven = Experiment.create!(user_id: user.id,
