@@ -15,7 +15,7 @@
 
 
 <body>
-<% unless current_page?(root_path) %>
+
 <header class="nav-bar">
 
  <h1 class="logo"><%= link_to_unless_current("stempirical", root_path) %></h1>
@@ -32,13 +32,13 @@
     <% if user_signed_in? %>
       <%= link_to current_user.username, edit_user_registration_path %>
     <% else %>
-      <%= link_to 'Login', new_user_session_path %> 
+      <%= link_to 'Login', new_user_session_path %>
     <% end %>
   </div>
 
   <!-- Tabs -->
   <div class="nav-links">
-    <div class="nav-link <%= 'active' if current_page?(concept_tree_concepts_path) %>"><%= link_to "Concept Tree", concept_tree_concepts_path %></div> 
+    <div class="nav-link <%= 'active' if current_page?(concept_tree_concepts_path) %>"><%= link_to "Concept Tree", concept_tree_concepts_path %></div>
     <div class="nav-link <%= 'active' if current_page?(experiments_path) %>"><%= link_to "All Experiments", experiments_path %></div>
     <div class="nav-link <%= 'active' if current_page?(new_experiment_path) %>"><%= link_to "Add My Experiment", new_experiment_path %></div>
     <div class="nav-link">
@@ -47,9 +47,9 @@
       <% else %>
         <%= link_to 'Sign Up', new_user_registration_path %>
       <% end %>
-    </div>  
+    </div>
   </div>
- <% end %>  
+
  </header>
 
 <div class="messages">

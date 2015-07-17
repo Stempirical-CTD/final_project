@@ -5,9 +5,8 @@ class ExperimentsController < ApplicationController
   # GET /experiments
   # GET /experiments.json
   def landing_page
-
   end
-  
+
   def index
     if params[:query]
       @experiments = Experiment.text_search(params[:query], params[:organize])
@@ -17,11 +16,14 @@ class ExperimentsController < ApplicationController
     elsif params[:organize]
       if params[:organize] == "2"
         @experiments = Experiment.order(:complete_time)
-      elsif params[:organize] == "1"
+    elsif params[:organize] == "1"
         @experiments = Experiment.order(:age)
+
       end
     else
       @experiments = Experiment.by_votes
+
+
     end
   end
 

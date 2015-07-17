@@ -730,7 +730,7 @@
     click        : undefined,
     half         : false,
     halfShow     : true,
-    hints        : ['bad', 'poor', 'regular', 'good', 'gorgeous'],
+    hints        : ["No mess, no fuss", "Get some Bounty", "Check your supplies", "Are you sure?", "Prep for fumigation"],
     iconRange    : undefined,
     mouseout     : undefined,
     mouseover    : undefined,
