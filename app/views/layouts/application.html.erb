@@ -15,14 +15,12 @@
 
 
 <body>
-
 <header class="nav-bar">
 
  <h1 class="logo"><%= link_to_unless_current("stempirical", root_path) %></h1>
 
   <div class="search">
     <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
-    <!--<span class="sort"><%= select_tag "organize" , options_for_select([["Age", 1],["Time",2]], params[:organize]), {:prompt => 'Sort By'} %></span>  -->
     <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "exp-search" %>
       <button class="fa fa-search"></button>
     <% end %>
@@ -49,15 +47,17 @@
       <% end %>
     </div>
   </div>
-
- </header>
+</header>
 
 <div class="messages">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 </div>
+<br>
+<label>Sort by:</label>
 
 <div class="main-content"><%= yield %></div>
+
 
 <script type="text/javascript">
 (function(d){

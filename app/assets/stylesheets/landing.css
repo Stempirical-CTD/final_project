@@ -1,6 +1,5 @@
 /*background image*/
 
-
 #bg {
   /*position: fixed;*/
   /*top: -10%;*/
@@ -80,7 +79,10 @@
   font-family: 'Raleway', sans-serif;
   font-size: 2em;
   margin: 1em 0 0 1em;
+<<<<<<< HEAD
+=======
   z-index: 3;
+>>>>>>> 923fc2966fd1a30f8e543f51ad709d4af0d02e39
 }
 
 .initial-suggested {
