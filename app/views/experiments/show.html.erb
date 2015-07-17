@@ -1,5 +1,3 @@
-<h3 class="show-exp-title"><%= @experiment.name %></h3>
-
 <div class="user-options">
   <!--<%= image_tag "submitted by user.png", class: "icon-small" %>-->
   Submitted By:
@@ -10,81 +8,94 @@
   <% end %>
 </div>
 
-<div class="pin-it">
-  <a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white" data-pin-height="28"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_28.png" /></a>
-  <!-- Please call pinit.js only once per page -->
-  <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
-</div>
 
-<div class="quality-rating">
-  <% if current_user && current_user.can_vote_for?(@experiment) %>
-    <%= link_to content_tag(:i, nil, class: 'fa fa-thumbs-up'), vote_experiment_path(@experiment, value: 1), method: "post" %>
+  <div class="show-exp-image">
+      <% if @experiment.uploaded_file_file_name != nil %>
+        <%= image_tag @experiment.uploaded_file %>
+      <% end %>
+  </div>
+  
+<div class="show-exp-title-bar">
+    <h3 class="show-exp-title"><%= @experiment.name %></h3>
+   
+    <div class="quality-rating">
+      <% if current_user && current_user.can_vote_for?(@experiment) %>
+        <%= link_to content_tag(:i, nil, class: 'fa fa-thumbs-up show-likes'), vote_experiment_path(@experiment, value: 1), method: "post" %>
+        <% end %>
+    
+        <%= pluralize @experiment.votes, "like" %>
+    </div>
+  </div>    
+
+<div class="show-container">  
+  <!-- ALTERNATIVE 
+    <div class="show-exp-title-bar">
+    <h3 class="show-exp-title"><%= @experiment.name %></h3>
+   
+    <div class="quality-rating">
+      <% if current_user && current_user.can_vote_for?(@experiment) %>
+        <%= link_to content_tag(:i, nil, class: 'fa fa-thumbs-up show-likes'), vote_experiment_path(@experiment, value: 1), method: "post" %>
+        <% end %>
+    
+        <%= pluralize @experiment.votes, "like" %>
+    </div>
+  </div>   -->
+  
+  <div class="show-ratings">
+  
+    <div class="show-concept-icon">
+    <% @experiment.concepts.each do |c| %>
+      <%= image_tag "#{c.name}.png", class: "concept-img-small" %><br>
+      <%= link_to c.name, concept_path(c) %>
     <% end %>
-
-    <%= pluralize @experiment.votes, "like" %>
-</div>
-
-<div class="show-exp-image">
-    <% if @experiment.uploaded_file_file_name != nil %>
-      <%= image_tag @experiment.uploaded_file %>
+    </div>
+  
+    <div class="time">
+    <%= image_tag "time.png", class: "icon-small" %><br>
+    <%= @experiment.complete_time %> hour(s)
+    </div>
+  
+    <div class="age">
+    <%= image_tag "age.png", class: "icon-small" %><br>
+    Ages <%= @experiment.return_age %> 
+    </div>
+  
+    <div class="mess">
+    <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
+    Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
+    </div>
+  </div>
+  
+  <p class="show-exp-description">
+    <%= @experiment.description %>
+  </p>
+  
+  <div class="show-materials">
+    <h3>Materials:</h3><br>
+      <% @experiment.materials.each do |material| %>
+      <div class="show-material">
+        - <%= material.item %><br>
+      </div>
     <% end %>
-</div>
-
-<div="show-ratings">
-
-  <div class="show-concept-icon">
-  <% @experiment.concepts.each do |c| %>
-    <%= image_tag "#{c.name}.png", class: "concept-img-small" %><br>
-    <%= link_to c.name, concept_path(c) %>
-  <% end %>
   </div>
-
-  <div class="time">
-  <%= image_tag "time.png", class: "icon-small" %><br>
-  <%= @experiment.complete_time %> hour(s)
+  
+  <div class="show-instructions">
+    <h3>Instructions:</h3><br>
+    <% @experiment.instructions.each do |instruction| %>
+      <div class="show-instruction">
+        <%= instruction.order_number %> | <%= instruction.information %><br>
+      </div>
+    <% end %>
   </div>
-
-  <div class="age">
-  <%= image_tag "age.png", class: "icon-small" %><br>
-  Ages <%= @experiment.return_age %> 
-  </div>
-
-  <div class="mess">
-  <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-  Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
-  </div>
-</div>
-
-<p class="show-exp-description">
-  <%= @experiment.description %>
-</p>
-
-<div class="instruction-video">
-<h3>Instructional Video:</h3><br>
-<% if @experiment.youtube_link != "" %>
-  <div class="embed-container">
-    <%= embed(@experiment.youtube_link) %>
-  </div>
-<% end %>
-</div>
-
-<div class="show-materials">
-  <h3>Materials:</h3><br>
-    <% @experiment.materials.each do |material| %>
-    <div class="show-material">
-      - <%= material.item %><br>
+  
+  <div class="instruction-video">
+  <% if @experiment.youtube_link != "" %>
+    <div class="embed-container">
+      <%= embed(@experiment.youtube_link) %>
     </div>
   <% end %>
-</div>
-
-<div class="show-instructions">
-  <h3>Instructions:</h3><br>
-  <% @experiment.instructions.each do |instruction| %>
-    <div class="show-instruction">
-      <%= instruction.order_number %> | <%= instruction.information %><br>
-    </div>
-  <% end %>
-</div>
+  </div>
+</div>  
 
 <div class="recommended">
   <% @experiment.concepts.each do |c| %>
@@ -142,6 +153,7 @@
 </div>
 
 <% if user_signed_in? || @experiment.comments != [] %>
+  <h3 class="comment-title">We Love Feedback!</h3><br>
   <div class="comments">
     <% if @experiment.comments != [] %>
       <div id="all-comments">
@@ -154,5 +166,5 @@
     <% end %>
   </div>
 <% end %>
-<div class="new-form-container">
+<div class="new-form-container comment-btn">
 </div>
