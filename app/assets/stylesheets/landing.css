@@ -1,0 +1,77 @@
+/*background image*/
+
+
+#bg {
+  position: fixed;
+  top: -10%;
+  left: -20%;
+  width: 150%;
+  height: 200%;
+  background: cover;
+  background-image: url(/assets/stempirical.jpg);
+  z-index: -50;
+}
+
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+/*user status*/
+
+.landing-user-status {
+  position: absolute;
+  top: 1.4%;
+  right: 1em;
+  padding: 0.5em 0.7em;
+  margin: 0.5em;
+  font-size: 1.1em;
+}
+
+.landing-user-status a, .landing-user-status p {
+    color: #FFFFF7 !important;
+    display: inline-block;
+}
+
+
+/*hero text*/
+
+.left-intro {
+  width: 40%;
+  margin-left: 3em;
+  margin-bottom: 20em;
+}
+
+.landing-logo {
+  font-family: 'Chelsea Market', sans-serif;
+  color: #FFFFF7;
+  text-align: center;
+  font-size: 6em;
+  position: relative;
+  margin-top: -0.4em;
+}
+
+.stempirical-description {
+	font-family: 'Raleway', sans-serif;
+	color: #FFFFF7;
+  line-height: 2em;
+  padding-left: 1.5em;
+  margin-top: 1.5em;
+  font-size: 1.5em;
+}
+
+.start {
+  border: 0;
+  padding: 0.5em 1em;
+  background-color: #FFFFF7;
+  color: #323232;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  margin: 1em 0 0 1em;
+}

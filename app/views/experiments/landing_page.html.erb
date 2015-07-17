@@ -1,1 +1,22 @@
-I'm here.
+<div id="bg">
+  
+</div>
+
+	<div class="landing-user-status">
+      <% if user_signed_in? %>
+        <%= link_to current_user.username, edit_user_registration_path %> <p> | </p>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path %> <p> | </p>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      <% end %>
+    </div>
+
+<div class="left-intro">
+	<h1 class="landing-logo">stempirical</h1>
+	
+	<p class="stempirical-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+	</p>
+    
+    <button class="start"><%= link_to "Let's Get Started", experiments_path %></button>
+</div>
