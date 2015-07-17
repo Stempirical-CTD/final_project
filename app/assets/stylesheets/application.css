@@ -149,13 +149,8 @@ div.active {
   /*outline: none;*/
 }
 
-<<<<<<< HEAD
-.sort {
-   /*border: 0.1em solid #323232;*/
-=======
 .sort {
    border: 0.1em solid #D6D6D6;
->>>>>>> d48a986e889959c5ef056b6ed166a2f40bbcf8e2
    padding: 0.1em;
    margin-right: 0.5em;
    outline-color: #DFF5D1;
@@ -209,17 +204,3 @@ div.active {
   left: 2em;
   margin: 0 auto;
 }
-
-<<<<<<< HEAD
-/* buttons */
-
-/*button {
-  background-color: #E8E8E8;
-  font-family: 'Raleway', sans-serif;
-  color: #333;
-  border: 0;
-  padding: 1em;
-}*/
-/**/
-=======
->>>>>>> d48a986e889959c5ef056b6ed166a2f40bbcf8e2

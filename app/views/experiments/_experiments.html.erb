@@ -1,8 +1,8 @@
-<h1 class="page-title">All Experiments</h1>
 <% if params[:query] %>
-  Search Results for <%= params[:query] %>
+  <h1 class="search-results-title">SEARCH RESULTS for: <%= params[:query] %></h1>
+<% else %>
+  <h1 class="index-title">All Experiments</h1>
 <% end %>
-<h1 class="index-title">All Experiments</h1>
 
 <div class="index-wrapper">
 <% @experiments.each do |experiment| %>

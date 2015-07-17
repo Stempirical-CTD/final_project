@@ -10,7 +10,8 @@ class Experiment < ActiveRecord::Base
 
   validates_attachment_content_type :uploaded_file, :content_type => ['image/jpeg', 'image/png', 'image/pdf']
   has_many :comments, as: :commentable
-
+  validates :uploaded_file, presence: true
+  
   has_many :experiment_votes
   accepts_nested_attributes_for :experiment_votes
 

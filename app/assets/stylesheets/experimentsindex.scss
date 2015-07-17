@@ -11,12 +11,21 @@
 }
 
 .index-title {
-	display: block;
+	display: inline-block;
 	margin: 0 0 0 7.2em;
 	width: 100%;
 	text-transform: uppercase;
 	font-weight: bold;
 }
+
+.search-results-title {
+	display: inline-block;
+	margin: 0 0 0 7.2em;
+	width: 100%;
+	// text-transform: uppercase;
+	font-weight: bold;
+}
+
 
 .page-title {
 	display: block;
@@ -40,7 +49,7 @@
 	min-height: 70%;
 	background-size: cover;
 	color: #EEE;
-}	
+}
 
 .index-likes {
 	margin-top: -0.3em;
@@ -128,5 +137,3 @@
 		right: 0;
 	}
 }
-
-	
