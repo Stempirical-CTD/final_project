@@ -78,30 +78,16 @@ $(function() {
   });
 });
 
-// function showAddElement() {
-//   var lastLink = $('.add-comment-btn').onClick(function() {
-//   alert( "Handler for .click() called." );
-// });
-
+// hide comment form on page load
 $(function() {
   $('#new_comment').hide();
 });
 
+// show comment on button click
 $(function() {
-  $('.add-comment-btn').on('click',function(){
+  $('.add-comment-btn').on('click', function(){
+    // $('#new-comment').fadeIn("slow");
     $('#new_comment').show();
     $('.add-comment-btn').hide();
   });
 });
-
-$(function() {
-  $('.comment-submit').on('click',function() {
-    console.log(this);
-    // $(this).closest('textarea').attr('value', 'Add a Comment');
-    $('#comment-input').val('').placeholder();
-  });
-});
-
-// $(".reset").click(function() {
-//     $(this).closest('form').find("input[type=text], textarea").val("");
-// });

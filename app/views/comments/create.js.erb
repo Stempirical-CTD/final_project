@@ -1,7 +1,6 @@
-// $("#new-form-container").fadeOut();
-// setTimeout(function() {
-  // $("#new-form-container").html("");
+setTimeout(function() {
+  // $('#new_comment').html("");
   $("#all-comments").html("<%= j(render partial: 'comments/comments', locals: {commentable: @commentable}) %>");
-  
-  // $("#new-form-container").fadeIn();
-// }, 400);
+  $("#all_comments").fadeIn();
+  $('#comment-input').val("");
+}, 200);
