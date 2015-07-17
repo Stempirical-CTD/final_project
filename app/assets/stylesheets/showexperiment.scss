@@ -1,96 +1,100 @@
-.user-options, .pin-it, .show-concept-icon, .age, .time, .mess {
-	display: inline-block;
-	position: relative;
-}
-
-.show-concept-icon, .age, .time, .mess {
-	text-align: center;
-	padding: 1em;
-	left: 30em;
-}
-
-.pin-it, .quality-rating {
-	float: left;
-	margin: 0 1em;
-}
-
 .user-options {
 	float: right;
-	margin-right: 1em;
-}
-
-.show-exp-title {
-	background-color: rgba(60,63,64,0.7);
-	width: auto;
-	padding: 0.3em;
-	color: #EEE;
-	display: inline-block;
-	position: absolute;
-	top: 5.4em;
-	left: 0;
+	margin: 0 1em 0.75em 0;
 }
 
 .show-exp-image {
-	display: block;
+	position: relative;
 	width: 100%;
 	max-height: 30em;
 	overflow: hidden;
+	background: cover;
+}
+
+.show-container {
+	position: relative;
+	width: 60%;
+	height: auto;
+	overflow: hidden;
+	margin: -11em auto 0;
+	background-color: #F9F9F9;
+	border-right: 1px solid #D6D6D6;
+	border-bottom: 1px solid #D6D6D6;
+	border-left: 1px solid #D6D6D6;
+	z-index: 1;
+}
+
+.show-exp-title-bar {
+	position: relative;
+	top: -10.5em;
+	background-color: rgba(60, 63, 64, 0.8);
+	width: 60%;
+	padding: 1em 0;
+	margin: 0 auto;
+}
+
+// INSIDE SHOW-CONTAINER AT TOP
+// .show-exp-title-bar {
+// 	background-color: rgba(60,63,64,0.7);
+// 	width: 100%;
+// 	padding: 1em 0;
+// 	display: inline-block;
+// 	margin: 0 auto;
+// }
+
+.show-exp-title {
+	text-align: center;
+	color: #FFF;
+	text-transform: uppercase;
 }
 
 .show-ratings {
-	left: 50%;
-	margin-right: 1em;
+	width: 100%;
+	margin: 0.5em auto;
+	padding-left: 17%; /* improve for responsiveness */
+}
+
+.show-concept-icon, .age, .time, .mess {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	padding: 1em;
+}
+
+.show-likes {
+	position: relative;
+	color: #FFF;
+	z-index: 50;
+}
+
+.quality-rating {
+	float: right;
+	margin: -1.5em 1em;
+	color: #EEE;
+	z-index: 2;
 }
 
 .show-exp-description {
 	width: 80%;
 	margin: 1em auto;
 	padding: 2em 0;
-	border-top: solid 2px #E8E8E8;
-	border-bottom: solid 2px #E8E8E8;
-}
-
-//tutorial
-
-.instruction-video {
-	width: 100%;
-	margin: 0 auto;
-	text-align: center;
-	border-bottom: solid 2px #E8E8E8;
-}
-
-.embed-container {
-  position: relative;
-  padding-bottom: 50%;
-  padding-top: 30px;
-  height: auto;
-  width: 50%;
-  margin: 1em auto;
-}
-
-.embed-container iframe,
-.embed-container object,
-.embed-container embed {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 60%;
+	border-top: solid 2px #D6D6D6;
+	border-bottom: solid 2px #D6D6D6;
 }
 
 // materials & instructions
 
 .show-materials, .show-instructions {
 	position: relative;
+	width: 80%;
 	height: auto;
 	overflow: hidden;
-	border-bottom: solid 2px #E8E8E8;
-	margin: 2em 7em;
+	border-bottom: solid 2px #D6D6D6;
+	margin: 2em auto;
 }
 
 .show-materials {
-	position: relative;
-	width: 35%;
-	
+	padding-bottom: 1em;
 }
 
 .show-instruction {
@@ -102,35 +106,81 @@
 	margin: 0.5em 1em;
 }
 
+//tutorial
+
+.instruction-video {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 50%;
+  padding-top: 30px;
+  height: auto;
+  width: 50%;
+  margin: 1em auto -8em;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 60%;
+}
+
 // further steps
 
 .recommended, .extended-learning {
-	width: 100%;
+	position: relative;
+	width: 80%;
 	padding-top: 1em;
-	margin-left: 2em;
+	margin: 2em auto;
 	// margin: 0 auto;
 }
 
+.recommended {
+	border-top: solid 2px #D6D6D6;
+}
 .extended-learning {
-	border-bottom: solid 2px #E8E8E8;
+	border-bottom: solid 2px #D6D6D6;
+}
+
+.comment-title {
+	text-align: center;
 }
 
 .comments {
-	width: 30%;
+	width: 45%;
 	margin: 0 auto;
 	height: auto;
 	overflow: hidden;
-	margin: 2em auto;
-	padding: 1em;
 }
 
 .comments input {
-	margin: 1em auto;
+	margin: 0 auto;
 	padding: 0.5em 1em;
 	font-weight: bold;
+	background-color: #229805;
+  	color: white;
+	font-family: 'Raleway', sans-serif;
+  	font-size: 1em;
 }
 
 .comments textarea {
 	width: 100%;
 	font-family: 'Raleway', sans-serif;
+	margin-left: -0.7em;
+}
+
+.form-group {
+  width: 1000%;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  outline-color: #DFF5D1;
+  padding: 0.5em 0.75em;
+  margin-top: 0.75em;
 }
