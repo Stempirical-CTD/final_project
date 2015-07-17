@@ -5,7 +5,6 @@ class ExperimentsController < ApplicationController
   # GET /experiments
   # GET /experiments.json
   def landing_page
-
   end
 
   def index
