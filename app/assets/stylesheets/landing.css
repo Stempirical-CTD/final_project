@@ -17,12 +17,13 @@
 
 #bg img {
   position: absolute;
-  top: 2.5;
+  top: 0;
   left: 0;
   margin: auto;
   width: 100%;
-  min-height: 50%;
-  max-height: 80%;
+  /*min-height: 50%;
+  max-height: 100%;*/
+  opacity: 2.0;
 
 }
 
@@ -49,6 +50,8 @@
   width: 40%;
   margin-left: 3em;
   margin-bottom: 20em;
+  background-color: rgba(60, 63, 64, 0.8);
+  z-index: 50;
 }
 
 .landing-logo {
@@ -78,4 +81,18 @@
   font-size: 2em;
   margin: 1em 0 0 1em;
   z-index: 3;
+}
+
+.initial-suggested {
+  position: relative;
+  width: 60%;
+  height: auto;
+  overflow: hidden;
+  margin: -11em auto 0;
+  background-color: #F9F9F9;
+  border-right: 1px solid #D6D6D6;
+  border-bottom: 1px solid #D6D6D6;
+  border-left: 1px solid #D6D6D6;
+  z-index: 1;
+
 }
