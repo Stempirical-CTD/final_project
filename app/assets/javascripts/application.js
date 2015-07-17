@@ -66,6 +66,7 @@ $(function() {
    console.log(files);
  });
 });
+
 // drop down order function
 $(function() {
   $('.order').change(function(){
@@ -76,3 +77,31 @@ $(function() {
     });
   });
 });
+
+// function showAddElement() {
+//   var lastLink = $('.add-comment-btn').onClick(function() {
+//   alert( "Handler for .click() called." );
+// });
+
+$(function() {
+  $('#new_comment').hide();
+});
+
+$(function() {
+  $('.add-comment-btn').on('click',function(){
+    $('#new_comment').show();
+    $('.add-comment-btn').hide();
+  });
+});
+
+$(function() {
+  $('.comment-submit').on('click',function() {
+    console.log(this);
+    // $(this).closest('textarea').attr('value', 'Add a Comment');
+    $('#comment-input').val('').placeholder();
+  });
+});
+
+// $(".reset").click(function() {
+//     $(this).closest('form').find("input[type=text], textarea").val("");
+// });

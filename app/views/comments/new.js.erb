@@ -1,3 +1,3 @@
-$("#new-form-container").hide();
-$("#new-form-container").html("<%= j(render partial: 'comments/form', locals: {commentable: @experiment}) %>")
-$("#new-form-container").fadeIn();
+$(".new-form-container").hide();
+$(".new-form-container").html("<%= j(render partial: 'comments/form', locals: {commentable: commentable}) %>")
+$(".new-form-container").fadeIn();
