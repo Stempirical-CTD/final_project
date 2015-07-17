@@ -1,36 +1,37 @@
 
+
 user = User.create!(email: "user@userone.com", username: "userone", password: "password")
 user_two = User.create!(email: "user@usertwo.com", username: "usertwo", password: "password")
 
 
 experiment_one = Experiment.create!(user_id: user.id,
-  description: "This water science experiment demonstrates the degree of motion
-    of water molecules at different temperatures.",
+  description: "This experiment demonstrates that water molecules move
+  at different speeds depending on the water temperature.",
   youtube_link: "https://www.youtube.com/watch?v=iTbEmvdzvxg", complete_time: 1, name: "Colored Water",
   age: 1)
 
-  mat_one = Material.create!(experiment_id: experiment_one.id, item: "three clear drinking glasses")
-  mat_two = Material.create!(experiment_id: experiment_one.id, item: "hot water")
+  mat_one = Material.create!(experiment_id: experiment_one.id, item: "Three clear drinking glasses")
+  mat_two = Material.create!(experiment_id: experiment_one.id, item: "Hot water")
   mat_three = Material.create!(experiment_id: experiment_one.id, item:
-    "dark colored food dye (red, blue or green are best).")
+    "Dark colored food dye (red, blue or green are best).")
 
   Instruction.create!(experiment_id: experiment_one.id,
     information:"The three drinking glasses each must contain water at
       different temperatures. One needs to be cold, the second room temperature
-      (straight from the tap) and the third needs to be very hot.",
+      (straight from the tap is fine) and the third needs to be very hot.",
       order_number: 1)
   Instruction.create!(experiment_id: experiment_one.id,
-    information: "Place all three glasses of water next to each other on a bench.
+    information: "Place all three glasses of water next to each other on a table.
         Wait until the water in all three glasses appears still.", order_number: 2)
   Instruction.create!(experiment_id: experiment_one.id,
     information: "Then, as quickly as possible, place two drops of the food dye
-        to each glass. For the best effect, the dye should be added to the cold
+        into each glass. For the best effect, the dye should be added to the cold
         glass first, then the room temperature glass and last to the hot water glass.
         It is also best to add the food dye with minimal splashing so that the food
         dye entering the water is a minimal source of disturbance.", order_number: 3)
 
-experiment_two = Experiment.create!(user_id: user.id, description: "This is a
-  lesson on chemical bonds.",
+experiment_two = Experiment.create!(user_id: user.id, description: "This colorful experiment
+  explores the chemical bonds in milk.",
   youtube_link: "https://www.youtube.com/watch?v=rqQSlEViNpk", complete_time: 1,
   name: "Magic Milk", age: 2)
 
@@ -103,9 +104,9 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
           order_number: 5)
 
   experiment_four = Experiment.create!(user_id: user.id,
-    description: "Build a balloon inflater.",
+    description: "Use materials in your pantry to build a balloon inflater.",
     youtube_link: "https://www.youtube.com/watch?v=t--PRg1kd8g", complete_time: 1,
-    name: "Inflating a balloon", age: 2)
+    name: "Fizz-Inflator", age: 2)
 
     mat_one = Material.create!(experiment_id: experiment_four.id, item: "One small empty plastic soda or water bottle")
     mat_two = Material.create!(experiment_id: experiment_four.id, item: "1/2 cup of vinegar")
@@ -133,18 +134,18 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
         order_number: 4)
 
   experiment_six = Experiment.create!(user_id: user.id,
-    description: "Pick Up Trash Without Touching It.",
+    description: "Can you build a tool to pick up a sock without touching them? Sure you can!",
     youtube_link: "https://www.youtube.com/watch?v=sCoqrc9LAxg", complete_time: 1,
     name: "Machanical Grabber", age:4)
 
     mat_one = Material.create!(experiment_id: experiment_six.id, item: "Wire clothes hanger
      (Use the type with a cardboard tube attached to open-ended wire.)")
-    mat_two = Material.create!(experiment_id: experiment_six.id, item: "string")
-    mat_three = Material.create!(experiment_id: experiment_six.id, item: "rubber bands")
-    mat_four = Material.create!(experiment_id: experiment_six.id, item: "duct tape")
+    mat_two = Material.create!(experiment_id: experiment_six.id, item: "String")
+    mat_three = Material.create!(experiment_id: experiment_six.id, item: "Rubber bands")
+    mat_four = Material.create!(experiment_id: experiment_six.id, item: "Duct tape")
     mat_five = Material.create!(experiment_id: experiment_six.id, item: "PVC plastic pipe (1 inch in
       diameter and 3 feet long)")
-    mat_six = Material.create!(experiment_id: experiment_six.id, item: "wooden
+    mat_six = Material.create!(experiment_id: experiment_six.id, item: "Wooden
       dowel (1/4 inch in diameter and at least 3 feet long) (You can find duct
       tape, PVC plastic pipe and wooden dowels at a hardware store.)")
 
@@ -174,7 +175,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This is a
         order_number: 5)
     instruction_six = Instruction.create!(experiment_id: experiment_six.id,
       information: "Try it out. Can you pick up a piece of paper? A soda
-        can? How can you improve your grabber?.",
+        can? A sock? How can you improve your grabber? ",
         order_number: 6)
 
   experiment_seven = Experiment.create!(user_id: user.id,
