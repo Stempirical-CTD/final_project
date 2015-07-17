@@ -30,7 +30,7 @@
 
     <div class="new-media">
       <div class="field new-photo">
-        <label>Upload a Photo</label><br>
+        <label>Upload a Photo *</label><br>
         <%= f.file_field 'uploaded_file', id: 'pictureInput', :rows => 2 %>
 
       </div>
@@ -92,9 +92,6 @@
       <%= f.fields_for(:instructions) do |ff| %>
         <li>
         <div class="instruction-fields">
-         <div class="field instruction">
-            <%= ff.number_field :order_number, :class=> "instruction-order" %>
-          </div>
           <div class="field instruction">
             <%= ff.text_field :information, :class=> "new-instruction" %>
           </div>
