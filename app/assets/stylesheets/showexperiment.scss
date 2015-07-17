@@ -168,6 +168,11 @@
   	color: white;
 	font-family: 'Raleway', sans-serif;
   	font-size: 1em;
+	outline-color: #DFF5D1;
+}
+
+.comments input:hover {
+	background-color: #323232;
 }
 
 .comments textarea {
