@@ -11,7 +11,7 @@
 	width: 100%;
 	background-size: cover;
 	height: 102vh;
-  margin-top: -13.2em;
+  margin-top: -14.5em;
   opacity: 0.6;
   position: absolute;
   top: 0;
@@ -33,7 +33,7 @@
   font-family: 'Chelsea Market', sans-serif;
   font-size: 5.5em;
   margin: 0 auto;
-  width: 40%;
+  width: 44%;
   color: #323232;
 }
 
@@ -43,6 +43,7 @@
   margin: 1em auto;
   font-size: 1.5em;
   width: 65%;
+  padding-left: 2em;
 }
 
 .landing-search {
@@ -88,8 +89,8 @@
 }
 
 .suggested img {
-  width: 23%;
+  width: 23.5%;
   height: 10em;
-  margin: 0.5%;
+  margin: 0.1% 0.5%;
   border: 1px solid #D6D6D6;
 }
