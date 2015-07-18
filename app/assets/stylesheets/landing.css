@@ -1,106 +1,86 @@
 /*background image*/
 
 #landing {
- /*position: fixed;*/
- /*top: -10%;*/
- /*left: -20%;*/
- width: 150%;
- height: 200%;
- z-index: -50;
- /*background-position: 50% 50%;*/
- background-repeat: no-repeat;
- background-size: cover;
- background-image: url(/assets/telescope-science-discover-world-large.jpg);
+  background-image: url(/assets/discovery.jpg);
+	width: 100%;
+	background-size: cover;
+	height: 102vh;
+  margin-top: -16em;
 }
 
-/*#bg img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: auto;
-  width: 100%;
-  /*min-height: 50%;
-  max-height: 100%;*/
-  opacity: 2.0;
-  }*/
+#landing > img {
+    opacity: 0.8;
+}
   
-
-/*user status*/
-
-.landing-user-status {
-  position: absolute;
-  top: 1.4%;
-  right: 1em;
-  padding: 0.5em 0.7em;
-  margin: 0.5em;
-  font-size: 1.1em;
-}
-
 /*hero text*/
 
 .landing-intro {
-  margin: 0 auto;
+  margin: 1.5em auto 1em;
+  width: 100%;
 }
 
 .landing-logo {
+  padding-top: 3.5em;
   font-family: 'Chelsea Market', sans-serif;
-  color: #FFFFF7;
-  font-size: 6em;
+  font-size: 5.5em;
   margin: 0 auto;
-  width: 60%;
+  width: 40%;
+  color: #323232;
 }
 
 .stempirical-tagline {
-	font-family: 'Raleway', sans-serif;
-	color: #FFFFF7;
-  line-height: 2em;
-  margin: 1.5em;
+  font-family: 'Raleway', sans-serif;
+  color: #323232;
+  margin: 1em auto;
   font-size: 1.5em;
+  width: 55%;
 }
 
 .landing-search {
-  margin: 0 auto;
-  padding: 5em;
-  width: 15em;
+  margin: 1em auto;
+  width: 30em;  
+  position: relative;
 }
 
 .landing-exp-search {
-  line-height: 3em;
   padding: 0.5em;
-  margin-left: 0.5em;
-  position: absolute;
-  top: 20%;
-  left: 8em;
+  display: inline-block;
   font-family: 'Raleway', sans-serif;
   border: 0.1em solid #D6D6D6;
-  font-size: 1em;
+  font-size: 2em;
   outline-color: #DFF5D1;
   width: 15em;
-
+  margin-left: -1.5em;
 }
 
-button > .landing-fa-search {
-  position: absolute;
-  padding: 3em !important;
+.landing-fa-search {
+  padding: 1.75em;
   background-color: #229805;
   color: white;
   border: 0.1em solid #D6D6D6;
-  margin-left: -0.3em;
   outline-color: #DFF5D1;
-
-  font-size: 2em;
-  margin: 1em 0 0 1em;
-  z-index: 3;
+  float: right;
+  position: absolute;
+  margin-left: -1.5em;
 }
 
 .initial-suggested {
-  /*position: relative;*/
-  width: 60%;
-  height: auto;
-  overflow: hidden;
-  /*margin: -11em auto 0;*/
+  width: 100%;
+  height: 11em;
   background-color: #F9F9F9;
   border: 1px solid #D6D6D6;
-  z-index: 1;
+  clear: both;
+  position: absolute;
+}
 
+.suggested-container {
+  width: 100%;
+  margin: 0.5% auto;
+}
+
+.suggested img {
+  width: 23%;
+  height: 10em;
+  margin: 0.5%;
+  border: 1px solid #D6D6D6;
 }

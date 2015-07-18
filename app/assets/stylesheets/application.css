@@ -82,8 +82,6 @@ button:hover {
 .main-content {
   clear: both;
   display: block;
-  position: relative;
-  padding-top: 6em;
 }
 
 /*navigation bar*/
@@ -142,8 +140,12 @@ div.active {
   float: left;
   padding: 0.4em 0 0 1em;
   font-family: 'Chelsea Market', sans-serif;
-  color: #229805;
+  color: #323232;
   z-index: 20;
+}
+
+.logo:hover {
+  color: #229805;
 }
 
 #organize {
@@ -188,7 +190,7 @@ div.active {
   outline-color: #DFF5D1;
 }
 
-.fa-search {
+.nav-fa-search {
   position: absolute;
   padding: 0.35em;
   background-color: #229805;
