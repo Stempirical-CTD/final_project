@@ -68,6 +68,7 @@ $(function() {
 });
 
 // drop down order function
+
 $(function() {
   $('.order').change(function(){
     var selectValue = $(this).val();
@@ -79,11 +80,13 @@ $(function() {
 });
 
 // hide comment form on page load
+
 $(function() {
   $('#new_comment').hide();
 });
 
 // show comment on button click
+
 $(function() {
   $('#add-comment-btn').on('click', function(){
     $('#new_comment').show();
@@ -91,18 +94,19 @@ $(function() {
   });
 });
 
-// remove material field on delete button click
-$(document).on('click', '.delete-material-btn', function(){
-  var container = $(this).closest("li")
-  console.log("here");
-  container.remove();
-  console.log("here still");
-  container.find(".destroy").prop("checked", "true");
-  console.log("delete");
-});
-// container.find(".destroy").prop("checked", "true");
-
-// remove instruction field on delete button click
-$(document).on('click', '.delete-instruction-btn', function(){
-  $(this).closest("li").remove();
-});
+// // remove material field on delete button click
+// 
+// $(document).on('click', '.delete-material-btn', function(){
+//   var container = $(this).closest("li")
+//   console.log("here");
+//   // container.remove();
+//   console.log("here still");
+//   container.find(".destroy").prop("checked", "true");
+//   console.log("delete");
+// });
+//
+// // remove instruction field on delete button click
+//
+// $(document).on('click', '.delete-instruction-btn', function(){
+//   $(this).closest("li").remove();
+// });
