@@ -179,16 +179,16 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
         order_number: 6)
 
   experiment_seven = Experiment.create!(user_id: user.id,
-    description: "Arrows Optical Illusion",
+    description: "Your eyes may play tricks on you in this fun experiment!",
     youtube_link: "https://www.youtube.com/watch?v=eN-DB_XuhRs", complete_time: 1,
     name: "Arrows Optical Illusion", age:3)
 
     mat_one = Material.create!(experiment_id: experiment_seven.id, item: "Pipe cleaners")
-    mat_two = Material.create!(experiment_id: experiment_seven.id, item: "scissors")
+    mat_two = Material.create!(experiment_id: experiment_seven.id, item: "Scissors")
 
     instruction_one = Instruction.create!(experiment_id: experiment_seven.id,
       information: "Take two pipe cleaners that are the same length and the same
-      color. If they aren't the same, the optical illusion won't work.", order_number: 1)
+      color. (If they aren't the same, the optical illusion won't work.)", order_number: 1)
     instruction_two = Instruction.create!(experiment_id: experiment_seven.id,
       information: "Cut in half two other pipe cleaners that are a different color.
       These will be the ends of your arrows.",
@@ -209,7 +209,8 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
         order_number: 5)
 
     experiment_eight = Experiment.create!(user_id: user.id,
-      description: "The FLoating Egg",
+      description: "An egg will sink to the bottom of a water-filled glass.  Is there a
+      way to make it float? Yes!",
       youtube_link: "https://www.youtube.com/watch?v=gfuLoaEYKis", complete_time: 1,
       name: "The FLoating Egg", age:2)
 
@@ -235,22 +236,23 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
         information: "Fill the rest of the cup with water, almost to the top.",
           order_number: 5)
       instruction_six = Instruction.create!(experiment_id: experiment_eight.id,
-        information: "Gently place the second egg into the salt water solution… it floats!",
+        information: "Gently place the second egg into the salt water solution...it floats!",
           order_number: 6)
 
 
 
 
   experiment_nine = Experiment.create!(user_id: user.id,
-    description: "Drops on a Penny",
+    description: "Did you know water is 'sticky'? Discover more about how water
+    behaves in this surprising experiment!",
     youtube_link: "https://www.youtube.com/watch?v=XQbr9Ic8_hA", complete_time: 1,
     name: "Drops on a Penny", age:3)
 
     mat_one = Material.create!(experiment_id: experiment_nine.id, item: "A Penny")
     mat_two = Material.create!(experiment_id: experiment_nine.id, item: "An eyedropper")
     mat_three = Material.create!(experiment_id: experiment_nine.id, item: "Water")
-    mat_four = Material.create!(experiment_id: experiment_nine.id, item: "mineral/baby/olive oil")
-    mat_five = Material.create!(experiment_id: experiment_nine.id, item: "corn syrup")
+    mat_four = Material.create!(experiment_id: experiment_nine.id, item: "Mineral/baby/olive oil")
+    mat_five = Material.create!(experiment_id: experiment_nine.id, item: "Corn syrup")
 
 
     instruction_one = Instruction.create!(experiment_id: experiment_nine.id,
@@ -346,17 +348,17 @@ experiment_five = Experiment.create!(user_id: user.id,
       order_number: 15)
 
   experiment_ten = Experiment.create!(user_id: user.id,
-    description: "Go up and away with this homemade hot air balloon",
+    description: "Go up and away with this homemade hot air balloon.",
     youtube_link: "https://www.youtube.com/watch?v=sMeOv_Z-_ic", complete_time: 1,
     name: "Hot Air Balloon", age:4)
 
     mat_one = Material.create!(experiment_id: experiment_ten.id, item: "Large lawn garbage bags")
-    mat_two = Material.create!(experiment_id: experiment_ten.id, item: "dry cleaning bags")
-    mat_three = Material.create!(experiment_id: experiment_ten.id, item: "straws")
-    mat_four = Material.create!(experiment_id: experiment_ten.id, item: "coat hangers")
-    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "string")
-    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "scotch tape")
-    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "hairdryer")
+    mat_two = Material.create!(experiment_id: experiment_ten.id, item: "Dry cleaning bags")
+    mat_three = Material.create!(experiment_id: experiment_ten.id, item: "Straws")
+    mat_four = Material.create!(experiment_id: experiment_ten.id, item: "Coat hangers")
+    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "String")
+    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "Scotch tape")
+    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "Hairdryer")
 
 
     instruction_one = Instruction.create!(experiment_id: experiment_ten.id,
@@ -375,13 +377,13 @@ experiment_five = Experiment.create!(user_id: user.id,
         down between a cloud and the ground.",
     youtube_link: "https://www.youtube.com/watch?v=XtE0uXGMC-0", complete_time: 1, age:4)
 
-  Material.create!(experiment_id: experiment_eleven.id, item: "pencil with eraser")
-  Material.create!(experiment_id: experiment_eleven.id, item: "aluminum tray")
-  Material.create!(experiment_id: experiment_eleven.id, item: "wool cloth")
+  Material.create!(experiment_id: experiment_eleven.id, item: "Pencil with eraser")
+  Material.create!(experiment_id: experiment_eleven.id, item: "Aluminum tray")
+  Material.create!(experiment_id: experiment_eleven.id, item: "Wool cloth")
 
   Instruction.create!(experiment_id: experiment_eleven.id,
       information: "Stick a pushpin through the center of the aluminum tray
-          then stuck the pencil eraser to the pushpin.",
+          then stick the pencil eraser to the pushpin.",
       order_number: 1)
   Instruction.create!(experiment_id: experiment_eleven.id,
       information: "Vigorously rub the wool on the Styrofoam tray for two minutes.
@@ -393,7 +395,7 @@ experiment_five = Experiment.create!(user_id: user.id,
       order_number: 3)
 
   experiment_twelve = Experiment.create!(user_id: user_two.id, name: "How Plants Absorb Water",
-    description: "Used food coloring and cabbage leaves to show how
+    description: "Use food coloring and cabbage leaves to show how
     plants absorb water (and nutrients) up through their stems. You can also do this
     experiment with white flowers too!",
     youtube_link: "https://www.youtube.com/watch?v=x9ma86cASmg", complete_time: 1,
@@ -416,7 +418,7 @@ experiment_five = Experiment.create!(user_id: user.id,
       order_number: 3)
 
   experiment_thirteen = Experiment.create!(user_id: user_two.id, name: "Weather You Can See",
-    description: "When a rain cloud gets so full of water, the water will break
+    description: "When a rain cloud gets too full of water, the water will break
     through the cloud and start to fall to the ground.",
     youtube_link: "https://www.youtube.com/watch?v=pglbX1xtofE", complete_time: 1, age: 1)
 
