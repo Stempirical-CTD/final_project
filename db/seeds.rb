@@ -280,7 +280,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
 
 experiment_five = Experiment.create!(user_id: user.id,
   description: "How do scientists take DNA out of a living thing? It's not
-  that hard—there are lots of ways to do it!",
+  that hard — there are lots of ways to do it!",
   youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 1.5,
   name: "Strawberry DNA", age: 4)
    mat_one = Material.create!(experiment_id: experiment_five.id, item: "Strawberry")
@@ -386,18 +386,18 @@ experiment_five = Experiment.create!(user_id: user.id,
           then stick the pencil eraser to the pushpin.",
       order_number: 1)
   Instruction.create!(experiment_id: experiment_eleven.id,
-      information: "Vigorously rub the wool on the Styrofoam tray for two minutes.
+      information: "Vigorously rub the wool on the styrofoam tray for two minutes.
           It really takes two solid minutes!",
       order_number: 2)
   Instruction.create!(experiment_id: experiment_eleven.id,
-      information: "Finally, picke up the aluminum tray using the pencil handle
-          and set it on the Styrofoam plate.",
+      information: "Finally, pick up the aluminum tray using the pencil handle
+          and set it on the styrofoam plate.",
       order_number: 3)
 
   experiment_twelve = Experiment.create!(user_id: user_two.id, name: "How Plants Absorb Water",
     description: "Use food coloring and cabbage leaves to show how
     plants absorb water (and nutrients) up through their stems. You can also do this
-    experiment with white flowers too!",
+    experiment with white flowers!",
     youtube_link: "https://www.youtube.com/watch?v=x9ma86cASmg", complete_time: 1,
     age: 2)
 
@@ -410,7 +410,7 @@ experiment_five = Experiment.create!(user_id: user.id,
       information: "First you will need to add some water to each jar.",
       order_number: 1)
   Instruction.create!(experiment_id: experiment_twelve.id,
-      information: "Then add a different coloured food dye to each jar. Use
+      information: "Then add a different colored food dye to each jar. Use
       about 10 drops per jar to make sure the water is nice and vibrant.",
       order_number: 2)
   Instruction.create!(experiment_id: experiment_twelve.id,
@@ -439,23 +439,20 @@ experiment_five = Experiment.create!(user_id: user.id,
       information: "Drip water on top of the shaving cream using pipette.",
       order_number: 3)
   Instruction.create!(experiment_id: experiment_thirteen.id,
-      information: "Drip food coloring on top of the shaving cream the shaving cream.",
+      information: "Drip food coloring on top of the shaving cream.",
       order_number: 4)
 
 experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Activating Yeast",
     description: "Does yeast seem alive to you? Well, it is. It just needs warmth
-        and sugar to become active. Yeasts are living things that are so small only have
-        one cell. They can't make their own food. So, if you don't give them food,
-        they don't become active. It's almost like they're asleep. If you make it warm
-        and give them some food they become active.",
+        and food to become active.",
     youtube_link: "https://www.youtube.com/watch?v=odxvp-3nSw4", complete_time: 1.5,
     age: 3)
 
   Material.create!(experiment_id: experiment_fifteen.id, item: "1 package of yeast")
-  Material.create!(experiment_id: experiment_fifteen.id, item: "warm water")
+  Material.create!(experiment_id: experiment_fifteen.id, item: "Warm water")
   Material.create!(experiment_id: experiment_fifteen.id, item: "1 teaspoon sugar")
-  Material.create!(experiment_id: experiment_fifteen.id, item: "spoons")
-  Material.create!(experiment_id: experiment_fifteen.id, item: "large bowl")
+  Material.create!(experiment_id: experiment_fifteen.id, item: "Spoons")
+  Material.create!(experiment_id: experiment_fifteen.id, item: "Large bowl")
 
   Instruction.create!(experiment_id: experiment_fifteen.id,
     information: "Pour one package of yeast in a large bowl.", order_number: 1)
@@ -475,10 +472,10 @@ experiment_sixteen = Experiment.create!(user_id: user.id, name: "Soap Powered Bo
   Material.create!(experiment_id: experiment_sixteen.id, item: "2 Styrofoam bowls")
   Material.create!(experiment_id: experiment_sixteen.id, item: "2 Styrofoam cups")
   Material.create!(experiment_id: experiment_sixteen.id, item: "2 bendy straws")
-  Material.create!(experiment_id: experiment_sixteen.id, item: "glue")
-  Material.create!(experiment_id: experiment_sixteen.id, item: "water")
-  Material.create!(experiment_id: experiment_sixteen.id, item: "liquid dish soap")
-  Material.create!(experiment_id: experiment_sixteen.id, item: "inflatable wading
+  Material.create!(experiment_id: experiment_sixteen.id, item: "Glue")
+  Material.create!(experiment_id: experiment_sixteen.id, item: "Water")
+  Material.create!(experiment_id: experiment_sixteen.id, item: "Liquid dish soap")
+  Material.create!(experiment_id: experiment_sixteen.id, item: "Inflatable wading
       pool or bathtub filled with water")
 
   Instruction.create!(experiment_id: experiment_sixteen.id,
@@ -507,18 +504,18 @@ experiment_sixteen = Experiment.create!(user_id: user.id, name: "Soap Powered Bo
 experiment_seventeen = Experiment.create!(user_id: user_two.id, name: "Solar Still",
     description: "Water evaporates in the same way from lakes, rivers, and oceans.
         The water heats up, turns into a gas, and then condenses to fall back down
-        as rain and.",
+        as rain.",
     youtube_link: "https://www.youtube.com/watch?v=m408EZTGD64", complete_time: 2,
     age: 4)
 
-  Material.create!(experiment_id: experiment_seventeen.id, item: "large bowl")
-  Material.create!(experiment_id: experiment_seventeen.id, item: "short glass or cup")
-  Material.create!(experiment_id: experiment_seventeen.id, item: "tape")
-  Material.create!(experiment_id: experiment_seventeen.id, item: "plastic wrap")
-  Material.create!(experiment_id: experiment_seventeen.id, item: "small rock")
-  Material.create!(experiment_id: experiment_seventeen.id, item: "pitcher of water")
-  Material.create!(experiment_id: experiment_seventeen.id, item: "salt")
-  Material.create!(experiment_id: experiment_seventeen.id, item: "long spoon for stirring")
+  Material.create!(experiment_id: experiment_seventeen.id, item: "Large bowl")
+  Material.create!(experiment_id: experiment_seventeen.id, item: "Short glass or cup")
+  Material.create!(experiment_id: experiment_seventeen.id, item: "Tape")
+  Material.create!(experiment_id: experiment_seventeen.id, item: "Plastic wrap")
+  Material.create!(experiment_id: experiment_seventeen.id, item: "Small rock")
+  Material.create!(experiment_id: experiment_seventeen.id, item: "Pitcher of water")
+  Material.create!(experiment_id: experiment_seventeen.id, item: "Salt")
+  Material.create!(experiment_id: experiment_seventeen.id, item: "Long spoon for stirring")
 
   Instruction.create!(experiment_id: experiment_seventeen.id,
     information: "First make saltwater by adding salt to fresh water. Stir the
@@ -554,8 +551,7 @@ experiment_seventeen = Experiment.create!(user_id: user_two.id, name: "Solar Sti
 experiment_eighteen = Experiment.create!(user_id: user.id, name: "Static Electricity",
     description: "They say opposites attract and that couldn't be truer with these
         fun static electricity experiments. Find out about positively and negatively
-        charged particles using a few basic items, can you control if they will be
-        attracted or unattracted to each other?",
+        charged particles using a few basic items.",
     youtube_link: "https://www.youtube.com/watch?v=-w-GoSJpvdw", complete_time: 0.5,
     age: 4)
 
@@ -572,18 +568,17 @@ experiment_eighteen = Experiment.create!(user_id: user.id, name: "Static Electri
     order_number: 1)
   Instruction.create!(experiment_id: experiment_eighteen.id,
     information: "Rub 1 of the balloons back and forth on your hair then slowly
-        it pull it away, ask someone nearby what they can see or if there's nobody
-        else around try looking in a mirror.",
+        it pull it away, ask someone nearby what they can see.  If there's nobody
+      else around, try looking in a mirror.",
     order_number: 2)
   Instruction.create!(experiment_id: experiment_eighteen.id,
     information: "Put the aluminium can on its side on a table, after rubbing the
     balloon on your hair again hold the balloon close to the can and watch as it
-    rolls towards it, slowly move the balloon away from the can and it will follow.",
+    rolls towards it. Slowly move the balloon away from the can and it will follow.",
     order_number: 3)
 
   experiment_nineteen = Experiment.create!(user_id: user_two.id, name: "Solar Oven",
-    description: "Use the sun's energy to heat up a tasty treat with this simple
-        solar oven! Have you ever heard the expression that it's so hot out you could
+    description: "Have you ever heard the expression that it's so hot out you could
         fry an egg on the sidewalk? Have you ever wondered if it's true? Find out with
         this easy, fun, and delicious solar oven science project that uses only household
         items and a pizza box. Plus, learn about absorption, insulation, and the sun's energy.",
