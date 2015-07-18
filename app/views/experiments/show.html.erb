@@ -155,16 +155,14 @@ parent concepts & experiments associated with them
 <br>
 </div>
 
-<% if user_signed_in? || @experiment.comments != [] %>
-  <h3 class="comment-title">We Love Feedback!</h3><br>
-  <div class="comments">
-    All Comments (<%= @experiment.comments.count %>)
-      <div id="all-comments">
-        <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
-      </div>
-    <% if user_signed_in? %>
-      <%= render partial: "comments/form", locals: {commentable: @experiment}, class: "comment-form" %>
-      <button type="button" class="add-comment-btn"><i class="fa fa-plus"></i>Add Comment</button>
-    <% end %>
-  </div>
-<% end %>
+<h3 class="comment-title">We Love Feedback!</h3><br>
+<div class="comments">
+  All Comments (<%= @experiment.comments.count %>)
+    <div id="all-comments">
+      <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
+    </div>
+  <% if user_signed_in? %>
+    <%= render partial: "comments/form", locals: {commentable: @experiment}, class: "comment-form" %>
+    <button type="button" id="add-comment-btn" class="comment-submit"><i class="fa fa-plus"></i>Add Comment</button>
+  <% end %>
+</div>

@@ -85,9 +85,18 @@ $(function() {
 
 // show comment on button click
 $(function() {
-  $('.add-comment-btn').on('click', function(){
-    // $('#new-comment').fadeIn("slow");
+  $('#add-comment-btn').on('click', function(){
     $('#new_comment').show();
-    $('.add-comment-btn').hide();
+    $('#add-comment-btn').hide();
   });
+});
+
+// remove material field on delete button click
+$(document).on('click', '.delete-material-btn', function(){
+  $(this).closest("li").remove();
+});
+
+// remove instruction field on delete button click
+$(document).on('click', '.delete-instruction-btn', function(){
+  $(this).closest("li").remove();
 });

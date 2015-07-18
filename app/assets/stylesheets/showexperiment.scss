@@ -159,7 +159,11 @@
 	height: auto;
 	overflow: hidden;
 }
-
+#comment-box {
+	.comment-user {
+		color: #299619;
+	}
+}
 .comments input {
 	margin: 0 auto;
 	padding: 0.5em 1em;

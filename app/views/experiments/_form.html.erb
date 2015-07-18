@@ -77,10 +77,9 @@
       <%= f.fields_for(:materials) do |ff| %>
         <li>
           <div class="field material">
-            <%= ff.text_field :item, :class=> "new-material" %>
-
+            <%= ff.text_field :item, class: "new-material" %>
+            <button type="button" class="delete-material-btn"><i class="fa fa-trash"></i></button>
           </div>
-          <button type="button" class="add-material-btn"><i class="fa fa-trash"></i></button>
         </li>
       <% end %>
 
@@ -95,8 +94,8 @@
         <li>
         <div class="instruction-fields">
           <div class="field instruction">
-            <%= ff.text_field :information, :class=> "new-instruction" %>
-            <button type="button" class="add-material-btn"><i class="fa fa-trash"></i></button>
+            <%= ff.text_field :information, class: "new-instruction" %>
+            <button type="button" class="delete-instruction-btn"><i class="fa fa-trash-o"></i></button>
           </div>
         </div>
       </li>

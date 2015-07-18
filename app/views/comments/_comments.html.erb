@@ -1,6 +1,7 @@
 <div id="comment-box">
 <% commentable.comments.each do |comment| %>
-  Said by:<%= User.find_by_id(comment.user_id).username %>
+  <div class="comment-user"><%= User.find_by_id(comment.user_id).username %></div>
   <%= comment.body %><br>
+  <br>
 <% end %>
 </div>

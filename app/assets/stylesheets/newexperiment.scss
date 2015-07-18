@@ -31,7 +31,7 @@ textarea {
   margin-bottom: 0.5em;
 }
 
-// media 
+// media
 
 #target img {
   max-height: 15em;
@@ -97,7 +97,7 @@ textarea {
    // margin: 0 0 1.5em 0;
    outline-color: #DFF5D1;
    background-color: #FFF;
-}   
+}
 
 .new-mess {
    border-bottom: 0.1em solid #D6D6D6;
@@ -119,7 +119,7 @@ textarea {
   padding: 0.3em;
 }
 
-// add material 
+// add material
 
 .unordered-list-materials label, .unordered-list-instructions label {
   display: block;
@@ -150,7 +150,7 @@ textarea {
     margin: 0;
     padding: 0.5em;
     transition: background 0.3s ease-in-out 0s;
-    line-height: 1.5em; 
+    line-height: 1.5em;
 }
 
 .instruction-order {
@@ -167,7 +167,21 @@ textarea {
   outline-color: #DFF5D1;
   font-size: 0.9em;
   font-weight: bold;
-  font-family: 'Raleway', sans-serif; 
+  font-family: 'Raleway', sans-serif;
+  width: 12em;
+}
+
+.delete-material-btn, .delete-instruction-btn {
+  display: block;
+  margin: 0.5em 0 -0.5em;
+  padding: 0.5em 0;
+  background-color: #229805;
+  color: white;
+  border: 0.1em solid #D6D6D6;
+  outline-color: #DFF5D1;
+  font-size: 0.9em;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
   width: 12em;
 }
 
