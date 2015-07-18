@@ -93,8 +93,14 @@ $(function() {
 
 // remove material field on delete button click
 $(document).on('click', '.delete-material-btn', function(){
-  $(this).closest("li").remove();
+  var container = $(this).closest("li")
+  console.log("here");
+  container.remove();
+  console.log("here still");
+  container.find(".destroy").prop("checked", "true");
+  console.log("delete");
 });
+// container.find(".destroy").prop("checked", "true");
 
 // remove instruction field on delete button click
 $(document).on('click', '.delete-instruction-btn', function(){

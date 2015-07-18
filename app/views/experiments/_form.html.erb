@@ -65,11 +65,10 @@
     <div class="concept-section">
       <% Concept.all.each do |concept| %>
         <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
-        <%= label_tag("concept_#{concept.id}",concept.name, class: "concept-checkbox-label") %>
+        <%= label_tag "concept[#{concept.id}]", concept.name, class: "concept-checkbox-label" %>
   </span><br>
     <% end %><br>
     </div>
-
 
   <div class="new-materials">
     <ul class="field unordered-list-materials">
@@ -78,11 +77,12 @@
         <li>
           <div class="field material">
             <%= ff.text_field :item, class: "new-material" %>
+            <%= ff.label :_destroy %>
+            <%= ff.check_box :_destroy %>
             <button type="button" class="delete-material-btn"><i class="fa fa-trash"></i></button>
           </div>
         </li>
       <% end %>
-
     </ul>
     <button type="button" class="add-material-btn"><i class="fa fa-plus"></i> Add New Material</button>
   </div>
@@ -95,6 +95,8 @@
         <div class="instruction-fields">
           <div class="field instruction">
             <%= ff.text_field :information, class: "new-instruction" %>
+            <%= ff.label :_destroy %>
+            <%= ff.check_box :_destroy %>
             <button type="button" class="delete-instruction-btn"><i class="fa fa-trash-o"></i></button>
           </div>
         </div>

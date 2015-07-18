@@ -17,11 +17,13 @@ class Experiment < ActiveRecord::Base
 
   has_many :materials, dependent: :destroy
   accepts_nested_attributes_for :materials,
-      reject_if: :all_blank
+      reject_if: :all_blank,
+      allow_destroy: true
 
   has_many :instructions, dependent: :destroy
   accepts_nested_attributes_for :instructions,
-      reject_if: :all_blank
+      reject_if: :all_blank,
+      allow_destroy: true
 
   validates :description, :complete_time, :name, presence: true
   validates_format_of :youtube_link,
