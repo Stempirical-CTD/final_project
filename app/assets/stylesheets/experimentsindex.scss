@@ -8,6 +8,8 @@
 	display: inline;
 	position: relative;
 	left: 13em;
+	// margin: 0 auto;
+	// width: 100%;
 }
 
 .index-title {
@@ -42,6 +44,7 @@
 	height: 25em;
 	margin: -13em 1.5em 1.5em 0;
 	padding-bottom: 0.5em;
+	z-index: -10;
 }
 
 .index-photo {

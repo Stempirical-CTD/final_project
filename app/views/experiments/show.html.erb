@@ -1,15 +1,7 @@
-<div class="user-options">
-  <!--<%= image_tag "submitted by user.png", class: "icon-small" %>-->
-  Submitted By:
-  <%= @experiment.user.username %>
-    <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
-    <%= link_to content_tag(:i, nil, class: 'fa fa-pencil'), edit_experiment_path(@experiment) %> |
-    <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o'), @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
-  <% end %>
-</div>
-
+<div class="cover">  
   <div class="show-exp-image" style="background-image: url(<%= image_path @experiment.uploaded_file %>)">
   </div>
+</div>  
   
 <div class="largest-show-container">
   <div class="show-exp-title-bar">
@@ -79,7 +71,21 @@
       </div>
     <% end %>
     </div>
+    
+  <div class="user-options">
+  <%= image_tag "submitted by user.png", class: "idea-icon-small" %>
+  Submitted By:
+  <%= @experiment.user.username %>
+    <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
+    <%= link_to content_tag(:i, nil, class: 'fa fa-pencil'), edit_experiment_path(@experiment) %> |
+    <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o'), @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %>
+  </div>
+    
   </div> 
+  
+  
+  
 </div>   
 
 <!--<div class="recommended">
@@ -148,7 +154,7 @@ parent concepts & experiments associated with them
     </div>
       <!-- <%= link_to "New Comment", new_experiment_comment_path(@experiment), remote: true %> -->
       <%= render partial: "comments/form", locals: {commentable: @experiment}, class: "comment-form" %>
-      <button type="button" class="add-comment-btn"><i class="fa fa-plus"></i>Add Comment</button>
+      <button type="button" class="add-comment-btn"><i class="fa fa-plus"></i> Add Comment</button>
     <% end %>
   </div>
 <% end %>

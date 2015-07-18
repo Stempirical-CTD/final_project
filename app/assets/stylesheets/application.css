@@ -144,23 +144,28 @@ div.active {
   color: #229805;
 }
 
-#organize {
+#order {
 	/*visibility: hidden;*/
   border: 1px;
   font-size: 1em;
   font-family: 'Raleway', sans-serif;
-  /*outline: none;*/
+  outline-color: #DFF5D1;
+  float: right;
+  margin-right: 10em;
+  /*line-height: 1.1em;*/
+  /*position: relative;*/
+  z-index: 10;
 }
 
 .sort {
-   border: 0.1em solid #D6D6D6;
-   padding: 0.1em;
-   margin-right: 0.5em;
-   outline-color: #DFF5D1;
-   position: relative;
-   top: 20%;
-   height: 1.5em;
-   z-index: -1;
+  /*border: 0.1em solid #D6D6D6;
+  padding: 0.1em;
+  outline-color: #DFF5D1;*/
+  
+  /*line-height: 2em;
+  z-index: 1;
+  display: inline;
+  position: absolute;*/
 }
 
 .search {
