@@ -10,7 +10,7 @@
       <a href="<%= @concept.video_link %>">View on YouTube</a><br>
     <% end %>
 </div>
-For an indepth descirption of <%= @concept.name %> click <a href="<%= @concept.description_link %>">here</a><br>
+For an indepth description of <%= @concept.name %> click <a href="<%= @concept.description_link %>">here</a><br>
 <br>
 <% @concept.experiments.map do |experiment| %>
   <%= link_to experiment.name, experiment_path(experiment) %><br>
