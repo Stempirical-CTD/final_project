@@ -66,9 +66,9 @@
       <% Concept.all.each do |concept| %>
         <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
         <%= label_tag("concept_#{concept.id}",concept.name, class: "concept-checkbox-label") %>
-  </span><br>    
+  </span><br>
     <% end %><br>
-    </div>    
+    </div>
 
 
   <div class="new-materials">
@@ -78,9 +78,12 @@
         <li>
           <div class="field material">
             <%= ff.text_field :item, :class=> "new-material" %>
+
           </div>
+          <button type="button" class="add-material-btn"><i class="fa fa-trash"></i></button>
         </li>
       <% end %>
+
     </ul>
     <button type="button" class="add-material-btn"><i class="fa fa-plus"></i> Add New Material</button>
   </div>
@@ -91,22 +94,20 @@
       <%= f.fields_for(:instructions) do |ff| %>
         <li>
         <div class="instruction-fields">
-         <div class="field instruction">
-            <%= ff.number_field :order_number, :class=> "instruction-order" %>
-          </div>
           <div class="field instruction">
             <%= ff.text_field :information, :class=> "new-instruction" %>
+            <button type="button" class="add-material-btn"><i class="fa fa-trash"></i></button>
           </div>
         </div>
-        </li>
+      </li>
       <% end %>
     </ul>
     <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i> Add Next Step</button>
   </div>
 
-    <div class="actions new-exp-btn">
-        <%= f.submit %>
-    </div>
+  <div class="actions new-exp-btn">
+      <%= f.submit %>
+  </div>
 <% end %>
 </div>
 </div>

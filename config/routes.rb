@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :experiments do
     resources :comments, module: :experiments
     collection do
+      get 'order_experiments'
       get 'mess_ratings'
       get 'complete_time_rating'
       get 'ages'
