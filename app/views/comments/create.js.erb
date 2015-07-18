@@ -1,6 +1,6 @@
 setTimeout(function() {
   // $('#new_comment').html("");
   $("#all-comments").html("<%= j(render partial: 'comments/comments', locals: {commentable: @commentable}) %>");
-  $("#all_comments").fadeIn();
+  $("#all-comments").fadeIn();
   $('#comment-input').val("");
 }, 200);

@@ -141,12 +141,12 @@ div.active {
   z-index: 20;
 }
 
-#organize {
+#order {
 	/*visibility: hidden;*/
   border: 1px;
   font-size: 1em;
   font-family: 'Raleway', sans-serif;
-  /*outline: none;*/
+  outline: none;
 }
 
 .sort {
