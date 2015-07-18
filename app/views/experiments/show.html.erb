@@ -162,7 +162,9 @@ parent concepts & experiments associated with them
       <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
     </div>
   <% if user_signed_in? %>
-    <%= render partial: "comments/form", locals: {commentable: @experiment}, class: "comment-form" %>
-    <button type="button" id="add-comment-btn" class="comment-submit"><i class="fa fa-plus"></i>Add Comment</button>
+    <div id="comment-form">
+      <%= render partial: "comments/form", locals: {commentable: @experiment}, class: "comment-form" %>
+      <button type="button" id="add-comment-btn" class="comment-submit"><i class="fa fa-plus"></i>Add Comment</button>
+    </div>
   <% end %>
 </div>

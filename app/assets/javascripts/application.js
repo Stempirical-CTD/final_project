@@ -95,18 +95,11 @@ $(function() {
 });
 
 // // remove material field on delete button click
-// 
-// $(document).on('click', '.delete-material-btn', function(){
-//   var container = $(this).closest("li")
-//   console.log("here");
-//   // container.remove();
-//   console.log("here still");
-//   container.find(".destroy").prop("checked", "true");
-//   console.log("delete");
-// });
-//
-// // remove instruction field on delete button click
-//
-// $(document).on('click', '.delete-instruction-btn', function(){
-//   $(this).closest("li").remove();
-// });
+
+$(document).on('click', '.delete-material-btn', function(){
+  $(this).closest("li").remove();
+});
+
+$(document).on('click', '.delete-instruction-btn', function(){
+  $(this).closest("li").remove();
+});
