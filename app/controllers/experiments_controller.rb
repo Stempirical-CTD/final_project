@@ -27,6 +27,7 @@ class ExperimentsController < ApplicationController
   def show
     @parents = @experiment.concept_parents
     @children = @experiment.concept_children
+    @comment = Comment.new
   end
 
   # GET /experiments/new
