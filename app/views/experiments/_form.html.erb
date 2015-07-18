@@ -124,5 +124,60 @@
     <% end %>
     </div>
     </div>
+
+  <span class="new-exp-concept">
+    <label>Which concepts apply to this experiment? *</label><br>
+    <div class="concept-section">
+      <% Concept.all.each do |concept| %>
+        <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
+        <%= label_tag "concept[#{concept.id}]", concept.name, class: "concept-checkbox-label" %>
+  </span><br>
+    <% end %><br>
+    </div>
+
+  <div class="new-materials">
+    <ul class="field unordered-list-materials">
+      <label>Materials *</label><br>
+      <%= f.fields_for(:materials) do |ff| %>
+        <li>
+          <div class="field material">
+            <%= ff.text_field :item, class: "new-material" %>
+            <% if current_page?(new_experiment_path) %>
+              <button type="button" class="delete-material-btn"><i class="fa fa-trash"></i></button>
+            <% elsif current_page?(edit_experiment_path) %>
+              <%= ff.label "Delete", class: "destroy-label" %>
+              <%= ff.check_box :_destroy, class: "destroy" %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <button type="button" class="add-material-btn"><i class="fa fa-plus"></i> Add New Material</button>
+  </div>
+
+  <div class="new-instructions">
+    <ul class="field unordered-list-instructions">
+      <label>Instructions *</label><br>
+      <%= f.fields_for(:instructions) do |ff| %>
+        <li>
+        <div class="instruction-fields">
+          <div class="field instruction">
+            <%= ff.text_field :information, class: "new-instruction" %>
+            <% if current_page?(new_experiment_path) %>
+              <button type="button" class="delete-instruction-btn"><i class="fa fa-trash"></i></button>
+            <% elsif current_page?(edit_experiment_path) %>
+              <%= ff.label "Delete", class: "destroy-label" %>
+              <%= ff.check_box :_destroy, class: "destroy"%>
+            <% end %>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+    <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i> Add Next Step</button>
+  </div>
+
+  <div class="actions new-exp-btn">
+      <%= f.submit %>
   </div>
 </div>    
