@@ -4,6 +4,7 @@ class CreateConcepts < ActiveRecord::Migration
       t.string :name
       t.text :description_link
       t.text :video_link
+      t.text :summary
 
       t.timestamps null: false
     end
