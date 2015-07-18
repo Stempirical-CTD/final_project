@@ -1,5 +1,7 @@
 <strong>Comment(s):</strong><br>
+<div id="all-comments">
 <% commentable.comments.each do |comment| %>
   Said by:<%= User.find_by_id(comment.user_id).username %>
   <%= comment.body %><br>
 <% end %>
+</div>

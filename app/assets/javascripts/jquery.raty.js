@@ -730,7 +730,7 @@
     click        : undefined,
     half         : false,
     halfShow     : true,
-    hints        : ["No mess, no fuss", "Get some Bounty", "Check your supplies", "Are you sure?", "Prep for fumigation"],
+    hints        : ["No mess, no fuss", "Get some Bounty", "Is the fire exhinguisher in the kitchen?", "Do you have a firehose?", "Prep for fumigation"],
     iconRange    : undefined,
     mouseout     : undefined,
     mouseover    : undefined,

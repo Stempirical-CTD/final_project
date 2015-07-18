@@ -8,7 +8,6 @@
   <% end %>
 </div>
 
-
   <div class="show-exp-image" style="background-image: url(<%= image_path @experiment.uploaded_file %>)">
   </div>
   
@@ -96,6 +95,7 @@
     <% if concept.parents.count != 0 %>
       <h3>OR</h3>
     <% end %>
+
     <% random_child = concept.children.sample %>
     <% random_child_experiment = random_child.experiments.sample %>
     <%= link_to random_child_experiment.name, "#{root_url}experiments/#{random_child_experiment.id}" %><br>
@@ -144,10 +144,11 @@ parent concepts & experiments associated with them
       </div>
     <% end %>
     <% if user_signed_in? %>
+    <div class="new-form-container comment-btn">
+    </div>
       <!-- <%= link_to "New Comment", new_experiment_comment_path(@experiment), remote: true %> -->
-      <%= render partial: "comments/form", locals: {commentable: @experiment} %>
+      <%= render partial: "comments/form", locals: {commentable: @experiment}, class: "comment-form" %>
+      <button type="button" class="add-comment-btn"><i class="fa fa-plus"></i>Add Comment</button>
     <% end %>
   </div>
 <% end %>
-<div class="new-form-container comment-btn">
-</div>

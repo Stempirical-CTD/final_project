@@ -16,20 +16,6 @@
  *= require jquery-ui
  */
 
-
-/* tooltips */
-
-.tooltip {
-	display:none;
-	position:absolute;
-	border:1px solid #333;
-	background-color:#ffffff;
-	border-radius:5px;
-	padding:10px;
-	color:#fff;
-	font-size:12px Arial;
-}
-
 .experiments {
   display: none;
   /*visibility: hidden;*/
@@ -116,8 +102,13 @@ button:hover {
 
 .nav-links {
   margin-top: 1.2%;
+<<<<<<< HEAD
+  width: 50%;
+  float: right;
+=======
   margin-right: 1em;
-  float: right; 
+  float: right;
+>>>>>>> d48a986e889959c5ef056b6ed166a2f40bbcf8e2
 }
 
 .nav-link {
@@ -156,13 +147,14 @@ div.active {
 }
 
 #organize {
-  border: 0;
+	/*visibility: hidden;*/
+  border: 1px;
   font-size: 1em;
   font-family: 'Raleway', sans-serif;
-  outline: none;
+  /*outline: none;*/
 }
 
-.sort {  
+.sort {
    border: 0.1em solid #D6D6D6;
    padding: 0.1em;
    margin-right: 0.5em;
@@ -217,4 +209,3 @@ div.active {
   left: 2em;
   margin: 0 auto;
 }
-

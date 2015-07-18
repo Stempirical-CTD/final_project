@@ -1,18 +1,13 @@
-<% if params[:query] %>
-  <h1 class="search-results-title">SEARCH RESULTS for: <%= params[:query] %></h1>
-<% else %>
-  <h1 class="index-title">All Experiments</h1>
-<% end %>
-
-
 <div class="index-wrapper">
-<% @experiments.each do |experiment| %>
+<% @experiments.order(:complete_time).each do |experiment| %>
 
     <div class="index-experiment-card">
         <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')">
-          <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= experiment.name %></h3> 
-
-             <i class="fa fa-thumbs-up index-likes"> <%= pluralize experiment.votes, "like" %></i>    
+          <!--<% if experiment.uploaded_file_file_name != nil %>
+          <%= image_tag experiment.uploaded_file %>
+          <% end %>-->
+          <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= experiment.name %></h3>
+             <i class="fa fa-thumbs-up index-likes"><%= pluralize experiment.votes, "like" %></i>
           </span>
         </a>
 

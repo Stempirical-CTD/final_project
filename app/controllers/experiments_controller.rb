@@ -9,26 +9,17 @@ class ExperimentsController < ApplicationController
 
   def index
     if params[:query]
-      @experiments = Experiment.text_search(params[:query], params[:organize])
+      @experiments = Experiment.text_search(params[:query])#, params[:organize])
       if @experiments.length == 0
         flash.now[:notice] = "No items found"
       end
-    elsif params[:organize]
-      if params[:organize] == "2"
-        @experiments = Experiment.order(:complete_time)
-    elsif params[:organize] == "1"
-        @experiments = Experiment.order(:age)
-
-      end
     else
-      @experiments = Experiment.by_votes
-
-
+      @experiments = Experiment.all.by_votes
     end
   end
 
-  def ages
-    @experiments = Experiment.order(:complete_time)
+  def order_experiments
+    @experiments = Experiment.text_search(params[:queryValue])
   end
 
   # GET /experiments/1
