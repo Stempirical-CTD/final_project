@@ -11,7 +11,7 @@
 	width: 100%;
 	background-size: cover;
 	height: 102vh;
-  margin-top: -13em;
+  margin-top: -13.2em;
   opacity: 0.6;
   position: absolute;
   top: 0;
@@ -24,12 +24,12 @@
 /*hero text*/
 
 .landing-intro {
-  margin: 1.5em auto 1em;
+  margin: -1.5em auto 1em;
   width: 100%;
 }
 
 .landing-logo {
-  padding-top: 1.5em;
+  padding-top: 0.5em;
   font-family: 'Chelsea Market', sans-serif;
   font-size: 5.5em;
   margin: 0 auto;
@@ -42,7 +42,7 @@
   color: #323232;
   margin: 1em auto;
   font-size: 1.5em;
-  width: 55%;
+  width: 65%;
 }
 
 .landing-search {
@@ -79,7 +79,7 @@
   background-color: #F9F9F9;
   border: 1px solid #D6D6D6;
   clear: both;
-  position: absolute;
+  margin-top: 3.2em;
 }
 
 .suggested-container {
