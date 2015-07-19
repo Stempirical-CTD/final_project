@@ -97,13 +97,8 @@ a {
 
 .nav-links {
   margin-top: 1.2%;
-<<<<<<< HEAD
-  width: 50%;
-  float: right;
-=======
   margin-right: 1em;
   float: right;
->>>>>>> d48a986e889959c5ef056b6ed166a2f40bbcf8e2
 }
 
 .nav-link {

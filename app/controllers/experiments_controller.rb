@@ -27,7 +27,13 @@ class ExperimentsController < ApplicationController
   def show
     @parents = @experiment.concept_parents
     @children = @experiment.concept_children
+    @concept = @experiment.find_concept
     @comment = Comment.new
+    if Experiment.by_votes[0] != @experiment
+      @top_experiment = Experiment.by_votes[0]
+    else
+      @top_experiment = Experiment.by_votes[1]
+    end
   end
 
   # GET /experiments/new

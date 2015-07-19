@@ -98,61 +98,47 @@
 </div>
 
 <div class="recommended">
-  one random parent & one random child experiment
-  <% concept = @experiment.concepts.sample %>
-  Based on your interest on <%= link_to concept.name, concept_path(concept) %>, you might be interested in:<br>
-  <% if concept.parents.count != 0 %>
-    <% random_parent = concept.parents.sample %>
-    <% random_parent_experiment = random_parent.experiments.sample %>
-    <%= link_to random_parent_experiment.name, "#{root_url}experiments/#{random_parent_experiment.id}" %><br>
-    <%= image_tag random_parent_experiment.uploaded_file %><br>
-    <% if concept.children.count >= 1 %>
-      <% if concept.parents.count != 0 %>
-        <h3>OR</h3>
-      <% end %>
-      <% random_child = concept.children.sample %>
-      <% random_child_experiment = random_child.experiments.sample %>
-      <%= link_to random_child_experiment.name, "#{root_url}experiments/#{random_child_experiment.id}" %><br>
-      <%= image_tag random_child_experiment.uploaded_file %><br>
-    <% end %>
+
+
+  <% @concept = @experiment.concepts.sample %>
+  <% if @experiment.concepts.count == 1 && @concept.experiments.count == 1 %>
+    Finds the top rated experiment<br>
+    <% top_experiment_concept = @top_experiment.concepts.sample %>
+    <%= image_tag "#{top_experiment_concept.name}.png", class: "concept-img-small" %><br>
+    <%= link_to @top_experiment.name, experiment_path(@top_experiment) %><br>
+    <%= image_tag @top_experiment.uploaded_file %><br>
+  <% elsif @concept.experiments.where.not(name: @experiment.name).blank? %>
+    <% concept = @experiment.concepts.where.not(name: @concept.name).sample %>
+    Finds a random experiment under the experiment's related concepts<br>
+    <% exp = concept.experiments.where.not(name: @experiment.name).sample %>
+    <%= image_tag "#{concept.name}.png", class: "concept-img-small"%>
+    <%= link_to exp.name, experiment_path(exp) %><br>
+    <%= image_tag exp.uploaded_file %><br>
   <% else %>
-    <% random_child = concept.children.sample %>
+    Finds a random experiment under the experiment's related concepts<br>
+    <% exp = @concept.experiments.where.not(name: @experiment.name).sample %>
+    <%= image_tag "#{@concept.name}.png", class: "concept-img-small"%>
+    <%= link_to exp.name, experiment_path(exp) %><br>
+    <%= image_tag exp.uploaded_file %><br>
+  <% end %>
+
+  <% if @concept.children.count > 0 %>
+  Find a random experiment under the child concept<br>
+    <% random_child = @concept.children.sample %>
     <% random_child_experiment = random_child.experiments.sample %>
-    <%= link_to random_child_experiment.name, "#{root_url}experiments/#{random_child_experiment.id}" %><br>
+    <%= link_to random_child_experiment.name, experiment_path(random_child_experiment) %><br>
+    <%= image_tag "#{random_child.name}.png", class: "concept-img-small" %><br>
     <%= image_tag random_child_experiment.uploaded_file %><br>
-  <% end %>
-</div>
-
-<div class="extended-learning"><!--need to add "link to" and "carousel" of photos with each-->
-child concepts & experiments associated with them
-<% if @children.count > 0 %>
-  <% if @children.count >= 1 %>
-    <% @children.map do |children| %><br>
-    <h4>To learn more about <%= children.name %>, try these:</h4>
-      <% children.experiments.map do |exp| %>
-        <%= link_to exp.name, experiment_path(exp) %><br>
-      <% end %>
-    <% end %>
   <% else %>
-    <%= link_to exp.name, experiment_path(exp) %>
+    Finds a random parent experiment bc there are no children<br>
+    <% random_parent = @concept.parents.sample %>
+    <% random_parent_experiment = random_parent.experiments.sample %>
+    <%= link_to random_parent_experiment.name, experiment_path(random_parent) %><br>
+    <%= image_tag "#{random_parent.name}.png", class: "concept-img-small" %><br>
+    <%= image_tag random_parent_experiment.uploaded_file %><br>
   <% end %>
-<% end %>
-<br>
 
-parent concepts & experiments associated with them
-<% if @parents.count > 0 %>
-  <% if @parents.count >= 1 %>
-    <% @parents.map do |parent| %>
-      <h4>To learn more about <%= parent.name %>, try these:</h4>
-      <% parent.experiments.map do |exp| %>
-        <%= link_to exp.name, experiment_path(exp) %><br>
-      <% end %>
-    <% end %>
-  <% else %>
-    <%= link_to exp.name, experiment_path(exp) %>
-  <% end %>
-<% end %>
-<br>
+
 </div>
 
 <h3 class="comment-title">We Love Feedback!</h3><br>
