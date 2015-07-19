@@ -17,11 +17,6 @@
 //= require ratyrate
 //= require jquery-ui
 
-// $('.nav-link').click(function(e){
-//     $('.nav-link').css("color", "black");
-//     $(this).css("color", "red");
-// });
-
 // navigation link - stay active
 
 
@@ -38,7 +33,7 @@ function dynamicAdder(btnSelector, listSelector) {
             material = material.replace(/\[[0-9]+\]/g, '[' + $(liSelector).length + ']')
                 .replace(/_[0-9]+_/g, '_' + $(liSelector).length + '_');
 
-            $(listSelector).append('<li>' + material + '</li>')
+            $(listSelector).append('<li>' + material + '</li>');
         })
     }
 }
@@ -54,7 +49,7 @@ $(function () {
 $(function() {
  $('#pictureInput').on('change', function(event) {
    var files = event.target.files;
-   var image = files[0]
+   var image = files[0];
    var reader = new FileReader();
    reader.onload = function(file) {
      var img = new Image();
