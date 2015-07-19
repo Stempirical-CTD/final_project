@@ -55,7 +55,7 @@ class ExperimentsController < ApplicationController
     @experiment = Experiment.new(experiment_params)
     @experiment.user_id = current_user.id
     if params[:concepts].blank?
-      flash.now[:notice] = "You must select a Concept!!"
+      flash.now[:notice] = "You must select a Concept for your Experiment."
       render :new
     elsif @experiment.save
       params[:concepts].each { |c| @experiment.concepts << Concept.find(c) }
