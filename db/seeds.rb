@@ -134,7 +134,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
         order_number: 4)
 
   experiment_six = Experiment.create!(user_id: user.id,
-    description: "Can you build a tool to pick up a sock without touching them? Sure you can!",
+    description: "Can you build a tool to pick up socks without touching them? Sure you can!",
     youtube_link: "https://www.youtube.com/watch?v=sCoqrc9LAxg", complete_time: 1,
     name: "Machanical Grabber", age:4)
 
@@ -179,16 +179,16 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
         order_number: 6)
 
   experiment_seven = Experiment.create!(user_id: user.id,
-    description: "Arrows Optical Illusion",
+    description: "Your eyes may play tricks on you in this fun experiment!",
     youtube_link: "https://www.youtube.com/watch?v=eN-DB_XuhRs", complete_time: 1,
     name: "Arrows Optical Illusion", age:3)
 
     mat_one = Material.create!(experiment_id: experiment_seven.id, item: "Pipe cleaners")
-    mat_two = Material.create!(experiment_id: experiment_seven.id, item: "scissors")
+    mat_two = Material.create!(experiment_id: experiment_seven.id, item: "Scissors")
 
     instruction_one = Instruction.create!(experiment_id: experiment_seven.id,
       information: "Take two pipe cleaners that are the same length and the same
-      color. If they aren't the same, the optical illusion won't work.", order_number: 1)
+      color. (If they aren't the same, the optical illusion won't work.)", order_number: 1)
     instruction_two = Instruction.create!(experiment_id: experiment_seven.id,
       information: "Cut in half two other pipe cleaners that are a different color.
       These will be the ends of your arrows.",
@@ -209,7 +209,8 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
         order_number: 5)
 
     experiment_eight = Experiment.create!(user_id: user.id,
-      description: "The FLoating Egg",
+      description: "An egg will sink to the bottom of a water-filled glass.  Is there a
+      way to make it float? Yes!",
       youtube_link: "https://www.youtube.com/watch?v=gfuLoaEYKis", complete_time: 1,
       name: "The FLoating Egg", age:2)
 
@@ -235,22 +236,23 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
         information: "Fill the rest of the cup with water, almost to the top.",
           order_number: 5)
       instruction_six = Instruction.create!(experiment_id: experiment_eight.id,
-        information: "Gently place the second egg into the salt water solution… it floats!",
+        information: "Gently place the second egg into the salt water solution...it floats!",
           order_number: 6)
 
 
 
 
   experiment_nine = Experiment.create!(user_id: user.id,
-    description: "Drops on a Penny",
+    description: "Did you know water is 'sticky'? Discover more about how water
+    behaves in this surprising experiment!",
     youtube_link: "https://www.youtube.com/watch?v=XQbr9Ic8_hA", complete_time: 1,
     name: "Drops on a Penny", age:3)
 
     mat_one = Material.create!(experiment_id: experiment_nine.id, item: "A Penny")
     mat_two = Material.create!(experiment_id: experiment_nine.id, item: "An eyedropper")
     mat_three = Material.create!(experiment_id: experiment_nine.id, item: "Water")
-    mat_four = Material.create!(experiment_id: experiment_nine.id, item: "mineral/baby/olive oil")
-    mat_five = Material.create!(experiment_id: experiment_nine.id, item: "corn syrup")
+    mat_four = Material.create!(experiment_id: experiment_nine.id, item: "Mineral/baby/olive oil")
+    mat_five = Material.create!(experiment_id: experiment_nine.id, item: "Corn syrup")
 
 
     instruction_one = Instruction.create!(experiment_id: experiment_nine.id,
@@ -346,17 +348,17 @@ experiment_five = Experiment.create!(user_id: user.id,
       order_number: 15)
 
   experiment_ten = Experiment.create!(user_id: user.id,
-    description: "Go up and away with this homemade hot air balloon",
+    description: "Go up and away with this homemade hot air balloon.",
     youtube_link: "https://www.youtube.com/watch?v=sMeOv_Z-_ic", complete_time: 1,
     name: "Hot Air Balloon", age:4)
 
     mat_one = Material.create!(experiment_id: experiment_ten.id, item: "Large lawn garbage bags")
-    mat_two = Material.create!(experiment_id: experiment_ten.id, item: "dry cleaning bags")
-    mat_three = Material.create!(experiment_id: experiment_ten.id, item: "straws")
-    mat_four = Material.create!(experiment_id: experiment_ten.id, item: "coat hangers")
-    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "string")
-    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "scotch tape")
-    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "hairdryer")
+    mat_two = Material.create!(experiment_id: experiment_ten.id, item: "Dry cleaning bags")
+    mat_three = Material.create!(experiment_id: experiment_ten.id, item: "Straws")
+    mat_four = Material.create!(experiment_id: experiment_ten.id, item: "Coat hangers")
+    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "String")
+    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "Scotch tape")
+    mat_five = Material.create!(experiment_id: experiment_ten.id, item: "Hairdryer")
 
 
     instruction_one = Instruction.create!(experiment_id: experiment_ten.id,
@@ -375,13 +377,13 @@ experiment_five = Experiment.create!(user_id: user.id,
         down between a cloud and the ground.",
     youtube_link: "https://www.youtube.com/watch?v=XtE0uXGMC-0", complete_time: 1, age:4)
 
-  Material.create!(experiment_id: experiment_eleven.id, item: "pencil with eraser")
-  Material.create!(experiment_id: experiment_eleven.id, item: "aluminum tray")
-  Material.create!(experiment_id: experiment_eleven.id, item: "wool cloth")
+  Material.create!(experiment_id: experiment_eleven.id, item: "Pencil with eraser")
+  Material.create!(experiment_id: experiment_eleven.id, item: "Aluminum tray")
+  Material.create!(experiment_id: experiment_eleven.id, item: "Wool cloth")
 
   Instruction.create!(experiment_id: experiment_eleven.id,
       information: "Stick a pushpin through the center of the aluminum tray
-          then stuck the pencil eraser to the pushpin.",
+          then stick the pencil eraser to the pushpin.",
       order_number: 1)
   Instruction.create!(experiment_id: experiment_eleven.id,
       information: "Vigorously rub the wool on the Styrofoam tray for two minutes.
@@ -393,7 +395,7 @@ experiment_five = Experiment.create!(user_id: user.id,
       order_number: 3)
 
   experiment_twelve = Experiment.create!(user_id: user_two.id, name: "How Plants Absorb Water",
-    description: "Used food coloring and cabbage leaves to show how
+    description: "Use food coloring and cabbage leaves to show how
     plants absorb water (and nutrients) up through their stems. You can also do this
     experiment with white flowers too!",
     youtube_link: "https://www.youtube.com/watch?v=x9ma86cASmg", complete_time: 1,
@@ -416,7 +418,7 @@ experiment_five = Experiment.create!(user_id: user.id,
       order_number: 3)
 
   experiment_thirteen = Experiment.create!(user_id: user_two.id, name: "Weather You Can See",
-    description: "When a rain cloud gets so full of water, the water will break
+    description: "When a rain cloud gets too full of water, the water will break
     through the cloud and start to fall to the ground.",
     youtube_link: "https://www.youtube.com/watch?v=pglbX1xtofE", complete_time: 1, age: 1)
 
@@ -656,47 +658,104 @@ experiment_eighteen = Experiment.create!(user_id: user.id, name: "Static Electri
 
 concept_one = Concept.create!(name: "Human Body",
 description_link: "https://faculty.washington.edu/chudler/chvision.html",
-video_link: "https://www.youtube.com/watch?v=B5LbmZG1DNM")
+video_link: "https://www.youtube.com/watch?v=B5LbmZG1DNM",
+summary: "Look at an optical illusion and you may think you're seeing things --
+such as a curved line that's actually straight, or a moving object that's standing still.
+You wonder if your eyes are playing tricks on you. It's not your eyes.
+An illusion is proof that you don't always see what you think you do -- because
+of the way your brain and your entire visual system perceive and interpret an image.
+Visual illusions occur due to properties of the visual areas of the brain as they
+receive and process information. In other words, your perception of an illusion
+has more to do with how your brain works -- and less to do with the optics of your eye.")
 
 concept_two = Concept.create!(name: "Design & Build",
 description_link: "http://whatisengineering.com/",
-video_link: "https://www.youtube.com/watch?v=NUuWXqRJmns")
+video_link: "https://www.youtube.com/watch?v=NUuWXqRJmns",
+summary: "Engineering combines the fields of science and maths to solve real world
+problems that improve the world around us. What really distinguishes an engineer
+is his ability to implement ideas in a cost effective and practical approach. This
+ability to take a thought, or abstract idea, and translate it into reality is what
+separates an engineer from other fields of science and mathematics.")
 
 concept_three = Concept.create!(name: "Plants",
 description_link: "https://en.wikipedia.org/wiki/Plant_genetics",
-video_link: "https://www.youtube.com/watch?v=zwibgNGe4aY")
+video_link: "https://www.youtube.com/watch?v=zwibgNGe4aY",
+summary: "Deoxyribonucleic acid (DNA) is a nucleic acid that contains the genetic
+instructions used in the development and functioning of all known living organisms
+and some viruses. The main role of DNA molecules is the long-term storage of
+information. DNA is often compared to a set of blueprints or a recipe, or a code,
+ since it contains the instructions needed to construct other components of cells,
+ such as proteins and RNA molecules.")
 
 concept_four = Concept.create!(name: "Molecular Behavior",
 description_link: "https://en.wikipedia.org/wiki/Brownian_motion",
-video_link: "https://www.youtube.com/watch?v=4m5JnJBq2AU")
+video_link: "https://www.youtube.com/watch?v=4m5JnJBq2AU",
+summary: "Brownian motion is the random motion of particles suspended in a fluid
+(a liquid or a gas) resulting from their collision with the quick atoms or molecules
+in the gas or liquid.")
 
 concept_five = Concept.create!(name: "Electricity",
 description_link: "http://www.sciencemadesimple.com/static.html",
-video_link: "https://www.youtube.com/watch?v=yc2-363MIQs")
+video_link: "https://www.youtube.com/watch?v=yc2-363MIQs",
+summary: "Objects are made up of atoms, with the nucleus at the center
+(composed of positive protons and neutral neutrons) and a cloud of electrons
+surrounding the nucleus. That means that the cloud of electrons sits on the
+surface of every object. When objects are rubbed against each other, some objects
+are prone to lose some electrons, while other objects are prone to gain electrons.
+This build-up of excess charge is what is called static electricity.
+The static charge build-up is temporary. The excess charge is usually lost
+through a discharge (shock), particularly when the object is near a conductor
+(like a metal doorknob)")
 
 concept_six = Concept.create!(name: "Liquids",
 description_link: "https://en.wikipedia.org/wiki/Properties_of_water",
-video_link: "https://www.youtube.com/watch?v=HVT3Y3_gHGg")
+video_link: "https://www.youtube.com/watch?v=HVT3Y3_gHGg",
+summary: "A liquid is one of the states of matter. The particles in a liquid are 
+free to flow, so while a liquid has a definite volume, it does not have a definite shape")
 
 concept_seven = Concept.create!(name: "Gases",
 description_link: "https://en.wikipedia.org/wiki/Gas",
-video_link: "https://www.youtube.com/watch?v=GIPrsWuSkQc")
+video_link: "https://www.youtube.com/watch?v=GIPrsWuSkQc",
+summary: "Gases are everywhere. You may have heard about the atmosphere.
+The atmosphere is an envelope of gases that surrounds the Earth. In solids,
+atoms and molecules are compact and close together. Liquids have atoms that are
+ spread out a little more. The molecules in gases are really spread out, full of energy,
+ and constantly moving around in random ways.")
 
 concept_eight = Concept.create!(name: "Water Cycle",
 description_link: "https://simple.wikipedia.org/wiki/Water_cycle",
-video_link: "https://www.youtube.com/watch?v=al-do-HGuIk")
+video_link: "https://www.youtube.com/watch?v=al-do-HGuIk",
+summary: "The water cycle is the cycle that water goes through on Earth.
+It makes the rain, clouds, and most of our weather. Water is essential for life
+as we know it. It is present throughout the solar system, and was part of the Earth
+from its formation.")
 
 concept_nine = Concept.create!(name: "Chemical Reactions",
 description_link: "https://en.wikipedia.org/wiki/Chemical_reaction",
-video_link: "http://chemistry.about.com/od/chemicalreactions/a/reactiontypes.htm")
+video_link: "http://chemistry.about.com/od/chemicalreactions/a/reactiontypes.htm",
+summary: "A chemical reaction is a process in which atoms of the same or different
+elements rearrange themselves to form a new substance. While they do so,
+they either absorb heat or give it off.")
 
 concept_ten = Concept.create!(name: "Energy",
 description_link:"https://en.wikipedia.org/wiki/Solar_energy",
-video_link: "https://www.youtube.com/watch?v=GqtUWyDR1fg")
+video_link: "https://www.youtube.com/watch?v=GqtUWyDR1fg",
+summary: "Energy is the ability to do work, and 'solar' is a Latin word for the sun.
+So, we can define solar energy as energy obtained from the sun. We can put this
+energy to work for us in many ways, from heating water and living spaces within
+our homes to generating electrical energy. Solar energy is a type of radiant energy,
+so named for the vibrating particles 'radiating' from the sun that we talked about earlier.
+ Solar energy is sometimes called solar radiation for this reason.")
 
 concept_eleven = Concept.create!(name: "Periodic Table",
 description_link: "http://www.ehow.com/about_5133409_do-pennies-corrode.html",
-video_link: "https://www.youtube.com/watch?v=uPkEGAHo78o")
+video_link: "https://www.youtube.com/watch?v=uPkEGAHo78o",
+summary: "The periodic table is organized like a big grid. Each element is placed
+in a specific location because of its atomic structure. As with any grid, the periodic
+table has rows (left to right) and columns (up and down). Each row and column has
+specific characteristics. For example, beryllium (Be) and magnesium (Mg) are found
+in column two and share certain similarities while potassium (K) and calcium (Ca)
+from row four share different characteristics.")
 
 #Human Body Relationships
 ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_three.id)
