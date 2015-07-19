@@ -20,7 +20,7 @@
   right: 0;
   z-index: -1;
 }
-  
+
 /*hero text*/
 
 .landing-intro {
@@ -48,7 +48,7 @@
 
 .landing-search {
   margin: 1em auto;
-  width: 30em;  
+  width: 30em;
   position: relative;
 }
 
