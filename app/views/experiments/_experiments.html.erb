@@ -5,7 +5,10 @@
 <% end %>
 
 
+
 <div class="index-wrapper">
+
+
 <% @experiments.each do |experiment| %>
 
     <div class="index-experiment-card">
@@ -15,7 +18,7 @@
              <i class="fa fa-thumbs-up index-likes"> <%= pluralize experiment.votes, "like" %></i>
           </span>
         </a>
- 
+
         <div class="index-info">
               <div class="index-exp-ratings">
                   <span class="ratings-container">

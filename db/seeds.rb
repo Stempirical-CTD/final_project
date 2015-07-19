@@ -705,12 +705,12 @@ are prone to lose some electrons, while other objects are prone to gain electron
 This build-up of excess charge is what is called static electricity.
 The static charge build-up is temporary. The excess charge is usually lost
 through a discharge (shock), particularly when the object is near a conductor
-(like a metal doorknob)")
+(like a metal doorknob).")
 
 concept_six = Concept.create!(name: "Liquids",
 description_link: "https://en.wikipedia.org/wiki/Properties_of_water",
 video_link: "https://www.youtube.com/watch?v=HVT3Y3_gHGg",
-summary: "A liquid is one of the states of matter. The particles in a liquid are 
+summary: "A liquid is one of the states of matter. The particles in a liquid are
 free to flow, so while a liquid has a definite volume, it does not have a definite shape")
 
 concept_seven = Concept.create!(name: "Gases",

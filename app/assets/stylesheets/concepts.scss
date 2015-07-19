@@ -114,19 +114,7 @@
   border-top-color: #f9f9f9;
   border-width: 15px;
 }
-// .down:after {
-// 	content: '';
-// 	display: block;
-// 	position: absolute;
-// 	left: 80px;
-// 	top: 100%;
-// 	width: 0;
-// 	height: 0;
-// 	border-top: 15px solid #a6a6a6;
-// 	border-right: 20px solid transparent;
-// 	border-bottom: 0 solid transparent;
-// 	border-left: 20px solid transparent;
-// }
+
 .card {
   border: 1px solid;
   border-radius: 5px;
@@ -162,6 +150,7 @@
   position: relative;
   // left: 10em;
 }
+
 .three {
   margin-left: 2px;
 }

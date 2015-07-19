@@ -17,11 +17,6 @@
 //= require ratyrate
 //= require jquery-ui
 
-// $('.nav-link').click(function(e){
-//     $('.nav-link').css("color", "black");
-//     $(this).css("color", "red");
-// });
-
 // navigation link - stay active
 
 
@@ -38,7 +33,7 @@ function dynamicAdder(btnSelector, listSelector) {
             material = material.replace(/\[[0-9]+\]/g, '[' + $(liSelector).length + ']')
                 .replace(/_[0-9]+_/g, '_' + $(liSelector).length + '_');
 
-            $(listSelector).append('<li>' + material + '</li>')
+            $(listSelector).append('<li>' + material + '</li>');
         })
     }
 }
@@ -54,7 +49,7 @@ $(function () {
 $(function() {
  $('#pictureInput').on('change', function(event) {
    var files = event.target.files;
-   var image = files[0]
+   var image = files[0];
    var reader = new FileReader();
    reader.onload = function(file) {
      var img = new Image();
@@ -68,6 +63,22 @@ $(function() {
 });
 
 // drop down order function
+// $(function() {
+//   $('.order').change(function(){
+//     var selectValue = $(this).val();
+//     if (selectValue === "1") {
+//     var queryValue = $('#query').val();
+//     $.ajax({ url: '/experiments/age_ordered',
+//              data: {selectValue, queryValue}
+//     });
+//     } else {
+//       var queryValue = $('#query').val();
+//       $.ajax({ url: '/experiments/time_ordered',
+//                data: {selectValue, queryValue}
+//       });
+//     }
+//   });
+// });
 
 $(function() {
   $('.order').change(function(){

@@ -1,6 +1,10 @@
 <div class="index-wrapper">
 
-<% experiments.order(:age).each do |experiment| %>
+<div class="pages">
+<%= paginate @paginatable_array %>
+</div>
+
+<% @paginatable_array.sort_by(&:age).each do |experiment| %>
 
     <div class="index-experiment-card">
         <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')">
