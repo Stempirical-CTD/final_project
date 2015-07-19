@@ -1,5 +1,5 @@
 <% if params[:selectValue] == "1" %>
-  $(".index-wrapper").replaceWith("<%= j(render partial:  'experiments/age_ordered', locals: { paginatable_array: @paginatable_array }) %>");
+  $(".index-wrapper").replaceWith("<%= j(render partial:  'experiments/age_ordered', locals: { experiments: @experiments }) %>");
 <% elsif params[:selectValue] == "2" %>
-  $(".index-wrapper").replaceWith("<%= j(render partial:  'experiments/time_ordered', locals: { paginatable_array: @paginatable_array }) %>");
+  $(".index-wrapper").replaceWith("<%= j(render partial:  'experiments/time_ordered', locals: { experiments: @experiments }) %>");
 <% end %>
