@@ -2,6 +2,62 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* from Show Page - edit for this */
+
+.cover {
+  position: relative;
+}
+
+.new-exp-image { /*replicate to edit page*/
+	position: absolute;
+	width: 100%;
+	background-size: cover;
+	height: 60vh;
+	margin-top: -7em;
+  opacity: 0.6;
+  top: 0;
+  bottom: 0;
+  left: 0;
+ 	right: 0;
+  z-index: -1;
+}
+
+.largest-new-container {
+	margin: 6em auto;
+	position: relative;
+	z-index: 0;
+}
+
+.new-container {
+	width: 60%;
+	height: auto;
+	overflow: hidden;
+	margin: 0 auto;
+	background-color: #F9F9F9;
+	border-right: 1px solid #D6D6D6;
+	border-bottom: 1px solid #D6D6D6;
+	border-left: 1px solid #D6D6D6;
+	z-index: 1;
+}
+
+.new-exp-title-bar {
+	position: relative;
+	background-color: rgba(60, 63, 64, 0.8);
+	width: 60%;
+	padding: 1em 0;
+	margin: 0 auto;
+}
+
+.new-exp-title {
+	text-align: center;
+	color: #FFF;
+	text-transform: uppercase;
+}
+
+
+////
+
+
 label {
   display: inline-block;
   margin: 0.5em 0;
@@ -10,10 +66,15 @@ label {
 
 .form-container {
 	padding: 2em 2.5em;
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
   overflow: hidden;
   height: auto;
+}
+
+.required {
+  float: right;
+  font-size: 0.6em;
 }
 
 .new-basics, .new-media {
@@ -31,7 +92,7 @@ textarea {
   margin-bottom: 0.5em;
 }
 
-// media 
+// media
 
 #target img {
   max-height: 15em;
@@ -97,7 +158,7 @@ textarea {
    // margin: 0 0 1.5em 0;
    outline-color: #DFF5D1;
    background-color: #FFF;
-}   
+}
 
 .new-mess {
    border-bottom: 0.1em solid #D6D6D6;
@@ -105,9 +166,17 @@ textarea {
 }
 
 .concept-section {
-    display: block;
-    width: 45%;
-    height: 5%;
+   display: block;
+   width: 65%;
+   height: 14em;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
+.single-concept {
+  width: 45%;
 }
 
 .new-exp-concept {
@@ -119,7 +188,7 @@ textarea {
   padding: 0.3em;
 }
 
-// add material 
+// add material
 
 .unordered-list-materials label, .unordered-list-instructions label {
   display: block;
@@ -150,7 +219,7 @@ textarea {
     margin: 0;
     padding: 0.5em;
     transition: background 0.3s ease-in-out 0s;
-    line-height: 1.5em; 
+    line-height: 1.5em;
 }
 
 .instruction-order {
@@ -167,8 +236,36 @@ textarea {
   outline-color: #DFF5D1;
   font-size: 0.9em;
   font-weight: bold;
-  font-family: 'Raleway', sans-serif; 
+  font-family: 'Raleway', sans-serif;
   width: 12em;
+}
+
+.delete-material-btn, .delete-instruction-btn {
+  display: block;
+  margin: 0.5em 0 -0.5em;
+  padding: 0.5em 0;
+  background-color: #229805;
+  color: white;
+  border: 0.1em solid #D6D6D6;
+  outline-color: #DFF5D1;
+  font-size: 0.9em;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+  width: 12em;
+}
+
+.delete-material-btn, .delete-instruction-btn {
+  display: block;
+  margin: 0.5em 0 -0.5em;
+  padding: 0.3em 0;
+  background-color: #229805;
+  color: white;
+  border: 0.1em solid #D6D6D6;
+  outline-color: #DFF5D1;
+  font-size: 1.1em;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif; 
+  width: 2em;
 }
 
 .new-exp-btn {
@@ -186,5 +283,9 @@ textarea {
   font-size: 1.2em;
   outline-color: #DFF5D1;
   padding: 0.5em 0.75em;
-  margin-top: 0.75em;
+  margin: 0.75em 0 0 -0.4em;
+}
+
+.new-exp-btn input:hover {
+  background-color: #323232;
 }

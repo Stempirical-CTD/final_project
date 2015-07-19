@@ -1,7 +1,14 @@
-<strong>Comment(s):</strong><br>
-<div id="all-comments">
+<div id="comment-box">
 <% commentable.comments.each do |comment| %>
-  Said by:<%= User.find_by_id(comment.user_id).username %>
-  <%= comment.body %><br>
+  <% if !comment.body.blank? %>
+  <div class="comment-user">
+    <%= User.find_by_id(comment.user_id).username %>
+    <%= distance_of_time_in_words(comment.created_at, Time.now) %>
+  </div>
+  <%= comment.body %>
+  <%= link_to '<i class="fa fa-pencil" title="Edit"></i>'.html_safe,
+      edit_experiment_comment_path(comment, experiment_id: commentable.id) %><br>
+  <% end %>
+  <br>
 <% end %>
 </div>

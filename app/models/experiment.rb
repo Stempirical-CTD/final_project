@@ -9,17 +9,24 @@ class Experiment < ActiveRecord::Base
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
   validates_attachment_content_type :uploaded_file, :content_type => ['image/jpeg', 'image/png', 'image/pdf']
-  has_many :comments, as: :commentable
   # validates :uploaded_file, presence: true
+
+  has_many :comments, as: :commentable
+  
+
 
   has_many :experiment_votes
   accepts_nested_attributes_for :experiment_votes
 
   has_many :materials, dependent: :destroy
-  accepts_nested_attributes_for :materials
+  accepts_nested_attributes_for :materials,
+      reject_if: :all_blank,
+      allow_destroy: true
 
   has_many :instructions, dependent: :destroy
-  accepts_nested_attributes_for :instructions
+  accepts_nested_attributes_for :instructions,
+      reject_if: :all_blank,
+      allow_destroy: true
 
   validates :description, :complete_time, :name, presence: true
   validates_format_of :youtube_link,

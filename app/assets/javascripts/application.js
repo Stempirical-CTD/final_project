@@ -68,6 +68,7 @@ $(function() {
 });
 
 // drop down order function
+
 $(function() {
   $('.order').change(function(){
     var selectValue = $(this).val();
@@ -79,15 +80,26 @@ $(function() {
 });
 
 // hide comment form on page load
+
 $(function() {
   $('#new_comment').hide();
 });
 
 // show comment on button click
+
 $(function() {
-  $('.add-comment-btn').on('click', function(){
-    // $('#new-comment').fadeIn("slow");
+  $('#add-comment-btn').on('click', function(){
     $('#new_comment').show();
-    $('.add-comment-btn').hide();
+    $('#add-comment-btn').hide();
   });
+});
+
+// // remove material field on delete button click
+
+$(document).on('click', '.delete-material-btn', function(){
+  $(this).closest("li").remove();
+});
+
+$(document).on('click', '.delete-instruction-btn', function(){
+  $(this).closest("li").remove();
 });

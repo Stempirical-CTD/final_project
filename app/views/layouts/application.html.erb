@@ -22,19 +22,10 @@
   <div class="search">
     <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
     <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "exp-search" %>
-      <button class="fa fa-search"></button>
+      <button class="fa fa-search nav-fa-search"></button>
     <% end %>
   </div>
-
-  <div class="user-status">
-    <% if user_signed_in? %>
-      <%= link_to current_user.username, edit_user_registration_path %>
-    <% else %>
-      <%= link_to 'Login', new_user_session_path %>
-    <% end %>
-  </div>
-
-  <!-- Tabs -->
+  
   <div class="nav-links">
     <div class="nav-link <%= 'active' if current_page?(concept_tree_concepts_path) %>"><%= link_to "Concept Tree", concept_tree_concepts_path %></div>
     <div class="nav-link <%= 'active' if current_page?(experiments_path) %>"><%= link_to "All Experiments", experiments_path %></div>
@@ -43,7 +34,7 @@
       <% if user_signed_in? %>
         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       <% else %>
-        <%= link_to 'Sign Up', new_user_registration_path %>
+        <%= link_to 'Login', new_user_session_path %> | <%= link_to 'Sign Up', new_user_registration_path %>
       <% end %>
     </div>
   </div>
