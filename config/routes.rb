@@ -21,9 +21,8 @@ Rails.application.routes.draw do
     resources :comments, module: :experiments
     collection do
       get 'order_experiments'
-      get 'mess_ratings'
-      get 'complete_time_rating'
-      get 'ages'
+      get 'age_ordered'
+      get 'time_ordered'
       get 'landing_page'
     end
     member { post :vote }

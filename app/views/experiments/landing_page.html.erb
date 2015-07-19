@@ -15,10 +15,56 @@
 </div>
     <div class="initial-suggested">
         <div class="suggested-container">
-          <span class="suggested"><img src="/assets/discovery.jpg"></span>
-          <span class="suggested"><img src="/assets/discovery.jpg"></span>
-          <span class="suggested"><img src="/assets/discovery.jpg"></span>
-          <span class="suggested"><img src="/assets/discovery.jpg"></span>
+          <span class="suggested">
+            <% human_experiment = @concepts.find_by_name("Human Body").experiments.sample %>
+            <%= human_experiment.name %>
+            <%= image_tag "#{human_experiment.name}.png" %>
+            <i class="fa fa-thumbs-up index-likes"> <%= pluralize human_experiment.votes, "like" %></i>
+            <% human_body = @concepts.find_by_name("Human Body") %>
+            <%= link_to human_body.name, concept_path(human_body) %>
+            <%= image_tag "#{human_body.name}.png", class: "concept-img-small" %>
+            <%= image_tag "time.png", class: "icon-small" %>
+            <%= human_experiment.complete_time %> hour(s)
+            <%= image_tag "age.png", class: "icon-small" %><br>
+            Ages <%= human_experiment.return_age %>
+          </span>
+          <span class="suggested">
+            <% plant_experiment = @concepts.find_by_name("Plants").experiments.sample %>
+            <%= plant_experiment.name %>
+            <%= image_tag "#{plant_experiment.name}.png" %>
+            <i class="fa fa-thumbs-up index-likes"> <%= pluralize plant_experiment.votes, "like" %></i>
+            <% plant_concept = @concepts.find_by_name("Plants") %>
+            <%= link_to plant_concept.name, concept_path(plant_concept) %>
+            <%= image_tag "#{plant_concept.name}.png", class: "concept-img-small" %>
+            <%= image_tag "time.png", class: "icon-small" %>
+            <%= plant_experiment.complete_time %> hour(s)
+            <%= image_tag "age.png", class: "icon-small" %><br>
+            Ages <%= plant_experiment.return_age %>
+          </span>
+          <span class="suggested">
+            <% molecular_behavior_experiment = @concepts.find_by_name("Molecular Behavior").experiments.sample %>
+            <%= molecular_behavior_experiment.name %>
+            <%= image_tag "#{molecular_behavior_experiment.name}.png" %>
+            <i class="fa fa-thumbs-up index-likes"> <%= pluralize molecular_behavior_experiment.votes, "like" %></i>
+            <% molecular_behavior_concept = @concepts.find_by_name("Molecular Behavior") %>
+            <%= link_to molecular_behavior_concept.name, concept_path(molecular_behavior_concept) %>
+            <%= image_tag "#{molecular_behavior_concept.name}.png", class: "concept-img-small" %>
+            <%= image_tag "time.png", class: "icon-small" %>
+            <%= molecular_behavior_experiment.complete_time %> hour(s)
+            <%= image_tag "age.png", class: "icon-small" %><br>
+            Ages <%= molecular_behavior_experiment.return_age %>
+          </span>
+          <span class="suggested">
+            <%= @top_experiment.name %>
+            <%= image_tag "#{@top_experiment.name}.png" %>
+            <i class="fa fa-thumbs-up index-likes"> <%= pluralize @top_experiment.votes, "like" %></i>
+            <% top_experiment_concept = @top_experiment.concepts.sample %>
+            <%= link_to top_experiment_concept.name, concept_path(top_experiment_concept) %>
+            <%= image_tag "#{top_experiment_concept.name}.png", class: "concept-img-small" %>
+            <%= image_tag "time.png", class: "icon-small" %>
+            <%= @top_experiment.complete_time %> hour(s)
+            <%= image_tag "age.png", class: "icon-small" %><br>
+            Ages <%= @top_experiment.return_age %>
+          </span>
         </div>
     </div>
-

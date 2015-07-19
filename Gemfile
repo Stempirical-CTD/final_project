@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.2'
 gem 'jquery-ui-rails'
 gem 'paperclip'
 gem 'aws-sdk', '~> 1.6'
 gem 'ratyrate'
 gem 'devise'
+gem 'kaminari'
 gem 'rails-footnotes', '~> 4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

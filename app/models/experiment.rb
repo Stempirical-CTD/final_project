@@ -12,7 +12,7 @@ class Experiment < ActiveRecord::Base
   # validates :uploaded_file, presence: true
 
   has_many :comments, as: :commentable
-  
+
 
 
   has_many :experiment_votes
@@ -101,5 +101,5 @@ class Experiment < ActiveRecord::Base
   def find_concept
     self.concepts.sample
   end
-  
+
 end
