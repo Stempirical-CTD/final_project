@@ -74,11 +74,15 @@ a {
   color: #323232;
 }
 
+button:hover {
+  background-color: #323232;
+  color: #F2F3F4;
+}
+
 .main-content {
   clear: both;
   display: block;
-  position: relative;
-  padding-top: 6em;
+  margin-top: 0.75em;
 }
 
 /*navigation bar*/
@@ -97,13 +101,8 @@ a {
 
 .nav-links {
   margin-top: 1.2%;
-<<<<<<< HEAD
-  width: 50%;
-  float: right;
-=======
   margin-right: 1em;
   float: right;
->>>>>>> d48a986e889959c5ef056b6ed166a2f40bbcf8e2
 }
 
 .nav-link {
@@ -137,8 +136,12 @@ div.active {
   float: left;
   padding: 0.4em 0 0 1em;
   font-family: 'Chelsea Market', sans-serif;
-  color: #229805;
+  color: #323232;
   z-index: 20;
+}
+
+.logo:hover {
+  color: #229805;
 }
 
 #order {
@@ -146,18 +149,23 @@ div.active {
   border: 1px;
   font-size: 1em;
   font-family: 'Raleway', sans-serif;
-  outline: none;
+  outline-color: #DFF5D1;
+  float: right;
+  margin-right: 10em;
+  /*line-height: 1.1em;*/
+  /*position: relative;*/
+  z-index: 10;
 }
 
 .sort {
-   border: 0.1em solid #D6D6D6;
-   padding: 0.1em;
-   margin-right: 0.5em;
-   outline-color: #DFF5D1;
-   position: relative;
-   top: 20%;
-   height: 1.5em;
-   z-index: -1;
+  /*border: 0.1em solid #D6D6D6;
+  padding: 0.1em;
+  outline-color: #DFF5D1;*/
+  
+  /*line-height: 2em;
+  z-index: 1;
+  display: inline;
+  position: absolute;*/
 }
 
 .search {
@@ -183,7 +191,7 @@ div.active {
   outline-color: #DFF5D1;
 }
 
-.fa-search {
+.nav-fa-search {
   position: absolute;
   padding: 0.35em;
   background-color: #229805;
