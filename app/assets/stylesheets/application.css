@@ -152,21 +152,12 @@ div.active {
   outline-color: #DFF5D1;
   float: right;
   margin-right: 10em;
-  /*line-height: 1.1em;*/
-  /*position: relative;*/
+  line-height: 1.1em;
+  position: relative;
   z-index: 10;
 }
 
-.sort {
-  /*border: 0.1em solid #D6D6D6;
-  padding: 0.1em;
-  outline-color: #DFF5D1;*/
-  
-  /*line-height: 2em;
-  z-index: 1;
-  display: inline;
-  position: absolute;*/
-}
+
 
 .search {
   float: left;

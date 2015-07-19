@@ -1,5 +1,5 @@
 class ExperimentsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show, :vote, :landing_page]
+  before_filter :authenticate_user!, except: [:index, :show, :vote, :landing_page, :order_experiments]
   before_action :set_experiment, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /experiments
@@ -9,7 +9,7 @@ class ExperimentsController < ApplicationController
 
   def index
     if params[:query]
-      @experiments = Experiment.text_search(params[:query])#, params[:organize])
+      @experiments = Experiment.text_search(params[:query])
       if @experiments.length == 0
         flash.now[:notice] = "No items found"
       end
@@ -27,7 +27,13 @@ class ExperimentsController < ApplicationController
   def show
     @parents = @experiment.concept_parents
     @children = @experiment.concept_children
+    @concept = @experiment.find_concept
     @comment = Comment.new
+    if Experiment.by_votes[0] != @experiment
+      @top_experiment = Experiment.by_votes[0]
+    else
+      @top_experiment = Experiment.by_votes[1]
+    end
   end
 
   # GET /experiments/new

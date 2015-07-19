@@ -98,4 +98,8 @@ class Experiment < ActiveRecord::Base
     array.uniq
   end
 
+  def find_concept
+    self.concepts.sample
+  end
+  
 end
