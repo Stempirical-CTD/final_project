@@ -263,47 +263,6 @@
   </div>
 </div>
 
-<hr>
-<!-- <div class="recommended">
-  <% @concept = @experiment.concepts.sample %>
-  <% if @experiment.concepts.count == 1 && @concept.experiments.count == 1 %>
-    Finds the top rated experiment<br>
-    <% top_experiment_concept = @top_experiment.concepts.sample %>
-    <%= image_tag "#{top_experiment_concept.name}.png", class: "icon-small" %><br>
-    <%= link_to @top_experiment.name, experiment_path(@top_experiment) %><br>
-    <%= image_tag @top_experiment.uploaded_file %><br>
-  <% elsif @concept.experiments.where.not(name: @experiment.name).blank? %>
-    <% concept = @experiment.concepts.where.not(name: @concept.name).sample %>
-    Finds a random experiment under the experiment's related concepts<br>
-    <% exp = concept.experiments.where.not(name: @experiment.name).sample %>
-    <%= image_tag "#{concept.name}.png", class: "icon-small"%>
-    <%= link_to exp.name, experiment_path(exp) %><br>
-    <%= image_tag exp.uploaded_file %><br>
-  <% else %>
-    Finds a random experiment under the experiment's related concepts<br>
-    <% exp = @concept.experiments.where.not(name: @experiment.name).sample %>
-    <%= image_tag "#{@concept.name}.png", class: "concept-img-small"%>
-    <%= link_to exp.name, experiment_path(exp) %><br>
-    <%= image_tag exp.uploaded_file %><br>
-  <% end %>
-
-  <% if @concept.children.count > 0 %>
-  Find a random experiment under the child concept<br>
-    <% random_child = @concept.children.sample %>
-    <% random_child_experiment = random_child.experiments.sample %>
-    <%= link_to random_child_experiment.name, experiment_path(random_child_experiment) %><br>
-    <%= image_tag "#{random_child.name}.png", class: "icon-small" %><br>
-    <%= image_tag random_child_experiment.uploaded_file %><br>
-  <% else %>
-    Finds a random parent experiment bc there are no children<br>
-    <% random_parent = @concept.parents.sample %>
-    <% random_parent_experiment = random_parent.experiments.sample %>
-    <%= link_to random_parent_experiment.name, experiment_path(random_parent) %><br>
-    <%= image_tag "#{random_parent.name}.png", class: "icon-small" %><br>
-    <%= image_tag random_parent_experiment.uploaded_file %><br>
-  <% end %>
-</div> -->
-
 <h3 class="comment-title">We Love Feedback!</h3><br>
 <div class="comments">
   All Comments (<%= @experiment.comments.count %>)
