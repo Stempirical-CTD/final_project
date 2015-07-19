@@ -34,7 +34,6 @@ class InstructionsController < ApplicationController
       else
         render :new
       end
-    end
   end
 
   # PATCH/PUT /instructions/1
