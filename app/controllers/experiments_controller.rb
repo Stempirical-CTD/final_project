@@ -9,12 +9,14 @@ class ExperimentsController < ApplicationController
 
   def index
     if params[:query]
-      @experiments = Experiment.text_search(params[:query])
+      @experiments = Experiment.text_search(params[:query]).page(params[:action])
+      @paginatable_array = Kaminari.paginate_array(@experiments).page(params[:page]).per(6)
       if @experiments.length == 0
         flash.now[:notice] = "No items found"
       end
     else
       @experiments = Experiment.all.by_votes
+      @paginatable_array = Kaminari.paginate_array(@experiments).page(params[:page]).per(6)
     end
   end
 

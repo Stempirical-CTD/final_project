@@ -4,15 +4,16 @@
   <h1 class="index-title">All Experiments</h1>
 <% end %>
 
+<%= paginate @paginatable_array %>
 
 <div class="index-wrapper">
-<% @experiments.each do |experiment| %>
+<% @paginatable_array.each do |experiment| %>
 
     <div class="index-experiment-card">
         <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')">
-          <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= experiment.name %></h3> 
+          <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= experiment.name %></h3>
 
-             <i class="fa fa-thumbs-up index-likes"> <%= pluralize experiment.votes, "like" %></i>    
+             <i class="fa fa-thumbs-up index-likes"> <%= pluralize experiment.votes, "like" %></i>
           </span>
         </a>
 
