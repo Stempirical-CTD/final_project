@@ -12,8 +12,12 @@
   <% end %>
 
 <div class="cover">
-  <div class="new-exp-image" style="background-image: url(/assets/discovery-form.jpg)">
-  </div>
+  <% if @experiment.uploaded_file.blank? %>
+    <div class="show-exp-image" style="background-image: url(<%= image_path "discovery-form.jpg" %>)"></div>
+  <% else %>
+    <div class="show-exp-image" style="background-image: url(<%= image_path @experiment.uploaded_file %>)">
+    </div>
+  <% end %>
 </div>
 
 <div class="largest-new-container">

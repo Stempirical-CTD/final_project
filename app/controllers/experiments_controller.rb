@@ -5,6 +5,8 @@ class ExperimentsController < ApplicationController
   # GET /experiments
   # GET /experiments.json
   def landing_page
+    @concepts = Concept.all
+    @top_experiment = Experiment.all.by_votes.first
   end
 
   def index
