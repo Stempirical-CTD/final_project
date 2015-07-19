@@ -12,7 +12,7 @@ class Experiment < ActiveRecord::Base
   # validates :uploaded_file, presence: true
 
   has_many :comments, as: :commentable
-  
+
 
 
   has_many :experiment_votes
@@ -20,12 +20,12 @@ class Experiment < ActiveRecord::Base
 
   has_many :materials, dependent: :destroy
   accepts_nested_attributes_for :materials,
-      reject_if: :all_blank,
+      # reject_if: :all_blank,
       allow_destroy: true
 
   has_many :instructions, dependent: :destroy
   accepts_nested_attributes_for :instructions,
-      reject_if: :all_blank,
+      # reject_if: :all_blank,
       allow_destroy: true
 
   validates :description, :complete_time, :name, presence: true
@@ -101,5 +101,5 @@ class Experiment < ActiveRecord::Base
   def find_concept
     self.concepts.sample
   end
-  
+
 end
