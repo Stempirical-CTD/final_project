@@ -7,23 +7,23 @@
 	height: 0.9em;
 }
 
-.show-exp-image { /*replicate to edit page*/
+.show-exp-image {
 	position: absolute;
 	width: 100%;
 	background-size: cover;
 	height: 80vh;
 	margin-top: -14.5em;
-  	opacity: 0.6;
-  	position: absolute;
-  	top: 0;
-  	bottom: 0;
-  	left: 0;
- 	right: 0;
-  	z-index: -1;
+	opacity: 0.6;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
 }
 
 .largest-show-container {
-	margin: 6em auto;
+	margin: 10em auto 1em;
 	position: relative;
 	z-index: 0;
 }
@@ -55,7 +55,7 @@
 }
 
 .show-ratings {
-	width: 70%;
+	width: 80%;
 	margin: 0.5em auto;
 	font-size: 0.85em;
 }
@@ -141,20 +141,43 @@
 
 // further steps
 
-.recommended, .extended-learning {
-	position: relative;
-	width: 80%;
-	padding-top: 1em;
-	margin: 2em auto;
-	// margin: 0 auto;
+// .recommended, .extended-learning {
+// 	position: relative;
+// 	width: 80%;
+// 	padding-top: 1em;
+// 	margin: 2em auto;
+// 	// margin: 0 auto;
+// }
+
+// .recommended {
+// 	border-top: solid 2px #D6D6D6;
+// }
+// .extended-learning {
+// 	border-bottom: solid 2px #D6D6D6;
+// }
+
+.show-next-steps {
+  width: 100%;
+  height: 21em;
+  background-color: #F9F9F9;
+  border: 1px solid #D6D6D6;
+  clear: both;
+  margin: 2em auto;
 }
 
-.recommended {
-	border-top: solid 2px #D6D6D6;
+.next-steps-container {
+	width: 80%;
+  margin: 1% auto;
 }
-.extended-learning {
-	border-bottom: solid 2px #D6D6D6;
+
+.show-recommended img, .show-extended-learning img {
+	width: 45%;
+  height: 19em;
+  margin: 0.1% 1%;
+  border: 1px solid #D6D6D6;
 }
+
+//comments
 
 add-comment-container {
 	width: 50%;

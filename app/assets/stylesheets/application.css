@@ -82,7 +82,7 @@ button:hover {
 .main-content {
   clear: both;
   display: block;
-  margin-top: 0.75em;
+  margin: 4.5em auto;
 }
 
 /*navigation bar*/
@@ -145,19 +145,26 @@ div.active {
 }
 
 #order {
-	/*visibility: hidden;*/
-  border: 1px;
+  /*display: inline;*/
+  margin-right: 10em;
+  float: right;
+  border: 0;
+  outline-color: #DFF5D1;
+  padding: 0.9em;
   font-size: 1em;
   font-family: 'Raleway', sans-serif;
-  outline-color: #DFF5D1;
-  float: right;
-  margin-right: 10em;
-  line-height: 1.1em;
+  line-height: 1.5em;
+  background-color: #FFF;
   position: relative;
-  /*z-index: 10;*/
+  /*z-index: 100;*/
 }
 
-
+/*.sort {
+   border: 0.1em solid #D6D6D6;
+   padding: 0.4em 0;
+   outline-color: #DFF5D1;
+   background-color: #FFF;
+}*/
 
 .search {
   float: left;
@@ -197,9 +204,11 @@ div.active {
 /* errors & notices */
 
 .messages {
-  display: block;
-  position: absolute;
-  top: 4.5em;
-  left: 2em;
-  margin: 0 auto;
+  display: inline;
+  padding-top: 4.5em;
+  margin: 4.5em auto 0;
+  z-index: 5;
+  color: #229805;
+  font-weight: bold;
+  position: relative;
 }

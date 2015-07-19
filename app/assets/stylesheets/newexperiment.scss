@@ -23,7 +23,7 @@
 }
 
 .largest-new-container {
-	margin: 6em auto;
+	margin: 10em auto;
 	position: relative;
 	z-index: 0;
 }
@@ -227,7 +227,7 @@ textarea {
 }
 
 .add-material-btn, .add-instruction-btn {
-  display: block;
+  display: inline-block;
   margin: 0.5em 0 -0.5em;
   padding: 0.5em 0;
   background-color: #229805;
@@ -241,21 +241,7 @@ textarea {
 }
 
 .delete-material-btn, .delete-instruction-btn {
-  display: block;
-  margin: 0.5em 0 -0.5em;
-  padding: 0.5em 0;
-  background-color: #229805;
-  color: white;
-  border: 0.1em solid #D6D6D6;
-  outline-color: #DFF5D1;
-  font-size: 0.9em;
-  font-weight: bold;
-  font-family: 'Raleway', sans-serif;
-  width: 12em;
-}
-
-.delete-material-btn, .delete-instruction-btn {
-  display: block;
+  display: inline-block;
   margin: 0.5em 0 -0.5em;
   padding: 0.3em 0;
   background-color: #229805;
@@ -264,7 +250,7 @@ textarea {
   outline-color: #DFF5D1;
   font-size: 1.1em;
   font-weight: bold;
-  font-family: 'Raleway', sans-serif; 
+  font-family: 'Raleway', sans-serif;
   width: 2em;
 }
 
