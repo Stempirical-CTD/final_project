@@ -30,9 +30,9 @@ class InstructionsController < ApplicationController
     @instruction = Instruction.new(instruction_params)
     @instruction.experiment_id = @experiment.id
       if @instruction.save
-        redirect_to @instruction, notice: 'Instruction was successfully created.' }
+        redirect_to @instruction, notice: 'Instruction was successfully created.'
       else
-        render :new }
+        render :new
       end
     end
   end
