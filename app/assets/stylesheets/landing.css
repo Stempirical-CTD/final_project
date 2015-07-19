@@ -7,7 +7,7 @@
 }
 
 #bg {
-  background-image: image-url(<%= asset_path 'discovery-crop.png' %>);
+  background-image: image-url('discovery-crop.png');
 	width: 100%;
 	background-size: cover;
 	height: 102vh;
