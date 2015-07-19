@@ -1,4 +1,4 @@
-#login-bg {
+#login-bg, #signup-bg {
   background-image: url(/assets/discovery-crop.jpg);
 	width: 100%;
 	background-size: cover;
@@ -15,12 +15,20 @@
 
 .login-container {
   width: 20%;
-  margin: 15% auto 10%;
+  margin: -2em auto 0;
   background-color: #F9F9F9;
   z-index: 1;
 }
 
-.login-title-bar {
+.signup-container {
+  width: 22%;
+  margin: -2em auto;
+  background-color: #F9F9F9;
+  z-index: 1;
+  height: auto;
+}
+
+.login-title-bar, .signup-title-bar {
   display: block;
 	position: relative;
 	text-align: center;
@@ -30,22 +38,22 @@
 	margin-top: 50%;
 }
 
-.login-title {
+.login-title, .signup-title {
   display: inline-block;
 	text-transform: uppercase;
   color: #F9F9F9;
 }
 
-.login-input {
-  margin: 1.5em auto;
-  width: 45%;
+.login-input, .signup-input {
+  margin: 1.5em auto 2em;
+  width: 52%;
 }
 
-.login-input label {
+.login-input label, .signup-input label {
   margin: 0.2em !important;
 }
 
-#user_email, #user_password {
+#user_email, #user_username, #user_password, #user_password_confirmation {
   width: 10em;
   font-family: 'Raleway', sans-serif;
   border: 0.1em solid #D6D6D6;
@@ -54,12 +62,16 @@
   background-color: none;
 }
 
+.min-password {
+  font-size: 0.7em;
+}
+
 #user_remember_me {
   display: inline-block;
   margin-top: -1em;
 }
 
-.login-button {
+.login-button, .signup-button {
   width: 20%;
 }
 
@@ -68,9 +80,14 @@
   width: 32%;
 }
 
-.login-button input {
+.signup-button-container {
+  margin: 0 auto;
+  width: 32%;
+}
+
+.login-button input, .signup-button input {
   display: inline-block;
-  margin: 1em auto;
+  margin: 1em auto 2em;
   padding: 0.5em 0;
   background-color: #229805;
   color: white;
