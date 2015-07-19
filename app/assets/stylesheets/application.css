@@ -146,25 +146,27 @@ div.active {
 
 #order {
   /*display: inline;*/
-  margin-right: 10em;
   float: right;
   border: 0;
   outline-color: #DFF5D1;
   padding: 0.9em;
-  font-size: 1em;
+  font-size: 1.4em;
   font-family: 'Raleway', sans-serif;
   line-height: 1.5em;
-  background-color: #FFF;
+  background-color: #F9F9F9;
   position: relative;
   z-index: 1;
 }
 
-/*.sort {
-   border: 0.1em solid #D6D6D6;
-   padding: 0.4em 0;
-   outline-color: #DFF5D1;
-   background-color: #FFF;
-}*/
+.sort {
+  border: 0.1em solid #D6D6D6;
+  padding: 0.4em 0;
+  outline-color: #DFF5D1;
+  z-index: 2;
+  float: right;
+  background-color: #F9F9F9;
+  margin-right: 16.5em;
+}
 
 .search {
   float: left;
