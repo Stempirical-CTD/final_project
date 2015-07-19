@@ -24,7 +24,7 @@
 /*hero text*/
 
 .landing-intro {
-  margin: -1.5em auto 1em;
+  margin: 1em auto;
   width: 100%;
 }
 
@@ -33,7 +33,7 @@
   font-family: 'Chelsea Market', sans-serif;
   font-size: 5.5em;
   margin: 0 auto;
-  width: 44%;
+  width: 32%;
   color: #323232;
 }
 
@@ -42,29 +42,33 @@
   color: #323232;
   margin: 1em auto;
   font-size: 1.5em;
-  width: 65%;
+  width: 45%;
   padding-left: 2em;
 }
 
 .landing-search {
   margin: 1em auto;
-  width: 30em;
+  width: 25em;
   position: relative;
 }
 
+#landing-search-form {
+  margin: 1em auto;
+}
+
 .landing-exp-search {
-  padding: 0.5em;
+  padding: 0.36em;
   display: inline-block;
   font-family: 'Raleway', sans-serif;
   border: 0.1em solid #D6D6D6;
   font-size: 2em;
   outline-color: #DFF5D1;
-  width: 15em;
-  margin-left: -1.5em;
+  width: 12em;
+  margin-left: -1em;
 }
 
 .landing-fa-search {
-  padding: 1.75em;
+  padding: 1.5em;
   background-color: #229805;
   color: white;
   border: 0.1em solid #D6D6D6;
