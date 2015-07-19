@@ -154,7 +154,7 @@ div.active {
   margin-right: 10em;
   line-height: 1.1em;
   position: relative;
-  z-index: 10;
+  /*z-index: 10;*/
 }
 
 
