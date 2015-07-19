@@ -19,16 +19,18 @@
 
 // tooltip
 
-.tooltip {
+.ui-tooltip {
 	display: none;
 	position:absolute;
-	border:1px solid #333;
-	background-color:#ffffff;
+	border: 0.1em solid #323232 !important;
+	background-color:#F9F9F9  !important;
 	border-radius:5px;
 	padding:10px;
-	color:#fff;
-	font-size:12px Arial;
+	color:#323232;
+  font-family: 'Raleway', sans-serif !important;
+	font-size: 1em;
   z-index: 100;
+  box-shadow: none !important;
 }
 
 // link card

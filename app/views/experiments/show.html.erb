@@ -72,17 +72,26 @@
     <% end %>
     </div>
 
-    <div class="user-options">
-      <%= image_tag "submitted by user.png", class: "idea-icon-small" %>
-      Submitted By:
-      <%= @experiment.user.username %>
-      <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
-        <%= link_to content_tag(:i, nil, class: 'fa fa-pencil'), edit_experiment_path(@experiment) %> |
-        <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o'), @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
-      <% end %>
-    </div>
+  <div class="user-options">
+  <%= image_tag "submitted by user.png", class: "idea-icon-small" %>
+  Submitted By:
+  <%= @experiment.user.username %>
+    <% if user_signed_in? == true && current_user.id == @experiment.user_id %>
+    <%= link_to content_tag(:i, nil, class: 'fa fa-pencil'), edit_experiment_path(@experiment) %> |
+    <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o'), @experiment, method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %>
+  </div>
+
   </div>
 </div>
+
+    <div class="show-next-steps">
+        <div class="next-steps-container">
+          <span class="show-recommended"><img src="/assets/discovery.jpg"></span>
+          <span class="show-extended-learning"><img src="/assets/discovery.jpg"></span>
+        </div>
+    </div>
+
 
 <div class="recommended">
   <% @concept = @experiment.concepts.sample %>
