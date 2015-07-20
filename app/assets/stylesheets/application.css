@@ -107,7 +107,7 @@ button:hover {
 
 .nav-link {
   font-size: 1.1em;
-  padding: 0.3em 0.7em 0.7em;
+  padding: 0.3em 0.7em 0.5em;
   display: inline-block;
 }
 
@@ -180,7 +180,7 @@ div.active {
 
 .exp-search {
   line-height: 1.5em;
-  padding: 0.1em;
+  padding: 0.25em;
   margin-left: 0.5em;
   position: absolute;
   top: 20%;
@@ -193,7 +193,7 @@ div.active {
 
 .nav-fa-search {
   position: absolute;
-  padding: 0.35em;
+  padding: 0.5em;
   background-color: #229805;
   color: white;
   border: 0.1em solid #D6D6D6;
