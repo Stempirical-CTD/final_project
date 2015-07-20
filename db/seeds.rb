@@ -136,7 +136,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
   experiment_six = Experiment.create!(user_id: user.id,
     description: "Can you build a tool to pick up socks without touching them? Sure you can!",
     youtube_link: "https://www.youtube.com/watch?v=sCoqrc9LAxg", complete_time: 1,
-    name: "Machanical Grabber", age:4)
+    name: "Mechanical Grabber", age:4)
 
     mat_one = Material.create!(experiment_id: experiment_six.id, item: "Wire clothes hanger
      (Use the type with a cardboard tube attached to open-ended wire.)")
@@ -212,7 +212,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
       description: "An egg will sink to the bottom of a water-filled glass.  Is there a
       way to make it float? Yes!",
       youtube_link: "https://www.youtube.com/watch?v=gfuLoaEYKis", complete_time: 1,
-      name: "The FLoating Egg", age:2)
+      name: "The Floating Egg", age:2)
 
       mat_one = Material.create!(experiment_id: experiment_eight.id, item: "Two dirnking glasses")
       mat_two = Material.create!(experiment_id: experiment_eight.id, item: "Two raw eggs")

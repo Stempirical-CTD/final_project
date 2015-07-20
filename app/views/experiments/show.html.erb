@@ -2,8 +2,7 @@
   <% if @experiment.uploaded_file.blank? %>
     <div class="show-exp-image" style="background-image: url(<%= image_path "discovery-form.jpg" %>)"></div>
   <% else %>
-    <div class="show-exp-image" style="background-image: url(<%= image_path @experiment.uploaded_file %>)">
-    </div>
+    <div class="show-exp-image" style="background-image: url(<%= image_path @experiment.uploaded_file %>)"></div>
   <% end %>
 </div>
 
@@ -96,7 +95,11 @@
         The Top Rated Experiment: <br>
         <% top_experiment_concept = @top_experiment.concepts.sample %>
         <div class="index-experiment-card">
-          <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url('<%= @top_experiment.uploaded_file %>')">
+            <% if @top_experiment.uploaded_file.blank? %>
+              <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+            <% else %>
+              <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url('<%= @top_experiment.uploaded_file %>')">
+            <% end %>
             <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= @top_experiment.name %></h3>
               <i class="fa fa-thumbs-up index-likes"> <%= pluralize @top_experiment.votes, "like" %></i>
             </span>
@@ -129,7 +132,11 @@
         An Experiment with a related concept <%= concept.name %>:<br>
         <% exp = concept.experiments.where.not(name: @experiment.name).sample %>')">
         <div class="index-experiment-card">
-          <a href="<%= url_for exp %>" class="index-photo" style="background-image: url('<%= exp.uploaded_file %>')">
+          <% if exp.uploaded_file.blank? %>
+            <a href="<%= url_for exp %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+          <% else %>
+            <a href="<%= url_for exp %>" class="index-photo" style="background-image: url('<%= exp.uploaded_file %>')">
+          <% end %>
             <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= exp.name %></h3>
               <i class="fa fa-thumbs-up index-likes"> <%= pluralize exp.votes, "like" %></i>
             </span>
@@ -161,7 +168,11 @@
         Another Experiment about <%= @concept.name %>:<br>
         <% exp = @concept.experiments.where.not(name: @experiment.name).sample %>
         <div class="index-experiment-card">
-          <a href="<%= url_for exp %>" class="index-photo" style="background-image: url('<%= exp.uploaded_file %>')">
+          <% if exp.uploaded_file.blank? %>
+            <a href="<%= url_for exp %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+          <% else %>
+            <a href="<%= url_for exp %>" class="index-photo" style="background-image: url('<%= exp.uploaded_file %>')">
+          <% end %>
             <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= exp.name %></h3>
               <i class="fa fa-thumbs-up index-likes"> <%= pluralize exp.votes, "like" %></i>
             </span>
@@ -193,11 +204,15 @@
     </span>
     <span class="show-extended-learning">
       <% if @concept.children.count > 0 %>
-      Expand your skills by learning the next concept<br>
+      Expand your skills by learning the next concept in this Experiment<br>
         <% random_child = @concept.children.sample %>
         <% random_child_experiment = random_child.experiments.sample %>
         <div class="index-experiment-card">
-          <a href="<%= url_for random_child_experiment %>" class="index-photo" style="background-image: url('<%= random_child_experiment.uploaded_file %>')">
+          <% if random_child_experiment.uploaded_file.blank? %>
+            <a href="<%= url_for random_child_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+          <% else %>
+            <a href="<%= url_for random_child_experiment %>" class="index-photo" style="background-image: url('<%= random_child_experiment.uploaded_file %>')">
+          <% end %>
             <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= random_child_experiment.name %></h3>
               <i class="fa fa-thumbs-up index-likes"> <%= pluralize random_child_experiment.votes, "like" %></i>
             </span>
@@ -230,7 +245,11 @@
         <% random_parent = @concept.parents.sample %>
         <% random_parent_experiment = random_parent.experiments.sample %>
         <div class="index-experiment-card">
-          <a href="<%= url_for random_parent_experiment %>" class="index-photo" style="background-image: url('<%= random_parent_experiment.uploaded_file %>')">
+          <% if random_parent_experiment.uploaded_file.blank? %>
+            <a href="<%= url_for random_parent_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+          <% else %>
+            <a href="<%= url_for random_parent_experiment %>" class="index-photo" style="background-image: url('<%= random_parent_experiment.uploaded_file %>')">
+          <% end %>
             <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= random_parent_experiment.name %></h3>
               <i class="fa fa-thumbs-up index-likes"> <%= pluralize random_parent_experiment.votes, "like" %></i>
             </span>
