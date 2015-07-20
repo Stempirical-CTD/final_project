@@ -1,5 +1,10 @@
 module ConceptsHelper
 
+  def first_three_experiments(concept_name)
+    Experiment.joins(:concepts).where('concepts.name' => ["#{concept_name}"])
+        .sort_by{|e| e.experiment_votes.count}.reverse.first(3)
+  end
+
   class ConceptDisplayer
     def initialize
       @already_displayed_concepts = []
