@@ -1,18 +1,36 @@
-#login-bg, #signup-bg {
-  background-image: asset_url("discovery-crop.jpg");
-	width: 100%;
-	background-size: cover;
-	height: 126vh;
-  margin-top: -14.5em;
-  opacity: 0.6;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
+// #login-bg, #signup-bg {
+//   background-image: asset_url("discovery-crop.jpg");
+// 	width: 100%;
+// 	background-size: cover;
+// 	height: 126vh;
+//   margin-top: -14.5em;
+//   opacity: 0.6;
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   z-index: -1;
+// }
+#landing {
+  position: relative;
+  z-index: 1;
+  padding: 3.5em;
 }
-
+#bg {
+ background-image: asset_url("discovery-crop.jpg");
+    width: 100%;
+    background-size: cover;
+    height: 102vh;
+ margin-top: -20.5em;
+ opacity: 0.6;
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ z-index: -5;
+}
 .login-container {
   width: 20%;
   margin: -2em auto 0;

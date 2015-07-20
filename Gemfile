@@ -6,6 +6,7 @@ gem 'paperclip'
 gem 'aws-sdk', '~> 1.6'
 gem 'ratyrate'
 gem 'devise'
+gem "font-awesome-rails"
 gem 'kaminari'
 gem 'rails-footnotes', '~> 4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -18,9 +19,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
-
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
