@@ -43,12 +43,13 @@
             <i class="fa fa-thumbs-up index-likes"> <%= pluralize molecular_behavior_experiment.votes, "like" %></i>
           </span>
           <span class="suggested">
-            <% if @top_experiment.uploaded_file.blank? %>
-              <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+            <% top_experiment = find_unique_experiment(molecular_behavior_experiment.name, plant_experiment.name, human_experiment.name) %>
+            <% if top_experiment.first.uploaded_file.blank? %>
+              <a href="<%= url_for @top_experiment.first %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
             <% else %>
-              <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url('<%= @top_experiment.uploaded_file %>')">
+              <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url('<%= top_experiment.first.uploaded_file %>')">
             <% end %>
-            <i class="fa fa-thumbs-up index-likes"> <%= pluralize @top_experiment.votes, "like" %></i>
+            <i class="fa fa-thumbs-up index-likes"> <%= pluralize top_experiment.first.votes, "like" %></i>
           </span>
         </div>
     </div>

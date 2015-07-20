@@ -85,10 +85,10 @@
         <div class="concept-section">
           <% Concept.all.each do |concept| %>
             <div class="single-concept">
-            <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
-            <%= label_tag("concept_#{concept.id}",concept.name, class: "concept-checkbox-label") %>
-              </div>
-              <% end %>
+              <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
+              <%= label_tag("concept_#{concept.id}",concept.name, class: "concept-checkbox-label") %>
+            </div>
+          <% end %>
          </div>
        </span><br>
 

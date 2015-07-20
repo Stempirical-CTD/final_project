@@ -1,7 +1,9 @@
 <div class="index-wrapper">
 
 <div class="pages">
+
 <%= paginate @paginatable_array %>
+
 </div>
 
 <% @paginatable_array.sort_by(&:age).each do |experiment| %>
