@@ -1,41 +1,55 @@
 <div id="landing">
-    <div id="bg"></div>
-    <div class="landing-intro">
-    	<h1 class="landing-logo">stempirical</h1>
+  <div id="bg"></div>
+  <div class="landing-intro">
+  	<h1 class="landing-logo">stempirical</h1>
 
-    	<p class="stempirical-tagline">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-    	</p>
-      <div class="landing-search">
-        <%= form_tag experiments_path, :method => "get", id: "landing-search-form" do %>
+  	<p class="stempirical-tagline">share the wonder.</p>
+    <div class="landing-search">
+      <%= form_tag experiments_path, :method => "get", id: "landing-search-form" do %>
         <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "landing-exp-search" %>
-          <button class="fa fa-search landing-fa-search"></button>
-        <% end %>
-      </div>
+        <button class="fa fa-search landing-fa-search"></button>
+      <% end %>
     </div>
+  </div>
 </div>
 <div class="initial-suggested">
   <div class="suggested-container">
     <% used_experiments = [] %>
     <% ["Human Body", "Plants", "Molecular Behavior"].each do |s| %>
-      <span class="suggested">
-        <% experiment = @concepts.find_by_name(s).experiments.sample %>
-        <% used_experiments << experiment %>
-        <% if experiment.uploaded_file.blank? %>
-          <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)"></a>
-        <% else %>
-          <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')"></a>
-        <% end %>
-        <i class="fa fa-thumbs-up index-likes"> <%= pluralize experiment.votes, "like" %></i>
-      </span>
+      <% experiment = @concepts.find_by_name(s).experiments.sample %>
+      <% used_experiments << experiment.name %>
+      <div class="suggested">
+        <div class="suggested-exp-title-bar">
+          <div class="suggested-exp-title">
+          <%= link_to experiment.name, experiment_path(experiment) %>
+          </div>
+          <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize experiment.votes, "like" %></i>
+        </div>
+        <div class="suggested-img">
+          <% if experiment.uploaded_file.blank? %>
+            <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)"></a>
+          <% else %>
+            <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')"></a>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-    <span class="suggested">
-      <% top_experiment = find_unique_experiment(*used_experiments) %>
-      <% if top_experiment.uploaded_file.blank? %>
-        <a href="<%= url_for top_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)"></a>
-      <% else %>
-        <a href="<%= url_for top_experiment %>" class="index-photo" style="background-image: url('<%= top_experiment.uploaded_file %>')"></a>
-      <% end %>
-      <i class="fa fa-thumbs-up index-likes"> <%= pluralize top_experiment.votes, "like" %></i>
-    </span>
+
+    <div class="suggested">
+      <div class="suggested-exp-title-bar">
+        <div class="suggested-exp-title">
+          <% top_experiment = find_unique_experiment(*used_experiments) %>
+          <%= link_to top_experiment.name, experiment_path(top_experiment) %>
+        </div>
+        <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize top_experiment.votes, "like" %></i>
+        <div class="suggested-img">
+          <% if top_experiment.uploaded_file.blank? %>
+            <a href="<%= url_for top_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)"></a>
+          <% else %>
+            <a href="<%= url_for top_experiment %>" class="index-photo" style="background-image: url('<%= top_experiment.uploaded_file %>')"></a>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
