@@ -1336,7 +1336,7 @@ div.active {
   font-family: 'Raleway', sans-serif;
   outline-color: #DFF5D1;
   float: right;
-  margin-right: 10em;
+  margin-right: 17em;
   line-height: 1.1em;
   position: relative;
   z-index: 10;
@@ -2936,4 +2936,3 @@ body .ui-tooltip {
 
 
  */
-

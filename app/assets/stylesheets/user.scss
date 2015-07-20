@@ -1,0 +1,110 @@
+#login-bg, #signup-bg {
+  background-image: url(/assets/discovery-crop.jpg);
+	width: 100%;
+	background-size: cover;
+	height: 126vh;
+  margin-top: -14.5em;
+  opacity: 0.6;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.login-container {
+  width: 20%;
+  margin: -2em auto 0;
+  background-color: #F9F9F9;
+  z-index: 1;
+}
+
+.signup-container {
+  width: 22%;
+  margin: -2em auto;
+  background-color: #F9F9F9;
+  z-index: 1;
+  height: auto;
+}
+
+.login-title-bar, .signup-title-bar {
+  display: block;
+	position: relative;
+	text-align: center;
+	background-color: rgba(50,50,50,0.8);
+	width: 100%;
+	padding: 0.5em 0;
+	margin-top: 50%;
+}
+
+.login-title, .signup-title {
+  display: inline-block;
+	text-transform: uppercase;
+  color: #F9F9F9;
+}
+
+.login-input, .signup-input {
+  margin: 1.5em auto 2em;
+  width: 52%;
+}
+
+.login-input label, .signup-input label {
+  margin: 0.2em !important;
+}
+
+#user_email, #user_username, #user_password, #user_password_confirmation {
+  width: 10em;
+  font-family: 'Raleway', sans-serif;
+  border: 0.1em solid #D6D6D6;
+  font-size: 1em;
+  outline-color: #DFF5D1;
+  background-color: none;
+}
+
+.min-password {
+  font-size: 0.7em;
+}
+
+#user_remember_me {
+  display: inline-block;
+  margin-top: -1em;
+}
+
+.login-button, .signup-button {
+  width: 20%;
+}
+
+.login-button-container {
+  margin: 0 auto;
+  width: 32%;
+}
+
+.signup-button-container {
+  margin: 0 auto;
+  width: 32%;
+}
+
+.login-button input, .signup-button input {
+  display: inline-block;
+  margin: 1em auto 2em;
+  padding: 0.5em 0;
+  background-color: #229805;
+  color: white;
+  border: 0.1em solid #D6D6D6;
+  outline-color: #DFF5D1;
+  font-size: 0.9em;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+  width: 8em;
+}
+
+.other-login-options {
+  width: 75%;
+  margin: 1em auto;
+  padding-bottom: 1em;
+}
+
+.login-signup, .login-forgot {
+display: inline-block;
+}
