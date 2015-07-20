@@ -254,6 +254,11 @@ textarea {
   width: 2em;
 }
 
+.delete-checkbox, .delete-checkbox label {
+	display: inline-block;
+  margin: 0.5em 0 -0.5em;
+}
+
 .new-exp-btn {
   margin: 1em 0;
   padding: 1em;

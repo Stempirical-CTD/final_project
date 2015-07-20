@@ -1,19 +1,24 @@
-<h1><%=@concept.name%></h1>
-<p><%=@concept.summary%></p>
-<%= @concept.name %>
-<div class="concept-video">
-  <h3>Concept Video:</h3><br>
-    <% if @concept.video_link != "" %>
-      <div class="embed-container">
-        <%= embed(@concept.video_link) %>
-      </div>
-      <a href="<%= @concept.video_link %>">View on YouTube</a><br>
+<div class="show-concept-container">
+  <h1 class="show-concept-title"><%=@concept.name%></h1>
+  <p class="concept-description">
+    <%=@concept.summary%>
+    <a href="<%= @concept.description_link %>">Click here</a> for more information about <%= @concept.name %>. <br>
+  </p>
+
+  <div class="concept-video">
+      <% if @concept.video_link != "" %>
+        <div class="embed-container">
+          <%= embed(@concept.video_link) %>
+        </div>
+      <% end %>
+  </div>
+
+  <div class="show-concept-experiments">
+    <h1 class="concept-exp-title">Try These Experiments!</h1><br>
+    <% @concept.experiments.map do |experiment| %>
+      <%= link_to experiment.name, experiment_path(experiment) %><br>
+      <%= experiment.description %><br>
+      <br>
     <% end %>
+  </div>
 </div>
-For an indepth description of <%= @concept.name %> click <a href="<%= @concept.description_link %>">here</a><br>
-<br>
-<% @concept.experiments.map do |experiment| %>
-  <%= link_to experiment.name, experiment_path(experiment) %><br>
-  Description: <%= experiment.description %><br>
-  <br>
-<% end %>
