@@ -10,11 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
  *= require reset
  *= require_tree .
  *= require_self
  *= require jquery-ui
  */
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Chelsea+Market);
 
 .experiments {
   display: none;
@@ -216,3 +219,10 @@ div.active {
   position: relative;
   width: 100%;
 }
+
+/*.fa-search{
+  z-index:999;
+  width:200px;
+  height:200px;
+  background-color:cyan
+}*/

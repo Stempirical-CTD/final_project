@@ -8,7 +8,7 @@
       <div class="landing-search">
         <%= form_tag experiments_path, :method => "get", id: "landing-search-form" do %>
         <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "landing-exp-search" %>
-          <button class="fa fa-search landing-fa-search"></button>
+          <button class="fa fa-search landing-fa-search"><i class="fa fa-search"></i></button>
         <% end %>
       </div>
     </div>
