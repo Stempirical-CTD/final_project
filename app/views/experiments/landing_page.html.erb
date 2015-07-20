@@ -14,7 +14,7 @@
 </div>
     <div class="initial-suggested">
         <div class="suggested-container">
-          <span class="suggested">
+          <div class="suggested">
             <div class="suggested-exp-title-bar">
               <div class="suggested-exp-title">
                 <% human_experiment = @concepts.find_by_name("Human Body").experiments.sample %>
@@ -22,15 +22,15 @@
               <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize human_experiment.votes, "like" %></i>
             </div>
             <div class="suggested-img">
-              <% if human_experiment.uploaded_file.blank? %>
+              <!-- <% if human_experiment.uploaded_file.blank? %>
                 <a href="<%= url_for human_experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "discovery-landing.jpg" %>)">
               <% else %>
                 <a href="<%= url_for human_experiment %>" class="suggested-exp-img" style="background-image: url('<%= human_experiment.uploaded_file %>')">
-              <% end %>
+              <% end %> -->
             </div>
-          </span>
+          </div>
 
-          <span class="suggested">
+          <div class="suggested">
             <div class="suggested-exp-title-bar">
               <div class="suggested-exp-title">
                 <% plant_experiment = @concepts.find_by_name("Plants").experiments.sample %>
@@ -38,15 +38,15 @@
               <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize plant_experiment.votes, "like" %></i>
             </div>
             <div class="suggested-img">
-              <% if plant_experiment.uploaded_file.blank? %>
+              <!-- <% if plant_experiment.uploaded_file.blank? %>
                 <a href="<%= url_for plant_experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "discovery-landing.jpg" %>)">
               <% else %>
                 <a href="<%= url_for plant_experiment %>" class="suggested-exp-img" style="background-image: url('<%= plant_experiment.uploaded_file %>')">
-              <% end %>
+              <% end %> -->
             </div>
-          </span>
+          </div>
 
-          <span class="suggested">
+          <div class="suggested">
             <div class="suggested-exp-title-bar">
               <div class="suggested-exp-title">
                 <% molecular_behavior_experiment = @concepts.find_by_name("Molecular Behavior").experiments.sample %>
@@ -54,15 +54,15 @@
               <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize molecular_behavior_experiment.votes, "like" %></i>
             </div>
             <div class="suggested-img">
-              <% if molecular_behavior_experiment.uploaded_file.blank? %>
+              <!-- <% if molecular_behavior_experiment.uploaded_file.blank? %>
                 <a href="<%= url_for molecular_behavior_experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "discovery-landing.jpg" %>)">
               <% else %>
                 <a href="<%= url_for molecular_behavior_experiment %>" class="suggested-exp-img" style="background-image: url('<%= molecular_behavior_experiment.uploaded_file %>')">
-              <% end %>
+              <% end %> -->
             </div>
-          </span>
+          </div>
 
-          <span class="suggested">
+          <div class="suggested">
             <div class="suggested-exp-title-bar">
               <div class="suggested-exp-title">
                 <% top_experiment = find_unique_experiment(molecular_behavior_experiment.name, plant_experiment.name, human_experiment.name) %>
@@ -70,12 +70,12 @@
               <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize top_experiment.first.votes, "like" %></i>
             </div>
             <div class="suggested-img">
-              <% if top_experiment.first.uploaded_file.blank? %>
+              <!-- <% if top_experiment.first.uploaded_file.blank? %>
                 <a href="<%= url_for @top_experiment.first %>" class="suggested-exp-img" style="background-image: url(/assets/discovery-landing.jpg)">
               <% else %>
                 <a href="<%= url_for @top_experiment %>" class="suggested-exp-img" style="background-image: url('<%= top_experiment.first.uploaded_file %>')">
-              <% end %>
+              <% end %> -->
             </div>
-          </span>
+          </div>
         </div>
     </div>

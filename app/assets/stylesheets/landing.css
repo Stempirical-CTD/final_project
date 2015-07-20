@@ -7,7 +7,7 @@
 }
 
 #bg {
-  background-image: asset_url("discovery-crop.jpg");
+  background-image: url("/assets/discovery-crop.jpg");
 	width: 100%;
 	background-size: cover;
 	height: 102vh;
@@ -20,6 +20,21 @@
   right: 0;
   z-index: -5;
 }
+/*
+#bg {
+ background-image: asset_url("discovery-crop.jpg");
+    width: 100%;
+    background-size: cover;
+    height: 102vh;
+ margin-top: -20.5em;
+ opacity: 0.6;
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ z-index: -5;
+}*/
 
 /*hero text*/
 
@@ -82,8 +97,8 @@
 .initial-suggested {
   display: block;
   width: 100%;
-  height: 15em;
-  background-color: #F9F9F9;
+  height: 13.75em;
+  background-color: #EBEAE3;
   border: 1px solid #D6D6D6;
   clear: both;
   margin-top: 11.8em;
@@ -94,19 +109,24 @@
   width: 100%;
   margin: 0.5% auto;
   display: inline-block;
-	position: absolute;
+  position: absolute;
+  padding-left: 8em;
 }
 
 .suggested {
-  margin: 0.1% 0.5%;
+  background-image: url("/assets/discovery-crop.jpg");
+  background-size: cover;
+  margin: 0.2% 0.5%;
   border: 1px solid #D6D6D6;
   display: inline-block;
   /* position: relative; */
   width: 20%;
-  height: 12.5em;
+  height: 12em;
 }
 
 .suggested-img {
+  /*background-image: url("/assets/discovery-crop.jpg");
+  background-size: cover;*/
   width: 100%;
   height: 100%;
   display: inline;
@@ -126,7 +146,7 @@
 	background-color: rgba(50,50,50,0.8);
 	width: 100%;
 	padding: 0.5em 0;
-	/*margin-top: 50%;*/
+  margin-top: -1.5em;
   color: #F9F9F9;
 }
 
@@ -135,13 +155,14 @@
 	text-transform: uppercase;
 	margin-left: 4em;
   color: #F9F9F9;
-  z-index: 1;
+  z-index: 2;
 }
 
 .suggested-exp-img {
-  width: 23.5%;
+  /*background-image: url("/assets/discovery-crop.jpg");*/
+  /*width: 23.5%;*/
   clear: both;
-  /* width: 100%; */
+   width: 100%;
   height: 100%;
   margin: 0.1% 0.5%;
   border: 1px solid #D6D6D6;

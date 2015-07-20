@@ -58,7 +58,7 @@
 }
 
 .show-ratings {
-	width: 80%;
+	width: 55%;
 	margin: 0.5em auto;
 	font-size: 0.85em;
 }
@@ -144,21 +144,6 @@
 
 // further steps
 
-// .recommended, .extended-learning {
-// 	position: relative;
-// 	width: 80%;
-// 	padding-top: 1em;
-// 	margin: 2em auto;
-// 	// margin: 0 auto;
-// }
-
-// .recommended {
-// 	border-top: solid 2px #D6D6D6;
-// }
-// .extended-learning {
-// 	border-bottom: solid 2px #D6D6D6;
-// }
-
 .next-steps-heading {
 	width: 75%;
 	margin: 1.5em auto -1.5em;
@@ -170,10 +155,9 @@
 .show-next-steps {
 	width: 100%;
   height: 26em;
-  // background-color: #F9F9F9;
-  // border: 1px solid #D6D6D6;
   clear: both;
   margin: 0 auto;
+  padding-left: 2em;
 }
 
 .next-steps-container {
@@ -185,13 +169,6 @@
 .show-card {
 	margin-top: -30em;
 }
-
-// .show-recommended img, .show-extended-learning img {
-// 	width: 45%;
-//   height: 19em;
-//   margin: 0.1% 1%;
-//   border: 1px solid #D6D6D6;
-// }
 
 //comments
 
@@ -213,7 +190,11 @@ add-comment-container {
 
 .comment-title {
 	text-align: center;
-	margin-top: 1em;
+  margin-top: 1em;
+  border-top: 1px solid #D6D6D6;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 1.5em;
 }
 
 .comments {
