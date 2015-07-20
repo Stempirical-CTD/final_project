@@ -20,7 +20,6 @@ module ConceptsHelper
           name: concept.name,
 
         }
-        # @html << "<h#{level}>#{ concept.name }</h#{level}>"
 
         experiments = concept.experiments.each do |experiment|
           @content << {

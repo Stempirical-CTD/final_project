@@ -60,7 +60,7 @@
 
         <div class="field new-time">
           <label>Time Expected to Complete *</label><br>
-          <%= f.number_field(:complete_time, in: 0.5..20.0, step: 0.5) %> hours
+          <%= f.number_field(:complete_time, in: 1..20, step: 1) %> hours
         </div>
         <div class="field new-years">
           <label>What age range works best? *</label><br>
