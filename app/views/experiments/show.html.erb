@@ -87,14 +87,18 @@
   </div>
 </div>
 
+<div class="next-steps-heading">
+  <h2>Recommended for you:</h2>
+</div>
+
 <div class="show-next-steps">
-  <div class="index-wrapper">
+  <div class="index-wrapper show-wrapper">
     <% @concept = @experiment.concepts.sample %>
     <span class="show-recommended">
       <% if @experiment.concepts.count == 1 && @concept.experiments.count == 1 %>
-        The Top Rated Experiment: <br>
+        <!-- The Top Rated Experiment: <br> -->
         <% top_experiment_concept = @top_experiment.concepts.sample %>
-        <div class="index-experiment-card">
+        <div class="index-experiment-card show-card">
             <% if @top_experiment.uploaded_file.blank? %>
               <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
             <% else %>
@@ -129,9 +133,9 @@
         </div>
       <% elsif @concept.experiments.where.not(name: @experiment.name).blank? %>
         <% concept = @experiment.concepts.where.not(name: @concept.name).sample %>
-        An Experiment with a related concept <%= concept.name %>:<br>
+        <!-- An Experiment with a related concept <%= concept.name %>:<br> -->
         <% exp = concept.experiments.where.not(name: @experiment.name).sample %>')">
-        <div class="index-experiment-card">
+        <div class="index-experiment-card show-card">
           <% if exp.uploaded_file.blank? %>
             <a href="<%= url_for exp %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
           <% else %>
@@ -165,7 +169,7 @@
           </div>
         </div>
       <% else %>
-        Another Experiment about <%= @concept.name %>:<br>
+        <!-- Another Experiment about <%= @concept.name %>:<br> -->
         <% exp = @concept.experiments.where.not(name: @experiment.name).sample %>
         <div class="index-experiment-card">
           <% if exp.uploaded_file.blank? %>
@@ -204,7 +208,7 @@
     </span>
     <span class="show-extended-learning">
       <% if @concept.children.count > 0 %>
-      Expand your skills by learning the next concept in this Experiment<br>
+      <!-- Expand your skills by learning the next concept in this Experiment<br> -->
         <% random_child = @concept.children.sample %>
         <% random_child_experiment = random_child.experiments.sample %>
         <div class="index-experiment-card">
@@ -241,7 +245,7 @@
           </div>
         </div>
       <% else %>
-        Work on your fundamentals<br>
+        <!-- Work on your fundamentals<br> -->
         <% random_parent = @concept.parents.sample %>
         <% random_parent_experiment = random_parent.experiments.sample %>
         <div class="index-experiment-card">
