@@ -7,6 +7,7 @@ gem 'aws-sdk', '~> 1.6'
 gem 'ratyrate'
 gem 'devise'
 gem 'kaminari'
+gem "font-awesome-rails"
 gem 'rails-footnotes', '~> 4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
