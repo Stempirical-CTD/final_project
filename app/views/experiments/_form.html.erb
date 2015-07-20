@@ -83,8 +83,17 @@
         <div class="concept-section">
           <% Concept.all.each do |concept| %>
             <div class="single-concept">
-              <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
-              <%= label_tag("concept_#{concept.id}",concept.name, class: "concept-checkbox-label") %>
+              <% if @experiment.concepts.include?(concept) %>
+                <%= check_box_tag "concepts[#{concept.id}]", concept.id, true, class: "concept-checkbox" %>
+                <label for="concepts_<%= concept.id %>" class="concept-checkbox-label">
+                  <%= concept.name %>
+                </label>
+              <% else %>
+                <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
+                <label for="concepts_<%= concept.id %>" class="concept-checkbox-label">
+                  <%= concept.name %>
+                </label>
+              <% end %>
             </div>
           <% end %>
          </div>
