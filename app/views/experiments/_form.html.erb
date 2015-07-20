@@ -44,25 +44,19 @@
             <label>Description </label> <small> (Please include 2-3 sentences to describe the purpose of this experiment.) *</small>
             <%= f.text_area :description, :cols => 100, :rows => 2 %>
           </div>
-
         </div>
-
         <div class="new-media">
           <div class="field new-photo">
             <label>Upload a Photo *</label><br>
             <%= f.file_field 'uploaded_file', id: 'pictureInput', :rows => 2 %>
-
           </div>
           <div id="target">
           </div>
-
           <div class="field new-youtube">
             <label>Link To YouTube Tutorial</label><br>
             <%= f.url_field :youtube_link, :class => "tutorial-link" %>
           </div>
-
         </div>
-
 
         <div class="field new-time">
           <label>Time Expected to Complete *</label><br>
@@ -87,58 +81,60 @@
             <div class="single-concept">
             <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
             <%= label_tag("concept_#{concept.id}",concept.name, class: "concept-checkbox-label") %>
-              </div>
+            </div>
               <% end %>
          </div>
        </span><br>
 
-      <div class="new-materials">
-    <ul class="field unordered-list-materials">
-      <label>Materials *</label><br>
-      <%= f.fields_for(:materials) do |ff| %>
-        <li>
-          <div class="field material">
-            <%= ff.text_field :item, class: "new-material" %>
-            <% if current_page?(new_experiment_path) || params[:action] == "create" %>
-              <button type="button" class="delete-material-btn"><i class="fa fa-trash"></i></button>
-            <% else %>
-              <div class="delete-checkbox">
-                <%= ff.check_box :_destroy, class: "destroy" %>
-                <%= ff.label "Delete", class: "destroy-label" %>
-                <% end %>
+    <div class="new-materials">
+      <ul class="field unordered-list-materials">
+        <label>Materials *</label><br>
+        <%= f.fields_for(:materials) do |ff| %>
+          <li>
+            <div class="field material">
+              <%= ff.text_field :item, class: "new-material" %>
+              <% if current_page?(new_experiment_path) || params[:action] == "create" %>
+                <button type="button" class="delete-material-btn"><i class="fa fa-trash"></i></button>
+              <% else %>
+                <div class="delete-checkbox">
+                  <%= ff.check_box :_destroy, class: "destroy" %>
+                  <%= ff.label "Delete", class: "destroy-label" %>
+                  <% end %>
+                </div>
               </div>
+            </li>
+          <% end %>
+        </ul>
+      <button type="button" class="add-material-btn"><i class="fa fa-plus"></i> Add New Material</button>
+    </div>
+
+    <div class="new-instructions">
+      <ul class="field unordered-list-instructions">
+        <label>Instructions *</label><br>
+        <%= f.fields_for(:instructions) do |ff| %>
+          <li>
+          <div class="instruction-fields">
+            <div class="field instruction">
+              <%= ff.text_field :information, class: "new-instruction" %>
+              <% if current_page?(new_experiment_path) || params[:action] == "create" %>
+                <button type="button" class="delete-instruction-btn"><i class="fa fa-trash"></i></button>
+              <% else %>
+                <%= ff.label "Delete", class: "destroy-label" %>
+                <%= ff.check_box :_destroy, class: "destroy"%>
+              <% end %>
+            </div>
           </div>
         </li>
-      <% end %>
-    </ul>
-    <button type="button" class="add-material-btn"><i class="fa fa-plus"></i> Add New Material</button>
-  </div>
+        <% end %>
+      </ul>
+      <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i> Add Next Step</button>
+    </div>
 
-  <div class="new-instructions">
-    <ul class="field unordered-list-instructions">
-      <label>Instructions *</label><br>
-      <%= f.fields_for(:instructions) do |ff| %>
-        <li>
-        <div class="instruction-fields">
-          <div class="field instruction">
-            <%= ff.text_field :information, class: "new-instruction" %>
-            <% if current_page?(new_experiment_path) || params[:action] == "create" %>
-              <button type="button" class="delete-instruction-btn"><i class="fa fa-trash"></i></button>
-            <% else %>
-              <%= ff.label "Delete", class: "destroy-label" %>
-              <%= ff.check_box :_destroy, class: "destroy"%>
-            <% end %>
-          </div>
+        <div class="actions new-exp-btn">
+            <%= f.submit %>
         </div>
-      </li>
       <% end %>
-    </ul>
-    <button type="button" class="add-instruction-btn"><i class="fa fa-plus"></i> Add Next Step</button>
-  </div>
-
-      <div class="actions new-exp-btn">
-          <%= f.submit %>
       </div>
-    <% end %>
     </div>
-    </div>
+  </div>
+</div>
