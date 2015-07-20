@@ -22,7 +22,11 @@
 
 <div class="largest-new-container">
   <div class="new-exp-title-bar">
+    <% if params[:action] == "edit" %>
+      <h1 class="new-exp-title">Edit Experiment</h3>
+    <% else %>
       <h1 class="new-exp-title">Add New Experiment</h3>
+    <% end %>
   </div>
 
   <div class="new-container">
