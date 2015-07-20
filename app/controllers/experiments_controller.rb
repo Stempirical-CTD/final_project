@@ -6,7 +6,7 @@ class ExperimentsController < ApplicationController
   # GET /experiments.json
   def landing_page
     @concepts = Concept.all
-    @top_experiment = Experiment.all.by_votes.first
+    @top_experiment = Experiment.all.by_votes
   end
 
   def index

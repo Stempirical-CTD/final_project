@@ -145,7 +145,7 @@
               <div class="index-exp-ratings">
                 <span class="ratings-container">
                   <span class="index-concept-icon">
-                    <%= image_tag "#{concept.name}.png", class: "concept-img-small"%>
+                    <%= image_tag "#{concept.name}.png", class: "concept-img-small"%><rb>
                     <%= link_to concept.name, concept_path(concept) %>
                   </span>
                   <div class="index-time">
@@ -181,7 +181,7 @@
               <div class="index-exp-ratings">
                 <span class="ratings-container">
                   <span class="index-concept-icon">
-                    <%= image_tag "#{@concept.name}.png", class: "concept-img-small"%>
+                    <%= image_tag "#{@concept.name}.png", class: "concept-img-small"%><br>
                     <%= link_to @concept.name, concept_path(@concept) %>
                   </span>
                   <div class="index-time">
@@ -221,7 +221,7 @@
               <div class="index-exp-ratings">
                 <span class="ratings-container">
                   <span class="index-concept-icon">
-                    <%= image_tag "#{random_child.name}.png", class: "concept-img-small"%>
+                    <%= image_tag "#{random_child.name}.png", class: "concept-img-small"%><br>
                     <%= link_to random_child.name, concept_path(random_child) %>
                   </span>
                   <div class="index-time">
@@ -258,7 +258,7 @@
               <div class="index-exp-ratings">
                 <span class="ratings-container">
                   <span class="index-concept-icon">
-                    <%= image_tag "#{random_parent.name}.png", class: "concept-img-small"%>
+                    <%= image_tag "#{random_parent.name}.png", class: "concept-img-small"%><br>
                     <%= link_to random_parent.name, concept_path(random_parent) %>
                   </span>
                   <div class="index-time">

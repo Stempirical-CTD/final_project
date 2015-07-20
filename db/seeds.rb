@@ -559,8 +559,7 @@ experiment_eighteen = Experiment.create!(user_id: user.id, name: "Static Electri
     youtube_link: "https://www.youtube.com/watch?v=-w-GoSJpvdw", complete_time: 0.5,
     age: 4)
 
-  Material.create!(experiment_id: experiment_eighteen.id, item: "2 inflated
-      balloons with string attached")
+  Material.create!(experiment_id: experiment_eighteen.id, item: "2 inflated balloons with string attached")
   Material.create!(experiment_id: experiment_eighteen.id, item: "Your hair")
   Material.create!(experiment_id: experiment_eighteen.id, item: "Aluminium can")
   Material.create!(experiment_id: experiment_eighteen.id, item: "Woolen fabric")
@@ -711,7 +710,7 @@ concept_six = Concept.create!(name: "Liquids",
 description_link: "https://en.wikipedia.org/wiki/Properties_of_water",
 video_link: "https://www.youtube.com/watch?v=HVT3Y3_gHGg",
 summary: "A liquid is one of the states of matter. The particles in a liquid are
-free to flow, so while a liquid has a definite volume, it does not have a definite shape")
+free to flow, so while a liquid has a definite volume, it does not have a definite shape.")
 
 concept_seven = Concept.create!(name: "Gases",
 description_link: "https://en.wikipedia.org/wiki/Gas",
