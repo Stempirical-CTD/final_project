@@ -3,8 +3,7 @@
     <div class="landing-intro">
     	<h1 class="landing-logo">stempirical</h1>
 
-    	<p class="stempirical-tagline">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-    	</p>
+    	<p class="stempirical-tagline">share the wonder.</p>
       <div class="landing-search">
         <%= form_tag experiments_path, :method => "get", id: "landing-search-form" do %>
         <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "landing-exp-search" %>
@@ -15,41 +14,72 @@
 </div>
     <div class="initial-suggested">
         <div class="suggested-container">
-          <span class="suggested">
-            <% human_experiment = @concepts.find_by_name("Human Body").experiments.sample %>
-            <% if human_experiment.uploaded_file.blank? %>
-              <a href="<%= url_for human_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
-            <% else %>
-              <a href="<%= url_for human_experiment %>" class="index-photo" style="background-image: url('<%= human_experiment.uploaded_file %>')">
-            <% end %>
-            <i class="fa fa-thumbs-up index-likes"> <%= pluralize human_experiment.votes, "like" %></i>
-          </span>
-          <span class="suggested">
-            <% plant_experiment = @concepts.find_by_name("Plants").experiments.sample %>
-            <% if plant_experiment.uploaded_file.blank? %>
-              <a href="<%= url_for plant_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
-            <% else %>
-              <a href="<%= url_for plant_experiment %>" class="index-photo" style="background-image: url('<%= plant_experiment.uploaded_file %>')">
-            <% end %>
-            <i class="fa fa-thumbs-up index-likes"> <%= pluralize plant_experiment.votes, "like" %></i>
-          </span>
-          <span class="suggested">
-            <% molecular_behavior_experiment = @concepts.find_by_name("Molecular Behavior").experiments.sample %>
-            <% if molecular_behavior_experiment.uploaded_file.blank? %>
-              <a href="<%= url_for molecular_behavior_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
-            <% else %>
-              <a href="<%= url_for molecular_behavior_experiment %>" class="index-photo" style="background-image: url('<%= molecular_behavior_experiment.uploaded_file %>')">
-            <% end %>
-            <i class="fa fa-thumbs-up index-likes"> <%= pluralize molecular_behavior_experiment.votes, "like" %></i>
-          </span>
-          <span class="suggested">
-            <% top_experiment = find_unique_experiment(molecular_behavior_experiment.name, plant_experiment.name, human_experiment.name) %>
-            <% if top_experiment.first.uploaded_file.blank? %>
-              <a href="<%= url_for @top_experiment.first %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
-            <% else %>
-              <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url('<%= top_experiment.first.uploaded_file %>')">
-            <% end %>
-            <i class="fa fa-thumbs-up index-likes"> <%= pluralize top_experiment.first.votes, "like" %></i>
-          </span>
+          <div class="suggested">
+            <div class="suggested-exp-title-bar">
+              <div class="suggested-exp-title">
+                <% human_experiment = @concepts.find_by_name("Human Body").experiments.sample %>
+              <%= link_to human_experiment.name, experiment_path(human_experiment) %>
+              </div>
+              <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize human_experiment.votes, "like" %></i>
+            </div>
+            <div class="suggested-img">
+              <!-- <% if human_experiment.uploaded_file.blank? %>
+                <a href="<%= url_for human_experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "discovery-landing.jpg" %>)">
+              <% else %>
+                <a href="<%= url_for human_experiment %>" class="suggested-exp-img" style="background-image: url('<%= human_experiment.uploaded_file %>')">
+              <% end %> -->
+            </div>
+          </div>
+
+          <div class="suggested">
+            <div class="suggested-exp-title-bar">
+              <div class="suggested-exp-title">
+                <% plant_experiment = @concepts.find_by_name("Plants").experiments.sample %>
+                <%= link_to plant_experiment.name, experiment_path(plant_experiment) %>
+              </div>
+              <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize plant_experiment.votes, "like" %></i>
+            </div>
+            <div class="suggested-img">
+              <!-- <% if plant_experiment.uploaded_file.blank? %>
+                <a href="<%= url_for plant_experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "discovery-landing.jpg" %>)">
+              <% else %>
+                <a href="<%= url_for plant_experiment %>" class="suggested-exp-img" style="background-image: url('<%= plant_experiment.uploaded_file %>')">
+              <% end %> -->
+            </div>
+          </div>
+
+          <div class="suggested">
+            <div class="suggested-exp-title-bar">
+              <div class="suggested-exp-title">
+                <% molecular_behavior_experiment = @concepts.find_by_name("Molecular Behavior").experiments.sample %>
+                <%= link_to molecular_behavior_experiment.name, experiment_path(molecular_behavior_experiment) %>
+              </div>
+              <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize molecular_behavior_experiment.votes, "like" %></i>
+            </div>
+            <div class="suggested-img">
+              <!-- <% if molecular_behavior_experiment.uploaded_file.blank? %>
+                <a href="<%= url_for molecular_behavior_experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "discovery-landing.jpg" %>)">
+              <% else %>
+                <a href="<%= url_for molecular_behavior_experiment %>" class="suggested-exp-img" style="background-image: url('<%= molecular_behavior_experiment.uploaded_file %>')">
+              <% end %> -->
+            </div>
+          </div>
+
+          <div class="suggested">
+            <div class="suggested-exp-title-bar">
+              <div class="suggested-exp-title">
+                <% top_experiment = find_unique_experiment(molecular_behavior_experiment.name, plant_experiment.name, human_experiment.name) %>
+                <%= link_to top_experiment.first.name, experiment_path(top_experiment.first) %>
+              </div>
+              <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize top_experiment.first.votes, "like" %></i>
+            </div>
+            <div class="suggested-img">
+              <!-- <% if top_experiment.first.uploaded_file.blank? %>
+                <a href="<%= url_for @top_experiment.first %>" class="suggested-exp-img" style="background-image: url(/assets/discovery-landing.jpg)">
+              <% else %>
+                <a href="<%= url_for @top_experiment %>" class="suggested-exp-img" style="background-image: url('<%= top_experiment.first.uploaded_file %>')">
+              <% end %> -->
+            </div>
+          </div>
         </div>
     </div>
