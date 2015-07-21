@@ -5,24 +5,16 @@ Rails.application.routes.draw do
     end
   end
 
-
-
   post '/rate' => 'rater#create', :as => 'rate'
 
   resources :instructions
   resources :materials
   devise_for :users
 
-  # resources :users do #can create comments on user page when we get there
-  #   resources :comments, module: :users
-  # end
-
   resources :experiments do
     resources :comments, module: :experiments
     collection do
       get 'order_experiments'
-      get 'age_ordered'
-      get 'time_ordered'
       get 'landing_page'
     end
     member { post :vote }
