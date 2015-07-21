@@ -12,7 +12,7 @@
   background-size: cover;
   height: 102vh;
   margin-top: -14.5em;
-  opacity: 0.3;
+  opacity: 0.2;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -42,7 +42,7 @@
   color: #323232;
   margin: 0.2em auto;
   font-size: 2em;
-  width: 19%;
+  width: 17%;
   font-weight: bold;
 }
 
@@ -64,18 +64,18 @@
   font-size: 2em;
   outline-color: #DFF5D1;
   width: 12em;
-  margin-left: -2em;
+  margin-left: -1em;
 }
 
 .landing-fa-search {
-  padding: 1.5em;
+  padding: 1.52em;
   background-color: #229805;
   color: white;
   border: 0.1em solid #D6D6D6;
   outline-color: #DFF5D1;
   float: right;
-  position: absolute;
-  margin-left: -1.5em;
+  margin-right: -2em;
+  margin-top: -4.2em;
 }
 
 /* suggested experiments */
@@ -83,11 +83,11 @@
 .initial-suggested {
   display: block;
   width: 100%;
-  height: 13em;
-  background-color: #EBEAE3;
+  height: 13.5em;
+  background-color: #F2F3F4;
   border: 1px solid #D6D6D6;
   clear: both;
-  margin-top: 14em;
+  margin-top: 12em;
   position: fixed;
 }
 
@@ -100,14 +100,13 @@
 }
 
 .suggested {
-  /*background-image: url("/assets/discovery-crop.jpg");*/
+  /* background-image: url("/assets/discovery-crop.jpg"); */
   background-size: cover;
-  margin: 0% 0.5%;
+  margin: 0.5% 0.5%;
   border: 1px solid #D6D6D6;
   display: inline-block;
-  /* position: relative; */
   width: 20%;
-  height: 12em;
+  height: 11em;
 }
 
 .suggested-img {
