@@ -62,24 +62,6 @@ $(function() {
  });
 });
 
-// drop down order function
-// $(function() {
-//   $('.order').change(function(){
-//     var selectValue = $(this).val();
-//     if (selectValue === "1") {
-//     var queryValue = $('#query').val();
-//     $.ajax({ url: '/experiments/age_ordered',
-//              data: {selectValue, queryValue}
-//     });
-//     } else {
-//       var queryValue = $('#query').val();
-//       $.ajax({ url: '/experiments/time_ordered',
-//                data: {selectValue, queryValue}
-//       });
-//     }
-//   });
-// });
-
 $(function() {
   $('.order').change(function(){
     var selectValue = $(this).val();
