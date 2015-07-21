@@ -15,8 +15,14 @@
 <div class="initial-suggested">
   <div class="suggested-container">
     <% used_experiments = [] %>
-    <% ["Human Body", "Plants", "Molecular Behavior"].each do |s| %>
-      <% experiment = @concepts.find_by_name(s).experiments.sample %>
+    <% ["Human Body", "Plants", "Molecular Behavior"].each_with_index do |s, index| %>
+      <% if index == 0 %>
+        <% experiment = @concepts.find_by_name(s).experiments.sample %>
+      <% elsif index == 1 %>
+        <% experiment = @concepts.find_by_name(s).experiments.where.not(name: "#{used_experiments[0]}").sample %>
+      <% else %>
+        <% experiment = @concepts.find_by_name(s).experiments.where.not(name: "#{used_experiments[1]}").sample %>
+      <% end %>
       <% used_experiments << experiment.name %>
       <div class="suggested">
         <div class="suggested-exp-title-bar">
@@ -27,9 +33,9 @@
         </div>
         <div class="suggested-img">
           <% if experiment.uploaded_file.blank? %>
-            <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)"></a>
+            <a href="<%= url_for experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)"></a>
           <% else %>
-            <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')"></a>
+            <a href="<%= url_for experiment %>" class="suggested-exp-img" style="background-image: url('<%= experiment.uploaded_file %>')"></a>
           <% end %>
         </div>
       </div>
@@ -42,13 +48,13 @@
           <%= link_to top_experiment.name, experiment_path(top_experiment) %>
         </div>
         <i class="fa fa-thumbs-up suggested-likes"> <%= pluralize top_experiment.votes, "like" %></i>
-        <div class="suggested-img">
-          <% if top_experiment.uploaded_file.blank? %>
-            <a href="<%= url_for top_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)"></a>
-          <% else %>
-            <a href="<%= url_for top_experiment %>" class="index-photo" style="background-image: url('<%= top_experiment.uploaded_file %>')"></a>
-          <% end %>
-        </div>
+      </div>
+      <div class="suggested-img">
+        <% if top_experiment.uploaded_file.blank? %>
+          <a href="<%= url_for top_experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)"></a>
+        <% else %>
+          <a href="<%= url_for top_experiment %>" class="suggested-exp-img" style="background-image: url('<%= top_experiment.uploaded_file %>')"></a>
+        <% end %>
       </div>
     </div>
   </div>
