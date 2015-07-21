@@ -68,13 +68,6 @@ class Experiment < ActiveRecord::Base
     (all.sort_by {|e| [e.average("name").nil? ? 0 : e.average("name").avg, e.complete_time]}).reverse
   end
 
-  def s3_credentials
-    {:bucket => "stempirical",
-        :s3_protocol => 'https',
-        :access_key_id => ENV["AMS3_ID"],
-        :secret_access_key => ENV["AMS3_KEY"]}
-  end
-
   def concept_parents
     array = []
     concepts.each do |c|
