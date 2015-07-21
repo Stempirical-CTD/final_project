@@ -291,7 +291,7 @@
 
   <h3 class="comment-title">We Love Feedback!</h3><br>
   <div class="comments">
-    All Comments (<%= @experiment.comments.count %>)
+    <div class="comments-total">All Comments (<%= @experiment.comments.count %>)</div>
       <div id="all-comments">
         <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
       </div>
