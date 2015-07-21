@@ -148,7 +148,7 @@
 
 .next-steps-heading {
 	width: 100%;
-	margin: 1.5em auto -2.5em;
+	margin: 1.5em auto;
 	padding-top: 1em;
 	font-weight: bold;
 	border-top: 1px solid #D6D6D6;
@@ -177,8 +177,7 @@
 .show-experiment-card {
 	display: inline-block;
   width: 49%;
-  height: 20em;
-  margin: -11.75em 0.5em 0em 0em;
+	padding: 0.2em;
 }
 
 .rec-exp-title {
