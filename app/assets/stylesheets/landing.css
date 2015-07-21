@@ -12,7 +12,7 @@
   background-size: cover;
   height: 102vh;
   margin-top: -14.5em;
-  opacity: 0.6;
+  opacity: 0.3;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -88,7 +88,7 @@
   border: 1px solid #D6D6D6;
   clear: both;
   margin-top: 12em;
-  position: relative;
+  position: fixed;
 }
 
 .suggested-container {

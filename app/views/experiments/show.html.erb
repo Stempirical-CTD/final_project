@@ -127,8 +127,8 @@
                     <div class="suggested-text">Ages <%= @top_experiment.return_age %></div>
                   </div>
                   <div class="mess-rate-disable index-mess">
-                    <div class="suggested-text"><%= rating_for @top_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %></div><br>
-                    Mess
+                    <%= rating_for @top_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
+                  <div class="suggested-text">Mess</div>
                   </div>
                 </span>
               </div>
