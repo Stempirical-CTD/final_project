@@ -33,7 +33,7 @@
         </div>
         <div class="suggested-img">
           <% if experiment.uploaded_file.blank? %>
-            <a href="<%= url_for experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)"></a>
+            <a href="<%= url_for experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "bubbles.jpg" %>)"></a>
           <% else %>
             <a href="<%= url_for experiment %>" class="suggested-exp-img" style="background-image: url('<%= experiment.uploaded_file %>')"></a>
           <% end %>
@@ -51,7 +51,7 @@
       </div>
       <div class="suggested-img">
         <% if top_experiment.uploaded_file.blank? %>
-          <a href="<%= url_for top_experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)"></a>
+          <a href="<%= url_for top_experiment %>" class="suggested-exp-img" style="background-image: url(<%= image_path "bubbles.jpg" %>)"></a>
         <% else %>
           <a href="<%= url_for top_experiment %>" class="suggested-exp-img" style="background-image: url('<%= top_experiment.uploaded_file %>')"></a>
         <% end %>
