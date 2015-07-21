@@ -4,7 +4,7 @@ class CreateExperiments < ActiveRecord::Migration
       t.integer :user_id
       t.text :description
       t.text :youtube_link
-      t.float :complete_time
+      t.integer :complete_time
       t.string :name
       t.integer :age
 
