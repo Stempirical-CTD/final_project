@@ -14,14 +14,14 @@
           <option value="2">Time</option>
       </select>
     </span>
-  </div>  
+  </div>
 
   <div class="index-wrapper">
   <% @experiments.each do |experiment| %>
 
       <div class="index-experiment-card">
         <% if experiment.uploaded_file.blank? %>
-          <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+          <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url(<%= image_path "bubbles.jpg" %>)">
         <% else %>
           <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')">
         <% end %>
