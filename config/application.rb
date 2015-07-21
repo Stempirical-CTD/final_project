@@ -26,6 +26,7 @@ module FinalProject
     config.paperclip_defaults = {
       :storage => :s3,
       :url =>':s3_domain_url',
+      :s3_protocol => :https,
       :path => '/:class/:attachment/:id_partition/:style/:filename',
       :s3_credentials => {
         :bucket => 'stempirical',
