@@ -13,8 +13,6 @@ class Experiment < ActiveRecord::Base
 
   has_many :comments, as: :commentable
 
-
-
   has_many :experiment_votes
   accepts_nested_attributes_for :experiment_votes
 
@@ -59,6 +57,17 @@ class Experiment < ActiveRecord::Base
       "10 & up"
     end
   end
+
+  def s3_credentials {
+    :storage => :s3,
+    :url =>':s3_domain_url',
+    :path => '/:class/:attachment/:id_partition/:style/:filename',
+    :s3_credentials => {
+      :bucket => 'stempirical',
+      :access_key_id => ENV['AMS3_ID'],
+      :secret_access_key => ENV['AMS3_ID']
+    }
+ end
 
   def self.order_by_mess
     (all.sort_by {|e| e.average("name").nil? ? 0 : e.average("name").avg}).reverse
