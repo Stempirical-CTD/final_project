@@ -5,8 +5,6 @@ class Experiment < ActiveRecord::Base
   has_and_belongs_to_many :concepts
 
   has_attached_file :uploaded_file
-                    # :storage => :s3,
-                    # :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 
   validates_attachment_content_type :uploaded_file, :content_type => ['image/jpeg', 'image/png', 'image/pdf']
   # validates :uploaded_file, presence: true
