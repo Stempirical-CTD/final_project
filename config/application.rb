@@ -30,7 +30,7 @@ module FinalProject
       :s3_credentials => {
         :bucket => 'stempirical',
         :access_key_id => ENV['AMS3_ID'],
-        :secret_access_key => ENV['AMS3_ID']
+        :secret_access_key => ENV['AMS3_KEY']
       }
     }
   end
