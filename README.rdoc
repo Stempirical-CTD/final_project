@@ -6,7 +6,7 @@ we also explore the scientific explanations behind the experiment (the why).
 Stempirical is a space where rainy-day science experiments are both entertaining and educational.
 
 This project was create by two Ruby on Rails developers, [Aaron Wiggins](https://github.com/aaronwiggins)
-and [Daisy Magnus](https://github.com/DaisyMagnus) and one Front End Developer, [Lindsey Miller](https://github.com/lindcmiller) from
+and [Daisy Magnus](https://github.com/DaisyMagnus), and one Front End Developer, [Lindsey Miller](https://github.com/lindcmiller), from
 The Iron Yard Durham.
 
 Check out our individual github profiles by clicking on our names to see more of our work.
