@@ -199,17 +199,23 @@ textarea {
 .unordered-list-instructions {
 	width: 80%;
 	margin: 0 auto;
+	border-top: 1px solid #D6D6D6;
 }
 
-.new-materials, .new-instructions {
+.new-instructions {
   margin-bottom: 1.5em;
-  border-top: 0.1em solid #D6D6D6;
-  padding: 0.75em;
+  padding-top: 0.75em;
+}
+
+.new-materials {
+	margin-bottom: 1.5em;
+	border-top: 0.1em solid #D6D6D6;
+	padding-top: 0.75em;
 }
 
 .new-material, .new-instruction {
   display: inline-block;
-  width: 80%;
+  width: 93%;
   padding: 0.3em;
   margin: 0 0 0.5em 0;
   font-family: 'Raleway', sans-serif;
@@ -249,7 +255,7 @@ textarea {
 }
 
 .add-instruction-btn {
-	margin: 1.5em 0 -0.5em 6em;
+	margin: 1.5em 0 -0.5em 6.9em;
 }
 
 .delete-material-btn, .delete-instruction-btn {
@@ -274,8 +280,7 @@ textarea {
 .new-exp-btn {
   margin: 1em 0;
   padding: 1em;
-  border-top: 0.1em solid #D6D6D6;
-  margin-top: 0.75em;
+	border-top: 1px solid #D6D6D6;
 }
 
 .new-exp-btn input {

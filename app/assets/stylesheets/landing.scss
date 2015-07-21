@@ -1,13 +1,13 @@
 /*background image*/
 
 #landing {
-  position: relative;
+  /*position: relative;*/
   z-index: 1;
   padding: 3.5em;
 }
 
 #bg {
-  background-image: asset_url("discovery-crop.jpg");
+  background-image: image-url("discovery-crop.jpg");
   width: 100%;
   background-size: cover;
   height: 102vh;
@@ -40,9 +40,9 @@
 .stempirical-tagline {
   font-family: 'Raleway', sans-serif;
   color: #323232;
-  margin: 0.5em auto;
-  font-size: 1.5em;
-  width: 13%;
+  margin: 0.2em auto;
+  font-size: 2em;
+  width: 19%;
   font-weight: bold;
 }
 
@@ -64,7 +64,7 @@
   font-size: 2em;
   outline-color: #DFF5D1;
   width: 12em;
-  margin-left: -1em;
+  margin-left: -2em;
 }
 
 .landing-fa-search {
@@ -87,7 +87,7 @@
   background-color: #EBEAE3;
   border: 1px solid #D6D6D6;
   clear: both;
-  margin-top: 12em;
+  margin-top: 14em;
   position: fixed;
 }
 
