@@ -9,6 +9,7 @@
 
 .index-header {
 	margin: 1em auto;
+	overflow: auto;
 }
 
 .pages {
@@ -32,7 +33,6 @@
 
 .search-results-title {
 	display: inline-block;
-	margin: 0 0 0 7.2em;
 	font-weight: bold;
 	float: left;
 	padding-bottom: 0.5em;
@@ -41,7 +41,6 @@
 .sort {
 	float: right;
 	padding-bottom: 0.5em;
-	margin-right: 1.75em;
 }
 
 .page-title {
@@ -57,13 +56,18 @@
   position: relative;
   width: 47%;
   height: 25em;
-  margin: -14.5em 1.5em 0 0;
+  margin: 0;
   padding-bottom: 0.5em;
+
+	&:nth-child(2n+2) {
+		float: right;
+	}
 }
 
 .index-photo {
 	display: block;
-	min-height: 70%;
+	position: relative;
+	padding-bottom: 40%;
 	background-size: cover;
 	color: #EEE;
 }
@@ -84,9 +88,7 @@
 	position: relative;
 	text-align: center;
 	background-color: rgba(50,50,50,0.8);
-	width: 100%;
 	padding: 0.5em 0;
-	margin-top: 50%;
 }
 
 .index-exp-title {
