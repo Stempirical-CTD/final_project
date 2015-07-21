@@ -70,7 +70,7 @@ class Experiment < ActiveRecord::Base
 
   def s3_credentials
     {:bucket => "stempirical",
-        :s3_protocol => 'https'
+        :s3_protocol => 'https',
         :access_key_id => ENV["AMS3_ID"],
         :secret_access_key => ENV["AMS3_KEY"]}
   end
