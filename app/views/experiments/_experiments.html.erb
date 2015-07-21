@@ -1,53 +1,63 @@
-<% if params[:query] %>
-  <h1 class="search-results-title">Search Results for: <%= params[:query] %></h1>
-<% else %>
-  <h1 class="index-title">All Experiments</h1>
-<% end %>
 
-<div class="index-wrapper">
+<div class="exp-index-container">
+  <div class="index-header">
+    <% if params[:query] %>
+      <h1 class="search-results-title">Search Results for: <%= params[:query] %></h1>
+    <% else %>
+      <h1 class="index-title">All Experiments</h1>
+    <% end %>
 
+    <span class="sort">
+      <select size="1" id="order" class="order">
+          <option value="">Sort By</option>
+          <option value="1">Age</option>
+          <option value="2">Time</option>
+      </select>
+    </span>
+  </div>  
 
+  <div class="index-wrapper">
+  <% @experiments.each do |experiment| %>
 
-<% @experiments.each do |experiment| %>
+      <div class="index-experiment-card">
+        <% if experiment.uploaded_file.blank? %>
+          <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+        <% else %>
+          <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')">
+        <% end %>
+          <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= experiment.name %></h3>
 
-    <div class="index-experiment-card">
-      <% if experiment.uploaded_file.blank? %>
-        <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
-      <% else %>
-        <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')">
-      <% end %>
-        <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= experiment.name %></h3>
-
-          <i class="fa fa-thumbs-up index-likes"> <%= pluralize experiment.votes, "like" %></i>
-        </span>
-      </a>
-
-      <div class="index-info">
-        <div class="index-exp-ratings">
-          <span class="ratings-container">
-            <span class="index-concept-icon">
-              <% c = experiment.concepts.sample %>
-              <%= image_tag "#{c.name}.png", class: "concept-img-small" %><br>
-              <%= link_to c.name, concept_path(c) %>
-            </span>
-
-            <div class="index-time">
-              <%= image_tag "time.png", class: "icon-small" %><br>
-              <%= experiment.complete_time %> hour(s)
-            </div>
-
-            <div class="index-age">
-              <%= image_tag "age.png", class: "icon-small" %><br>
-              Ages <%= experiment.return_age %>
-            </div>
-
-            <div class="mess-rate-disable index-mess">
-              <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-              Mess
-            </div>
+            <i class="fa fa-thumbs-up index-likes"> <%= pluralize experiment.votes, "like" %></i>
           </span>
+        </a>
+
+        <div class="index-info">
+          <div class="index-exp-ratings">
+            <span class="ratings-container">
+              <span class="index-concept-icon">
+                <% c = experiment.concepts.sample %>
+                <%= image_tag "#{c.name}.png", class: "concept-img-small" %><br>
+                <%= link_to c.name, concept_path(c) %>
+              </span>
+
+              <div class="index-time">
+                <%= image_tag "time.png", class: "icon-small" %><br>
+                <%= experiment.complete_time %> hour(s)
+              </div>
+
+              <div class="index-age">
+                <%= image_tag "age.png", class: "icon-small" %><br>
+                Ages <%= experiment.return_age %>
+              </div>
+
+              <div class="mess-rate-disable index-mess">
+                <%= rating_for experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
+                Mess
+              </div>
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-<% end %>
+  <% end %>
+  </div>
 </div>

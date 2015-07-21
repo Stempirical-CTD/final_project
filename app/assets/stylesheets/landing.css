@@ -11,14 +11,14 @@
 	width: 100%;
 	background-size: cover;
 	height: 102vh;
-  margin-top: -14.5em;
-  opacity: 0.6;
+  margin-top: -20.5em;
+  opacity: 0.3;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: -1;
+  z-index: -5;
 }
 
 /*hero text*/
@@ -40,10 +40,10 @@
 .stempirical-tagline {
   font-family: 'Raleway', sans-serif;
   color: #323232;
-  margin: 1em auto;
+  margin: 0.5em auto;
   font-size: 1.5em;
-  width: 45%;
-  padding-left: 2em;
+  width: 13%;
+  font-weight: bold;
 }
 
 .landing-search {
@@ -78,23 +78,94 @@
   margin-left: -1.5em;
 }
 
+/* suggested experiments */
+
 .initial-suggested {
+  display: block;
   width: 100%;
-  height: 11em;
-  background-color: #F9F9F9;
+  height: 13em;
+  background-color: #EBEAE3;
   border: 1px solid #D6D6D6;
   clear: both;
-  margin-top: 3.2em;
+  margin-top: 12em;
+  position: relative;
 }
 
 .suggested-container {
   width: 100%;
   margin: 0.5% auto;
+  display: inline-block;
+  position: absolute;
+  padding-left: 8em;
 }
 
-.suggested img {
-  width: 23.5%;
-  height: 10em;
+.suggested {
+  /*background-image: url("/assets/discovery-crop.jpg");*/
+  background-size: cover;
+  margin: 0% 0.5%;
+  border: 1px solid #D6D6D6;
+  display: inline-block;
+  /* position: relative; */
+  width: 20%;
+  height: 12em;
+}
+
+.suggested-img {
+  /*background-image: url("/assets/discovery-crop.jpg");
+  background-size: cover;*/
+  width: 100%;
+  height: 100%;
+  display: inline;
+  margin: 0 auto;
+}
+
+.suggested-likes {
+	padding: 0.5em 0;
+	float: right;
+	margin: -1em 0.5em 0;
+}
+
+.suggested-exp-title-bar {
+	/*display: block;
+	position: relative;*/
+	text-align: center;
+	background-color: rgba(50,50,50,0.8);
+	width: 100%;
+  padding: 1em 0;
+  /*margin-top: -0.9em;*/
+  color: #F9F9F9;
+}
+
+.suggested-exp-title {
+  display: inline-block;
+  text-transform: uppercase;
+  margin-top: -0.7em;
+  margin-left: 0.8em;
+  float: left;
+  color: #F9F9F9 !important;
+  z-index: 2;
+  font-size: 0.8em;
+}
+
+.suggested-exp-title a {
+color: #F9F9F9 !important;
+}
+
+/*.suggested-exp-img {*/
+  /*background-image: url("/assets/discovery-crop.jpg");*/
+  /*width: 23.5%;*/
+  /*clear: both;
+   width: 100%;
+  height: 100%;
   margin: 0.1% 0.5%;
   border: 1px solid #D6D6D6;
+  background-size: cover;
+  display: inline;
+}*/
+/*aaron trying to fix card*/
+.suggested-exp-img {
+	display: block;
+	min-height: 83.4%;
+	background-size: cover;
+	color: #EEE;
 }

@@ -8,28 +8,33 @@
 }
 
 .show-exp-image {
-	position: absolute;
 	width: 100%;
-	background-size: cover;
-	height: 80vh;
-	margin-top: -14.5em;
-	opacity: 0.6;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: -1;
+  background-size: cover;
+  height: 50vh;
+  margin-top: 2em;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .largest-show-container {
-	margin: 10em auto 1em;
+	margin: 0 auto;
 	position: relative;
 	z-index: 0;
+	width: 60%;
+	padding-top: 8em;
+}
+
+.show-wrapper {
+	display: inline;
 }
 
 .show-container {
-	width: 60%;
+	width: 100%;
 	height: auto;
 	overflow: hidden;
 	margin: 0 auto;
@@ -43,7 +48,7 @@
 .show-exp-title-bar {
 	position: relative;
 	background-color: rgba(60, 63, 64, 0.8);
-	width: 60%;
+	width: 100%;
 	padding: 1em 0;
 	margin: 0 auto;
 }
@@ -64,8 +69,8 @@
 	display: inline-block;
 	position: relative;
 	text-align: center;
-	padding: 1em;
-	font-size: 1em;
+	padding: 1em 2.6em;
+	font-size: 1.2em;
 }
 
 .show-likes {
@@ -141,41 +146,49 @@
 
 // further steps
 
-// .recommended, .extended-learning {
-// 	position: relative;
-// 	width: 80%;
-// 	padding-top: 1em;
-// 	margin: 2em auto;
-// 	// margin: 0 auto;
-// }
-
-// .recommended {
-// 	border-top: solid 2px #D6D6D6;
-// }
-// .extended-learning {
-// 	border-bottom: solid 2px #D6D6D6;
-// }
+.next-steps-heading {
+	width: 100%;
+	margin: 1.5em auto -2.5em;
+	padding-top: 1em;
+	font-weight: bold;
+	border-top: 1px solid #D6D6D6;
+}
 
 .show-next-steps {
-  width: 100%;
-  height: 21em;
-  background-color: #F9F9F9;
-  border: 1px solid #D6D6D6;
+	width: 100%;
+  height: 22em;
   clear: both;
-  margin: 2em auto;
+  margin: 0 auto;
+	padding-left: 0.2em;
 }
 
 .next-steps-container {
 	width: 80%;
-  margin: 1% auto;
+  margin: -4em auto;
+	padding-left: 2em;
 }
 
-// .show-recommended img, .show-extended-learning img {
-// 	width: 45%;
-//   height: 19em;
-//   margin: 0.1% 1%;
-//   border: 1px solid #D6D6D6;
-// }
+.show-recommended {
+	width: 100%;
+	margin: 0 auto;
+	padding-left: 0.3em;
+}
+
+.show-experiment-card {
+	display: inline-block;
+  width: 49%;
+  height: 20em;
+  margin: -11.75em 0.5em 0em 0em;
+}
+
+.rec-exp-title {
+	display: inline-block;
+  text-transform: uppercase;
+}
+
+.suggested-text {
+	font-size: 0.8em;
+}
 
 //comments
 
@@ -196,12 +209,15 @@ add-comment-container {
 }
 
 .comment-title {
-	text-align: center;
-	margin-top: 1em;
+  margin-top: 1em;
+  border-top: 1px solid #D6D6D6;
+  width: 100%;
+  padding-top: 1.5em;
+	font-weight: bold;
 }
 
 .comments {
-	width: 45%;
+	width: 100%;
 	margin: 0 auto;
 	height: auto;
 	overflow: hidden;
@@ -233,7 +249,7 @@ add-comment-container {
 }
 
 .form-group {
-  width: 1000%;
+  width: 100%;
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
   outline-color: #DFF5D1;

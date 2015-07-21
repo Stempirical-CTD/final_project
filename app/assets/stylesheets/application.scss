@@ -10,11 +10,29 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
  *= require reset
  *= require_tree .
  *= require_self
  *= require jquery-ui
+ *= require font-awesome
  */
+
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: font-url('raleway.woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+  font-family: 'Chelsea Market';
+  font-style: normal;
+  font-weight: 400;
+  src: font-url('ChelseaMarket-Regular.woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
 
 .experiments {
   display: none;
@@ -82,7 +100,7 @@ button:hover {
 .main-content {
   clear: both;
   display: block;
-  margin: 4.5em auto;
+  margin: 4.5em auto 0;
 }
 
 /*navigation bar*/
@@ -107,7 +125,7 @@ button:hover {
 
 .nav-link {
   font-size: 1.1em;
-  padding: 0.3em 0.7em 0.7em;
+  padding: 0.3em 0.7em 0.5em;
   display: inline-block;
 }
 
@@ -148,7 +166,7 @@ div.active {
   /*display: inline;*/
   float: right;
   border: 0;
-  outline-color: #DFF5D1;
+  outline: none;
   padding: 0.9em;
   font-size: 1.4em;
   font-family: 'Raleway', sans-serif;
@@ -159,13 +177,13 @@ div.active {
 }
 
 .sort {
+  display: inline-block;
   border: 0.1em solid #D6D6D6;
   padding: 0.4em 0;
-  outline-color: #DFF5D1;
+  outline: none;
   z-index: 2;
   float: right;
   background-color: #F9F9F9;
-  margin-right: 16.5em;
 }
 
 .search {
@@ -180,7 +198,7 @@ div.active {
 
 .exp-search {
   line-height: 1.5em;
-  padding: 0.1em;
+  padding: 0.25em;
   margin-left: 0.5em;
   position: absolute;
   top: 20%;
@@ -193,7 +211,7 @@ div.active {
 
 .nav-fa-search {
   position: absolute;
-  padding: 0.35em;
+  padding: 0.5em;
   background-color: #229805;
   color: white;
   border: 0.1em solid #D6D6D6;
@@ -216,3 +234,10 @@ div.active {
   position: relative;
   width: 100%;
 }
+
+/*.fa-search{
+  z-index:999;
+  width:200px;
+  height:200px;
+  background-color:cyan
+}*/

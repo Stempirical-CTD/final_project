@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.exp-index-container {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.index-header {
+	margin: 1em auto;
+}
+
 .pages {
 	z-index: 100;
 }
@@ -9,27 +18,31 @@
 .index-wrapper {
 	display: inline;
 	position: relative;
-	left: 13em;
-	// margin: 0 auto;
-	// width: 100%;
+	margin: 0 auto;
+	width: 100%;
 }
 
 .index-title {
 	display: inline-block;
-	margin: 0 0 0 7.2em;
-	width: 100%;
 	text-transform: uppercase;
 	font-weight: bold;
+	float: left;
+	padding-bottom: 0.5em;
 }
 
 .search-results-title {
 	display: inline-block;
 	margin: 0 0 0 7.2em;
-	width: 100%;
-	// text-transform: uppercase;
 	font-weight: bold;
+	float: left;
+	padding-bottom: 0.5em;
 }
 
+.sort {
+	float: right;
+	padding-bottom: 0.5em;
+	margin-right: 1.75em;
+}
 
 .page-title {
 	display: block;
@@ -41,12 +54,11 @@
 
 .index-experiment-card {
 	display: inline-block;
-	position: relative;
-	width: 35%;
-	height: 25em;
-	margin: -16em 1.5em 1.5em 0;
-	padding-bottom: 0.5em;
-	// z-index: -10;
+  position: relative;
+  width: 47%;
+  height: 25em;
+  margin: -14.5em 1.5em 0 0;
+  padding-bottom: 0.5em;
 }
 
 .index-photo {
@@ -85,15 +97,12 @@
 
 .index-exp-ratings {
 	display: block;
-	position: relative;
-	width: 100%;
-	font-size: 0.65em;
-	// margin: 0 auto;
-	padding: 0.5em 0;
-	border-right: 1px solid #D6D6D6;
-	border-bottom: 1px solid #D6D6D6;
-	border-left: 1px solid #D6D6D6;
-	background-color: #F9F9F9;
+  width: 100%;
+  font-size: 0.8em;
+  border-right: 1px solid #D6D6D6;
+  border-bottom: 1px solid #D6D6D6;
+  border-left: 1px solid #D6D6D6;
+  background-color: #F9F9F9;
 }
 
 .index-exp-ratings a {
@@ -108,11 +117,9 @@
 
 .index-concept-icon, .index-age, .index-time, .index-mess {
 	display: inline-block;
-	position: relative;
-	text-align: center;
-	padding: 0.4em;
-	// height: 2em;
-	// width: 2em;
+  position: relative;
+  text-align: center;
+	padding: 0.7em;
 }
  /*ratings  */
 
