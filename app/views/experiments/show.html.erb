@@ -112,18 +112,19 @@
                 <span class="ratings-container">
                   <span class="index-concept-icon">
                     <%= image_tag "#{top_experiment_concept.name}.png", class: "concept-img-small" %><br>
-                    <%= link_to top_experiment_concept.name, concept_path(top_experiment_concept)%>
+                    <div class="suggested-text">
+                    <%= link_to top_experiment_concept.name, concept_path(top_experiment_concept)%></div>
                   </span>
                   <div class="index-time">
                     <%= image_tag "time.png", class: "icon-small" %><br>
-                    <%= @top_experiment.complete_time %> hour(s)
+                    <div class="suggested-text"><%= @top_experiment.complete_time %> hour(s)</div>
                   </div>
                   <div class="index-age">
                     <%= image_tag "age.png", class: "icon-small" %><br>
-                    Ages <%= @top_experiment.return_age %>
+                    <div class="suggested-text">Ages <%= @top_experiment.return_age %></div>
                   </div>
                   <div class="mess-rate-disable index-mess">
-                    <%= rating_for @top_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
+                    <div class="suggested-text"><%= rating_for @top_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %></div><br>
                     Mess
                   </div>
                 </span>
@@ -149,19 +150,19 @@
                   <span class="ratings-container">
                     <span class="index-concept-icon">
                       <%= image_tag "#{concept.name}.png", class: "concept-img-small"%><rb>
-                      <%= link_to concept.name, concept_path(concept) %>
+                      <div class="suggested-text"><%= link_to concept.name, concept_path(concept) %></div>
                     </span>
                     <div class="index-time">
                       <%= image_tag "time.png", class: "icon-small" %><br>
-                      <%= exp.complete_time %> hour(s)
+                      <div class="suggested-text"><%= exp.complete_time %> hour(s)</div>
                     </div>
                     <div class="index-age">
                       <%= image_tag "age.png", class: "icon-small" %><br>
-                      Ages <%= exp.return_age %>
+                      <div class="suggested-text">Ages <%= exp.return_age %></div>
                     </div>
                     <div class="mess-rate-disable index-mess">
                       <%= rating_for exp, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-                      Mess
+                      <div class="suggested-text">Mess</div>
                     </div>
                 </span>
               </div>
@@ -176,8 +177,8 @@
             <% else %>
               <a href="<%= url_for exp %>" class="index-photo" style="background-image: url('<%= exp.uploaded_file %>')">
             <% end %>
-              <span class="show-exp-title-bar"><h3 class="rec-exp-title"><%= exp.name %></h3>
-                <i class="fa fa-thumbs-up show-likes"> <%= pluralize exp.votes, "like" %></i>
+              <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= exp.name %></h3>
+                <i class="fa fa-thumbs-up index-likes"> <%= pluralize exp.votes, "like" %></i>
               </span>
             </a>
             <div class="index-info">
@@ -185,19 +186,19 @@
                   <span class="ratings-container">
                     <span class="index-concept-icon">
                       <%= image_tag "#{@concept.name}.png", class: "concept-img-small"%><br>
-                      <%= link_to @concept.name, concept_path(@concept) %>
+                      <div class="suggested-text"><%= link_to @concept.name, concept_path(@concept) %></div>
                     </span>
                     <div class="index-time">
                       <%= image_tag "time.png", class: "icon-small" %><br>
-                      <%= exp.complete_time %> hour(s)
+                      <div class="suggested-text"><%= exp.complete_time %> hour(s)</div>
                     </div>
                     <div class="index-age">
                       <%= image_tag "age.png", class: "icon-small" %><br>
-                      Ages <%= exp.return_age %>
+                      <div class="suggested-text">Ages <%= exp.return_age %></div>
                     </div>
                     <div class="mess-rate-disable index-mess">
                       <%= rating_for exp, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-                      Mess
+                      <div class="suggested-text">Mess</div>
                     </div>
                 </span>
               </div>
@@ -225,19 +226,19 @@
                   <span class="ratings-container">
                     <span class="index-concept-icon">
                       <%= image_tag "#{random_child.name}.png", class: "concept-img-small"%><br>
-                      <%= link_to random_child.name, concept_path(random_child) %>
+                      <div class="suggested-text"><%= link_to random_child.name, concept_path(random_child) %></div>
                     </span>
                     <div class="index-time">
                       <%= image_tag "time.png", class: "icon-small" %><br>
-                      <%= random_child_experiment.complete_time %> hour(s)
+                      <div class="suggested-text"><%= random_child_experiment.complete_time %> hour(s)</div>
                     </div>
                     <div class="index-age">
                       <%= image_tag "age.png", class: "icon-small" %><br>
-                      Ages <%= random_child_experiment.return_age %>
+                      <div class="suggested-text">Ages <%= random_child_experiment.return_age %></div>
                     </div>
                     <div class="mess-rate-disable index-mess">
                       <%= rating_for random_child_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-                      Mess
+                      <div class="suggested-text">Mess</div>
                     </div>
                 </span>
               </div>
@@ -262,19 +263,19 @@
                   <span class="ratings-container">
                     <span class="index-concept-icon">
                       <%= image_tag "#{random_parent.name}.png", class: "concept-img-small"%><br>
-                      <%= link_to random_parent.name, concept_path(random_parent) %>
+                      <div class="suggested-text"><%= link_to random_parent.name, concept_path(random_parent) %></div>
                     </span>
                     <div class="index-time">
                       <%= image_tag "time.png", class: "icon-small" %><br>
-                      <%= random_parent_experiment.complete_time %> hour(s)
+                      <div class="suggested-text"><%= random_parent_experiment.complete_time %> hour(s)</div>
                     </div>
                     <div class="index-age">
                       <%= image_tag "age.png", class: "icon-small" %><br>
-                      Ages <%= random_parent_experiment.return_age %>
+                      <div class="suggested-text">Ages <%= random_parent_experiment.return_age %></div>
                     </div>
                     <div class="mess-rate-disable index-mess">
                       <%= rating_for random_parent_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-                      Mess
+                      <div class="suggested-text">Mess</div>
                     </div>
                 </span>
               </div>
