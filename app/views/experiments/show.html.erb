@@ -13,9 +13,12 @@
       <div class="quality-rating">
         <% if current_user && current_user.can_vote_for?(@experiment) %>
           <%= link_to content_tag(:i, nil, class: 'fa fa-thumbs-up show-likes'), vote_experiment_path(@experiment, value: 1), method: "post" %>
-          <% end %>
-
           <%= pluralize @experiment.votes, "like" %>
+        <% else %>
+          <i class="fa fa-thumbs-up"></i> <%= pluralize @experiment.votes, "like" %>
+        <% end %>
+
+
       </div>
   </div>
 
@@ -41,7 +44,7 @@
 
       <div class="mess">
         <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-        Mess Factor: <%= @experiment.average("name").nil? ? '0' : @experiment.average("name").avg %>
+        Mess Factor
       </div>
     </div>
 
@@ -62,7 +65,7 @@
       <h3>Instructions:</h3><br>
       <% @experiment.instructions.each do |instruction| %>
         <div class="show-instruction">
-          <%= instruction.order_number %> | <%= instruction.information %><br>
+          <%= instruction.order_number %> <%= instruction.information %><br>
         </div>
       <% end %>
     </div>

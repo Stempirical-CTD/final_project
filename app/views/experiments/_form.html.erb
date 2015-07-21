@@ -140,7 +140,11 @@
         </div>
 
         <div class="actions new-exp-btn">
+          <% if current_page?(new_experiment_path) || params[:action] == "create" %>
             <%= f.submit "Create Experiment", data: { disable_with: "Please wait..." } %>
+          <% elsif params[:action] == "edit" %>
+            <%= f.submit "Update Experiment", data: { disable_with: "Please wait..." } %>
+          <% end %>
         </div>
         <% end %>
       </div>
