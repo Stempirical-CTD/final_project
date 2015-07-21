@@ -10,9 +10,9 @@
 .show-exp-image {
 	width: 100%;
   background-size: cover;
-  height: 50vh;
+  height: 55vh;
   margin-top: 2em;
-  opacity: 0.6;
+  opacity: 0.8;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -60,17 +60,24 @@
 }
 
 .show-ratings {
-	width: 80%;
+	width: 100%;
 	margin: 0.5em auto;
 	font-size: 0.85em;
+	text-align: center;
+	padding-top: 1.5em;
+	&:after {
+		content: "";
+		display: inline-block;
+		width: 100%;
+	}
 }
 
 .show-concept-icon, .age, .time, .mess {
 	display: inline-block;
 	position: relative;
 	text-align: center;
-	padding: 1em 2.6em;
 	font-size: 1.2em;
+	padding: 0 2.5em 0;
 }
 
 .show-likes {
@@ -254,4 +261,13 @@ add-comment-container {
   outline-color: #DFF5D1;
   padding: 0.5em 0.75em;
   margin-top: 0.75em;
+}
+
+
+.comments-user, .comments-total {
+	margin-bottom: 1em;
+}
+
+.exp-comments {
+	margin: 1em 0 1em 0;
 }
