@@ -8,12 +8,12 @@
 
 #bg {
   background-image: asset_url("discovery-crop.jpg");
-	width: 100%;
-	background-size: cover;
-	height: 102vh;
-  margin-top: -20.5em;
-  opacity: 0.3;
-  position: absolute;
+  width: 100%;
+  background-size: cover;
+  height: 102vh;
+  margin-top: -14.5em;
+  opacity: 0.6;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
