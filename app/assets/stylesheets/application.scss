@@ -100,7 +100,7 @@ button:hover {
 .main-content {
   clear: both;
   display: block;
-  margin: 4.5em auto;
+  margin: 4.5em auto 0;
 }
 
 /*navigation bar*/
@@ -166,7 +166,7 @@ div.active {
   /*display: inline;*/
   float: right;
   border: 0;
-  outline-color: #DFF5D1;
+  outline: none;
   padding: 0.9em;
   font-size: 1.4em;
   font-family: 'Raleway', sans-serif;
@@ -177,13 +177,13 @@ div.active {
 }
 
 .sort {
+  display: inline-block;
   border: 0.1em solid #D6D6D6;
   padding: 0.4em 0;
-  outline-color: #DFF5D1;
+  outline: none;
   z-index: 2;
   float: right;
   background-color: #F9F9F9;
-  margin-right: 16.5em;
 }
 
 .search {

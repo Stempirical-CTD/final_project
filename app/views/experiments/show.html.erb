@@ -85,217 +85,218 @@
       <% end %>
     </div>
   </div>
-</div>
 
-<div class="next-steps-heading">
-  <h2>Recommended for you:</h2>
-</div>
-
-<div class="show-next-steps">
-  <div class="index-wrapper show-wrapper">
-    <% @concept = @experiment.concepts.sample %>
-    <span class="show-recommended">
-      <% if @experiment.concepts.count == 1 && @concept.experiments.count == 1 %>
-        <!-- The Top Rated Experiment: <br> -->
-        <% top_experiment_concept = @top_experiment.concepts.sample %>
-        <div class="index-experiment-card show-card">
-            <% if @top_experiment.uploaded_file.blank? %>
-              <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
-            <% else %>
-              <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url('<%= @top_experiment.uploaded_file %>')">
-            <% end %>
-            <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= @top_experiment.name %></h3>
-              <i class="fa fa-thumbs-up index-likes"> <%= pluralize @top_experiment.votes, "like" %></i>
-            </span>
-          </a>
-          <div class="index-info">
-            <div class="index-exp-ratings">
-              <span class="ratings-container">
-                <span class="index-concept-icon">
-                  <%= image_tag "#{top_experiment_concept.name}.png", class: "concept-img-small" %><br>
-                  <%= link_to top_experiment_concept.name, concept_path(top_experiment_concept)%>
-                </span>
-                <div class="index-time">
-                  <%= image_tag "time.png", class: "icon-small" %><br>
-                  <%= @top_experiment.complete_time %> hour(s)
-                </div>
-                <div class="index-age">
-                  <%= image_tag "age.png", class: "icon-small" %><br>
-                  Ages <%= @top_experiment.return_age %>
-                </div>
-                <div class="mess-rate-disable index-mess">
-                  <%= rating_for @top_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-                  Mess
-                </div>
-              </span>
-            </div>
-          </div>
-        </div>
-      <% elsif @concept.experiments.where.not(name: @experiment.name).blank? %>
-        <% concept = @experiment.concepts.where.not(name: @concept.name).sample %>
-        <!-- An Experiment with a related concept <%= concept.name %>:<br> -->
-        <% exp = concept.experiments.where.not(name: @experiment.name).sample %>')">
-        <div class="index-experiment-card show-card">
-          <% if exp.uploaded_file.blank? %>
-            <a href="<%= url_for exp %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
-          <% else %>
-            <a href="<%= url_for exp %>" class="index-photo" style="background-image: url('<%= exp.uploaded_file %>')">
-          <% end %>
-            <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= exp.name %></h3>
-              <i class="fa fa-thumbs-up index-likes"> <%= pluralize exp.votes, "like" %></i>
-            </span>
-          </a>
-          <div class="index-info">
-              <div class="index-exp-ratings">
-                <span class="ratings-container">
-                  <span class="index-concept-icon">
-                    <%= image_tag "#{concept.name}.png", class: "concept-img-small"%><rb>
-                    <%= link_to concept.name, concept_path(concept) %>
-                  </span>
-                  <div class="index-time">
-                    <%= image_tag "time.png", class: "icon-small" %><br>
-                    <%= exp.complete_time %> hour(s)
-                  </div>
-                  <div class="index-age">
-                    <%= image_tag "age.png", class: "icon-small" %><br>
-                    Ages <%= exp.return_age %>
-                  </div>
-                  <div class="mess-rate-disable index-mess">
-                    <%= rating_for exp, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-                    Mess
-                  </div>
-              </span>
-            </div>
-          </div>
-        </div>
-      <% else %>
-        <!-- Another Experiment about <%= @concept.name %>:<br> -->
-        <% exp = @concept.experiments.where.not(name: @experiment.name).sample %>
-        <div class="index-experiment-card">
-          <% if exp.uploaded_file.blank? %>
-            <a href="<%= url_for exp %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
-          <% else %>
-            <a href="<%= url_for exp %>" class="index-photo" style="background-image: url('<%= exp.uploaded_file %>')">
-          <% end %>
-            <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= exp.name %></h3>
-              <i class="fa fa-thumbs-up index-likes"> <%= pluralize exp.votes, "like" %></i>
-            </span>
-          </a>
-          <div class="index-info">
-              <div class="index-exp-ratings">
-                <span class="ratings-container">
-                  <span class="index-concept-icon">
-                    <%= image_tag "#{@concept.name}.png", class: "concept-img-small"%><br>
-                    <%= link_to @concept.name, concept_path(@concept) %>
-                  </span>
-                  <div class="index-time">
-                    <%= image_tag "time.png", class: "icon-small" %><br>
-                    <%= exp.complete_time %> hour(s)
-                  </div>
-                  <div class="index-age">
-                    <%= image_tag "age.png", class: "icon-small" %><br>
-                    Ages <%= exp.return_age %>
-                  </div>
-                  <div class="mess-rate-disable index-mess">
-                    <%= rating_for exp, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-                    Mess
-                  </div>
-              </span>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </span>
-    <span class="show-extended-learning">
-      <% if @concept.children.count > 0 %>
-      <!-- Expand your skills by learning the next concept in this Experiment<br> -->
-        <% random_child = @concept.children.sample %>
-        <% random_child_experiment = random_child.experiments.sample %>
-        <div class="index-experiment-card">
-          <% if random_child_experiment.uploaded_file.blank? %>
-            <a href="<%= url_for random_child_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
-          <% else %>
-            <a href="<%= url_for random_child_experiment %>" class="index-photo" style="background-image: url('<%= random_child_experiment.uploaded_file %>')">
-          <% end %>
-            <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= random_child_experiment.name %></h3>
-              <i class="fa fa-thumbs-up index-likes"> <%= pluralize random_child_experiment.votes, "like" %></i>
-            </span>
-          </a>
-          <div class="index-info">
-              <div class="index-exp-ratings">
-                <span class="ratings-container">
-                  <span class="index-concept-icon">
-                    <%= image_tag "#{random_child.name}.png", class: "concept-img-small"%><br>
-                    <%= link_to random_child.name, concept_path(random_child) %>
-                  </span>
-                  <div class="index-time">
-                    <%= image_tag "time.png", class: "icon-small" %><br>
-                    <%= random_child_experiment.complete_time %> hour(s)
-                  </div>
-                  <div class="index-age">
-                    <%= image_tag "age.png", class: "icon-small" %><br>
-                    Ages <%= random_child_experiment.return_age %>
-                  </div>
-                  <div class="mess-rate-disable index-mess">
-                    <%= rating_for random_child_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-                    Mess
-                  </div>
-              </span>
-            </div>
-          </div>
-        </div>
-      <% else %>
-        <!-- Work on your fundamentals<br> -->
-        <% random_parent = @concept.parents.sample %>
-        <% random_parent_experiment = random_parent.experiments.sample %>
-        <div class="index-experiment-card">
-          <% if random_parent_experiment.uploaded_file.blank? %>
-            <a href="<%= url_for random_parent_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
-          <% else %>
-            <a href="<%= url_for random_parent_experiment %>" class="index-photo" style="background-image: url('<%= random_parent_experiment.uploaded_file %>')">
-          <% end %>
-            <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= random_parent_experiment.name %></h3>
-              <i class="fa fa-thumbs-up index-likes"> <%= pluralize random_parent_experiment.votes, "like" %></i>
-            </span>
-          </a>
-          <div class="index-info">
-              <div class="index-exp-ratings">
-                <span class="ratings-container">
-                  <span class="index-concept-icon">
-                    <%= image_tag "#{random_parent.name}.png", class: "concept-img-small"%><br>
-                    <%= link_to random_parent.name, concept_path(random_parent) %>
-                  </span>
-                  <div class="index-time">
-                    <%= image_tag "time.png", class: "icon-small" %><br>
-                    <%= random_parent_experiment.complete_time %> hour(s)
-                  </div>
-                  <div class="index-age">
-                    <%= image_tag "age.png", class: "icon-small" %><br>
-                    Ages <%= random_parent_experiment.return_age %>
-                  </div>
-                  <div class="mess-rate-disable index-mess">
-                    <%= rating_for random_parent_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-                    Mess
-                  </div>
-              </span>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </span>
+  <div class="next-steps-heading">
+    <h2>YOU MIGHT LIKE:</h2>
   </div>
-</div>
 
-<h3 class="comment-title">We Love Feedback!</h3><br>
-<div class="comments">
-  All Comments (<%= @experiment.comments.count %>)
-    <div id="all-comments">
-      <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
+  <div class="show-next-steps">
+    <div class="index-wrapper show-wrapper">
+      <% @concept = @experiment.concepts.sample %>
+      <span class="show-recommended">
+        <% if @experiment.concepts.count == 1 && @concept.experiments.count == 1 %>
+          <!-- The Top Rated Experiment: <br> -->
+          <% top_experiment_concept = @top_experiment.concepts.sample %>
+          <div class="show-experiment-card">
+              <% if @top_experiment.uploaded_file.blank? %>
+                <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+              <% else %>
+                <a href="<%= url_for @top_experiment %>" class="index-photo" style="background-image: url('<%= @top_experiment.uploaded_file %>')">
+              <% end %>
+              <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= @top_experiment.name %></h3>
+                <i class="fa fa-thumbs-up index-likes"> <%= pluralize @top_experiment.votes, "like" %></i>
+              </span>
+            </a>
+            <div class="index-info">
+              <div class="index-exp-ratings">
+                <span class="ratings-container">
+                  <span class="index-concept-icon">
+                    <%= image_tag "#{top_experiment_concept.name}.png", class: "concept-img-small" %><br>
+                    <div class="suggested-text">
+                    <%= link_to top_experiment_concept.name, concept_path(top_experiment_concept)%></div>
+                  </span>
+                  <div class="index-time">
+                    <%= image_tag "time.png", class: "icon-small" %><br>
+                    <div class="suggested-text"><%= @top_experiment.complete_time %> hour(s)</div>
+                  </div>
+                  <div class="index-age">
+                    <%= image_tag "age.png", class: "icon-small" %><br>
+                    <div class="suggested-text">Ages <%= @top_experiment.return_age %></div>
+                  </div>
+                  <div class="mess-rate-disable index-mess">
+                    <div class="suggested-text"><%= rating_for @top_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %></div><br>
+                    Mess
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% elsif @concept.experiments.where.not(name: @experiment.name).blank? %>
+          <% concept = @experiment.concepts.where.not(name: @concept.name).sample %>
+          <!-- An Experiment with a related concept <%= concept.name %>:<br> -->
+          <% exp = concept.experiments.where.not(name: @experiment.name).sample %>')">
+          <div class="show-experiment-card">
+            <% if exp.uploaded_file.blank? %>
+              <a href="<%= url_for exp %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+            <% else %>
+              <a href="<%= url_for exp %>" class="index-photo" style="background-image: url('<%= exp.uploaded_file %>')">
+            <% end %>
+              <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= exp.name %></h3>
+                <i class="fa fa-thumbs-up index-likes"> <%= pluralize exp.votes, "like" %></i>
+              </span>
+            </a>
+            <div class="index-info">
+                <div class="index-exp-ratings">
+                  <span class="ratings-container">
+                    <span class="index-concept-icon">
+                      <%= image_tag "#{concept.name}.png", class: "concept-img-small"%><rb>
+                      <div class="suggested-text"><%= link_to concept.name, concept_path(concept) %></div>
+                    </span>
+                    <div class="index-time">
+                      <%= image_tag "time.png", class: "icon-small" %><br>
+                      <div class="suggested-text"><%= exp.complete_time %> hour(s)</div>
+                    </div>
+                    <div class="index-age">
+                      <%= image_tag "age.png", class: "icon-small" %><br>
+                      <div class="suggested-text">Ages <%= exp.return_age %></div>
+                    </div>
+                    <div class="mess-rate-disable index-mess">
+                      <%= rating_for exp, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
+                      <div class="suggested-text">Mess</div>
+                    </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <!-- Another Experiment about <%= @concept.name %>:<br> -->
+          <% exp = @concept.experiments.where.not(name: @experiment.name).sample %>
+          <div class="show-experiment-card">
+            <% if exp.uploaded_file.blank? %>
+              <a href="<%= url_for exp %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+            <% else %>
+              <a href="<%= url_for exp %>" class="index-photo" style="background-image: url('<%= exp.uploaded_file %>')">
+            <% end %>
+              <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= exp.name %></h3>
+                <i class="fa fa-thumbs-up index-likes"> <%= pluralize exp.votes, "like" %></i>
+              </span>
+            </a>
+            <div class="index-info">
+                <div class="index-exp-ratings">
+                  <span class="ratings-container">
+                    <span class="index-concept-icon">
+                      <%= image_tag "#{@concept.name}.png", class: "concept-img-small"%><br>
+                      <div class="suggested-text"><%= link_to @concept.name, concept_path(@concept) %></div>
+                    </span>
+                    <div class="index-time">
+                      <%= image_tag "time.png", class: "icon-small" %><br>
+                      <div class="suggested-text"><%= exp.complete_time %> hour(s)</div>
+                    </div>
+                    <div class="index-age">
+                      <%= image_tag "age.png", class: "icon-small" %><br>
+                      <div class="suggested-text">Ages <%= exp.return_age %></div>
+                    </div>
+                    <div class="mess-rate-disable index-mess">
+                      <%= rating_for exp, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
+                      <div class="suggested-text">Mess</div>
+                    </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </span>
+      <span class="show-extended-learning">
+        <% if @concept.children.count > 0 %>
+        <!-- Expand your skills by learning the next concept in this Experiment<br> -->
+          <% random_child = @concept.children.sample %>
+          <% random_child_experiment = random_child.experiments.sample %>
+          <div class="show-experiment-card">
+            <% if random_child_experiment.uploaded_file.blank? %>
+              <a href="<%= url_for random_child_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+            <% else %>
+              <a href="<%= url_for random_child_experiment %>" class="index-photo" style="background-image: url('<%= random_child_experiment.uploaded_file %>')">
+            <% end %>
+              <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= random_child_experiment.name %></h3>
+                <i class="fa fa-thumbs-up index-likes"> <%= pluralize random_child_experiment.votes, "like" %></i>
+              </span>
+            </a>
+            <div class="index-info">
+                <div class="index-exp-ratings">
+                  <span class="ratings-container">
+                    <span class="index-concept-icon">
+                      <%= image_tag "#{random_child.name}.png", class: "concept-img-small"%><br>
+                      <div class="suggested-text"><%= link_to random_child.name, concept_path(random_child) %></div>
+                    </span>
+                    <div class="index-time">
+                      <%= image_tag "time.png", class: "icon-small" %><br>
+                      <div class="suggested-text"><%= random_child_experiment.complete_time %> hour(s)</div>
+                    </div>
+                    <div class="index-age">
+                      <%= image_tag "age.png", class: "icon-small" %><br>
+                      <div class="suggested-text">Ages <%= random_child_experiment.return_age %></div>
+                    </div>
+                    <div class="mess-rate-disable index-mess">
+                      <%= rating_for random_child_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
+                      <div class="suggested-text">Mess</div>
+                    </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <!-- Work on your fundamentals<br> -->
+          <% random_parent = @concept.parents.sample %>
+          <% random_parent_experiment = random_parent.experiments.sample %>
+          <div class="show-experiment-card">
+            <% if random_parent_experiment.uploaded_file.blank? %>
+              <a href="<%= url_for random_parent_experiment %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
+            <% else %>
+              <a href="<%= url_for random_parent_experiment %>" class="index-photo" style="background-image: url('<%= random_parent_experiment.uploaded_file %>')">
+            <% end %>
+              <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= random_parent_experiment.name %></h3>
+                <i class="fa fa-thumbs-up index-likes"> <%= pluralize random_parent_experiment.votes, "like" %></i>
+              </span>
+            </a>
+            <div class="index-info">
+                <div class="index-exp-ratings">
+                  <span class="ratings-container">
+                    <span class="index-concept-icon">
+                      <%= image_tag "#{random_parent.name}.png", class: "concept-img-small"%><br>
+                      <div class="suggested-text"><%= link_to random_parent.name, concept_path(random_parent) %></div>
+                    </span>
+                    <div class="index-time">
+                      <%= image_tag "time.png", class: "icon-small" %><br>
+                      <div class="suggested-text"><%= random_parent_experiment.complete_time %> hour(s)</div>
+                    </div>
+                    <div class="index-age">
+                      <%= image_tag "age.png", class: "icon-small" %><br>
+                      <div class="suggested-text">Ages <%= random_parent_experiment.return_age %></div>
+                    </div>
+                    <div class="mess-rate-disable index-mess">
+                      <%= rating_for random_parent_experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
+                      <div class="suggested-text">Mess</div>
+                    </div>
+                </span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </span>
     </div>
-  <% if user_signed_in? %>
-    <div id="comment-form">
-      <%= render partial: "comments/form", locals: {commentable: @experiment}, class: "comment-form" %>
-      <button type="button" id="add-comment-btn" class="comment-submit"><i class="fa fa-plus"></i>Add Comment</button>
-    </div>
-  <% end %>
+  </div>
+
+  <h3 class="comment-title">We Love Feedback!</h3><br>
+  <div class="comments">
+    All Comments (<%= @experiment.comments.count %>)
+      <div id="all-comments">
+        <%= render partial: "comments/comments", locals: {commentable: @experiment} %><br>
+      </div>
+    <% if user_signed_in? %>
+      <div id="comment-form">
+        <%= render partial: "comments/form", locals: {commentable: @experiment}, class: "comment-form" %>
+        <button type="button" id="add-comment-btn" class="comment-submit"><i class="fa fa-plus"></i>Add Comment</button>
+      </div>
+    <% end %>
+  </div>
 </div>
