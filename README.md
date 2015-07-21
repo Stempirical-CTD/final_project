@@ -11,7 +11,7 @@ The Iron Yard Durham.
 
 Check out our individual github profiles by clicking on our names to see more of our work.
 
-* A link to our [ERD](https://www.lucidchart.com/invitations/accept/e9f80ee0-ad89-4b80-8cc5-246180c68e76) to get a better understand of our database structure
+* A link to our [ERD](https://www.lucidchart.com/invitations/accept/e9f80ee0-ad89-4b80-8cc5-246180c68e76) to get a better understanding of our database structure
 * [Stempirical](https://stempirical.herokuapp.com/experiments) to see our site live!
 
 ###To Run the App Locally
