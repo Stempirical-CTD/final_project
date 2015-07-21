@@ -281,7 +281,7 @@ experiment_two = Experiment.create!(user_id: user.id, description: "This colorfu
 experiment_five = Experiment.create!(user_id: user.id,
   description: "How do scientists take DNA out of a living thing? It's not
   that hard—there are lots of ways to do it!",
-  youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 1.5,
+  youtube_link: "https://www.youtube.com/watch?v=67KXatgoNKs", complete_time: 2,
   name: "Strawberry DNA", age: 4)
    mat_one = Material.create!(experiment_id: experiment_five.id, item: "Strawberry")
    mat_two = Material.create!(experiment_id: experiment_five.id, item: "Isopropyl alcohol (5 mL)")
@@ -448,7 +448,7 @@ experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Activating 
         one cell. They can't make their own food. So, if you don't give them food,
         they don't become active. It's almost like they're asleep. If you make it warm
         and give them some food they become active.",
-    youtube_link: "https://www.youtube.com/watch?v=odxvp-3nSw4", complete_time: 1.5,
+    youtube_link: "https://www.youtube.com/watch?v=odxvp-3nSw4", complete_time: 2,
     age: 3)
 
   Material.create!(experiment_id: experiment_fifteen.id, item: "1 package of yeast")
@@ -468,7 +468,7 @@ experiment_fifteen = Experiment.create!(user_id: user_two.id, name: "Activating 
 experiment_sixteen = Experiment.create!(user_id: user.id, name: "Soap Powered Boat",
     description: "Argh, ye landlubbers. Sail the soapy seas with this activity
         full of high and low surface tension.",
-    youtube_link: "https://www.youtube.com/watch?v=qz9hkWhZfRM", complete_time: 1.5,
+    youtube_link: "https://www.youtube.com/watch?v=qz9hkWhZfRM", complete_time: 2,
     age: 3)
 
   Material.create!(experiment_id: experiment_sixteen.id, item: "4 Styrofoam plates")
@@ -556,7 +556,7 @@ experiment_eighteen = Experiment.create!(user_id: user.id, name: "Static Electri
         fun static electricity experiments. Find out about positively and negatively
         charged particles using a few basic items, can you control if they will be
         attracted or unattracted to each other?",
-    youtube_link: "https://www.youtube.com/watch?v=-w-GoSJpvdw", complete_time: 0.5,
+    youtube_link: "https://www.youtube.com/watch?v=-w-GoSJpvdw", complete_time: 1,
     age: 4)
 
   Material.create!(experiment_id: experiment_eighteen.id, item: "2 inflated balloons with string attached")

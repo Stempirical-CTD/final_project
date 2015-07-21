@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150708195453) do
     t.integer  "user_id"
     t.text     "description"
     t.text     "youtube_link"
-    t.float    "complete_time"
+    t.integer  "complete_time"
     t.string   "name"
     t.integer  "age"
     t.datetime "created_at",                 null: false

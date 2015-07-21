@@ -6,39 +6,23 @@ class ExperimentsController < ApplicationController
   # GET /experiments.json
   def landing_page
     @concepts = Concept.all
-    @top_experiment = Experiment.all.by_votes
   end
 
   def index
     if params[:query]
       @experiments = Experiment.text_search(params[:query])
-      #@paginatable_array = Kaminari.paginate_array(@experiments).page(params[:page]).per(6)
       if @experiments.length == 0
         flash.now[:notice] = "No items found"
       end
     else
       @experiments = Experiment.all.by_votes
-      #@paginatable_array = Kaminari.paginate_array(@experiments).page(params[:page]).per(6)
     end
   end
 
   def order_experiments
     @experiments = Experiment.text_search(params[:queryValue])
-    #@paginatable_array = Kaminari.paginate_array(@experiments).page(params[:page]).per(6)
   end
 
-  # def age_ordered
-  #   @experiments = Experiment.text_search(params[:queryValue])
-  #   @paginatable_array = Kaminari.paginate_array(@experiments).page(params[:page]).per(6)
-  #   # respond_to do |format|
-  #   #   # format.html { redirect_to @commentable, notice: "Your comment was successfully posted." }
-  #   #   format.js
-  #   # end
-  # end
-  #
-  # def time_ordered
-  #   @experiments = Experiment.text_search(params[:queryValue])
-  #   @paginatable_array = Kaminari.paginate_array(@experiments).page(params[:page]).per(6)
   # end
 
   # GET /experiments/1
