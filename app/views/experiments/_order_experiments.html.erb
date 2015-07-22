@@ -1,6 +1,6 @@
 <div class="index-wrapper">
 
-<% experiments.order(:complete_time).each do |experiment| %>
+<% experiments.each do |experiment| %>
 
 <div class="index-experiment-card">
   <% if experiment.uploaded_file.blank? %>
