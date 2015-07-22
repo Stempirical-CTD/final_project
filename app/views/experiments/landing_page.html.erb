@@ -15,7 +15,7 @@
 <div class="initial-suggested">
   <div class="suggested-container">
     <% used_experiments = [] %>
-    <% ["Human Body", "Plants", "Molecular Behavior"].each_with_index do |s, index| %>
+    <% ["Observation", "Plants", "Molecular Behavior"].each_with_index do |s, index| %>
       <% if index == 0 %>
         <% experiment = @concepts.find_by_name(s).experiments.sample %>
       <% elsif index == 1 %>
