@@ -1,6 +1,6 @@
 <div class="cover">
   <% if @experiment.uploaded_file.blank? %>
-    <div class="show-exp-image" style="background-image: url(<%= image_path "discovery-form.jpg" %>)"></div>
+    <div class="show-exp-image" style="background-image: url(<%= image_path "bubbles.jpg" %>)"></div>
   <% else %>
     <div class="show-exp-image" style="background-image: url(<%= image_path @experiment.uploaded_file %>)"></div>
   <% end %>
