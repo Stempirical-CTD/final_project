@@ -136,8 +136,7 @@
           </div>
         <% elsif @concept.experiments.where.not(name: @experiment.name).blank? %>
           <% concept = @experiment.concepts.where.not(name: @concept.name).sample %>
-          <!-- An Experiment with a related concept <%= concept.name %>:<br> -->
-          <% exp = concept.experiments.where.not(name: @experiment.name).sample %>')">
+          <% exp = concept.experiments.where.not(name: @experiment.name).sample %>
           <div class="show-experiment-card">
             <% if exp.uploaded_file.blank? %>
               <a href="<%= url_for exp %>" class="index-photo" style="background-image: url(<%= image_path "discovery-crop.jpg" %>)">
