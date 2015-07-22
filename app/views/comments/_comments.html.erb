@@ -1,14 +1,16 @@
 <div id="comment-box">
 <% commentable.comments.each do |comment| %>
   <% if !comment.body.blank? %>
-    <div class="comment-user">
-      <%= User.find_by_id(comment.user_id).username %>
-      <%= distance_of_time_in_words(comment.created_at, Time.now) %>
-    </div>
-    <div class="exp-comments">
-      <%= comment.body %>
+    <div class="each-comment">
+      <div class="comment-user">
+        <%= User.find_by_id(comment.user_id).username %>
+        <%= distance_of_time_in_words(comment.created_at, Time.now) %>
+      </div>
+      <div class="exp-comments">
+        <%= comment.body %>
+      </div>
+      <br>
     </div>  
-    <br>
   <% end %>
 <% end %>
 </div>
