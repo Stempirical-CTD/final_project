@@ -2,5 +2,5 @@
   <div class="form-group">
     <%= f.text_area :body, id: "comment-input",class: "form-control", placeholder: "Add a Comment" %>
   </div>
-  <%= f.submit nil, class: "comment-submit" %>
+  <%= f.submit nil, class: "comment-submit", data: { disable_with: "Please wait..." } %>
 <% end %>

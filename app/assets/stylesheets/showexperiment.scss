@@ -263,11 +263,22 @@ add-comment-container {
   margin-top: 0.75em;
 }
 
+.each-comment {
+	background-color: #F9F9F9;
+  border: 1px solid #D6D6D6;
+  width: 60%;
+  padding: 1em 0 0 1em;
+  margin: 1em 0;
+}
 
 .comments-user, .comments-total {
-	margin-bottom: 1em;
+	margin-bottom: 1em 0;
 }
 
 .exp-comments {
-	margin: 1em 0 1em 0;
+	margin: 1em 0 0 0;
+}
+
+.comment-submit {
+	margin-bottom: 1em;
 }
