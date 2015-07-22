@@ -31,9 +31,10 @@ class Experiment < ActiveRecord::Base
       :on => :create
 
   def self.text_search(query)
+    query = query.downcase
     q = "%#{query}%"
     joins(:materials)
-        .where("name LIKE ? OR description LIKE ? OR item LIKE ?", q, q, q).uniq
+        .where("lower(name) LIKE ? OR lower(description) LIKE ? OR lower(item) LIKE ?", q, q, q).uniq
   end
 
   def self.by_votes
