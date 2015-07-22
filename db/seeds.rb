@@ -731,7 +731,7 @@ from its formation.")
 
 concept_nine = Concept.create!(name: "Chemical Reactions",
 description_link: "https://en.wikipedia.org/wiki/Chemical_reaction",
-video_link: "http://chemistry.about.com/od/chemicalreactions/a/reactiontypes.htm",
+video_link: "https://www.youtube.com/watch?v=lQ6FBA1HM3s",
 summary: "A chemical reaction is a process in which atoms of the same or different
 elements rearrange themselves to form a new substance. While they do so,
 they either absorb heat or give it off.")
