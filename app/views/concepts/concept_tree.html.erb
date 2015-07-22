@@ -39,11 +39,11 @@ $(function() {
   	<div class="col span_1_of_5 concept">
       <a style="display:block" href="<%= concept_path(Concept.first) %>">
       <div class="card down">
-        Human Body
+        Observation
           <div class="icon">
-            <%= image_tag "Human Body.png", class: "concept-img" %>
+            <%= image_tag "Observation.png", class: "concept-img" %>
             <div class="experiments">
-              <% experiments = first_three_experiments("Human Body") %>
+              <% experiments = first_three_experiments("Observation") %>
               <% experiments.map do |e| %>
                 <%= link_to e.name, experiment_path(e) %><br>
               <% end %>

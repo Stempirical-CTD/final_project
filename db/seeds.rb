@@ -655,7 +655,7 @@ experiment_eighteen = Experiment.create!(user_id: user.id, name: "Static Electri
     and using oven mitts or potholders, lift the glass dish out of the oven.",
     order_number: 8)
 
-concept_one = Concept.create!(name: "Human Body",
+concept_one = Concept.create!(name: "Observation",
 description_link: "https://faculty.washington.edu/chudler/chvision.html",
 video_link: "https://www.youtube.com/watch?v=B5LbmZG1DNM",
 summary: "Look at an optical illusion and you may think you're seeing things --
@@ -756,7 +756,7 @@ specific characteristics. For example, beryllium (Be) and magnesium (Mg) are fou
 in column two and share certain similarities while potassium (K) and calcium (Ca)
 from row four share different characteristics.")
 
-#Human Body Relationships
+#Observation Relationships
 ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_three.id)
 ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_four.id)
 ConceptRelationship.create!(parent_id: concept_one.id, child_id: concept_two.id)
