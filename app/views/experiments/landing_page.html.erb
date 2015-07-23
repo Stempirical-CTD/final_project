@@ -1,14 +1,15 @@
 <div id="landing">
-  <div id="bg"></div>
-  <div class="landing-intro">
-  	<h1 class="landing-logo">stempirical</h1>
+  <div id="bg">
+    <div class="landing-intro">
+    	<h1 class="landing-logo">stempirical</h1>
 
-  	<p class="stempirical-tagline">share the wonder</p>
-    <div class="landing-search">
-      <%= form_tag experiments_path, :method => "get", id: "landing-search-form" do %>
-        <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "landing-exp-search" %>
-        <button class="fa fa-search landing-fa-search"></button>
-      <% end %>
+    	<p class="stempirical-tagline">share the wonder</p>
+      <div class="landing-search">
+        <%= form_tag experiments_path, :method => "get", id: "landing-search-form" do %>
+          <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "landing-exp-search" %>
+          <button class="fa fa-search landing-fa-search"></button>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -3,37 +3,39 @@
 #landing {
   /*position: relative;*/
   z-index: 1;
-  padding: 3.5em;
 }
 
 #bg {
-  background-image: image-url("discovery-crop.jpg");
   width: 100%;
+  min-height: 50vh;
+  position: relative;
+  padding: 5% 2em;
+}
+
+#bg:before {
+  background-image: image-url("discovery-crop.jpg");
+  background-position: bottom left;
   background-size: cover;
-  height: 102vh;
-  margin-top: -14.5em;
   opacity: 0.2;
-  position: fixed;
+  content: ' ';
+  position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
-  z-index: -5;
+  bottom: 0;
+  z-index: -1;
 }
 
 /*hero text*/
 
 .landing-intro {
-  margin: 1em auto;
-  width: 100%;
+  text-align: center;
 }
 
 .landing-logo {
   padding-top: 0.5em;
   font-family: 'Chelsea Market', sans-serif;
   font-size: 5.5em;
-  margin: 0 auto;
-  width: 32%;
   color: #323232;
 }
 
@@ -42,7 +44,6 @@
   color: #323232;
   margin: 0.2em auto;
   font-size: 2em;
-  width: 17%;
   font-weight: bold;
 }
 
@@ -50,6 +51,7 @@
   margin: 1em auto;
   width: 25em;
   position: relative;
+  display: inline-block;
 }
 
 #landing-search-form {
@@ -87,8 +89,6 @@
   background-color: #F2F3F4;
   border: 1px solid #D6D6D6;
   clear: both;
-  margin-top: 12em;
-  position: fixed;
 }
 
 .suggested-container {
