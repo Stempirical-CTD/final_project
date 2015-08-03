@@ -7,7 +7,6 @@ class Experiment < ActiveRecord::Base
   has_attached_file :uploaded_file
 
   validates_attachment_content_type :uploaded_file, :content_type => ['image/jpeg', 'image/png', 'image/pdf']
-  # validates :uploaded_file, presence: true
 
   has_many :comments, as: :commentable
 
@@ -24,7 +23,8 @@ class Experiment < ActiveRecord::Base
       reject_if: :all_blank,
       allow_destroy: true
 
-  validates :description, :complete_time, :name, presence: true
+  validates :description, :complete_time, :name, :age, presence: true
+
   validates_format_of :youtube_link,
       :allow_blank => true,
       :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
