@@ -85,4 +85,24 @@ class Experiment < ActiveRecord::Base
     self.concepts.sample
   end
 
+  def self.first_experiment(concept, experiment)
+    if experiment.concepts.count == 1 && concept.experiments.count == 1
+      if Experiment.by_votes[0] != experiment
+        top_experiment = Experiment.by_votes[0]
+      else
+        top_experiment = Experiment.by_votes[1]
+      end
+      top_experiment
+    elsif concept.experiments.where.not(name: experiment.name).blank?
+      concept = experiment.concepts.where.not(name: concept.name).sample
+      experiment = concept.experiments.where.not(name: experiment.name).sample
+    else
+      # Another Experiment about @concept.name:
+      experiment = concept.experiments.where.not(name: experiment.name).sample
+    end
+  end
+
+  def second_experiment(concept, experiment)
+
+  end
 end

@@ -35,6 +35,9 @@ class ExperimentsController < ApplicationController
     @parents = @experiment.concept_parents
     @children = @experiment.concept_children
     @concept = @experiment.find_concept
+    Experiment.first_experiment(@concept, @experiment)
+    Experiment.second_experiment(@concept, @experiment)
+
     @comment = Comment.new
     if Experiment.by_votes[0] != @experiment
       @top_experiment = Experiment.by_votes[0]
