@@ -85,7 +85,7 @@ class Experiment < ActiveRecord::Base
     self.concepts.sample
   end
 
-  def self.first_experiment(concept, experiment)
+  def self.first_experiment(concept, experiment) #show recommended
     if experiment.concepts.count == 1 && concept.experiments.count == 1
       if Experiment.by_votes[0] != experiment
         top_experiment = Experiment.by_votes[0]
@@ -97,12 +97,18 @@ class Experiment < ActiveRecord::Base
       concept = experiment.concepts.where.not(name: concept.name).sample
       experiment = concept.experiments.where.not(name: experiment.name).sample
     else
-      # Another Experiment about @concept.name:
+      # Another Experiment about concept.name
       experiment = concept.experiments.where.not(name: experiment.name).sample
     end
   end
 
-  def second_experiment(concept, experiment)
-
+  def self.second_experiment(concept, experiment) #show extended learning
+    if concept.children.count > 0
+      random_child = concept.children.sample
+      random_child_experiment = random_child.experiments.sample
+    else #work on your fundamenetals
+      random_parent = concept.parents.sample
+      random_parent_experiment = random_parent.experiments.sample
+    end
   end
 end
