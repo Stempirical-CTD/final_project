@@ -105,9 +105,9 @@
             <div class="index-exp-ratings">
               <span class="ratings-container">
                 <span class="index-concept-icon">
-                  <%= image_tag "#{@concept.name}.png", class: "concept-img-small" %><br>
+                  <%= image_tag "#{@first_concept.name}.png", class: "concept-img-small" %><br>
                   <div class="suggested-text">
-                    <%= link_to @concept.name, concept_path(@concept.name) %>
+                    <%= link_to @first_concept.name, concept_path(@first_concept) %>
                   </div>
                 </span>
                 <div class="index-time">

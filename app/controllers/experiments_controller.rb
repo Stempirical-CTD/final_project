@@ -35,9 +35,10 @@ class ExperimentsController < ApplicationController
     @parents = @experiment.concept_parents
     @children = @experiment.concept_children
     @concept = @experiment.find_concept
-    @first_experiment = Experiment.first_experiment(@concept, @experiment)
-    @second_experiment = Experiment.second_experiment(@concept, @experiment)
-    @second_concept = @second_experiment.concepts.sample
+    @first_experiment = Experiment.first_experiment(@concept, @experiment)[1]
+    @first_concept = Experiment.first_experiment(@concept, @experiment)[0]
+    @second_experiment = Experiment.second_experiment(@concept, @experiment)[1]
+    @second_concept = Experiment.second_experiment(@concept, @experiment)[0]
 
     @comment = Comment.new
     if Experiment.by_votes[0] != @experiment
