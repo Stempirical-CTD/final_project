@@ -1,2 +1,5 @@
-$(".index-wrapper").replaceWith("<%= j(render partial:  'experiments/order_experiments', locals: { experiments: @sorted_experiments }) %>");
-initStars();
+<% if params[:selectValue] == "1" %>
+  $(".index-wrapper").replaceWith("<%= j(render partial:  'experiments/age_ordered', locals: { experiments: @experiments }) %>");
+<% elsif params[:selectValue] == "2" %>
+  $(".index-wrapper").replaceWith("<%= j(render partial:  'experiments/time_ordered', locals: { experiments: @experiments }) %>");
+<% end %>

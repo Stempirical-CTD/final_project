@@ -62,6 +62,8 @@ $(function() {
  });
 });
 
+// order function
+
 $(function() {
   $('.order').change(function(){
     var selectValue = $(this).val();

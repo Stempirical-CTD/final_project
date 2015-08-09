@@ -20,11 +20,22 @@ class ExperimentsController < ApplicationController
   end
 
   def order_experiments
-    if params[:selectValue] == "1"
-      @sorted_experiments = Experiment.all.sort_by {|e| [e.age, -1*e.experiment_votes.count]}
-    elsif params[:selectValue] == "2"
-      @sorted_experiments = Experiment.all.sort_by {|e| [e.complete_time, -1*e.experiment_votes.count]}
-    end
+    @experiments = Experiment.text_search(params[:queryValue])
+    # if params[:selectValue] == "1"
+    #   # if params[:selectValue] == "1" && params[:query]
+    #     # @experiments = Experiment.text_search(params[:query])
+    #     @sorted_experiments = Experiment.text_search(params[:query]).all.sort_by {|e| [e.age, -1*e.experiment_votes.count]}
+    #   # else
+    #   #   @sorted_experiments = Experiment.all.sort_by {|e| [e.age, -1*e.experiment_votes.count]}
+    #   # end
+    # elsif params[:selectValue] == "2"
+    #   if params[:selectValue] == "2" && params[:query]
+    #     #@experiments = Experiment.text_search(params[:query])
+    #     @sorted_experiments = Experiment.text_search(params[:query]).all.sort_by {|e| [e.complete_time, -1*e.experiment_votes.count]}
+    #   else
+    #     @sorted_experiments = Experiment.all.sort_by {|e| [e.complete_time, -1*e.experiment_votes.count]}
+    #   end
+    # end
   end
 
   # end

@@ -17,7 +17,7 @@
   </div>
 
   <div class="index-wrapper">
-  <% @experiments.each do |experiment| %>
+    <% @experiments.each do |experiment| %>
 
       <div class="index-experiment-card">
         <% if experiment.uploaded_file.blank? %>
@@ -26,7 +26,6 @@
           <a href="<%= url_for experiment %>" class="index-photo" style="background-image: url('<%= experiment.uploaded_file %>')">
         <% end %>
           <span class="index-exp-title-bar"><h3 class="index-exp-title"><%= experiment.name %></h3>
-
             <i class="fa fa-thumbs-up index-likes"> <%= pluralize experiment.votes, "like" %></i>
           </span>
         </a>
@@ -58,6 +57,6 @@
           </div>
         </div>
       </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
