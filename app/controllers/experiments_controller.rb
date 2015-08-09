@@ -10,7 +10,7 @@ class ExperimentsController < ApplicationController
 
   def index
     if params[:query]
-      @experiments = Experiment.text_search(params[:query])
+      @experiments = Experiment.text_search(params[:query]).all.by_votes
       if @experiments.length == 0
         flash.now[:notice] = "No items found"
       end
@@ -20,14 +20,12 @@ class ExperimentsController < ApplicationController
   end
 
   def order_experiments
-    if params[:selectValue] == "1"
-      @sorted_experiments = Experiment.all.sort_by {|e| [e.age, -1*e.experiment_votes.count]}
-    elsif params[:selectValue] == "2"
-      @sorted_experiments = Experiment.all.sort_by {|e| [e.complete_time, -1*e.experiment_votes.count]}
+    if params[:queryValue] && params[:selectValue] == "1"
+      @experiments = Experiment.text_search(params[:queryValue]).all.sort_by {|e| [e.age, -1*e.experiment_votes.count]}
+    elsif params[:queryValue] && params[:selectValue] == "2"
+      @experiments = Experiment.text_search(params[:queryValue]).all.sort_by {|e| [e.complete_time, -1*e.experiment_votes.count]}
     end
   end
-
-  # end
 
   # GET /experiments/1
   # GET /experiments/1.json
@@ -35,6 +33,11 @@ class ExperimentsController < ApplicationController
     @parents = @experiment.concept_parents
     @children = @experiment.concept_children
     @concept = @experiment.find_concept
+    @first_experiment = Experiment.first_experiment(@concept, @experiment)[1]
+    @first_concept = Experiment.first_experiment(@concept, @experiment)[0]
+    @second_experiment = Experiment.second_experiment(@concept, @experiment)[1]
+    @second_concept = Experiment.second_experiment(@concept, @experiment)[0]
+
     @comment = Comment.new
     if Experiment.by_votes[0] != @experiment
       @top_experiment = Experiment.by_votes[0]

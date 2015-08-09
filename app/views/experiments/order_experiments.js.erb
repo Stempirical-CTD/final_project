@@ -1,2 +1,2 @@
-$(".index-wrapper").replaceWith("<%= j(render partial:  'experiments/order_experiments', locals: { experiments: @sorted_experiments }) %>");
+$(".index-wrapper").replaceWith("<%= j(render partial:  'experiments/ordered_experiments', locals: { experiments: @experiments }) %>");
 initStars();

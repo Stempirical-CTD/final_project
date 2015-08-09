@@ -7,7 +7,6 @@ class Experiment < ActiveRecord::Base
   has_attached_file :uploaded_file
 
   validates_attachment_content_type :uploaded_file, :content_type => ['image/jpeg', 'image/png', 'image/pdf']
-  # validates :uploaded_file, presence: true
 
   has_many :comments, as: :commentable
 
@@ -24,7 +23,8 @@ class Experiment < ActiveRecord::Base
       reject_if: :all_blank,
       allow_destroy: true
 
-  validates :description, :complete_time, :name, presence: true
+  validates :description, :complete_time, :name, :age, presence: true
+
   validates_format_of :youtube_link,
       :allow_blank => true,
       :with => /\A(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})\z/,
@@ -85,4 +85,36 @@ class Experiment < ActiveRecord::Base
     self.concepts.sample
   end
 
+  def self.first_experiment(concept, experiment) #show recommended
+    concept_experiment = []
+    if experiment.concepts.count == 1 && concept.experiments.count == 1
+      if Experiment.by_votes[0] != experiment
+        top_experiment = Experiment.by_votes[0]
+      else
+        top_experiment = Experiment.by_votes[1]
+      end
+      concept_experiment << top_experiment.concepts.sample << top_experiment
+    elsif concept.experiments.where.not(name: experiment.name).blank? #if current concept doesn't have any more experiments, do this
+      concept = experiment.concepts.where.not(name: concept.name).sample #look for other concepts for the current experiment
+      experiment = concept.experiments.where.not(name: experiment.name).sample
+      concept_experiment << concept << experiment
+    else
+      # Another Experiment about concept.name
+      experiment = concept.experiments.where.not(name: experiment.name).sample
+      concept_experiment << concept << experiment
+    end
+  end
+
+  def self.second_experiment(concept, experiment) #show extended learning
+    concept_experiment = []
+    if concept.children.count > 0
+      random_child = concept.children.sample
+      random_child_experiment = random_child.experiments.sample
+      concept_experiment << random_child << random_child_experiment
+    else #work on your fundamenetals
+      random_parent = concept.parents.sample
+      random_parent_experiment = random_parent.experiments.sample
+      concept_experiment << random_parent << random_parent_experiment
+    end
+  end
 end
