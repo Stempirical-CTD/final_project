@@ -39,7 +39,10 @@ class InstructionsController < ApplicationController
   def update
     respond_to do |format|
       if @instruction.update(instruction_params)
-        format.html { redirect_to @instruction, notice: 'Instruction was successfully updated.' }
+        format.html do
+          flash[:notice] = 'Instruction was successfully updated.'
+          redirect_to @instruction
+        end
       else
         format.html { render :edit }
       end
@@ -51,7 +54,10 @@ class InstructionsController < ApplicationController
   def destroy
     @instruction.destroy
     respond_to do |format|
-      format.html { redirect_to instructions_url, notice: 'Instruction was successfully destroyed.' }
+      format.html do
+        flash[:notice] = 'Instruction was successfully destroyed.'
+        redirect_to instructions_url
+      end
     end
   end
 
@@ -62,8 +68,14 @@ class InstructionsController < ApplicationController
     @instruction = Instruction.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
   def instruction_params
-    params.require(:instruction).permit(:experiment_id, :information, :order_number, :id)
+    params.require(:instruction).permit(
+      :experiment_id,
+      :information,
+      :order_number,
+      :id
+    )
   end
 end

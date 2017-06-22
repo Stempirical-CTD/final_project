@@ -28,7 +28,9 @@ class MaterialsController < ApplicationController
     @material.experiment_id = @experiment.id
     respond_to do |format|
       if @material.save
-        format.html { redirect_to @material, notice: 'Material was successfully created.' }
+        format.html do
+          redirect_to @material, notice: 'Material was successfully created.'
+        end
       else
         format.html { render :new }
       end
@@ -40,7 +42,9 @@ class MaterialsController < ApplicationController
   def update
     respond_to do |format|
       if @material.update(material_params)
-        format.html { redirect_to @material, notice: 'Material was successfully updated.' }
+        format.html do
+          redirect_to @material, notice: 'Material was successfully updated.'
+        end
       else
         format.html { render :edit }
       end
@@ -52,7 +56,10 @@ class MaterialsController < ApplicationController
   def destroy
     @material.destroy
     respond_to do |format|
-      format.html { redirect_to materials_url, notice: 'Material was successfully destroyed.' }
+      format.html do
+        flash[:notice] = 'Material was successfully destroyed'
+        redirect_to materials_url
+      end
     end
   end
 
@@ -63,7 +70,8 @@ class MaterialsController < ApplicationController
     @material = Material.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
   def material_params
     params.require(:material).permit(:experiment_id, :item)
   end

@@ -1,7 +1,11 @@
 module ConceptsHelper
   def first_three_experiments(concept_name)
-    Experiment.joins(:concepts).where('concepts.name' => [concept_name.to_s])
-              .sort_by { |e| e.experiment_votes.count }.reverse.first(3)
+    Experiment
+      .joins(:concepts)
+      .merge(Concept.where(name: concept_name.to_s))
+      .sort_by { |e| e.experiment_votes.count }
+      .reverse
+      .first(3)
   end
 
   class ConceptDisplayer
@@ -20,17 +24,12 @@ module ConceptsHelper
 
         }
 
-        experiments = concept.experiments.each do |experiment|
-          @content << {
-            type: :list_item,
-            text: experiment.name
-          }
+        concept.experiments.each do |experiment|
+          @content << { type: :list_item, text: experiment.name }
         end
       end
 
-      concept.children.each do |child|
-        display_concepts(child, level + 1)
-      end
+      concept.children.each { |child| display_concepts(child, level + 1) }
 
       @content
     end

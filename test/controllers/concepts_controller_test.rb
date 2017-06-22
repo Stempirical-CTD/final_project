@@ -1,9 +1,7 @@
 require 'test_helper'
 
 class ConceptsControllerTest < ActionController::TestCase
-  setup do
-    sign_in users(:one)
-  end
+  setup { sign_in users(:one) }
 
   test 'should get index' do
     get :index

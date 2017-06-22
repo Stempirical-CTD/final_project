@@ -11,7 +11,10 @@ class User < ActiveRecord::Base
   validates :username, presence: true
 
   def total_votes
-    ExperimentVote.joins(:experiment).where(experiments: { user_id: id }).sum('value')
+    ExperimentVote
+      .joins(:experiment)
+      .merge(Experiment.where(user_id: id))
+      .sum('value')
   end
 
   def can_vote_for?(experiment)

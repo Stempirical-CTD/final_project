@@ -10,7 +10,7 @@ class CreateRates < ActiveRecord::Migration
 
     add_index :rates, :rater_id
     add_index :rates, %i[rateable_id rateable_type]
-    end
+  end
 
   def self.down
     drop_table :rates

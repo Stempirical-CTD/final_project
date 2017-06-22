@@ -1,160 +1,195 @@
 <%= form_for @experiment, html: { multipart: true } do |f| %>
   <% if @experiment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@experiment.errors.count, "error") %> prohibited this experiment from being saved:</h2>
+      <h2>
+        <%= pluralize(@experiment.errors.count, 'error') %> prohibited this experiment from being saved:
+      </h2>
 
       <ul>
-      <% @experiment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @experiment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-<div class="cover">
-  <% if @experiment.uploaded_file.blank? %>
-    <div class="show-exp-image" style="background-image: url(<%= image_path "bubbles.jpg" %>)"></div>
-  <% else %>
-    <div class="show-exp-image" style="background-image: url(<%= image_path @experiment.uploaded_file %>)">
-    </div>
-  <% end %>
-</div>
-
-<div class="largest-new-container">
-  <div class="new-exp-title-bar">
-    <% if params[:action] == "edit" %>
-      <h1 class="new-exp-title">Edit Experiment</h3>
+  <div class="cover">
+    <% if @experiment.uploaded_file.blank? %>
+      <div class="show-exp-image" style="background-image: url(<%= image_path 'bubbles.jpg' %>)"></div>
     <% else %>
-      <h1 class="new-exp-title">Add New Experiment</h3>
+      <div class="show-exp-image" style="background-image: url(<%= image_path @experiment.uploaded_file %>)">
+      </div>
     <% end %>
   </div>
 
-  <div class="new-container">
-    <div class="experiment">
-      <div class="form-container">
-        <p class="required"><i class="fa fa-asterisk"></i> = required</p>
-        <div class="new-basics">
-          <div class="field new-exp-name">
-            <label>Experiment Name *</label><br>
-            <%= f.text_area :name, :cols => 100, :rows => 2 %>
-          </div>
+  <div class="largest-new-container">
+    <div class="new-exp-title-bar">
+      <% if params[:action] == 'edit' %>
+        <h1 class="new-exp-title">Edit Experiment</h1>
+      <% else %>
+        <h1 class="new-exp-title">Add New Experiment</h1>
+      <% end %>
+    </div>
 
-          <div class="field new-description">
-            <label>Description </label> <small> (Please include 2-3 sentences to describe the purpose of this experiment.) *</small>
-            <%= f.text_area :description, :cols => 100, :rows => 2 %>
-          </div>
-        </div>
-        <div class="new-media">
-          <div class="field new-photo">
-            <label>Upload a Photo *</label><br>
-            <%= f.file_field 'uploaded_file', id: 'pictureInput', :rows => 2 %>
-          </div>
-          <div id="target">
-          </div>
-          <div class="field new-youtube">
-            <label>Link To YouTube Tutorial</label><br>
-            <%= f.url_field :youtube_link, :class => "tutorial-link" %>
-          </div>
-        </div>
-
-        <div class="field new-time">
-          <label>Time Expected to Complete *</label><br>
-          <%= f.number_field(:complete_time, in: 1..20, step: 1) %> hours
-        </div>
-        <div class="field new-years">
-          <label>What age range works best? *</label><br>
-          <span class="age-dropdown">
-            <%= f.select :age, options_for_select([["Under 3", 1], ["4-6",2], ["7-9",3],["10 & up", 4]]), {:prompt => 'Age Ranges'}%>
-          </span>
-        </div>
-
-        <div class="new-mess">
-          <label>On a scale of 1 to 5, how messy is this experiment?</label><br>
-          <%= rating_for @experiment, "name", star_path: '/images/ratyrate', :disable_rate => true %><br>
-        </div>
-
-      <span class="new-exp-concept">
-        <label>Which concepts apply to this experiment? *</label><br>
-        <div class="concept-section">
-          <% Concept.all.each do |concept| %>
-            <div class="single-concept">
-              <% if @experiment.concepts.include?(concept) %>
-                <%= check_box_tag "concepts[#{concept.id}]", concept.id, true, class: "concept-checkbox" %>
-                <label for="concepts_<%= concept.id %>" class="concept-checkbox-label">
-                  <%= concept.name %>
-                </label>
-              <% else %>
-                <%= check_box_tag "concepts[#{concept.id}]", concept.id, false, class: "concept-checkbox" %>
-                <label for="concepts_<%= concept.id %>" class="concept-checkbox-label">
-                  <%= concept.name %>
-                </label>
-              <% end %>
+    <div class="new-container">
+      <div class="experiment">
+        <div class="form-container">
+          <p class="required"><i class="fa fa-asterisk"></i> = required</p>
+          <div class="new-basics">
+            <div class="field new-exp-name">
+              <label>Experiment Name *</label><br>
+              <%= f.text_area :name, cols: 100, rows: 2 %>
             </div>
-            <% end %>
-         </div>
-       </span><br>
 
-        <div class="new-materials">
-          <ul class="field unordered-list-materials">
-            <label>Materials *</label><br>
-            <%= f.fields_for(:materials) do |ff| %>
-            <li>
-              <div class="field material">
-                <%= ff.text_field :item, class: "new-material" %>
-                <% if current_page?(new_experiment_path) || params[:action] == "create" %>
-                  <button type="button" class="delete-material-btn">
-                    <i class="fa fa-trash"></i>
-                  </button>
-                <% else %>
-                  <div class="delete-checkbox">
-                    <%= ff.check_box :_destroy, class: "destroy" %>
-                    <%= ff.label "Delete", class: "destroy-label" %>
-                    <% end %>
-                  </div>
-              </div>
-            </li>
-            <% end %>
-          </ul>
-          <button type="button" class="add-material-btn">
-            <i class="fa fa-plus"></i> Add New Material
-          </button>
-        </div>
+            <div class="field new-description">
+              <label>Description </label>
+              <small> (Please include 2-3 sentences to describe the purpose of this experiment.) *</small>
+              <%= f.text_area :description, cols: 100, rows: 2 %>
+            </div>
+          </div>
 
-        <div class="new-instructions">
-          <ul class="field unordered-list-instructions">
-            <label>Instructions *</label><br>
-            <%= f.fields_for(:instructions) do |ff| %>
-            <li>
-              <div class="instruction-fields">
-                <div class="field instruction">
-                  <%= ff.text_field :information, class: "new-instruction" %>
-                  <% if current_page?(new_experiment_path) || params[:action] == "create" %>
-                    <button type="button" class="delete-instruction-btn">
-                      <i class="fa fa-trash"></i>
-                    </button>
+          <div class="new-media">
+            <div class="field new-photo">
+              <label>Upload a Photo *</label><br>
+              <%= f.file_field 'uploaded_file', id: 'pictureInput', rows: 2 %>
+            </div>
+            <div id="target"></div>
+            <div class="field new-youtube">
+              <label>Link To YouTube Tutorial</label><br>
+              <%= f.url_field :youtube_link, class: 'tutorial-link' %>
+            </div>
+          </div>
+
+          <div class="field new-time">
+            <label>Time Expected to Complete *</label><br>
+            <%= f.number_field(:complete_time, in: 1..20, step: 1) %> hours
+          </div>
+
+          <div class="field new-years">
+            <label>What age range works best? *</label><br>
+            <span class="age-dropdown">
+              <%=
+                f.select(
+                  :age,
+                  options_for_select([['Under 3', 1], ['4-6',2], ['7-9',3], ['10 & up', 4]]),
+                  { prompt: 'Age Ranges' }
+                )
+              %>
+            </span>
+          </div>
+
+          <div class="new-mess">
+            <label>On a scale of 1 to 5, how messy is this experiment?</label><br>
+            <%=
+              rating_for(
+                @experiment,
+                'name',
+                star_path: '/images/ratyrate',
+                disable_rate: true
+              )
+            %>
+            <br>
+          </div>
+
+          <span class="new-exp-concept">
+            <label>Which concepts apply to this experiment? *</label><br>
+            <div class="concept-section">
+              <% Concept.all.find_each do |concept| %>
+                <div class="single-concept">
+                  <% if @experiment.concepts.include?(concept) %>
+                    <%=
+                      check_box_tag(
+                        "concepts[#{concept.id}]",
+                        concept.id,
+                        true,
+                        class: 'concept-checkbox'
+                      )
+                    %>
+                    <label for="concepts_<%= concept.id %>" class="concept-checkbox-label">
+                      <%= concept.name %>
+                    </label>
                   <% else %>
-                    <%= ff.label "Delete", class: "destroy-label" %>
-                    <%= ff.check_box :_destroy, class: "destroy"%>
+                    <%=
+                      check_box_tag(
+                        "concepts[#{concept.id}]",
+                        concept.id,
+                        false,
+                        class: 'concept-checkbox'
+                      )
+                    %>
+                    <label for="concepts_<%= concept.id %>" class="concept-checkbox-label">
+                      <%= concept.name %>
+                    </label>
                   <% end %>
                 </div>
-              </div>
-            </li>
-            <% end %>
-          </ul>
-          <button type="button" class="add-instruction-btn">
-            <i class="fa fa-plus"></i> Add Next Step
-          </button>
-        </div>
+              <% end %>
+            </div>
+          </span>
 
-        <div class="actions new-exp-btn">
-          <% if current_page?(new_experiment_path) || params[:action] == "create" %>
-            <%= f.submit "Create Experiment", data: { disable_with: "Please wait..." } %>
-          <% elsif params[:action] == "edit" %>
-            <%= f.submit "Update Experiment", data: { disable_with: "Please wait..." } %>
-          <% end %>
+          <br>
+
+          <div class="new-materials">
+            <ul class="field unordered-list-materials">
+              <label>Materials *</label><br>
+              <%= f.fields_for(:materials) do |ff| %>
+                <li>
+                  <div class="field material">
+                    <%= ff.text_field :item, class: 'new-material' %>
+                    <% if current_page?(new_experiment_path) || params[:action] == 'create' %>
+                      <button type="button" class="delete-material-btn">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    <% else %>
+                      <div class="delete-checkbox">
+                        <%= ff.check_box :_destroy, class: 'destroy' %>
+                        <%= ff.label 'Delete', class: 'destroy-label' %>
+                      </div>
+                    <% end %>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+            <button type="button" class="add-material-btn">
+              <i class="fa fa-plus"></i> Add New Material
+            </button>
+          </div>
+
+          <div class="new-instructions">
+            <ul class="field unordered-list-instructions">
+              <label>Instructions *</label><br>
+              <%= f.fields_for(:instructions) do |ff| %>
+                <li>
+                  <div class="instruction-fields">
+                    <div class="field instruction">
+                      <%= ff.text_field :information, class: 'new-instruction' %>
+                      <% if current_page?(new_experiment_path) || params[:action] == 'create' %>
+                        <button type="button" class="delete-instruction-btn">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      <% else %>
+                        <%= ff.label 'Delete', class: 'destroy-label' %>
+                        <%= ff.check_box :_destroy, class: 'destroy'%>
+                      <% end %>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+
+            <button type="button" class="add-instruction-btn">
+              <i class="fa fa-plus"></i> Add Next Step
+            </button>
+          </div>
+
+          <div class="actions new-exp-btn">
+            <% if current_page?(new_experiment_path) || params[:action] == 'create' %>
+              <%= f.submit 'Create Experiment', data: { disable_with: 'Please wait...' } %>
+            <% elsif params[:action] == 'edit' %>
+              <%= f.submit 'Update Experiment', data: { disable_with: 'Please wait...' } %>
+            <% end %>
+          </div>
         </div>
-<% end %>
       </div>
     </div>
   </div>
-</div>
+<% end %>

@@ -5,7 +5,7 @@ one:
   description: MyText
   complete_time: 1
   age: 1
-  uploaded_file_file_name: "image.jpg"
+  uploaded_file_file_name: 'image.jpg'
   user: :one
 
 two:
@@ -13,4 +13,4 @@ two:
   description: MyText
   complete_time: 1
   age: 2
-  uploaded_file_file_name: "image.jpg"
+  uploaded_file_file_name: 'image.jpg'

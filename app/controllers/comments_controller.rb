@@ -6,7 +6,10 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.save
     respond_to do |format|
-      format.html { redirect_to @commentable, notice: 'Your comment was successfully posted.' }
+      format.html do
+        flash[:notice] = 'Your comment was successfully posted.'
+        redirect_to @commentable
+      end
       format.js
     end
   end

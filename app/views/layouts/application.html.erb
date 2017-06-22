@@ -1,47 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head><%= favicon_link_tag 'favicon.ico2' %>
-  <title>stempirical</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+  <head><%= favicon_link_tag 'favicon.ico2' %>
+    <title>stempirical</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
 
-</head>
+  </head>
 
+  <body>
+    <header class="nav-bar">
 
-<body>
-<header class="nav-bar">
+    <h1 class="logo"><%= link_to_unless_current('stempirical', root_path) %></h1>
+      <div class="search">
+        <%= form_tag experiments_path, method: 'get', id: 'search-form' do %>
+          <%=
+            text_field_tag(
+              'query',
+              params[:query],
+              placeholder: 'Search Experiments',
+              class: 'exp-search'
+            )
+          %>
+          <button class="fa fa-search nav-fa-search"></button>
+        <% end %>
+      </div>
 
- <h1 class="logo"><%= link_to_unless_current("stempirical", root_path) %></h1>
+      <div class="nav-links">
+        <div class="nav-link <%= 'active' if current_page?(concept_tree_concepts_path) %>">
+          <%= link_to 'Concept Tree', concept_tree_concepts_path %>
+        </div>
+        <div class="nav-link <%= 'active' if current_page?(experiments_path) || params[:action] == 'show'  %>">
+          <%= link_to 'All Experiments', experiments_path %>
+        </div>
+        <div class="nav-link <%= 'active' if current_page?(new_experiment_path) %>">
+          <%= link_to 'Add My Experiment', new_experiment_path %>
+        </div>
+        <div class="nav-link">
+          <% if user_signed_in? %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Login', new_user_session_path %> | <%= link_to 'Sign Up', new_user_registration_path %>
+          <% end %>
+        </div>
+      </div>
+    </header>
 
-  <div class="search">
-    <%= form_tag experiments_path, :method => "get", id: "search-form" do %>
-    <%= text_field_tag "query", params[:query], placeholder: "Search Experiments", class: "exp-search" %>
-      <button class="fa fa-search nav-fa-search"></button>
-    <% end %>
-  </div>
-
-  <div class="nav-links">
-    <div class="nav-link <%= 'active' if current_page?(concept_tree_concepts_path) %>"><%= link_to "Concept Tree", concept_tree_concepts_path %></div>
-    <div class="nav-link <%= 'active' if current_page?(experiments_path) || params[:action] == "show"  %>"><%= link_to "All Experiments", experiments_path %></div>
-    <div class="nav-link <%= 'active' if current_page?(new_experiment_path) %>"><%= link_to "Add My Experiment", new_experiment_path %></div>
-    <div class="nav-link">
-      <% if user_signed_in? %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Login', new_user_session_path %> | <%= link_to 'Sign Up', new_user_registration_path %>
+    <div class="main-content">
+      <% if notice || alert %>
+        <div class="messages">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
       <% end %>
+      <%= yield %>
     </div>
-  </div>
-</header>
-
-<div class="main-content">
-  <% if notice || alert %>
-  <div class="messages">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
-  <% end %>
-<%= yield %></div>
-</body>
+  </body>
 </html>

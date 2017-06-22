@@ -24,7 +24,9 @@ class ConceptsController < ApplicationController
     @concept.experiment_id = @experiment.id
     respond_to do |format|
       if @concept.save
-        format.html { redirect_to @concept, notice: 'Concept was successfully created.' }
+        format.html do
+          redirect_to @concept, notice: 'Concept was successfully created.'
+        end
       else
         format.html { render :new }
       end
@@ -34,7 +36,9 @@ class ConceptsController < ApplicationController
   def update
     respond_to do |format|
       if @concept.update(concepet_params)
-        format.html { redirect_to @concept, notice: 'Concept was successfully updated.' }
+        format.html do
+          redirect_to @concept, notice: 'Concept was successfully updated.'
+        end
       else
         format.html { render :edit }
       end
@@ -44,7 +48,9 @@ class ConceptsController < ApplicationController
   def destroy
     @concept.destroy
     respond_to do |format|
-      format.html { redirect_to concepts_url, notice: 'Concept was successfully destroyed.' }
+      format.html do
+        redirect_to concepts_url, notice: 'Concept was successfully destroyed.'
+      end
     end
   end
 
@@ -55,8 +61,14 @@ class ConceptsController < ApplicationController
     @concept = Concept.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
   def concept_params
-    params.require(:concept).permit(:experiment_id, :name, :description_link, :video_link)
+    params.require(:concept).permit(
+      :experiment_id,
+      :name,
+      :description_link,
+      :video_link
+    )
   end
 end
