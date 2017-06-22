@@ -1,6 +1,6 @@
 class InstructionsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show]
-  before_action :set_instruction, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: %i[index show]
+  before_action :set_instruction, only: %i[show edit update destroy]
 
   # GET /instructions
   # GET /instructions.json
@@ -10,8 +10,7 @@ class InstructionsController < ApplicationController
 
   # GET /instructions/1
   # GET /instructions/1.json
-  def show
-  end
+  def show; end
 
   # GET /instructions/new
   def new
@@ -19,8 +18,7 @@ class InstructionsController < ApplicationController
   end
 
   # GET /instructions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /instructions
   # POST /instructions.json
@@ -29,11 +27,11 @@ class InstructionsController < ApplicationController
     @experiment.user_id = current_user.id
     @instruction = Instruction.new(instruction_params)
     @instruction.experiment_id = @experiment.id
-      if @instruction.save
-        redirect_to @instruction, notice: 'Instruction was successfully created.'
-      else
-        render :new
-      end
+    if @instruction.save
+      redirect_to @instruction, notice: 'Instruction was successfully created.'
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /instructions/1
@@ -58,13 +56,14 @@ class InstructionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_instruction
-      @instruction = Instruction.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def instruction_params
-      params.require(:instruction).permit(:experiment_id, :information, :order_number, :id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_instruction
+    @instruction = Instruction.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def instruction_params
+    params.require(:instruction).permit(:experiment_id, :information, :order_number, :id)
+  end
 end

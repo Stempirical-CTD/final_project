@@ -7,18 +7,18 @@ class MaterialsControllerTest < ActionController::TestCase
     @experiment = experiments(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index, experiment_id: @experiment
     assert_response :success
     assert_not_nil assigns(:materials)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create material" do
+  test 'should create material' do
     assert_difference('Material.count') do
       post :create, material: { experiment_id: @experiment.id, item: @material.item }
     end
@@ -26,22 +26,22 @@ class MaterialsControllerTest < ActionController::TestCase
     assert_redirected_to material_path(assigns(:material))
   end
 
-  test "should show material" do
+  test 'should show material' do
     get :show, id: @material
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @material
     assert_response :success
   end
 
-  test "should update material" do
+  test 'should update material' do
     patch :update, id: @material, material: { experiment_id: @material.experiment_id, item: @material.item }
     assert_redirected_to material_path(assigns(:material))
   end
 
-  test "should destroy material" do
+  test 'should destroy material' do
     assert_difference('Material.count', -1) do
       delete :destroy, id: @material
     end

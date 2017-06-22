@@ -1,8 +1,7 @@
 module ConceptsHelper
-
   def first_three_experiments(concept_name)
-    Experiment.joins(:concepts).where('concepts.name' => ["#{concept_name}"])
-        .sort_by{|e| e.experiment_votes.count}.reverse.first(3)
+    Experiment.joins(:concepts).where('concepts.name' => [concept_name.to_s])
+              .sort_by { |e| e.experiment_votes.count }.reverse.first(3)
   end
 
   class ConceptDisplayer
@@ -11,13 +10,13 @@ module ConceptsHelper
       @content = []
     end
 
-    def display_concepts(concept, level=1)
+    def display_concepts(concept, level = 1)
       unless @already_displayed_concepts.include?(concept.name)
         @already_displayed_concepts << concept.name
-        @content <<  {
+        @content << {
           type: :heading,
           level: level,
-          name: concept.name,
+          name: concept.name
 
         }
 
@@ -30,12 +29,10 @@ module ConceptsHelper
       end
 
       concept.children.each do |child|
-        self.display_concepts(child, level + 1)
+        display_concepts(child, level + 1)
       end
 
-      return @content
+      @content
     end
-
   end
-
 end

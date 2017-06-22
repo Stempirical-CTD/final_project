@@ -1,5 +1,5 @@
 class MaterialsController < ApplicationController
-  before_action :set_material, only: [:show, :edit, :update, :destroy]
+  before_action :set_material, only: %i[show edit update destroy]
 
   # GET /materials
   # GET /materials.json
@@ -9,8 +9,7 @@ class MaterialsController < ApplicationController
 
   # GET /materials/1
   # GET /materials/1.json
-  def show
-  end
+  def show; end
 
   # GET /materials/new
   def new
@@ -18,8 +17,7 @@ class MaterialsController < ApplicationController
   end
 
   # GET /materials/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /materials
   # POST /materials.json
@@ -59,13 +57,14 @@ class MaterialsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_material
-      @material = Material.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def material_params
-      params.require(:material).permit(:experiment_id, :item)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_material
+    @material = Material.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def material_params
+    params.require(:material).permit(:experiment_id, :item)
+  end
 end

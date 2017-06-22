@@ -1,6 +1,6 @@
 class ExperimentsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show, :vote, :landing_page, :order_experiments]
-  before_action :set_experiment, only: [:show, :edit, :update, :destroy, :vote]
+  before_filter :authenticate_user!, except: %i[index show vote landing_page order_experiments]
+  before_action :set_experiment, only: %i[show edit update destroy vote]
 
   # GET /experiments
   # GET /experiments.json
@@ -11,19 +11,17 @@ class ExperimentsController < ApplicationController
   def index
     if params[:query]
       @experiments = Experiment.text_search(params[:query]).all.by_votes
-      if @experiments.length == 0
-        flash.now[:notice] = "No items found"
-      end
+      flash.now[:notice] = 'No items found' if @experiments.empty?
     else
       @experiments = Experiment.all.by_votes
     end
   end
 
   def order_experiments
-    if params[:queryValue] && params[:selectValue] == "1"
-      @experiments = Experiment.text_search(params[:queryValue]).all.sort_by {|e| [e.age, -1*e.experiment_votes.count]}
-    elsif params[:queryValue] && params[:selectValue] == "2"
-      @experiments = Experiment.text_search(params[:queryValue]).all.sort_by {|e| [e.complete_time, -1*e.experiment_votes.count]}
+    if params[:queryValue] && params[:selectValue] == '1'
+      @experiments = Experiment.text_search(params[:queryValue]).all.sort_by { |e| [e.age, -1 * e.experiment_votes.count] }
+    elsif params[:queryValue] && params[:selectValue] == '2'
+      @experiments = Experiment.text_search(params[:queryValue]).all.sort_by { |e| [e.complete_time, -1 * e.experiment_votes.count] }
     end
   end
 
@@ -39,11 +37,11 @@ class ExperimentsController < ApplicationController
     @second_concept = Experiment.second_experiment(@concept, @experiment)[0]
 
     @comment = Comment.new
-    if Experiment.by_votes[0] != @experiment
-      @top_experiment = Experiment.by_votes[0]
-    else
-      @top_experiment = Experiment.by_votes[1]
-    end
+    @top_experiment = if Experiment.by_votes[0] != @experiment
+                        Experiment.by_votes[0]
+                      else
+                        Experiment.by_votes[1]
+                      end
   end
 
   # GET /experiments/new
@@ -54,8 +52,7 @@ class ExperimentsController < ApplicationController
   end
 
   # GET /experiments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /experiments
   # POST /experiments.json
@@ -63,7 +60,7 @@ class ExperimentsController < ApplicationController
     @experiment = Experiment.new(experiment_params)
     @experiment.user_id = current_user.id
     if params[:concepts].blank?
-      flash.now[:notice] = "You must select a Concept for your Experiment."
+      flash.now[:notice] = 'You must select a Concept for your Experiment.'
       render :new
     elsif @experiment.save
       params[:concepts].each { |c| @experiment.concepts << Concept.find(c) }
@@ -95,24 +92,25 @@ class ExperimentsController < ApplicationController
   def vote
     vote = current_user.experiment_votes.new(value: params[:value], experiment_id: params[:id])
     if vote.save
-      redirect_to :back, notice: "Thank you for voting."
+      redirect_to :back, notice: 'Thank you for voting.'
     else
-      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+      redirect_to :back, alert: 'Unable to vote, perhaps you already did.'
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_experiment
-      @experiment = Experiment.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def experiment_params
-      params.require(:experiment).permit(:user_id, :name, :description, :youtube_link, :complete_time, :uploaded_file, :age,
-          materials_attributes: [:id, :experiment_id, :item, :_destroy],
-          instructions_attributes: [:id, :experiment_id, :information, :order_number, :_destroy],
-          experiment_votes: [:id, :value, :experiment_id],
-          concepts_attributes: [:experiment_id, :name, :description_link, :video_link])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_experiment
+    @experiment = Experiment.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def experiment_params
+    params.require(:experiment).permit(:user_id, :name, :description, :youtube_link, :complete_time, :uploaded_file, :age,
+                                       materials_attributes: %i[id experiment_id item _destroy],
+                                       instructions_attributes: %i[id experiment_id information order_number _destroy],
+                                       experiment_votes: %i[id value experiment_id],
+                                       concepts_attributes: %i[experiment_id name description_link video_link])
+  end
 end

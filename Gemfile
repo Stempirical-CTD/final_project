@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
 ruby '2.2.2'
+
+gem 'aws-sdk', '~> 1.6'
+gem 'devise'
+gem 'font-awesome-rails'
 gem 'jquery-ui-rails'
 gem 'paperclip'
-gem 'aws-sdk', '~> 1.6'
-gem 'ratyrate'
-gem 'devise'
-gem "font-awesome-rails"
 gem 'rails-footnotes', '~> 4.0'
+gem 'ratyrate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use SCSS for stylesheets
@@ -54,5 +55,8 @@ group :development, :test do
   gem 'spring'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+end
 
+group :development do
+  gem 'rubocop'
 end

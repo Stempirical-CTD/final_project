@@ -1,12 +1,11 @@
 class ConceptsController < ApplicationController
-  before_action :set_concept, only: [:show, :edit, :update, :destroy]
+  before_action :set_concept, only: %i[show edit update destroy]
 
   def index
     @concepts = Concept.all
   end
 
-  def show
-  end
+  def show; end
 
   def concept_tree
     @concepts = Concept.all
@@ -16,8 +15,7 @@ class ConceptsController < ApplicationController
     @concept = Concept.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @experiment = Experiment.new
@@ -51,13 +49,14 @@ class ConceptsController < ApplicationController
   end
 
   private
-   # Use callbacks to share common setup or constraints between actions.
-   def set_concept
-     @concept = Concept.find(params[:id])
-   end
 
-   # Never trust parameters from the scary internet, only allow the white list through.
-   def concept_params
-     params.require(:concept).permit(:experiment_id, :name, :description_link, :video_link)
-   end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_concept
+    @concept = Concept.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def concept_params
+    params.require(:concept).permit(:experiment_id, :name, :description_link, :video_link)
+  end
 end

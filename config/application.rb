@@ -24,14 +24,14 @@ module FinalProject
     config.active_record.raise_in_transactional_callbacks = true
 
     config.paperclip_defaults = {
-      :storage => :s3,
-      :url =>':s3_domain_url',
-      :s3_protocol => :https,
-      :path => '/:class/:attachment/:id_partition/:style/:filename',
-      :s3_credentials => {
-        :bucket => 'stempirical',
-        :access_key_id => ENV['AMS3_ID'],
-        :secret_access_key => ENV['AMS3_KEY']
+      storage: :s3,
+      url: ':s3_domain_url',
+      s3_protocol: :https,
+      path: '/:class/:attachment/:id_partition/:style/:filename',
+      s3_credentials: {
+        bucket: 'stempirical',
+        access_key_id: ENV['AMS3_ID'],
+        secret_access_key: ENV['AMS3_KEY']
       }
     }
   end

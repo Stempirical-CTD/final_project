@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.save
     respond_to do |format|
-      format.html { redirect_to @commentable, notice: "Your comment was successfully posted." }
+      format.html { redirect_to @commentable, notice: 'Your comment was successfully posted.' }
       format.js
     end
   end
@@ -29,13 +29,14 @@ class CommentsController < ApplicationController
   #   redirect_to @commentable, notice: 'Comment was successfully destroyed.'
   # end
   #
+
   private
 
-    # def set_comment
-    #   @comment = Comment.find(params[:id])
-    # end
+  # def set_comment
+  #   @comment = Comment.find(params[:id])
+  # end
 
-    def comment_params
-      params.require(:comment).permit(:body, :id)
-    end
+  def comment_params
+    params.require(:comment).permit(:body, :id)
+  end
 end
