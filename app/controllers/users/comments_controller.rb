@@ -1,9 +1,11 @@
-class User::CommentsController < CommentsController
-  before_action :set_commentable
+module User
+  class CommentsController < CommentsController
+    before_action :set_commentable
 
-  private
+    private
 
-  def set_commentable
-    @commentable = User.find(params[:user_id])
+    def set_commentable
+      @commentable = User.find(params[:user_id])
+    end
   end
 end

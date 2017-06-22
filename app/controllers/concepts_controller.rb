@@ -17,30 +17,31 @@ class ConceptsController < ApplicationController
 
   def edit; end
 
+  # rubocop:disable Metrics/MethodLength
   def create
-    @experiment = Experiment.new
-    @experiment.user_id = current_user.id
-    @concept = Concept.new(concept_params)
-    @concept.experiment_id = @experiment.id
+    @experiment = Experiment.new(user_id: current_user.id)
+    @concept = Concept.new(concept_params.merge(experiment_id: @experiment.id))
+
     respond_to do |format|
-      if @concept.save
-        format.html do
+      format.html do
+        if @concept.save
           redirect_to @concept, notice: 'Concept was successfully created.'
+        else
+          render :new
         end
-      else
-        format.html { render :new }
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   def update
     respond_to do |format|
-      if @concept.update(concepet_params)
-        format.html do
+      format.html do
+        if @concept.update(concepet_params)
           redirect_to @concept, notice: 'Concept was successfully updated.'
+        else
+          render :edit
         end
-      else
-        format.html { render :edit }
       end
     end
   end

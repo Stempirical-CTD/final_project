@@ -21,32 +21,33 @@ class MaterialsController < ApplicationController
 
   # POST /materials
   # POST /materials.json
+  # rubocop:disable Metrics/MethodLength
   def create
-    @experiment = Experiment.new
-    @experiment.user_id = current_user.id
+    @experiment = Experiment.new(user_id: current_user.id)
     @material = Material.new(material_params)
     @material.experiment_id = @experiment.id
     respond_to do |format|
-      if @material.save
-        format.html do
+      format.html do
+        if @material.save
           redirect_to @material, notice: 'Material was successfully created.'
+        else
+          render :new
         end
-      else
-        format.html { render :new }
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   # PATCH/PUT /materials/1
   # PATCH/PUT /materials/1.json
   def update
     respond_to do |format|
-      if @material.update(material_params)
-        format.html do
+      format.html do
+        if @material.update(material_params)
           redirect_to @material, notice: 'Material was successfully updated.'
+        else
+          render :edit
         end
-      else
-        format.html { render :edit }
       end
     end
   end

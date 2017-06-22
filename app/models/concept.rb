@@ -14,15 +14,7 @@ class Concept < ActiveRecord::Base
   def display_concepts(used_concepts = [])
     used_concepts << self
 
-    hash = {
-      name: name,
-      children: [],
-      experiments: []
-    }
-
-    experiments.each do |experiment|
-      hash[:experiments] << { name: experiment.name }
-    end
+    hash = { name: name, children: [], experiments: experiments.pluck(:name) }
 
     children.each do |child|
       next if used_concepts.include?(child)

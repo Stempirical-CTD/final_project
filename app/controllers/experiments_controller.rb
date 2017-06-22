@@ -20,33 +20,23 @@ class ExperimentsController < ApplicationController
 
   def order_experiments
     if params[:queryValue] && params[:selectValue] == '1'
-      @experiments = experiments_from_text_search.sort_by do |e|
-        [e.age, -1 * e.experiment_votes.count]
-      end
+      @experiments = sort_experiments(:age)
     elsif params[:queryValue] && params[:selectValue] == '2'
-      @experiments = experiments_from_text_search.sort_by do |e|
-        [e.complete_time, -1 * e.experiment_votes.count]
-      end
+      @experiments = sort_experiments(:complete_time)
     end
   end
 
   # GET /experiments/1
   # GET /experiments/1.json
   def show
-    @parents = @experiment.concept_parents
+    @parents  = @experiment.concept_parents
     @children = @experiment.concept_children
-    @concept = @experiment.find_concept
-    @first_experiment  = Experiment.first_experiment(@concept, @experiment)[1]
-    @first_concept     = Experiment.first_experiment(@concept, @experiment)[0]
-    @second_experiment = Experiment.second_experiment(@concept, @experiment)[1]
-    @second_concept    = Experiment.second_experiment(@concept, @experiment)[0]
+    @concept  = @experiment.find_concept
+
+    set_concepts_and_experiments
 
     @comment = Comment.new
-    @top_experiment = if Experiment.by_votes[0] != @experiment
-                        Experiment.by_votes[0]
-                      else
-                        Experiment.by_votes[1]
-                      end
+    @top_experiment = Experiment.experiment_by_votes(@experiment)
   end
 
   # GET /experiments/new
@@ -62,17 +52,15 @@ class ExperimentsController < ApplicationController
   # POST /experiments
   # POST /experiments.json
   def create
-    @experiment = Experiment.new(experiment_params)
-    @experiment.user_id = current_user.id
-    if params[:concepts].blank?
-      flash.now[:notice] = 'You must select a Concept for your Experiment.'
-      render :new
-    elsif @experiment.save
-      params[:concepts].each { |c| @experiment.concepts << Concept.find(c) }
-      redirect_to @experiment, notice: 'Experiment was successfully created.'
-    else
-      render :new
+    @experiment = Experiment.new(**experiment_params, user_id: current_user.id)
+
+    if valid_concepts? && @experiment.save
+      @experiment.concepts << Concept.find(params[:concepts])
+      flash[:notice] = 'Experiment was successfully created.'
+      return redirect_to @experiment
     end
+
+    render :new
   end
 
   # PATCH/PUT /experiments/1
@@ -111,6 +99,12 @@ class ExperimentsController < ApplicationController
 
   private
 
+  def sort_experiments(attr)
+    experiments_from_text_search.sort_by do |e|
+      [e.send(attr), -1 * e.experiment_votes.count]
+    end
+  end
+
   def experiments_from_text_search
     Experiment.text_search(params[:queryValue]).all
   end
@@ -118,6 +112,22 @@ class ExperimentsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_experiment
     @experiment = Experiment.find(params[:id])
+  end
+
+  def set_concepts_and_experiments
+    first_experiment  = Experiment.first_experiment(@concept, @experiment)
+    second_experiment = Experiment.second_experiment(@concept)
+
+    @first_concept     = first_experiment[0]
+    @first_experiment  = first_experiment[1]
+    @second_concept    = second_experiment[0]
+    @second_experiment = second_experiment[1]
+  end
+
+  def valid_concepts?
+    return true if params[:concepts].present?
+    flash.now[:notice] = 'You must select a Concept for your Experiment.'
+    false
   end
 
   # Never trust parameters from the scary internet, only allow the white list

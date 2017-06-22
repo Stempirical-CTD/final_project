@@ -17,12 +17,7 @@ module ConceptsHelper
     def display_concepts(concept, level = 1)
       unless @already_displayed_concepts.include?(concept.name)
         @already_displayed_concepts << concept.name
-        @content << {
-          type: :heading,
-          level: level,
-          name: concept.name
-
-        }
+        @content << { type: :heading, level: level, name: concept.name }
 
         concept.experiments.each do |experiment|
           @content << { type: :list_item, text: experiment.name }
