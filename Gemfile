@@ -52,4 +52,5 @@ end
 group :development do
   gem 'bullet'
   gem 'rubocop'
+  gem 'tota11y-rails', github: 'andycandrea/tota11y-rails'
 end
