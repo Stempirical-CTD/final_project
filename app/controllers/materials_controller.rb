@@ -1,5 +1,5 @@
 class MaterialsController < ApplicationController
-  before_action :set_material, only: [:show, :edit, :update, :destroy]
+  before_action :set_material, only: %i[show edit update destroy]
 
   # GET /materials
   # GET /materials.json
@@ -9,8 +9,7 @@ class MaterialsController < ApplicationController
 
   # GET /materials/1
   # GET /materials/1.json
-  def show
-  end
+  def show; end
 
   # GET /materials/new
   def new
@@ -18,33 +17,37 @@ class MaterialsController < ApplicationController
   end
 
   # GET /materials/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /materials
   # POST /materials.json
+  # rubocop:disable Metrics/MethodLength
   def create
-    @experiment = Experiment.new
-    @experiment.user_id = current_user.id
+    @experiment = Experiment.new(user_id: current_user.id)
     @material = Material.new(material_params)
     @material.experiment_id = @experiment.id
     respond_to do |format|
-      if @material.save
-        format.html { redirect_to @material, notice: 'Material was successfully created.' }
-      else
-        format.html { render :new }
+      format.html do
+        if @material.save
+          redirect_to @material, notice: 'Material was successfully created.'
+        else
+          render :new
+        end
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   # PATCH/PUT /materials/1
   # PATCH/PUT /materials/1.json
   def update
     respond_to do |format|
-      if @material.update(material_params)
-        format.html { redirect_to @material, notice: 'Material was successfully updated.' }
-      else
-        format.html { render :edit }
+      format.html do
+        if @material.update(material_params)
+          redirect_to @material, notice: 'Material was successfully updated.'
+        else
+          render :edit
+        end
       end
     end
   end
@@ -54,18 +57,23 @@ class MaterialsController < ApplicationController
   def destroy
     @material.destroy
     respond_to do |format|
-      format.html { redirect_to materials_url, notice: 'Material was successfully destroyed.' }
+      format.html do
+        flash[:notice] = 'Material was successfully destroyed'
+        redirect_to materials_url
+      end
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_material
-      @material = Material.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def material_params
-      params.require(:material).permit(:experiment_id, :item)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_material
+    @material = Material.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
+  def material_params
+    params.require(:material).permit(:experiment_id, :item)
+  end
 end

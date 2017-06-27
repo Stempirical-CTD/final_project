@@ -1,9 +1,11 @@
-class Experiments::CommentsController < CommentsController
-  before_action :set_commentable
+module Experiments
+  class CommentsController < CommentsController
+    before_action :set_commentable
 
-  private
+    private
 
-  def set_commentable
-    @commentable = Experiment.find(params[:experiment_id])
+    def set_commentable
+      @commentable = Experiment.find(params[:experiment_id])
+    end
   end
 end

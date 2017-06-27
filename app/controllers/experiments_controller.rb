@@ -1,6 +1,7 @@
 class ExperimentsController < ApplicationController
-  before_filter :authenticate_user!, except: [:index, :show, :vote, :landing_page, :order_experiments]
-  before_action :set_experiment, only: [:show, :edit, :update, :destroy, :vote]
+  before_filter :authenticate_user!,
+                except: %i[index show vote landing_page order_experiments]
+  before_action :set_experiment, only: %i[show edit update destroy vote]
 
   # GET /experiments
   # GET /experiments.json
@@ -11,39 +12,31 @@ class ExperimentsController < ApplicationController
   def index
     if params[:query]
       @experiments = Experiment.text_search(params[:query]).all.by_votes
-      if @experiments.length == 0
-        flash.now[:notice] = "No items found"
-      end
+      flash.now[:notice] = 'No items found' if @experiments.empty?
     else
       @experiments = Experiment.all.by_votes
     end
   end
 
   def order_experiments
-    if params[:queryValue] && params[:selectValue] == "1"
-      @experiments = Experiment.text_search(params[:queryValue]).all.sort_by {|e| [e.age, -1*e.experiment_votes.count]}
-    elsif params[:queryValue] && params[:selectValue] == "2"
-      @experiments = Experiment.text_search(params[:queryValue]).all.sort_by {|e| [e.complete_time, -1*e.experiment_votes.count]}
+    if params[:queryValue] && params[:selectValue] == '1'
+      @experiments = sort_experiments(:age)
+    elsif params[:queryValue] && params[:selectValue] == '2'
+      @experiments = sort_experiments(:complete_time)
     end
   end
 
   # GET /experiments/1
   # GET /experiments/1.json
   def show
-    @parents = @experiment.concept_parents
+    @parents  = @experiment.concept_parents
     @children = @experiment.concept_children
-    @concept = @experiment.find_concept
-    @first_experiment = Experiment.first_experiment(@concept, @experiment)[1]
-    @first_concept = Experiment.first_experiment(@concept, @experiment)[0]
-    @second_experiment = Experiment.second_experiment(@concept, @experiment)[1]
-    @second_concept = Experiment.second_experiment(@concept, @experiment)[0]
+    @concept  = @experiment.find_concept
+
+    set_concepts_and_experiments
 
     @comment = Comment.new
-    if Experiment.by_votes[0] != @experiment
-      @top_experiment = Experiment.by_votes[0]
-    else
-      @top_experiment = Experiment.by_votes[1]
-    end
+    @top_experiment = Experiment.experiment_by_votes(@experiment)
   end
 
   # GET /experiments/new
@@ -54,23 +47,20 @@ class ExperimentsController < ApplicationController
   end
 
   # GET /experiments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /experiments
   # POST /experiments.json
   def create
-    @experiment = Experiment.new(experiment_params)
-    @experiment.user_id = current_user.id
-    if params[:concepts].blank?
-      flash.now[:notice] = "You must select a Concept for your Experiment."
-      render :new
-    elsif @experiment.save
-      params[:concepts].each { |c| @experiment.concepts << Concept.find(c) }
-      redirect_to @experiment, notice: 'Experiment was successfully created.'
-    else
-      render :new
+    @experiment = Experiment.new(**experiment_params, user_id: current_user.id)
+
+    if valid_concepts? && @experiment.save
+      @experiment.concepts << Concept.find(params[:concepts])
+      flash[:notice] = 'Experiment was successfully created.'
+      return redirect_to @experiment
     end
+
+    render :new
   end
 
   # PATCH/PUT /experiments/1
@@ -88,31 +78,81 @@ class ExperimentsController < ApplicationController
   def destroy
     @experiment.destroy
     respond_to do |format|
-      format.html { redirect_to experiments_url, notice: 'Experiment was successfully destroyed.' }
+      format.html do
+        flash[:notice] = 'Experiment was successfully destroyed.'
+        redirect_to experiments_url
+      end
     end
   end
 
   def vote
-    vote = current_user.experiment_votes.new(value: params[:value], experiment_id: params[:id])
+    vote = current_user.experiment_votes.new(
+      value: params[:value],
+      experiment_id: params[:id]
+    )
     if vote.save
-      redirect_to :back, notice: "Thank you for voting."
+      redirect_to :back, notice: 'Thank you for voting.'
     else
-      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+      redirect_to :back, alert: 'Unable to vote; perhaps you already did.'
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_experiment
-      @experiment = Experiment.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def experiment_params
-      params.require(:experiment).permit(:user_id, :name, :description, :youtube_link, :complete_time, :uploaded_file, :age,
-          materials_attributes: [:id, :experiment_id, :item, :_destroy],
-          instructions_attributes: [:id, :experiment_id, :information, :order_number, :_destroy],
-          experiment_votes: [:id, :value, :experiment_id],
-          concepts_attributes: [:experiment_id, :name, :description_link, :video_link])
+  def sort_experiments(attr)
+    experiments_from_text_search.sort_by do |e|
+      [e.send(attr), -1 * e.experiment_votes.count]
     end
+  end
+
+  def experiments_from_text_search
+    Experiment.text_search(params[:queryValue]).all
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_experiment
+    @experiment = Experiment.find(params[:id])
+  end
+
+  def set_concepts_and_experiments
+    first_experiment  = Experiment.first_experiment(@concept, @experiment)
+    second_experiment = Experiment.second_experiment(@concept)
+
+    @first_concept     = first_experiment[0]
+    @first_experiment  = first_experiment[1]
+    @second_concept    = second_experiment[0]
+    @second_experiment = second_experiment[1]
+  end
+
+  def valid_concepts?
+    return true if params[:concepts].present?
+    flash.now[:notice] = 'You must select a Concept for your Experiment.'
+    false
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
+  # rubocop:disable Metrics/MethodLength
+  def experiment_params
+    params.require(:experiment).permit(
+      :user_id,
+      :name,
+      :description,
+      :youtube_link,
+      :complete_time,
+      :uploaded_file,
+      :age,
+      materials_attributes: %i[id experiment_id item _destroy],
+      instructions_attributes: %i[
+        id
+        experiment_id
+        information
+        order_number
+        _destroy
+      ],
+      experiment_votes: %i[id value experiment_id],
+      concepts_attributes: %i[experiment_id name description_link video_link]
+    )
+  end
+  # rubocop:enable Metrics/MethodLength
 end

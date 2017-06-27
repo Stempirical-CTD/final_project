@@ -1,12 +1,11 @@
 class ConceptsController < ApplicationController
-  before_action :set_concept, only: [:show, :edit, :update, :destroy]
+  before_action :set_concept, only: %i[show edit update destroy]
 
   def index
     @concepts = Concept.all
   end
 
-  def show
-  end
+  def show; end
 
   def concept_tree
     @concepts = Concept.all
@@ -16,29 +15,33 @@ class ConceptsController < ApplicationController
     @concept = Concept.new
   end
 
-  def edit
-  end
+  def edit; end
 
+  # rubocop:disable Metrics/MethodLength
   def create
-    @experiment = Experiment.new
-    @experiment.user_id = current_user.id
-    @concept = Concept.new(concept_params)
-    @concept.experiment_id = @experiment.id
+    @experiment = Experiment.new(user_id: current_user.id)
+    @concept = Concept.new(concept_params.merge(experiment_id: @experiment.id))
+
     respond_to do |format|
-      if @concept.save
-        format.html { redirect_to @concept, notice: 'Concept was successfully created.' }
-      else
-        format.html { render :new }
+      format.html do
+        if @concept.save
+          redirect_to @concept, notice: 'Concept was successfully created.'
+        else
+          render :new
+        end
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   def update
     respond_to do |format|
-      if @concept.update(concepet_params)
-        format.html { redirect_to @concept, notice: 'Concept was successfully updated.' }
-      else
-        format.html { render :edit }
+      format.html do
+        if @concept.update(concepet_params)
+          redirect_to @concept, notice: 'Concept was successfully updated.'
+        else
+          render :edit
+        end
       end
     end
   end
@@ -46,18 +49,27 @@ class ConceptsController < ApplicationController
   def destroy
     @concept.destroy
     respond_to do |format|
-      format.html { redirect_to concepts_url, notice: 'Concept was successfully destroyed.' }
+      format.html do
+        redirect_to concepts_url, notice: 'Concept was successfully destroyed.'
+      end
     end
   end
 
   private
-   # Use callbacks to share common setup or constraints between actions.
-   def set_concept
-     @concept = Concept.find(params[:id])
-   end
 
-   # Never trust parameters from the scary internet, only allow the white list through.
-   def concept_params
-     params.require(:concept).permit(:experiment_id, :name, :description_link, :video_link)
-   end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_concept
+    @concept = Concept.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list
+  # through.
+  def concept_params
+    params.require(:concept).permit(
+      :experiment_id,
+      :name,
+      :description_link,
+      :video_link
+    )
+  end
 end

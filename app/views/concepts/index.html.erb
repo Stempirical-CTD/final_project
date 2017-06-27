@@ -1,18 +1,22 @@
 <h1>Concepts Tree</h1><br>
 
-<% concepts_content = ConceptsHelper::ConceptDisplayer.new.display_concepts(@concepts.first) %>
+<%
+  concepts_content = ConceptsHelper::ConceptDisplayer
+    .new
+    .display_concepts(@concepts.first)
+%>
 <% concepts_content.each do |line| %>
-<div class="concept-<%= line[:level] %>">
-  <% if line[:type] == :heading %>
-    <%= "<h#{line[:level]}>".html_safe %>
+  <div class="concept-<%= line[:level] %>">
+    <% if line[:type] == :heading %>
+      <%= "<h#{line[:level]}>".html_safe %>
       <%= line[:name] %>
-    <%= "</h#{line[:level]}>".html_safe %>
-  <% else %>
-    <%= line[:text] %> |
-  <% end %>
-</div>
+      <%= "</h#{line[:level]}>".html_safe %>
+    <% else %>
+      <%= line[:text] %> |
+    <% end %>
+    </div>
+  </div>
 <% end %>
-</div>
 
 <hr/>
 
@@ -22,20 +26,22 @@
 <h1 class="page-title">All Concepts</h1>
 
 <% @concepts.each do |concept| %>
-<div class="experiment-card">
+  <div class="experiment-card">
+    <%= image_tag "#{concept.name}.png", class: 'concept-img' %><br>
 
-  <%= image_tag "#{concept.name}.png", class: "concept-img" %><br>
+    <div class="exp-index-detail">
+      <h3 class="exp-title">
+        <a>
+          <%= link_to concept.name, concept_path(concept) %>
+        </a>
+        <br>
+      </h3>
 
-  <div class="exp-index-detail">
-
-    <h3 class="exp-title"><a><%= link_to concept.name, concept_path(concept) %></a><br></h3>
-
-
-    Video Explaining <a href="<%= concept.video_link %>"><%= concept.name %></a><br>
-    <% concept.experiments.map do |experiment| %>
-      <%= link_to experiment.name, experiment_path(experiment) %><br>
-    <% end %>
-    <br>
+      Video Explaining <a href="<%= concept.video_link %>"><%= concept.name %></a><br>
+      <% concept.experiments.map do |experiment| %>
+        <%= link_to experiment.name, experiment_path(experiment) %><br>
+      <% end %>
+      <br>
+    </div>
   </div>
-</div>
 <% end %>

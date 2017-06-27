@@ -1,6 +1,6 @@
 json.array!(@concepts) do |concept|
-  json.(concept, :name)
+  json.call(concept, :name)
   json.array(concept.experiments) do |experiment|
-    json.(experiment, :name)
+    json.call(experiment, :name)
   end
 end

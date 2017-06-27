@@ -1,5 +1,5 @@
 <div class="cover">
-    <div class="show-concept-image" style="background-image: url(<%= image_path "bubbles.jpg" %>)"></div>
+  <div class="show-concept-image" style="background-image: url(<%= image_path 'bubbles.jpg' %>)"></div>
 </div>
 
 <div class="largest-show-concept-container">
@@ -11,15 +11,17 @@
     <div class="concept-details">
       <p class="concept-description">
         <%=@concept.summary%>
-        <a href="<%= @concept.description_link %>">Click here</a> for more information about <%= @concept.name %>. <br>
+        <a href="<%= @concept.description_link %>">
+          Click here</a> for more information about <%= @concept.name %>. <br>
+        </a>
       </p>
 
       <div class="concept-video">
-          <% if @concept.video_link != "" %>
-            <div class="embed-container">
-              <%= embed(@concept.video_link) %>
-            </div>
-          <% end %>
+        <% if @concept.video_link != '' %>
+          <div class="embed-container">
+            <%= embed(@concept.video_link) %>
+          </div>
+        <% end %>
       </div>
 
       <div class="show-concept-experiments">

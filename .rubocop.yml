@@ -1,0 +1,43 @@
+AllCops:
+  Exclude:
+    - '**/bin/**/*'
+    - '**/config/**/*'
+    - '**/script/**/*'
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/db/schema.rb'
+    - '**/test/test_helper.rb'
+  DisplayCopNames: true
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Metrics/AbcSize:
+  Exclude:
+    - '**/db/migrate/**/*'
+    - '**/test/**/*'
+Metrics/BlockLength:
+  Exclude:
+    - '**/test/**/*'
+Metrics/ClassLength:
+  Exclude:
+    - '**/db/migrate/**/*'
+    - '**/test/**/*'
+    - 'app/controllers/experiments_controller.rb'
+Metrics/LineLength:
+  Exclude:
+    - '**/db/seeds.rb'
+Metrics/MethodLength:
+  Exclude:
+    - '**/db/migrate/**/*'
+    - '**/test/**/*'
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - '**/test/**/*'
+Style/CollectionMethods:
+  Enabled: true
+Style/Documentation:
+  Exclude:
+    - '**/db/**/*'
+    - '**/test/**/*'
