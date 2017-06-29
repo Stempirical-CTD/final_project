@@ -72,7 +72,7 @@ class Experiment < ActiveRecord::Base
       concept = random_item_without_name(experiment.concepts, concept)
     end
 
-    [concept, random_item_without_name(experiment.experiments, experiment)]
+    [concept, random_item_without_name(concept.experiments, experiment)]
   end
   # rubocop:enable Metrics/AbcSize
 
