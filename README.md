@@ -26,7 +26,7 @@ of our work.
 * `bin/rake db:migrate`
 * `bin/rake db:seed`
 * `bin/rails server`
-* Navigate to your `localhost` in your browser
+* Navigate to your `localhost:3000` in your browser
 
 ### To Upload Your Own Photos on localhost
 * We've used the gem `paperclip` for uploaded files.
