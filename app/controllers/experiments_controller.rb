@@ -52,7 +52,7 @@ class ExperimentsController < ApplicationController
   # POST /experiments
   # POST /experiments.json
   def create
-    @experiment = Experiment.new(**experiment_params, user_id: current_user.id)
+    @experiment = Experiment.new(experiment_params)
 
     if valid_concepts? && @experiment.save
       @experiment.concepts << Concept.find(params[:concepts])
@@ -135,7 +135,6 @@ class ExperimentsController < ApplicationController
   # rubocop:disable Metrics/MethodLength
   def experiment_params
     params.require(:experiment).permit(
-      :user_id,
       :name,
       :description,
       :youtube_link,
@@ -152,7 +151,7 @@ class ExperimentsController < ApplicationController
       ],
       experiment_votes: %i[id value experiment_id],
       concepts_attributes: %i[experiment_id name description_link video_link]
-    )
+    ).merge(user_id: current_user.id)
   end
   # rubocop:enable Metrics/MethodLength
 end
