@@ -38,6 +38,4 @@ Style/ClassAndModuleChildren:
 Style/CollectionMethods:
   Enabled: true
 Style/Documentation:
-  Exclude:
-    - '**/db/**/*'
-    - '**/test/**/*'
+  Enabled: false
